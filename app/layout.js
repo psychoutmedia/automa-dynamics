@@ -12,7 +12,7 @@ const jetbrains = JetBrains_Mono({
 })
 
 export const metadata = {
-  metadataBase: new URL('https://automadynamics.com'),
+  metadataBase: new URL('https://www.automadynamics.com'),
   title: {
     default: 'Automa Dynamics',
     template: '%s | Automa Dynamics',
@@ -21,7 +21,7 @@ export const metadata = {
   openGraph: {
     title: 'Automa Dynamics',
     description: 'Pioneering the future of autonomous systems and intelligent automation.',
-    url: 'https://automadynamics.com',
+    url: 'https://www.automadynamics.com',
     siteName: 'Automa Dynamics',
     type: 'website',
     locale: 'en_US',
