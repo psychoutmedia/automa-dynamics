@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-wayland-950 text-wayland-50 antialiased;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-4 bg-gradient-to-r from-chrome-light via-white to-chrome-light 
+           text-wayland-900 font-semibold rounded-lg tracking-wide
+           hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] 
+           transition-all duration-300 ease-out
+           border border-white/20;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-4 bg-transparent border border-chrome/30 text-chrome-light
+           font-semibold rounded-lg tracking-wide
+           hover:bg-chrome/10 hover:border-chrome/50
+           transition-all duration-300 ease-out;
+  }
+
+  .card-glass {
+    @apply bg-wayland-900/50 backdrop-blur-xl 
+           border border-white/10 rounded-2xl
+           shadow-[0_8px_32px_rgba(0,0,0,0.3)];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-chrome-light via-white to-chrome-light 
+           bg-clip-text text-transparent;
+  }
+
+  .section-padding {
+    @apply py-24 px-6 md:px-12 lg:px-24;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-in {
+    animation: animateIn 0.5s ease-out forwards;
+  }
+
+  @keyframes animateIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
