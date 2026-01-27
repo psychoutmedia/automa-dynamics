@@ -12,12 +12,33 @@ const jetbrains = JetBrains_Mono({
 })
 
 export const metadata = {
-  title: 'Automa Dynamics',
+  metadataBase: new URL('https://automadynamics.com'),
+  title: {
+    default: 'Automa Dynamics',
+    template: '%s | Automa Dynamics',
+  },
   description: 'Pioneering the future of autonomous systems and intelligent automation.',
   openGraph: {
     title: 'Automa Dynamics',
     description: 'Pioneering the future of autonomous systems and intelligent automation.',
+    url: 'https://automadynamics.com',
+    siteName: 'Automa Dynamics',
     type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/opengraph-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Automa Dynamics - Autonomous Intelligence',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Automa Dynamics',
+    description: 'Pioneering the future of autonomous systems and intelligent automation.',
+    images: ['/opengraph-image.png'],
   },
 }
 
