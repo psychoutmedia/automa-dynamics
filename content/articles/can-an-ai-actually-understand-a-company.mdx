@@ -1,0 +1,156 @@
+---
+title: "Can an AI Actually Understand a Company?"
+date: 2026-08-17
+draft: false
+eyebrow: "ENTERPRISE AI"
+description: "A company is not just its data. It is a network of dependencies, and before a machine can operate one intelligently, somebody has to teach it what the company actually is."
+cover: "/articles/can-an-ai-actually-understand-a-company/cover.jpg"
+coverAlt: "Can an AI Actually Understand a Company?"
+tweetId: "2089445022051782747"
+xUrl: "https://x.com/automadynamics/status/2089445022051782747"
+---
+
+Artificial intelligence can summarise a company. It can search its documents, analyse spreadsheets, answer questions about policies, draft reports and explain last quarter's numbers. Increasingly, it can also use tools.
+
+But there is a much harder question underneath all of this: **Can an AI actually understand a company?**
+
+To answer that, we first have to decide what a company is. A company is certainly made of data, but data alone is a poor description of one. A manufacturer might have thousands of suppliers, components, purchase orders, shipments, factories, contracts, customers and employees. Every major system inside the organisation records some part of that reality:
+
+- The ERP knows about orders.
+- The warehouse system knows about inventory.
+- The logistics platform knows where shipments are.
+- The CRM knows about customers.
+- Finance knows about invoices, costs and revenue.
+- Documents contain contracts, policies and exceptions.
+- Email contains decisions that may never have reached any formal system at all.
+
+Modern businesses therefore possess enormous amounts of information while still struggling to answer relatively simple operational questions.
+
+Suppose a shipment of critical components is delayed. The first question is easy: Which shipment is delayed? The useful questions begin immediately afterwards:
+
+- Which components are inside it?
+- Which products require those components?
+- How much usable inventory exists elsewhere?
+- Which production schedules depend on their arrival?
+- Which customer commitments rely on that production?
+- Which deadlines are contractual?
+- What happens if nothing is done?
+- What alternatives exist?
+- What would each alternative cost?
+- Who has the authority to approve one?
+
+These questions cross the artificial boundaries between software systems. The answer isn't contained in a single row of a database; it exists in the relationships between things. And that may be the real challenge for enterprise AI.
+
+## A Company is a System of Dependencies
+
+Businesses are often presented as hierarchies: there is a CEO at the top, departments underneath, teams below those, and systems scattered around the edges. Operationally, a company looks very different. It is closer to a vast network of dependencies:
+
+- A customer order depends on a product.
+- That product depends on components.
+- Those components depend on suppliers, factories, inventory and transport.
+- A delivery date may depend on a production schedule.
+- That schedule may depend on a shipment.
+- The shipment may depend on a port remaining open.
+- A commercial decision may depend on a contract.
+- The decision itself may depend on somebody possessing the authority to make it.
+
+Change one object and consequences can propagate across the network. This is obvious to the people running companies; it is much less obvious to software.
+
+Most enterprise systems were designed to record particular classes of transactions. They do that extraordinarily well. The difficulty appears when we ask a machine to reason across all of them. An intelligent system needs some representation of what these objects mean and how they relate.
+
+In computer science, one useful word for this is an *ontology*: a structured model of the entities that exist in a domain, their properties, relationships and rules. That sounds abstract until the machine has to answer a real question.
+
+If an AI sees the number 4,000 in a database, what does it mean?
+
+- Four thousand components ordered?
+- Four thousand received?
+- Four thousand physically present?
+- Four thousand allocated?
+- Four thousand available to promise?
+- Four thousand observed at a warehouse three hours ago?
+
+Those states may produce completely different decisions. Understanding therefore requires more than retrieving a value. It requires knowing what the value represents, when it was true, what it relates to and what rules govern its use.
+
+## Knowing Facts is Different from Understanding Consequences
+
+Large language models have given computers an extraordinary ability to work with human language. That matters enormously. Language has been the interface through which much organisational knowledge is created and exchanged.
+
+But fluent language can create an illusion. A system may be able to describe an organisation convincingly without possessing a reliable model of its current operational state. Those are very different capabilities.
+
+Imagine asking: "Will this delayed shipment affect any customers?" A plausible answer is easy to generate. A trustworthy answer is much harder. A trustworthy system should be able to establish a chain such as:
+
+1. A disruption affected a route;
+2. The route affected a shipment;
+3. The shipment contained a particular component;
+4. The component is required by a product;
+5. Available inventory cannot cover all planned consumption;
+6. A production commitment is therefore threatened;
+7. That production commitment supports a customer order;
+8. The customer order has a deadline.
+
+Now the answer has structure. More importantly, it has evidence. Someone can inspect the chain and challenge it:
+
+- Perhaps another warehouse has stock.
+- Perhaps a component has an approved substitute.
+- Perhaps the production schedule can move.
+- Perhaps the customer deadline is flexible.
+
+Understanding an organisation requires the ability to distinguish between what is known, what is inferred, what is uncertain and what is permitted. A beautifully written answer cannot substitute for that.
+
+## Operational Truth Has to Exist Somewhere
+
+This raises an uncomfortable question for enterprise AI: **What is the machine actually allowed to believe?**
+
+- If two systems disagree about inventory, which one wins?
+- If a shipment was expected yesterday but a tracking event places it somewhere else today, which state is authoritative?
+- If somebody manually changes a spreadsheet, has reality changed?
+- If a contract says one thing and a sales note says another, which commitment governs?
+
+The more capable AI becomes, the more important these questions become. An assistant that occasionally produces the wrong summary is inconvenient. An autonomous system that takes action against the wrong version of reality can be expensive, unsafe or both.
+
+Before organisations give software greater agency, they may need a much stronger concept of operational truth: stable identity, explicit relationships, temporal state, provenance and rules governing which information is authoritative.
+
+Then AI can operate over that foundation. Language models become exceptionally powerful interfaces to the organisation because they can help humans explore, interrogate and reason about a structured operational world. The distinction matters: the intelligence can be probabilistic; the underlying facts should not be.
+
+## Understanding Also Requires Knowing What You May Do
+
+There is another layer that receives less attention. Suppose an AI correctly understands the problem: it identifies an alternative supplier, calculates the additional cost and determines that switching suppliers would protect an important customer delivery. Should it place the order?
+
+Understanding that an action is possible does not establish that the system has authority to perform it. Companies contain permissions, responsibilities and separation of duties for a reason:
+
+- A logistics analyst may recommend an action.
+- A manager may approve one level of expenditure.
+- A director may approve another.
+- Some decisions may require two people.
+- Some should never be delegated to software.
+
+An intelligent model of a company therefore needs to understand more than objects and relationships. It also needs to understand authority:
+
+- Who can see something?
+- Who can recommend something?
+- Who can change something?
+- Who can approve the change?
+- And what evidence should remain afterwards?
+
+As enterprise agents become more capable, permission may prove just as important as intelligence.
+
+## From Information Retrieval to Operational Intelligence
+
+For the last few years, much of enterprise AI has focused on giving models access to more information. That has been a necessary step. It may only be the beginning.
+
+The next challenge is giving machines a coherent representation of the organisation itself: its objects, state, dependencies, commitments, history and authority. Such a system would move beyond answering:
+
+> "What does this document say?"
+
+towards questions like:
+
+- "What is happening?"
+- "What does it affect?"
+- "What could happen next?"
+- "What options are available?"
+- "Who is allowed to decide?"
+- "What changed after the decision was made?"
+
+Those are fundamentally different questions. They describe an AI interacting with a living operational model rather than searching a collection of corporate information.
+
+We think that distinction will become increasingly important as AI moves from copilots that describe work toward systems that participate in it. The difficult part may turn out to be surprisingly familiar: before a machine can intelligently operate a company, somebody has to teach it what the company actually is.

@@ -1,0 +1,104 @@
+import Link from 'next/link'
+import Image from 'next/image'
+import { getAllArticles, formatArticleDate } from '../../lib/articles'
+
+export const metadata = {
+  title: 'Articles',
+  description:
+    'Writing from Automa Dynamics on operational intelligence, enterprise ontology, and the limits of AI over company data.',
+  alternates: { canonical: '/articles' },
+  openGraph: {
+    title: 'Articles | Automa Dynamics',
+    description:
+      'Writing from Automa Dynamics on operational intelligence, enterprise ontology, and the limits of AI over company data.',
+    url: '/articles',
+    type: 'website',
+  },
+}
+
+export default function ArticlesIndex() {
+  const articles = getAllArticles()
+
+  return (
+    <main className="min-h-screen">
+      <section className="section-padding pt-32 md:pt-40 pb-0">
+        <div className="max-w-6xl mx-auto">
+          <p className="text-chrome/65 text-sm tracking-[0.2em] uppercase mb-4">Articles</p>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Notes on <span className="text-gradient">Operational Intelligence</span>
+          </h1>
+          <p className="text-chrome/70 text-lg leading-relaxed max-w-2xl">
+            What it takes for software to understand an organisation well enough to be trusted with
+            a decision. Published first on X, collected here.
+          </p>
+        </div>
+      </section>
+
+      <section className="px-6 md:px-12 lg:px-24 py-16 md:py-24">
+        <div className="max-w-6xl mx-auto">
+          {articles.length === 0 ? (
+            <div className="border-t border-white/10 py-16 text-center">
+              <p className="text-chrome/65">No articles published yet.</p>
+            </div>
+          ) : (
+            <div className="border-t border-white/10">
+              {articles.map((article) => (
+                <article key={article.slug} className="border-b border-white/10">
+                  <Link href={`/articles/${article.slug}`} className="block group py-12 md:py-16">
+                    {/* Cover art carries baked-in typography, so it is rendered at its
+                        intrinsic ratio and never cropped. */}
+                    {article.cover ? (
+                      <div className="max-w-3xl overflow-hidden rounded-xl border border-white/10 mb-8 md:mb-10">
+                        <Image
+                          src={article.cover}
+                          alt={article.coverAlt}
+                          width={article.coverSize.width}
+                          height={article.coverSize.height}
+                          sizes="(max-width: 768px) 100vw, 768px"
+                          className="w-full h-auto transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                          priority
+                        />
+                      </div>
+                    ) : null}
+
+                    <div className="max-w-3xl">
+                      <p className="text-chrome/65 text-xs tracking-[0.2em] uppercase mb-3">
+                        {article.eyebrow}
+                      </p>
+                      <h2 className="text-3xl md:text-4xl font-semibold text-chrome-light mb-4 leading-tight group-hover:text-white transition-colors">
+                        {article.title}
+                      </h2>
+                      <p className="text-chrome/70 text-lg leading-relaxed mb-5">
+                        {article.description}
+                      </p>
+                      <div className="flex items-center gap-4 font-mono text-xs text-chrome/65">
+                        <time dateTime={article.date}>{formatArticleDate(article.date)}</time>
+                        <span aria-hidden="true">/</span>
+                        <span>{article.readingTime} min read</span>
+                        <span aria-hidden="true">/</span>
+                        <span className="text-steel-light group-hover:text-chrome-light transition-colors">
+                          Read
+                        </span>
+                      </div>
+                    </div>
+                  </Link>
+                </article>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-16 text-center">
+            <a
+              href="https://x.com/automadynamics"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary inline-flex items-center gap-2"
+            >
+              Follow @automadynamics
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}

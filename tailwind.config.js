@@ -2,6 +2,8 @@
 module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './lib/**/*.{js,ts}',
+    './content/**/*.{md,mdx}',
   ],
   theme: {
     extend: {
@@ -53,7 +55,67 @@ module.exports = {
           '100%': { boxShadow: '0 0 40px rgba(139, 92, 246, 0.6)' },
         },
       },
+      // Article body typography, mapped onto the existing chrome/wayland palette.
+      // The plugin defaults are light-mode and would fight the site, so every
+      // prose colour token is set explicitly here.
+      // Article body typography, mapped onto the existing chrome/steel palette.
+      // Accent furniture uses `steel` rather than violet: violet stays as ambient
+      // atmosphere (orb, grid, button glow) and never as body-copy colour.
+      typography: () => ({
+        automa: {
+          css: {
+            '--tw-prose-body': 'rgb(192 192 192 / 0.75)',
+            '--tw-prose-headings': '#e8e8e8',
+            '--tw-prose-lead': 'rgb(192 192 192 / 0.7)',
+            '--tw-prose-links': '#b8c5d6',
+            '--tw-prose-bold': '#e8e8e8',
+            '--tw-prose-counters': 'rgb(192 192 192 / 0.65)',
+            '--tw-prose-bullets': 'rgb(138 154 173 / 0.6)',
+            '--tw-prose-hr': 'rgb(255 255 255 / 0.1)',
+            '--tw-prose-quotes': '#e8e8e8',
+            '--tw-prose-quote-borders': 'rgb(138 154 173 / 0.5)',
+            '--tw-prose-captions': 'rgb(192 192 192 / 0.65)',
+            '--tw-prose-code': '#e8e8e8',
+            '--tw-prose-pre-code': 'rgb(192 192 192 / 0.85)',
+            '--tw-prose-pre-bg': 'rgb(15 23 42 / 0.5)',
+            '--tw-prose-th-borders': 'rgb(255 255 255 / 0.15)',
+            '--tw-prose-td-borders': 'rgb(255 255 255 / 0.08)',
+            maxWidth: 'none',
+            a: {
+              color: 'var(--tw-prose-links)',
+              textDecorationColor: 'rgb(138 154 173 / 0.4)',
+              textUnderlineOffset: '3px',
+              transition: 'color 200ms',
+              '&:hover': { color: '#e8e8e8' },
+            },
+            'h2, h3, h4': {
+              letterSpacing: '-0.01em',
+              scrollMarginTop: '6rem',
+            },
+            // rehype-autolink-headings wraps heading text in an anchor. Without
+            // this the heading inherits the link colour instead of its own.
+            'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a': {
+              color: 'inherit',
+              textDecoration: 'none',
+              fontWeight: 'inherit',
+            },
+            blockquote: {
+              fontStyle: 'italic',
+              fontWeight: '400',
+            },
+            code: {
+              backgroundColor: 'rgb(30 41 59 / 0.6)',
+              padding: '0.15em 0.4em',
+              borderRadius: '0.25rem',
+              fontWeight: '400',
+            },
+            'code::before': { content: 'none' },
+            'code::after': { content: 'none' },
+            'pre code': { backgroundColor: 'transparent', padding: '0' },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }

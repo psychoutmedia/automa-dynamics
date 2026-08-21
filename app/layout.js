@@ -1,15 +1,20 @@
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
+import SiteHeader from './_components/SiteHeader'
+import SiteFooter from './_components/SiteFooter'
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
 })
 
-const jetbrains = JetBrains_Mono({ 
+const jetbrains = JetBrains_Mono({
   subsets: ['latin'],
   variable: '--font-jetbrains',
 })
+
+const DESCRIPTION =
+  'Automa Dynamics builds Project HELIOS, an operational ontology platform and enterprise digital twin. Observe. Understand. Decide. Act.'
 
 export const metadata = {
   metadataBase: new URL('https://www.automadynamics.com'),
@@ -17,38 +22,47 @@ export const metadata = {
     default: 'Automa Dynamics',
     template: '%s | Automa Dynamics',
   },
-  description: 'Pioneering the future of autonomous systems and intelligent automation.',
+  description: DESCRIPTION,
+  alternates: {
+    canonical: '/',
+    types: {
+      'application/rss+xml': [{ url: '/feed.xml', title: 'Automa Dynamics Articles' }],
+    },
+  },
   openGraph: {
     title: 'Automa Dynamics',
-    description: 'Pioneering the future of autonomous systems and intelligent automation.',
+    description: DESCRIPTION,
     url: 'https://www.automadynamics.com',
     siteName: 'Automa Dynamics',
     type: 'website',
-    locale: 'en_US',
+    locale: 'en_GB',
     images: [
       {
         url: '/opengraph-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Automa Dynamics - Autonomous Intelligence',
+        width: 1536,
+        height: 1024,
+        alt: 'Automa Dynamics - Operational Intelligence',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
+    site: '@automadynamics',
+    creator: '@automadynamics',
     title: 'Automa Dynamics',
-    description: 'Pioneering the future of autonomous systems and intelligent automation.',
+    description: DESCRIPTION,
     images: ['/opengraph-image.png'],
   },
 }
 
-export default function RootLayout({
-  children,
-}) {
+export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
+    <html lang="en-GB" className={`${inter.variable} ${jetbrains.variable}`}>
       <body className="bg-wayland-950 text-wayland-50">
-        {children}
+        <a href="#main-content" className="skip-link">Skip to content</a>
+        <SiteHeader />
+        <div id="main-content">{children}</div>
+        <SiteFooter />
       </body>
     </html>
   )
