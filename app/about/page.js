@@ -45,7 +45,7 @@ const LEAD = 'type-lead'
 const BODY = 'type-body'
 const LABEL = 'type-label'
 const MEASURE = 'type-measure'
-const SECTION = 'px-6 md:px-12 lg:px-24 py-28 md:py-40'
+const SECTION = 'px-6 md:px-12 lg:px-24 py-20 md:py-28'
 const SHELL = 'max-w-6xl mx-auto'
 
 /** What we saw. The three observations the whole argument rests on. */
@@ -96,18 +96,18 @@ export default function AboutPage() {
       />
 
       {/* Why we're here. Given a full screen: the belief gets to stand alone. */}
-      <section className="px-6 md:px-12 lg:px-24 pt-40 md:pt-56 pb-28 md:pb-40">
+      <section className="px-6 md:px-12 lg:px-24 pt-32 md:pt-44 pb-20 md:pb-28">
         <RevealGroup className={SHELL} stagger={0.12}>
           <Reveal>
-            <p className={`${LABEL} mb-10`}>About</p>
+            <p className={`${LABEL} mb-6`}>About</p>
           </Reveal>
           <SplitText
             as="h1"
             text="Why we’re here"
-            className={`${DISPLAY} mb-16 max-w-[16ch]`}
+            className={`${DISPLAY} mb-10 max-w-[16ch]`}
           />
           <Reveal>
-            <p className={`${LEAD} ${MEASURE} mb-10`}>
+            <p className={`${LEAD} ${MEASURE} mb-8`}>
               We believe software should be able to tell an organisation the truth about itself.
             </p>
           </Reveal>
@@ -126,14 +126,14 @@ export default function AboutPage() {
         <div className={SHELL}>
           <RevealGroup>
             <Reveal>
-              <p className={`${LABEL} mb-10`}>Origin</p>
+              <p className={`${LABEL} mb-6`}>Origin</p>
             </Reveal>
             <SplitText
               text="What we saw in 2026"
-              className={`${DISPLAY} mb-16 max-w-[14ch]`}
+              className={`${DISPLAY} mb-10 max-w-[14ch]`}
             />
             <Reveal>
-              <p className={`${BODY} ${MEASURE} mb-8`}>
+              <p className={`${BODY} ${MEASURE} mb-6`}>
                 Artificial intelligence had become extraordinarily good at talking about companies.
                 It could search their documents, summarise their quarters, explain their policies
                 and draft their reports. Increasingly it could use tools and take actions.
@@ -148,7 +148,7 @@ export default function AboutPage() {
             </Reveal>
           </RevealGroup>
 
-          <RevealGroup className="mt-24 md:mt-32 space-y-16 md:space-y-20" stagger={0.12}>
+          <RevealGroup className="mt-16 md:mt-20 space-y-12 md:space-y-14" stagger={0.12}>
             {observations.map((observation) => (
               <Reveal key={observation.n}>
                 <div className="md:grid md:grid-cols-[5rem_1fr] md:gap-8">
@@ -166,9 +166,9 @@ export default function AboutPage() {
             ))}
           </RevealGroup>
 
-          <RevealGroup className="mt-24 md:mt-32">
+          <RevealGroup className="mt-16 md:mt-20">
             <Reveal>
-              <p className={`${BODY} ${MEASURE} mb-8`}>
+              <p className={`${BODY} ${MEASURE} mb-6`}>
                 None of that is an intelligence problem. The models are capable. The gap is that
                 nothing in the stack holds an authoritative model of the business itself, so every
                 system reasons over fragments and hopes the fragments agree.
@@ -189,14 +189,14 @@ export default function AboutPage() {
         <div className={SHELL}>
           <RevealGroup>
             <Reveal>
-              <p className={`${LABEL} mb-10`}>What we build</p>
+              <p className={`${LABEL} mb-6`}>What we build</p>
             </Reveal>
             <SplitText
               text="An organisation as a living system"
-              className={`${DISPLAY} mb-16 max-w-[14ch]`}
+              className={`${DISPLAY} mb-10 max-w-[14ch]`}
             />
             <Reveal>
-              <p className={`${BODY} ${MEASURE} mb-8`}>
+              <p className={`${BODY} ${MEASURE} mb-6`}>
                 A company is not a hierarchy. Operationally it is a graph. A customer depends on an
                 order, an order on production, production on materials and capacity and time,
                 materials on suppliers and inventory and transport. The company keeps working
@@ -215,7 +215,7 @@ export default function AboutPage() {
             </Reveal>
           </RevealGroup>
 
-          <RevealGroup className="mt-20 md:mt-28">
+          <RevealGroup className="mt-14 md:mt-20">
             <Reveal>
               <div className="card-glass p-8 md:p-10 max-w-[42rem]">
                 <div className="font-mono text-xs text-chrome/65 mb-6 tracking-wide">
@@ -239,11 +239,11 @@ export default function AboutPage() {
         <div className={SHELL}>
           <RevealGroup>
             <Reveal>
-              <p className={`${LABEL} mb-10`}>How we work</p>
+              <p className={`${LABEL} mb-6`}>How we work</p>
             </Reveal>
             <SplitText
               text="Built under the rules it argues for"
-              className={`${DISPLAY} mb-16 max-w-[14ch]`}
+              className={`${DISPLAY} mb-10 max-w-[14ch]`}
             />
             <Reveal>
               <p className={`${LEAD} ${MEASURE}`}>
@@ -255,7 +255,7 @@ export default function AboutPage() {
           </RevealGroup>
 
           <RevealGroup
-            className="mt-20 md:mt-28 grid md:grid-cols-2 gap-x-16 gap-y-14 max-w-[52rem]"
+            className="mt-14 md:mt-20 grid md:grid-cols-2 gap-x-16 gap-y-12 max-w-[52rem]"
             stagger={0.1}
           >
             {method.map((item) => (
@@ -275,14 +275,14 @@ export default function AboutPage() {
         <div className={SHELL}>
           <RevealGroup>
             <Reveal>
-              <p className={`${LABEL} mb-10`}>Where we&rsquo;re going</p>
+              <p className={`${LABEL} mb-6`}>Where we&rsquo;re going</p>
             </Reveal>
             <SplitText
               text="The argument comes first"
-              className={`${DISPLAY} mb-16 max-w-[12ch]`}
+              className={`${DISPLAY} mb-10 max-w-[12ch]`}
             />
             <Reveal>
-              <p className={`${BODY} ${MEASURE} mb-8`}>
+              <p className={`${BODY} ${MEASURE} mb-6`}>
                 HELIOS is in active development and is not finished. We are publishing the reasoning
                 behind it while it is being built rather than waiting to present a completed product
                 with a story attached afterwards.
@@ -297,7 +297,7 @@ export default function AboutPage() {
               </p>
             </Reveal>
             <Reveal>
-              <p className={`${LEAD} ${MEASURE} mb-16`}>
+              <p className={`${LEAD} ${MEASURE} mb-10`}>
                 If the thinking does not stand up, the product built on it will not either. So the
                 thinking goes out first.
               </p>
