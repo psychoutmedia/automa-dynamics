@@ -4,8 +4,11 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+// "About" replaces the old "/#mission" anchor: the About page carries the
+// mission at length, and two nav entries pointing at the same statement read as
+// duplication. The homepage mission section itself is unchanged.
 const links = [
-  { href: '/#mission', label: 'Mission' },
+  { href: '/about', label: 'About' },
   { href: '/#platform', label: 'Platform' },
   { href: '/articles', label: 'Articles' },
   { href: '/#contact', label: 'Contact' },
