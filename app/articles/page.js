@@ -1,6 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { getAllArticles, formatArticleDate } from '../../lib/articles'
+import {
+  getAllArticles,
+  formatArticleDate,
+  formatSeriesNumber,
+  SERIES_NAME,
+  SITE_URL,
+} from '../../lib/articles'
 
 export const metadata = {
   title: 'Articles',
@@ -16,11 +22,38 @@ export const metadata = {
   },
 }
 
+/**
+ * The series as an ordered list, so the sequence is legible to crawlers and not
+ * just to a reader looking at the cover art.
+ */
+function seriesJsonLd(articles) {
+  const inReadingOrder = [...articles].sort((a, b) => (a.number ?? 0) - (b.number ?? 0))
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWorkSeries',
+    name: SERIES_NAME,
+    url: `${SITE_URL}/articles`,
+    inLanguage: 'en-GB',
+    hasPart: inReadingOrder.map((article) => ({
+      '@type': 'Article',
+      position: article.number ?? undefined,
+      headline: article.title,
+      url: `${SITE_URL}/articles/${article.slug}`,
+      datePublished: `${article.date}T00:00:00.000Z`,
+    })),
+  }
+}
+
 export default function ArticlesIndex() {
   const articles = getAllArticles()
 
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(seriesJsonLd(articles)) }}
+      />
       <section className="section-padding pt-32 md:pt-40 pb-0">
         <div className="max-w-6xl mx-auto">
           <p className="text-chrome/65 text-sm tracking-[0.2em] uppercase mb-4">Articles</p>
@@ -29,7 +62,8 @@ export default function ArticlesIndex() {
           </h1>
           <p className="text-chrome/70 text-lg leading-relaxed max-w-2xl">
             What it takes for software to understand an organisation well enough to be trusted with
-            a decision. Published first on X, collected here.
+            a decision. Published first on X, collected here. Numbered in the order the argument is
+            built, newest first below.
           </p>
         </div>
       </section>
@@ -62,8 +96,16 @@ export default function ArticlesIndex() {
                     ) : null}
 
                     <div className="max-w-3xl">
-                      <p className="text-chrome/65 text-xs tracking-[0.2em] uppercase mb-3">
-                        {article.eyebrow}
+                      <p className="text-xs tracking-[0.2em] uppercase mb-3">
+                        {article.number !== null ? (
+                          <>
+                            <span className="font-mono text-steel-light">
+                              {formatSeriesNumber(article.number)}
+                            </span>
+                            <span className="text-chrome/65"> / </span>
+                          </>
+                        ) : null}
+                        <span className="text-chrome/65">{article.eyebrow}</span>
                       </p>
                       <h2 className="text-3xl md:text-4xl font-semibold text-chrome-light mb-4 leading-tight group-hover:text-white transition-colors">
                         {article.title}
