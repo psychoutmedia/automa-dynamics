@@ -39,27 +39,12 @@ const jsonLd = {
   },
 }
 
-/*
- * Type system for this page, measured off reference editorial pages rather than
- * invented: one weight (400) for every heading, hierarchy carried entirely by
- * size, and a deliberately narrow measure sitting inside a wide container so the
- * empty space around the column is doing as much work as the text.
- *
- *   display  clamp(2.5rem, 8vw, 6.25rem) weight 400, tracking -0.03em
- *   lead     clamp(1.5rem, 3vw, 2.125rem) weight 400
- *   body     1.0625rem / 1.6, max 36rem  (~68 characters)
- *   label    0.6875rem uppercase, tracking 0.25em
- *
- * The rest of the site still uses bold headings; this page is deliberately its
- * own register.
- */
-// Floor is 2.5rem rather than 3rem so the longest heading still fits a 320px
-// screen without the wrap turning into rubble.
-const DISPLAY = 'font-normal tracking-[-0.03em] leading-[1.06] text-[clamp(2.5rem,8vw,6.25rem)]'
-const LEAD = 'font-normal leading-[1.2] text-[clamp(1.5rem,3vw,2.125rem)] text-chrome-light'
-const BODY = 'text-[1.0625rem] leading-[1.6] text-chrome/70'
-const LABEL = 'text-[0.6875rem] uppercase tracking-[0.25em] text-chrome/65 font-normal'
-const MEASURE = 'max-w-[36rem]'
+/* Type scale lives in globals.css so every page shares it. */
+const DISPLAY = 'type-display'
+const LEAD = 'type-lead'
+const BODY = 'type-body'
+const LABEL = 'type-label'
+const MEASURE = 'type-measure'
 const SECTION = 'px-6 md:px-12 lg:px-24 py-28 md:py-40'
 const SHELL = 'max-w-6xl mx-auto'
 

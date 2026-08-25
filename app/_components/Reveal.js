@@ -76,6 +76,9 @@ export function Reveal({ children, className, y = 0, duration = 0.7 }) {
  * is carried on the element's `aria-label`, otherwise assistive technology reads
  * the heading out one letter at a time.
  */
+/** Longest the cascade may run, however many characters there are. */
+const MAX_CASCADE = 0.7
+
 export function SplitText({
   text,
   className,
@@ -87,42 +90,69 @@ export function SplitText({
   const reduced = useReducedMotion()
   const Tag = as
 
-  if (reduced) return <Tag className={className}>{text}</Tag>
+  // A newline in `text` is an explicit line break in the heading.
+  const lines = text.split('\n')
+  const label = lines.join(' ')
+
+  if (reduced) {
+    return (
+      <Tag className={className}>
+        {lines.map((line, i) => (
+          <span key={i}>
+            {i > 0 ? <br /> : null}
+            {line}
+          </span>
+        ))}
+      </Tag>
+    )
+  }
 
   const MotionTag = m[as] ?? m.h2
+
+  // Long headings would otherwise crawl: hold the whole cascade to MAX_CASCADE
+  // so a five-word heading feels brisk and a fifty-character one still lands
+  // before the reader gets impatient.
+  const step = Math.min(stagger, MAX_CASCADE / Math.max(label.length, 1))
+
+  let index = 0
 
   return (
     <LazyMotion features={domAnimation} strict>
       <MotionTag
         className={className}
-        aria-label={text}
+        aria-label={label}
         initial="hidden"
         whileInView="shown"
         viewport={VIEWPORT}
         variants={{
           hidden: {},
-          shown: { transition: { staggerChildren: stagger, delayChildren: delay } },
+          shown: { transition: { staggerChildren: step, delayChildren: delay } },
         }}
       >
-        {Array.from(text).map((character, index) =>
-          character === ' ' ? (
-            <span key={index} aria-hidden="true">
-              {' '}
-            </span>
-          ) : (
-            <m.span
-              key={index}
-              aria-hidden="true"
-              className="reveal-char inline"
-              variants={{
-                hidden: { opacity: 0 },
-                shown: { opacity: 1, transition: { duration, ease: 'easeOut' } },
-              }}
-            >
-              {character}
-            </m.span>
-          )
-        )}
+        {lines.map((line, lineIndex) => (
+          <span key={lineIndex} aria-hidden="true">
+            {lineIndex > 0 ? <br /> : null}
+            {Array.from(line).map((character) => {
+              const key = index++
+              // Spaces stay as plain text nodes so the browser can still break
+              // lines wherever it likes.
+              return character === ' ' ? (
+                <span key={key}> </span>
+              ) : (
+                <m.span
+                  key={key}
+                  className="reveal-char inline"
+                  variants={{
+                    hidden: { opacity: 0 },
+                    shown: { opacity: 1, transition: { duration, ease: 'easeOut' } },
+                  }}
+                >
+                  {character}
+                </m.span>
+              )
+            })}
+          </span>
+        ))}
       </MotionTag>
     </LazyMotion>
   )

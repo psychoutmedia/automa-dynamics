@@ -1,4 +1,5 @@
 import HomeHero from './_components/HomeHero'
+import { Reveal, RevealGroup, SplitText } from './_components/Reveal'
 import LatestArticles from './_components/LatestArticles'
 
 const principles = [
@@ -51,10 +52,10 @@ export default function Home() {
                 className="animate-in text-center md:text-left"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                <div className="text-2xl md:text-3xl font-bold text-gradient mb-3 font-mono uppercase tracking-tight">
+                <div className="text-xl md:text-2xl font-normal text-chrome-light mb-4 font-mono uppercase tracking-tight">
                   {principle.verb}
                 </div>
-                <p className="text-sm text-chrome/65 leading-relaxed">{principle.line}</p>
+                <p className="text-sm text-chrome/70 leading-relaxed">{principle.line}</p>
               </div>
             ))}
           </div>
@@ -66,17 +67,18 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <p className="text-chrome/65 text-sm tracking-[0.2em] uppercase mb-4">Our Mission</p>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Modelling the organisation as a <span className="text-gradient">living system</span>
-              </h2>
-              <p className="text-chrome/70 text-lg leading-relaxed mb-6">
+              <p className="type-label mb-8">Our Mission</p>
+              <SplitText
+                text="Modelling the organisation as a living system"
+                className="type-display-sm text-chrome-light mb-10"
+              />
+              <p className="type-body mb-6">
                 Most enterprise software can tell you what a document says. Very little of it can
                 tell you what a delayed shipment costs, which commitments it breaks, or who is
                 permitted to decide what happens next. The gap is not intelligence. It is that
                 nothing in the stack holds an authoritative model of the business itself.
               </p>
-              <p className="text-chrome/70 text-lg leading-relaxed">
+              <p className="type-body">
                 We build that model first, and put reasoning on top of it. Dependencies become
                 visible, consequences become traceable, decisions become governable, and actions
                 leave evidence behind them.
@@ -125,11 +127,12 @@ export default function Home() {
       <section id="platform" className="section-padding bg-wayland-900/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <p className="text-chrome/65 text-sm tracking-[0.2em] uppercase mb-4">Platform</p>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Project <span className="text-gradient">HELIOS</span>
-            </h2>
-            <p className="text-chrome/70 text-lg max-w-2xl mx-auto">
+            <p className="type-label mb-8">Platform</p>
+            <SplitText
+              text="Project HELIOS"
+              className="type-display text-chrome-light mb-10"
+            />
+            <p className="type-body type-measure mx-auto">
               An operational ontology platform and enterprise digital twin. HELIOS holds the
               canonical model of an operation, traces the consequences of change through it, and
               governs the decisions taken in response. In active development.
@@ -144,7 +147,9 @@ export default function Home() {
                 style={{ animationDelay: `${i * 100}ms` }}
               >
                 <div className="font-mono text-sm text-steel-light mb-4">{capability.n}</div>
-                <h3 className="text-xl font-semibold text-chrome-light mb-2">{capability.title}</h3>
+                <h3 className="text-xl font-normal text-chrome-light mb-3 tracking-[-0.01em]">
+                  {capability.title}
+                </h3>
                 <p className="text-chrome/70 text-sm leading-relaxed">{capability.description}</p>
               </div>
             ))}
@@ -157,11 +162,12 @@ export default function Home() {
       {/* Contact */}
       <section id="contact" className="section-padding bg-wayland-900/30">
         <div className="max-w-4xl mx-auto text-center">
-          <p className="text-chrome/65 text-sm tracking-[0.2em] uppercase mb-4">Contact</p>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Start a <span className="text-gradient">Conversation</span>
-          </h2>
-          <p className="text-chrome/70 text-lg mb-12">
+          <p className="type-label mb-8">Contact</p>
+          <SplitText
+            text="Start a Conversation"
+            className="type-display text-chrome-light mb-10"
+          />
+          <p className="type-body type-measure mx-auto mb-12">
             If you are working on operational truth, enterprise ontology, or governed
             decision-making, we want to hear from you.
           </p>

@@ -88,10 +88,19 @@ module.exports = {
               transition: 'color 200ms',
               '&:hover': { color: '#e8e8e8' },
             },
+            // Weight 500 rather than the plugin's 700: the rest of the site
+            // carries heading hierarchy by size at weight 400, and bold section
+            // headings inside an article were the last thing still shouting.
+            // 500 keeps them scannable in two thousand words of prose without
+            // breaking the family.
             'h2, h3, h4': {
+              fontWeight: '500',
               letterSpacing: '-0.01em',
               scrollMarginTop: '6rem',
             },
+            // The autolink anchor inherits `font-weight: inherit` below, so the
+            // weight has to be set on the anchor too or the plugin's bold wins.
+            'h2 a, h3 a, h4 a': { fontWeight: '500' },
             // rehype-autolink-headings wraps heading text in an anchor. Without
             // this the heading inherits the link colour instead of its own.
             'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a': {

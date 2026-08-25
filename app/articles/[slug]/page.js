@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import { SplitText } from '../../_components/Reveal'
 import remarkGfm from 'remark-gfm'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -109,7 +110,7 @@ function SeriesLink({ article, direction }) {
         isNext ? 'sm:col-start-2 sm:text-right' : ''
       }`}
     >
-      <p className="text-chrome/65 text-xs tracking-[0.2em] uppercase mb-3">
+      <p className="type-label mb-3">
         {isNext ? 'Next in the series' : 'Earlier in the series'}
       </p>
       {article.number !== null ? (
@@ -148,7 +149,7 @@ export default function ArticlePage({ params }) {
           <header className="mb-10">
             {/* The cover art reads "Operational Intelligence / Article 004". The
                 series position belongs in the markup too, not only in pixels. */}
-            <p className="text-xs tracking-[0.2em] uppercase mb-4">
+            <p className="type-label mb-6">
               {article.number !== null ? (
                 <>
                   <span className="font-mono text-steel-light">
@@ -159,9 +160,11 @@ export default function ArticlePage({ params }) {
               ) : null}
               <span className="text-chrome/65">{article.eyebrow}</span>
             </p>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight mb-6">
-              {article.title}
-            </h1>
+            <SplitText
+              as="h1"
+              text={article.title}
+              className="type-display-sm text-chrome-light mb-8"
+            />
             <div className="flex items-center gap-4 font-mono text-xs text-chrome/65 pb-8 border-b border-white/10">
               <time dateTime={article.date}>{formatArticleDate(article.date)}</time>
               <span aria-hidden="true">/</span>

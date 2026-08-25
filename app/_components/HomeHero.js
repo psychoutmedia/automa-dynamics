@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { SplitText } from './Reveal'
 
 export default function HomeHero() {
   const [mounted, setMounted] = useState(false)
@@ -29,7 +30,7 @@ export default function HomeHero() {
         }}
       />
 
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+      <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
         <div className={`mb-8 transition-all duration-1000 ${enter}`}>
           <Image
             src="/logo.png"
@@ -42,21 +43,21 @@ export default function HomeHero() {
         </div>
 
         <div className={`transition-all duration-1000 delay-200 ${enter}`}>
-          <p className="text-chrome/70 text-sm tracking-[0.3em] uppercase mb-4">
-            Operational Intelligence
-          </p>
+          <p className="type-label mb-8">Operational Intelligence</p>
         </div>
 
-        <h1
-          className={`text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 transition-all duration-1000 delay-300 ${enter}`}
-        >
-          <span className="text-gradient">Observe. Understand.</span>
-          <br />
-          <span className="text-chrome-light">Decide. Act.</span>
-        </h1>
+        {/* The one heading on the site that types itself in on load rather than
+            on scroll: it is already in view, so it gets a short delay instead of
+            a viewport trigger. */}
+        <SplitText
+          as="h1"
+          text={'Observe. Understand.\nDecide. Act.'}
+          className="type-display text-chrome-light mb-10"
+          delay={0.35}
+        />
 
         <p
-          className={`text-lg md:text-xl text-chrome/70 max-w-2xl mx-auto mb-12 leading-relaxed transition-all duration-1000 delay-500 ${enter}`}
+          className={`type-body type-measure mx-auto mb-12 transition-all duration-1000 delay-500 ${enter}`}
         >
           We build software that models an organisation as a living system, so the people
           responsible for it can see what is true, understand what a change affects, and act on

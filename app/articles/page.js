@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { SplitText } from '../_components/Reveal'
 import {
   getAllArticles,
   formatArticleDate,
@@ -56,11 +57,13 @@ export default function ArticlesIndex() {
       />
       <section className="section-padding pt-32 md:pt-40 pb-0">
         <div className="max-w-6xl mx-auto">
-          <p className="text-chrome/65 text-sm tracking-[0.2em] uppercase mb-4">Articles</p>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Notes on <span className="text-gradient">Operational Intelligence</span>
-          </h1>
-          <p className="text-chrome/70 text-lg leading-relaxed max-w-2xl">
+          <p className="type-label mb-8">Articles</p>
+          <SplitText
+            as="h1"
+            text="Notes on Operational Intelligence"
+            className="type-display text-chrome-light mb-10"
+          />
+          <p className="type-body type-measure">
             What it takes for software to understand an organisation well enough to be trusted with
             a decision. Published first on X, collected here. Numbered in the order the argument is
             built, newest first below.
@@ -96,7 +99,7 @@ export default function ArticlesIndex() {
                     ) : null}
 
                     <div className="max-w-3xl">
-                      <p className="text-xs tracking-[0.2em] uppercase mb-3">
+                      <p className="type-label mb-4">
                         {article.number !== null ? (
                           <>
                             <span className="font-mono text-steel-light">
@@ -107,12 +110,10 @@ export default function ArticlesIndex() {
                         ) : null}
                         <span className="text-chrome/65">{article.eyebrow}</span>
                       </p>
-                      <h2 className="text-3xl md:text-4xl font-semibold text-chrome-light mb-4 leading-tight group-hover:text-white transition-colors">
+                      <h2 className="type-display-sm text-chrome-light mb-5 group-hover:text-white transition-colors">
                         {article.title}
                       </h2>
-                      <p className="text-chrome/70 text-lg leading-relaxed mb-5">
-                        {article.description}
-                      </p>
+                      <p className="type-body type-measure mb-6">{article.description}</p>
                       <div className="flex items-center gap-4 font-mono text-xs text-chrome/65">
                         <time dateTime={article.date}>{formatArticleDate(article.date)}</time>
                         <span aria-hidden="true">/</span>

@@ -10,11 +10,9 @@ export default function NotFound() {
     <main className="min-h-screen flex items-center">
       <section className="section-padding w-full">
         <div className="max-w-3xl mx-auto">
-          <p className="text-chrome/65 text-sm tracking-[0.2em] uppercase mb-4">Error 404</p>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            This page <span className="text-gradient">does not exist</span>
-          </h1>
-          <p className="text-chrome/70 text-lg leading-relaxed mb-10 max-w-xl">
+          <p className="type-label mb-8">Error 404</p>
+          <h1 className="type-display text-chrome-light mb-10">This page does not exist</h1>
+          <p className="type-body type-measure mb-10">
             The address may have changed, or the page may never have existed. Neither is a good
             reason to leave you without a next step.
           </p>
