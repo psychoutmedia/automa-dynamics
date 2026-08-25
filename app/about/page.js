@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { SITE_URL } from '../../lib/articles'
-import { Reveal, RevealGroup } from '../_components/Reveal'
+import { Reveal, RevealGroup, SplitText } from '../_components/Reveal'
 
 const DESCRIPTION =
   'Why Automa Dynamics exists. Enterprise software can describe a company beautifully and still not understand it. We build the model first, and put reasoning on top of it.'
@@ -45,7 +45,7 @@ const jsonLd = {
  * size, and a deliberately narrow measure sitting inside a wide container so the
  * empty space around the column is doing as much work as the text.
  *
- *   display  clamp(3rem, 8vw, 6.25rem)   weight 400, tracking -0.03em
+ *   display  clamp(2.5rem, 8vw, 6.25rem) weight 400, tracking -0.03em
  *   lead     clamp(1.5rem, 3vw, 2.125rem) weight 400
  *   body     1.0625rem / 1.6, max 36rem  (~68 characters)
  *   label    0.6875rem uppercase, tracking 0.25em
@@ -117,7 +117,8 @@ export default function AboutPage() {
       <noscript>
         <style
           dangerouslySetInnerHTML={{
-            __html: '.reveal-block{opacity:1!important;transform:none!important}',
+            __html:
+              '.reveal-block,.reveal-char{opacity:1!important;transform:none!important}',
           }}
         />
       </noscript>
@@ -125,12 +126,14 @@ export default function AboutPage() {
       {/* Why we're here. Given a full screen: the belief gets to stand alone. */}
       <section className="px-6 md:px-12 lg:px-24 pt-40 md:pt-56 pb-28 md:pb-40">
         <RevealGroup className={SHELL} stagger={0.12}>
-          <Reveal y={16}>
+          <Reveal>
             <p className={`${LABEL} mb-10`}>About</p>
           </Reveal>
-          <Reveal>
-            <h1 className={`${DISPLAY} mb-16 max-w-[16ch]`}>Why we&rsquo;re here</h1>
-          </Reveal>
+          <SplitText
+            as="h1"
+            text="Why we’re here"
+            className={`${DISPLAY} mb-16 max-w-[16ch]`}
+          />
           <Reveal>
             <p className={`${LEAD} ${MEASURE} mb-10`}>
               We believe software should be able to tell an organisation the truth about itself.
@@ -150,12 +153,13 @@ export default function AboutPage() {
       <section className={`${SECTION} border-t border-white/5`}>
         <div className={SHELL}>
           <RevealGroup>
-            <Reveal y={16}>
+            <Reveal>
               <p className={`${LABEL} mb-10`}>Origin</p>
             </Reveal>
-            <Reveal>
-              <h2 className={`${DISPLAY} mb-16 max-w-[14ch]`}>What we saw in 2026</h2>
-            </Reveal>
+            <SplitText
+              text="What we saw in 2026"
+              className={`${DISPLAY} mb-16 max-w-[14ch]`}
+            />
             <Reveal>
               <p className={`${BODY} ${MEASURE} mb-8`}>
                 Artificial intelligence had become extraordinarily good at talking about companies.
@@ -212,12 +216,13 @@ export default function AboutPage() {
       <section className={`${SECTION} border-t border-white/5`}>
         <div className={SHELL}>
           <RevealGroup>
-            <Reveal y={16}>
+            <Reveal>
               <p className={`${LABEL} mb-10`}>What we build</p>
             </Reveal>
-            <Reveal>
-              <h2 className={`${DISPLAY} mb-16 max-w-[14ch]`}>An organisation as a living system</h2>
-            </Reveal>
+            <SplitText
+              text="An organisation as a living system"
+              className={`${DISPLAY} mb-16 max-w-[14ch]`}
+            />
             <Reveal>
               <p className={`${BODY} ${MEASURE} mb-8`}>
                 A company is not a hierarchy. Operationally it is a graph. A customer depends on an
@@ -261,12 +266,13 @@ export default function AboutPage() {
       <section className={`${SECTION} border-t border-white/5`}>
         <div className={SHELL}>
           <RevealGroup>
-            <Reveal y={16}>
+            <Reveal>
               <p className={`${LABEL} mb-10`}>How we work</p>
             </Reveal>
-            <Reveal>
-              <h2 className={`${DISPLAY} mb-16 max-w-[14ch]`}>Built under the rules it argues for</h2>
-            </Reveal>
+            <SplitText
+              text="Built under the rules it argues for"
+              className={`${DISPLAY} mb-16 max-w-[14ch]`}
+            />
             <Reveal>
               <p className={`${LEAD} ${MEASURE}`}>
                 It would be difficult to argue that operational decisions need evidence,
@@ -296,12 +302,13 @@ export default function AboutPage() {
       <section className={`${SECTION} border-t border-white/5`}>
         <div className={SHELL}>
           <RevealGroup>
-            <Reveal y={16}>
+            <Reveal>
               <p className={`${LABEL} mb-10`}>Where we&rsquo;re going</p>
             </Reveal>
-            <Reveal>
-              <h2 className={`${DISPLAY} mb-16 max-w-[12ch]`}>The argument comes first</h2>
-            </Reveal>
+            <SplitText
+              text="The argument comes first"
+              className={`${DISPLAY} mb-16 max-w-[12ch]`}
+            />
             <Reveal>
               <p className={`${BODY} ${MEASURE} mb-8`}>
                 HELIOS is in active development and is not finished. We are publishing the reasoning
@@ -323,7 +330,7 @@ export default function AboutPage() {
                 thinking goes out first.
               </p>
             </Reveal>
-            <Reveal y={16}>
+            <Reveal>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/articles" className="btn-primary inline-flex items-center gap-2">
                   Read the argument

@@ -3,26 +3,26 @@
 import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
 
 /**
- * Scroll-triggered fade and rise.
+ * Scroll-triggered reveals.
  *
- * Blocks start 32px low and transparent, then settle as they enter the
- * viewport. Once only: re-animating on the way back up is distracting when
- * re-reading.
+ * Two behaviours, both driven by opacity rather than movement:
  *
- * `Reveal` is always a child of `RevealGroup` and deliberately declares no
- * trigger of its own - in Framer Motion a child inherits the parent's variant
- * state only while it has no `initial`/`whileInView` of its own, and that
- * inheritance is what produces the stagger. A single-child group is the correct
- * way to reveal one element on its own.
+ * `SplitText` animates a heading one character at a time, left to right. The
+ * characters are laid out normally and only their opacity changes, so the text
+ * materialises in place with no reflow and nothing sliding.
  *
- * `prefers-reduced-motion` drops the movement and renders the final state.
+ * `Reveal` fades a block in, inheriting a stagger from `RevealGroup` so a label
+ * lands fractionally before the paragraph beneath it.
  *
- * Uses `LazyMotion` + `m` rather than the full `motion` component: this page
- * only needs opacity and transform, and the reduced feature bundle is roughly
- * half the size of the whole library on a site that is otherwise lean.
+ * `prefers-reduced-motion` renders the final state with no animation at all.
+ *
+ * Uses `LazyMotion` + `m` rather than the full `motion` component: only opacity
+ * and transform are needed, and the reduced feature bundle is roughly half the
+ * size of the whole library on a site that is otherwise lean.
  */
 
 const EASE = [0.16, 1, 0.3, 1]
+const VIEWPORT = { once: true, margin: '0px 0px -12% 0px' }
 
 export function RevealGroup({ children, className, stagger = 0.09, delay = 0 }) {
   const reduced = useReducedMotion()
@@ -35,7 +35,7 @@ export function RevealGroup({ children, className, stagger = 0.09, delay = 0 }) 
         className={className}
         initial="hidden"
         whileInView="shown"
-        viewport={{ once: true, margin: '0px 0px -12% 0px' }}
+        viewport={VIEWPORT}
         variants={{
           hidden: {},
           shown: { transition: { staggerChildren: stagger, delayChildren: delay } },
@@ -47,7 +47,7 @@ export function RevealGroup({ children, className, stagger = 0.09, delay = 0 }) 
   )
 }
 
-export function Reveal({ children, className, y = 32, duration = 0.75 }) {
+export function Reveal({ children, className, y = 0, duration = 0.7 }) {
   const reduced = useReducedMotion()
 
   if (reduced) return <div className={className}>{children}</div>
@@ -65,5 +65,65 @@ export function Reveal({ children, className, y = 32, duration = 0.75 }) {
     >
       {children}
     </m.div>
+  )
+}
+
+/**
+ * Per-character opacity cascade for display headings.
+ *
+ * Spaces stay as ordinary text nodes between the spans so the browser can still
+ * break lines wherever it likes. The spans are `aria-hidden` and the real string
+ * is carried on the element's `aria-label`, otherwise assistive technology reads
+ * the heading out one letter at a time.
+ */
+export function SplitText({
+  text,
+  className,
+  as = 'h2',
+  stagger = 0.022,
+  duration = 0.5,
+  delay = 0,
+}) {
+  const reduced = useReducedMotion()
+  const Tag = as
+
+  if (reduced) return <Tag className={className}>{text}</Tag>
+
+  const MotionTag = m[as] ?? m.h2
+
+  return (
+    <LazyMotion features={domAnimation} strict>
+      <MotionTag
+        className={className}
+        aria-label={text}
+        initial="hidden"
+        whileInView="shown"
+        viewport={VIEWPORT}
+        variants={{
+          hidden: {},
+          shown: { transition: { staggerChildren: stagger, delayChildren: delay } },
+        }}
+      >
+        {Array.from(text).map((character, index) =>
+          character === ' ' ? (
+            <span key={index} aria-hidden="true">
+              {' '}
+            </span>
+          ) : (
+            <m.span
+              key={index}
+              aria-hidden="true"
+              className="reveal-char inline"
+              variants={{
+                hidden: { opacity: 0 },
+                shown: { opacity: 1, transition: { duration, ease: 'easeOut' } },
+              }}
+            >
+              {character}
+            </m.span>
+          )
+        )}
+      </MotionTag>
+    </LazyMotion>
   )
 }
