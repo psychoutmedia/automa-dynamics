@@ -1,4 +1,5 @@
 import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 import SiteHeader from './_components/SiteHeader'
 import SiteFooter from './_components/SiteFooter'
@@ -63,6 +64,12 @@ export default function RootLayout({ children }) {
         <SiteHeader />
         <div id="main-content">{children}</div>
         <SiteFooter />
+        {/* Vercel Web Analytics. Cookieless and stores no identifier, so no
+            consent banner is required, and the script is served first-party
+            from /_vercel/insights - the site still makes no cross-origin
+            request. Instrumented to answer one question: whether readers are
+            arriving from anywhere other than X. */}
+        <Analytics />
       </body>
     </html>
   )
