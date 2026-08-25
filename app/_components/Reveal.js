@@ -22,7 +22,17 @@ import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
  */
 
 const EASE = [0.16, 1, 0.3, 1]
-const VIEWPORT = { once: true, margin: '0px 0px -12% 0px' }
+
+/**
+ * Fire when the element reaches the upper three quarters of the viewport, not
+ * the moment its first pixel appears.
+ *
+ * At -12% two headings that happened to share a tall viewport typed at the same
+ * time, which reads as the page loading rather than as the text being written.
+ * -25% makes an element wait until it is genuinely in reading position, so each
+ * heading gets its own moment however tall the screen is.
+ */
+const VIEWPORT = { once: true, margin: '0px 0px -25% 0px' }
 
 export function RevealGroup({ children, className, stagger = 0.09, delay = 0 }) {
   const reduced = useReducedMotion()

@@ -112,10 +112,24 @@ export default function AboutPage() {
             </p>
           </Reveal>
           <Reveal>
-            <p className={`${BODY} ${MEASURE}`}>
+            <p className={`${BODY} ${MEASURE} mb-6`}>
               Not summarise it. Not describe it persuasively. Tell it what is actually true right
               now, what a change will reach, what it will cost, and who is permitted to decide what
               happens next.
+            </p>
+          </Reveal>
+          <Reveal>
+            <p className={`${BODY} ${MEASURE} mb-6`}>
+              That matters most at the moment somebody has to act. Committing money, changing a
+              production plan, accepting a risk, telling a customer something they would rather not
+              hear. Until then, a confident answer and a correct one look identical.
+            </p>
+          </Reveal>
+          <Reveal>
+            <p className={`${BODY} ${MEASURE}`}>
+              So the software we are interested in is narrower than most of what enterprise AI is
+              reaching for. Not a system that can discuss an organisation fluently. A system that
+              holds an accurate model of one, and can show its working when it is asked.
             </p>
           </Reveal>
         </RevealGroup>
