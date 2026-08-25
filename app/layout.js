@@ -60,6 +60,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-GB" className={`${inter.variable} ${jetbrains.variable}`}>
       <body className="bg-wayland-950 text-wayland-50">
+        {/* Reveal blocks and typed heading characters are server-rendered at
+            `opacity:0` and settled by script. Without this the site is blank
+            when scripting is unavailable. It lives in the root layout because
+            these classes now appear on every page, not just one. */}
+        <noscript>
+          <style
+            dangerouslySetInnerHTML={{
+              __html: '.reveal-block,.reveal-char{opacity:1!important;transform:none!important}',
+            }}
+          />
+        </noscript>
         <a href="#main-content" className="skip-link">Skip to content</a>
         <SiteHeader />
         <div id="main-content">{children}</div>

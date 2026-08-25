@@ -110,9 +110,10 @@ export default function ArticlesIndex() {
                         ) : null}
                         <span className="text-chrome/65">{article.eyebrow}</span>
                       </p>
-                      <h2 className="type-display-sm text-chrome-light mb-5 group-hover:text-white transition-colors">
-                        {article.title}
-                      </h2>
+                      <SplitText
+                        text={article.title}
+                        className="type-display-sm text-chrome-light mb-5 group-hover:text-white transition-colors"
+                      />
                       <p className="type-body type-measure mb-6">{article.description}</p>
                       <div className="flex items-center gap-4 font-mono text-xs text-chrome/65">
                         <time dateTime={article.date}>{formatArticleDate(article.date)}</time>

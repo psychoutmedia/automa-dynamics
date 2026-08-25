@@ -95,19 +95,6 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Reveal blocks are server-rendered with `opacity:0` and settled by
-          script. Without this the page is blank when scripting is unavailable,
-          which is not an acceptable failure mode for a page that is entirely
-          text. */}
-      <noscript>
-        <style
-          dangerouslySetInnerHTML={{
-            __html:
-              '.reveal-block,.reveal-char{opacity:1!important;transform:none!important}',
-          }}
-        />
-      </noscript>
-
       {/* Why we're here. Given a full screen: the belief gets to stand alone. */}
       <section className="px-6 md:px-12 lg:px-24 pt-40 md:pt-56 pb-28 md:pb-40">
         <RevealGroup className={SHELL} stagger={0.12}>

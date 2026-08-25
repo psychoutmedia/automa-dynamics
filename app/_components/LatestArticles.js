@@ -44,9 +44,11 @@ export default function LatestArticles() {
                 </div>
               ) : null}
               <p className="type-label mb-4">{article.eyebrow}</p>
-              <h3 className="text-2xl font-normal tracking-[-0.01em] leading-snug text-chrome-light mb-4 group-hover:text-white transition-colors">
-                {article.title}
-              </h3>
+              <SplitText
+                as="h3"
+                text={article.title}
+                className="text-2xl font-normal tracking-[-0.01em] leading-snug text-chrome-light mb-4 group-hover:text-white transition-colors"
+              />
               <p className="type-body mb-5">{article.description}</p>
               <div className="flex items-center gap-4 font-mono text-xs text-chrome/65">
                 <time dateTime={article.date}>{formatArticleDate(article.date)}</time>
