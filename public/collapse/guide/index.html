@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seeing Inside a Quantum Computer</title>
+<meta name="description" content="Look inside a real quantum simulator running in your browser. Written for curious people from about age 12 up, with no maths beyond times tables.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Seeing Inside a Quantum Computer">
+<meta property="og:description" content="Look inside a real quantum simulator running in your browser. Written for curious people from about age 12 up, with no maths beyond times tables.">
+<meta property="og:url" content="https://automadynamics.com/collapse/guide">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Seeing Inside a Quantum Computer">
+<meta name="twitter:description" content="Look inside a real quantum simulator running in your browser. Written for curious people from about age 12 up, with no maths beyond times tables.">
+<link rel="icon" href="/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<!-- GENERATED FILE - do not edit.
+     Source: H:\collapse\docs\guide.html
+     Rebuild: python H:\collapse\scripts\sync_site_copy.py -->
+<style>
+  :root {
+    color-scheme: light;
+    --paper:  #eef2f7;
+    --card:   #ffffff;
+    --ink:    #10202f;
+    --ink-2:  #3a5163;
+    --muted:  #6b8399;
+    --line:   #d3dee7;
+    --line-2: #e6ecf2;
+    --try:    #0d7c6e;
+    --watch:  #b45309;
+    --big:    #c1287b;
+    --wrong:  #b3261e;
+    --shadow: 0 1px 2px rgba(16,32,47,.06), 0 10px 30px rgba(16,32,47,.07);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --paper:  #0d1620;
+      --card:   #14212d;
+      --ink:    #e9f0f6;
+      --ink-2:  #b7c6d3;
+      --muted:  #8399ab;
+      --line:   #24384a;
+      --line-2: #1b2b39;
+      --try:    #37c9b4;
+      --watch:  #e3a355;
+      --big:    #f472b6;
+      --wrong:  #f08a84;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper:  #0d1620;
+    --card:   #14212d;
+    --ink:    #e9f0f6;
+    --ink-2:  #b7c6d3;
+    --muted:  #8399ab;
+    --line:   #24384a;
+    --line-2: #1b2b39;
+    --try:    #37c9b4;
+    --watch:  #e3a355;
+    --big:    #f472b6;
+    --wrong:  #f08a84;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 10px 30px rgba(0,0,0,.35);
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Atkinson Hyperlegible", system-ui, -apple-system, sans-serif;
+    font-size: 19px;
+    line-height: 1.68;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px 90px; }
+  .col { max-width: 700px; margin-inline: auto; }
+
+  h1, h2, h3 {
+    font-family: "Bricolage Grotesque", "Atkinson Hyperlegible", sans-serif;
+    text-wrap: balance; letter-spacing: -0.02em;
+  }
+  h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 800; line-height: 1.05; margin: 0 0 14px; }
+  h2 { font-size: clamp(1.6rem, 3.4vw, 2.1rem); font-weight: 800; line-height: 1.15; margin: 0 0 10px; }
+  h3 { font-size: 1.22rem; font-weight: 600; margin: 26px 0 6px; }
+  p { margin: 0 0 1.1rem; }
+  a { color: var(--try); }
+  strong { font-weight: 700; }
+
+  header.hero { padding: 70px 0 28px; }
+  .kidline { font-size: 1.24rem; color: var(--ink-2); line-height: 1.55; }
+
+  /* Sections are numbered because the guide is a path: each part uses the one
+     before it. The number is the reader's place in that path, not decoration. */
+  section { padding: 40px 0 0; }
+  .partno {
+    font-family: "IBM Plex Mono", monospace; font-size: .72rem; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+
+  .box { border-radius: 12px; padding: 20px 22px; margin: 24px 0; box-shadow: var(--shadow); background: var(--card); }
+  .box .tag {
+    font-family: "IBM Plex Mono", monospace; font-size: .7rem; letter-spacing: .16em;
+    text-transform: uppercase; font-weight: 600; display: block; margin-bottom: 8px;
+  }
+  .box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
+  .try   { border-left: 5px solid var(--try); }   .try .tag   { color: var(--try); }
+  .watch { border-left: 5px solid var(--watch); } .watch .tag { color: var(--watch); }
+  .big   { border-left: 5px solid var(--big); }   .big .tag   { color: var(--big); }
+  .wrongbox { border-left: 5px solid var(--wrong); } .wrongbox .tag { color: var(--wrong); }
+
+  ul, ol { padding-left: 1.3rem; margin: 0 0 1.1rem; }
+  li { margin-bottom: .5rem; }
+
+  .spectrum {
+    height: 6px; border: 0; border-radius: 3px; margin: 0;
+    background: linear-gradient(90deg, #e8514f, #d99a1e, #9fbb22, #35bd68, #21b7b0, #3d8ee0, #8a6fd8, #e8514f);
+  }
+
+  table { border-collapse: collapse; width: 100%; margin-bottom: 1.1rem; font-variant-numeric: tabular-nums; }
+  th, td { padding: 9px 12px; border-bottom: 1px solid var(--line-2); text-align: left; }
+  th { font-family: "IBM Plex Mono", monospace; font-size: .72rem; letter-spacing: .1em;
+       text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  td.n { font-family: "IBM Plex Mono", monospace; text-align: right; }
+  .scroller { overflow-x: auto; }
+
+  /* --- the times-table toy --- */
+  .toy { background: var(--card); border-radius: 12px; padding: 22px; box-shadow: var(--shadow); margin: 26px 0; }
+  .gridwrap { display: flex; gap: 18px; align-items: flex-start; flex-wrap: wrap; }
+  .gridpanel { flex: 1 1 300px; }
+  table.mult { border-collapse: separate; border-spacing: 4px; width: auto; margin: 0; }
+  table.mult td, table.mult th { border: 0; padding: 0; }
+  table.mult th {
+    font-family: "IBM Plex Mono", monospace; font-size: .92rem; color: var(--ink);
+    text-transform: none; letter-spacing: 0; text-align: center; width: 46px;
+  }
+  .cell {
+    width: 46px; height: 46px; border-radius: 7px; display: flex;
+    align-items: center; justify-content: center;
+    font-family: "IBM Plex Mono", monospace; font-size: .82rem; font-weight: 600;
+    color: #08131c;
+  }
+  .sliders { display: grid; gap: 8px; }
+  .sliderow { display: flex; align-items: center; gap: 10px; font-family: "IBM Plex Mono", monospace; font-size: .8rem; }
+  .sliderow input { flex: 1; accent-color: var(--big); }
+  .sliderow b { width: 26px; text-align: right; }
+  .verdict {
+    font-family: "Bricolage Grotesque", sans-serif; font-weight: 800;
+    font-size: 1.5rem; margin-top: 14px;
+  }
+  .verdict.yes { color: var(--try); }
+  .verdict.no  { color: var(--big); }
+  .verdict small { display: block; font-family: "Atkinson Hyperlegible", sans-serif;
+                   font-weight: 400; font-size: .84rem; color: var(--muted); margin-top: 3px; }
+  button {
+    font-family: "IBM Plex Mono", monospace; font-size: .8rem; letter-spacing: .06em;
+    background: var(--big); color: #fff; border: 0; border-radius: 8px;
+    padding: 10px 16px; cursor: pointer; margin-top: 12px;
+  }
+  button.ghost { background: transparent; color: var(--ink-2); border: 1px solid var(--line); }
+  button:hover { filter: brightness(1.08); }
+  button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid var(--try); outline-offset: 2px; }
+
+  .cta {
+    display: inline-block; background: var(--try); color: #fff; text-decoration: none;
+    font-weight: 700; padding: 13px 22px; border-radius: 10px; margin: 6px 8px 6px 0;
+  }
+  .cta.alt { background: transparent; color: var(--try); border: 2px solid var(--try); }
+
+  code { font-family: "IBM Plex Mono", monospace; font-size: .88em;
+         background: var(--line-2); padding: 1px 6px; border-radius: 4px; }
+  pre { font-family: "IBM Plex Mono", monospace; font-size: .8rem; background: var(--card);
+        border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; overflow-x: auto; }
+
+  footer { margin-top: 60px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+
+  <header class="hero col">
+    <p class="partno">A guide for curious people, roughly age 12 and up</p>
+    <h1>Seeing inside a quantum computer</h1>
+    <p class="kidline">There is a real quantum computer simulator running in your web browser right now. This guide shows you how to look inside it, what the colours and hills actually mean, and one genuinely surprising thing we found when we tested it properly.</p>
+    <p>
+      <a class="cta" href="https://automadynamics.com/collapse/demo">Open the demo</a>
+      <a class="cta alt" href="https://automadynamics.com/collapse">Read the grown-up version</a>
+    </p>
+  </header>
+
+  <hr class="spectrum">
+
+  <section class="col">
+    <p class="partno">Part 1</p>
+    <h2>What am I even looking at?</h2>
+    <p>Open the demo in another tab and leave it running. You will see a glowing, rippling landscape of hills and valleys that keeps changing.</p>
+    <p>That landscape is a picture of what a quantum computer is holding in its memory. Every tiny square on the grid is one possible answer the computer could give you.</p>
+    <ul>
+      <li><strong>How tall a square is</strong> tells you how likely that answer is. Tall hill means "probably this one". Flat means "almost certainly not this one".</li>
+      <li><strong>The colour</strong> is something extra called the <em>phase</em>. Hold that thought, it gets its own part later. For now: colour is real information, not decoration.</li>
+    </ul>
+    <div class="box watch">
+      <span class="tag">Look for this</span>
+      <p>Find the panel on the right that says <code>UNITARITY CHECK</code>. There is a number under it that should read <code>1.000000000</code> and never change.</p>
+      <p>That number is the total of all the probabilities. It has to be exactly 1, because the computer definitely gives <em>some</em> answer. If you ever see it drift, the simulation is lying to you. It is on screen so you can catch us being wrong.</p>
+    </div>
+  </section>
+
+  <section class="col">
+    <p class="partno">Part 2</p>
+    <h2>A coin that has not landed yet</h2>
+    <p>An ordinary computer stores <strong>bits</strong>. A bit is a 0 or a 1, like a coin lying flat on the table showing heads or tails.</p>
+    <p>A quantum computer stores <strong>qubits</strong> (say it "cue-bits"). A qubit is more like a coin that is still spinning in the air. It is not secretly heads already. It genuinely does not have an answer yet.</p>
+    <p>While it spins, the qubit carries two numbers: one attached to "heads" and one attached to "tails". Those two numbers decide how likely each result is when the coin finally lands.</p>
+    <p>Here is the important part, and it is the part most explanations skip:</p>
+    <div class="box big">
+      <span class="tag">The big rule</span>
+      <p><strong>When you look, you get exactly one answer.</strong> The coin lands. You see heads or tails, never both, and the spinning is over.</p>
+      <p>You cannot peek at the whole landscape. That beautiful glowing picture in the demo is what the computer is holding <em>before anyone looks</em>. The moment you look, all of it collapses to a single square.</p>
+    </div>
+    <p>That rule is why the demo is called COLLAPSE. It is also, as you will see in Part 8, the reason quantum computers are so slow at some jobs. If you can only get one answer per look, and you need an accurate picture, you have to look an enormous number of times.</p>
+  </section>
+
+  <section class="col">
+    <p class="partno">Part 3</p>
+    <h2>Why the numbers get silly, fast</h2>
+    <p>One qubit has 2 possible answers: heads or tails. Two qubits have 4: HH, HT, TH, TT. Three have 8. Every qubit you add <strong>doubles</strong> the number of possible answers.</p>
+    <p>Doubling does not sound dramatic. It is.</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Qubits</th><th>Possible answers</th><th>What that is like</th></tr></thead>
+        <tbody>
+          <tr><td class="n">1</td><td class="n">2</td><td>a coin</td></tr>
+          <tr><td class="n">4</td><td class="n">16</td><td>a small grid, 4 by 4</td></tr>
+          <tr><td class="n">10</td><td class="n">1,024</td><td>about the pupils in a large school</td></tr>
+          <tr><td class="n">20</td><td class="n">1,048,576</td><td>over a million</td></tr>
+          <tr><td class="n">50</td><td class="n">1,125,899,906,842,624</td><td>more than a thousand million million</td></tr>
+          <tr><td class="n">300</td><td class="n">too big to write here</td><td>more than the atoms in the known universe</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box try">
+      <span class="tag">Try it</span>
+      <p>In the demo, find the <code>QUBITS</code> slider on the left and drag it up one notch at a time. Watch the <code>amplitudes</code> number in the right-hand panel.</p>
+      <p>Each notch <em>doubles</em> it. The grid you are looking at doubles in size too. That single fact is the whole reason people are excited about quantum computers: a machine with 300 qubits is juggling more numbers than there are atoms in the universe.</p>
+      <p><strong>The catch:</strong> you still only get one answer when you look. Holding a huge number of possibilities is not the same as being able to read them all out.</p>
+    </div>
+  </section>
+
+  <hr class="spectrum">
+
+  <section class="col">
+    <p class="partno">Part 4</p>
+    <h2>The big idea: it is a times table</h2>
+    <p>This is the part worth slowing down for. If you understand this one thing, you understand what makes quantum computers different from every other machine.</p>
+    <p>Look at the grid in the demo. The left half of the qubits decides which <strong>column</strong> you are in. The right half decides which <strong>row</strong>. So every square is a row-and-column position, like a seat in a cinema.</p>
+    <p>Now, a question you can answer with primary school maths:</p>
+    <p><strong>Could this grid have been made by multiplying a row of numbers by a column of numbers, like a times table?</strong></p>
+    <p>Try it by hand first. Take the numbers 2, 3, 4 across the top and 1, 5, 2 down the side, and multiply:</p>
+    <div class="scroller">
+      <table style="max-width:340px">
+        <thead><tr><th></th><th>2</th><th>3</th><th>4</th></tr></thead>
+        <tbody>
+          <tr><th style="text-transform:none;font-size:.92rem;color:var(--ink)">1</th><td class="n">2</td><td class="n">3</td><td class="n">4</td></tr>
+          <tr><th style="text-transform:none;font-size:.92rem;color:var(--ink)">5</th><td class="n">10</td><td class="n">15</td><td class="n">20</td></tr>
+          <tr><th style="text-transform:none;font-size:.92rem;color:var(--ink)">2</th><td class="n">4</td><td class="n">6</td><td class="n">8</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Notice what happened. The second row (10, 15, 20) is just the first row (2, 3, 4) with everything five times bigger. The third row is the first row doubled. <strong>Every row is a scaled copy of every other row.</strong> That always happens in a times table, no matter which numbers you pick.</p>
+    <p>Have a go below. Drag the sliders and try to break that pattern.</p>
+  </section>
+
+  <div class="toy col" style="max-width:none">
+    <div class="gridwrap">
+      <div class="gridpanel">
+        <table class="mult">
+          <thead><tr><th></th><th id="c0">3</th><th id="c1">5</th><th id="c2">2</th><th id="c3">6</th></tr></thead>
+          <tbody id="gridBody"></tbody>
+        </table>
+      </div>
+      <div class="gridpanel">
+        <div class="sliders" id="sliders"></div>
+        <button id="breakBtn">Give it a quantum tangle</button>
+        <button id="resetBtn" class="ghost">Reset</button>
+        <div class="verdict yes" id="verdict">Made by multiplying: YES
+          <small>Every row is a scaled copy of the others.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="col">
+    <p>However you set those sliders, you cannot escape it. A times-table grid always has rows that are copies of each other. Mathematicians have a name for how many <em>genuinely different</em> rows a grid contains. They call it the <strong>rank</strong>. A times table always has rank 1: underneath, there is really only one row, just resized over and over.</p>
+    <p>Now press <strong>"Give it a quantum tangle"</strong>. Exactly one square changes, ringed in pink. That is all it takes: the verdict flips to NO and the rank goes up to 2. There is no pair of row and column numbers anywhere in the world that produces that grid any more.</p>
+    <div class="box big">
+      <span class="tag">That is entanglement</span>
+      <p><strong>Entanglement is a grid that cannot be made by multiplying a row by a column.</strong></p>
+      <p>That is it. That is the whole definition. No spookiness required.</p>
+      <p>What it means in plain terms: when a grid is a times table, the two halves of the computer are independent, and you could describe each half separately. When it is tangled, you cannot. The halves only make sense together. Asking "what is the left half doing?" stops having an answer of its own.</p>
+    </div>
+  </section>
+
+  <section class="col">
+    <p class="partno">Part 5</p>
+    <h2>Watching it happen for real</h2>
+    <p>Go back to the demo. Make sure the circuit menu says <strong>entangle</strong>, and watch the right-hand panel where it says <code>SEPARABILITY ACROSS THE CUT</code>.</p>
+    <p>"Separable" is the proper word for "yes, it is a times table". And <code>schmidt rank</code> (say it "shmit") is exactly the rank you just met: how many genuinely different rows the grid has underneath.</p>
+    <div class="box watch">
+      <span class="tag">Watch this sequence</span>
+      <ol>
+        <li>It starts on <strong>SEPARABLE</strong>, rank 1. The landscape is a tidy pattern of rounded hills in neat rows and columns. It is a times table, and it looks like one.</li>
+        <li>The first four operations say <em>"inside x-half"</em> or <em>"inside y-half"</em>. The hills change shape. But the rank <strong>stays at 1</strong>, because those operations never connect the two halves to each other.</li>
+        <li>Then the labels change to <strong>ACROSS THE CUT</strong>. Now watch the rank: 1, then 2, then 4, 8, 16, 32, 64. It doubles every single time.</li>
+        <li>The landscape shatters into a jagged mess. That mess is what "cannot be written as a times table" looks like.</li>
+      </ol>
+    </div>
+    <p>Step 2 matters more than it looks. It proves the tidy pattern is not just "nothing has happened yet". Plenty is happening. The hills visibly move. But separability survives, because no operation has crossed between the halves.</p>
+    <p>The moment one does, it breaks. And it never un-breaks on its own.</p>
+  </section>
+
+  <hr class="spectrum">
+
+  <section class="col">
+    <p class="partno">Part 6</p>
+    <h2>The other three things to try</h2>
+
+    <h3>GHZ: everyone agrees or nobody does</h3>
+    <p>Pick <strong>ghz</strong> from the menu. The landscape empties out until only two tall spikes remain, in opposite corners.</p>
+    <p>Those two spikes are "all the coins landed heads" and "all the coins landed tails". Nothing in between survives. Twelve coins, and the only two possible results are all-heads or all-tails, each with a 50% chance. Check the <code>max prob</code> readout: it settles on exactly <code>0.500000</code>.</p>
+
+    <h3>QFT: finding a hidden rhythm</h3>
+    <p>Pick <strong>qft</strong>. This one is the prettiest, and it is a real piece of a famous algorithm.</p>
+    <p>It starts as a comb of evenly spaced spikes, like a fence. That fence has a <em>rhythm</em> to it, a repeating spacing. The QFT is a machine for measuring that rhythm, and by the end the landscape has completely reorganised itself around the answer.</p>
+    <p>This same trick is the heart of Shor's algorithm, which is the reason people worry about quantum computers breaking internet encryption. Finding hidden repeating patterns is genuinely something they are good at.</p>
+
+    <h3>Grover: searching, and the surprise</h3>
+    <p>Pick <strong>grover</strong>. This is a search. Somewhere in the 4,096 squares, one is the "right answer", and the computer has to find it without being told where it is.</p>
+    <p>Watch it work. One spike slowly grows out of the flat sea while everything else sinks. It takes about 50 rounds of nudging. Then it reaches nearly 100% certain.</p>
+    <div class="box big">
+      <span class="tag">Now keep watching</span>
+      <p>Do not look away at the top. Keep watching past round 50.</p>
+      <p><strong>The spike shrinks again.</strong> By round 100 it has fallen back to almost nothing, and the computer has forgotten the answer it had already found.</p>
+      <p>This is real, and most explanations quietly leave it out. Grover's search is not like filling a bucket, where more is always better. It is more like pushing a swing. Push the right number of times and it goes as high as it can. Keep pushing past that and you are working against yourself.</p>
+      <p>So you have to know when to stop <em>before you start</em>. The maths tells you: for 4,096 options, stop after about 50 rounds. We deliberately let the demo run past that, because watching it fail teaches you more than watching it succeed.</p>
+    </div>
+  </section>
+
+  <section class="col">
+    <p class="partno">Part 7</p>
+    <h2>What about the colours?</h2>
+    <p>Time to explain the rainbow. The colour of each square is its <strong>phase</strong>, and the easiest way to think about phase is waves.</p>
+    <p>Drop two stones in a puddle. Where two wave peaks meet, you get a bigger peak. Where a peak meets a trough, they cancel and the water goes flat. That cancelling is called <strong>interference</strong>, and it is the single most useful thing a quantum computer does.</p>
+    <p>Phase is what decides whether two possibilities add up or cancel out. Squares with the same colour reinforce each other. Squares with opposite colours wipe each other out.</p>
+    <p>That is how Grover actually works. Each round is arranged so the wrong answers cancel each other out a little more, and the right answer adds up a little more. Not "trying everything at once". Careful, repeated cancelling.</p>
+    <div class="box try">
+      <span class="tag">Try it</span>
+      <p>Choose <strong>semantic</strong> from the circuit menu, then pick two sentences from the two drop-down lists.</p>
+      <p>The demo turns each sentence into a landscape, then slides one into the other and lets them interfere. Pick two sentences about rivers and they overlap a lot. Pick a river sentence and a cooking sentence and they barely overlap at all. The computer is comparing meanings by making waves cancel.</p>
+    </div>
+  </section>
+
+  <hr class="spectrum">
+
+  <section class="col">
+    <p class="partno">Part 8</p>
+    <h2>So we tested the big claim</h2>
+    <p>People say quantum computers will replace the enormous warehouses of ordinary computers that run the internet. That is a big claim, and unusually for a big claim, it can be checked. So we checked it.</p>
+    <p>We picked the job those warehouses spend most of their time on: deciding whether two pieces of writing mean similar things. A quantum computer has a built-in way to compare two things, called the <strong>swap test</strong>. We built the whole thing properly and measured what came out.</p>
+    <p>Three things we found.</p>
+
+    <h3>1. It gives the same answer an ordinary computer gives</h3>
+    <p>Not a similar answer. <strong>The same answer</strong>, matching to the very last digit our computers can hold. The clever quantum comparison turns out to be exactly the ordinary comparison that a laptop already does, in disguise.</p>
+
+    <h3>2. It takes very much longer</h3>
+    <p>Remember Part 2: you only get one answer per look. To get a comparison accurate to three decimal places, you have to run the whole thing and look <strong>750,000 times</strong>.</p>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Doing one comparison</th><th>Time taken</th></tr></thead>
+        <tbody>
+          <tr><td>An ordinary laptop</td><td class="n">39 billionths of a second</td></tr>
+          <tr><td>A quantum computer</td><td class="n">about 79 seconds</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>That is roughly <strong>two billion times slower</strong> for an identical answer.</p>
+
+    <h3>3. Most of the work is just loading the question in</h3>
+    <p>To do one comparison, the quantum computer performs 550 operations. Only <strong>56</strong> of them are the clever comparison everyone talks about. The other <strong>494</strong> are spent getting the two pieces of writing into the machine in the first place.</p>
+    <p>It is like a racing car that does 0 to 60 in two seconds, but takes forty minutes to get you strapped into the seat. The fast bit is real. It is just not the bit that decides how long the journey takes.</p>
+
+    <div class="box wrongbox">
+      <span class="tag">And the honest ending</span>
+      <p>On today's real quantum hardware, this particular job <strong>does not work at all</strong>. Not "works slowly". The machines make small mistakes, and this job needs so many operations that mistakes pile up faster than the answer does. Every single run would come out wrong.</p>
+      <p>We did not want that to be the answer. It is the answer the measurements gave.</p>
+    </div>
+  </section>
+
+  <section class="col">
+    <p class="partno">Part 9</p>
+    <h2>Things people say that are not quite right</h2>
+    <ul>
+      <li><strong>"A qubit is 0 and 1 at the same time."</strong> Close, but it leads people wrong. A qubit carries a number for 0 and a number for 1, and those numbers set the odds. When you look, you get one of them. It is not secretly holding both answers ready for you.</li>
+      <li><strong>"A quantum computer tries every answer at once."</strong> This is the big one, and the Grover demo disproves it in front of you. If it really tried everything at once, it would find the answer in one step. Instead it needs about 50 careful rounds, and going past 50 makes it worse.</li>
+      <li><strong>"Quantum computers will replace normal computers."</strong> For nearly everything you do, an ordinary computer is faster, cheaper and correct. Quantum machines are specialists, not replacements.</li>
+      <li><strong>"Entanglement means you can send messages instantly."</strong> You cannot. Entanglement is the times-table thing from Part 4. It is a fact about how the possibilities are woven together, not a telephone.</li>
+    </ul>
+  </section>
+
+  <section class="col">
+    <p class="partno">Part 10</p>
+    <h2>So what are they actually good for?</h2>
+    <p>Here is the neat idea that survives all of the above.</p>
+    <p>Quantum computers are bad at questions about data you already have on a hard drive, because getting it into the machine costs more than the answer is worth. That was finding number 3.</p>
+    <p>But some things in the world <em>are already quantum</em>. Molecules are. Medicines are. New materials, magnets, batteries and chemical reactions are. Those things do not need loading in, because they behave that way naturally, and an ordinary computer struggles enormously to predict them.</p>
+    <p>That is the real promise, and it is genuinely exciting: designing a new medicine or a better battery by simulating the actual physics, rather than mixing things in a lab and hoping. Not searching the internet faster. Something ordinary computers are genuinely bad at.</p>
+  </section>
+
+  <hr class="spectrum">
+
+  <section class="col">
+    <p class="partno">Part 11</p>
+    <h2>Your turn</h2>
+    <div class="box try">
+      <span class="tag">Challenges</span>
+      <ol>
+        <li>Set the demo to <strong>entangle</strong> and pause on the tidy pattern. Sketch it. Can you work out which row of numbers and which column of numbers would produce it?</li>
+        <li>Run <strong>grover</strong> and time it with a stopwatch. How many rounds until the spike is tallest? Does that match the roughly 50 the maths predicts?</li>
+        <li>Turn on <strong>Gray-code ordering</strong> with the tick box. The pattern changes completely, but the physics has not. Why would just renumbering the squares change the picture so much?</li>
+        <li>In <strong>semantic</strong>, find the two sentences with the biggest overlap, and the two with the smallest. Do the numbers agree with your own sense of which sentences mean similar things?</li>
+        <li>Hardest: in the times-table toy above, the tangled grid has rank 2. Can you make a 4 by 4 grid with rank 3 by hand? What about rank 4?</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="col">
+    <p class="partno">Part 12</p>
+    <h2>Words we used</h2>
+    <div class="scroller">
+      <table>
+        <thead><tr><th>Word</th><th>What it means here</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Bit</strong></td><td>A 0 or a 1. What ordinary computers store.</td></tr>
+          <tr><td><strong>Qubit</strong></td><td>The quantum version. A coin still spinning, carrying a number for heads and a number for tails.</td></tr>
+          <tr><td><strong>Amplitude</strong></td><td>The number attached to one possible answer. Its size sets how likely that answer is. Height in the demo.</td></tr>
+          <tr><td><strong>Phase</strong></td><td>The other part of that number. Decides whether possibilities add up or cancel out. Colour in the demo.</td></tr>
+          <tr><td><strong>Superposition</strong></td><td>Holding many possible answers at once, before anyone looks.</td></tr>
+          <tr><td><strong>Measurement</strong></td><td>Looking. You get exactly one answer and the superposition is gone.</td></tr>
+          <tr><td><strong>Interference</strong></td><td>Possibilities adding up or cancelling out, like ripples in a puddle.</td></tr>
+          <tr><td><strong>Entanglement</strong></td><td>A grid that cannot be made by multiplying a row by a column.</td></tr>
+          <tr><td><strong>Schmidt rank</strong></td><td>How many genuinely different rows the grid has. 1 means it is a times table.</td></tr>
+          <tr><td><strong>Swap test</strong></td><td>The quantum way of comparing two things. Turns out to give the same answer as the ordinary way.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="col">
+    <p class="partno">For teachers and parents</p>
+    <h2>Notes on running this</h2>
+    <p><strong>No installation and no accounts.</strong> The demo is a web page. The entire quantum simulator runs inside the browser, so nothing is sent anywhere and it works on a school network. A laptop or desktop is much better than a phone: the controls need the space.</p>
+    <p><strong>Time.</strong> Parts 1 to 5 make a solid single lesson, with the times-table toy as the centrepiece. Parts 6 to 10 make a second. The challenges in Part 11 work as homework.</p>
+    <p><strong>Prior knowledge.</strong> Times tables and multiplying two numbers. That is genuinely all. Rank is introduced from scratch as "how many different rows", which is honest and connects directly to what the demo displays.</p>
+    <p><strong>Where we simplified.</strong> Amplitudes are complex numbers; we described their size and their phase separately and never used the phrase. The Schmidt rank is defined through a singular value decomposition; "how many genuinely different rows" is the same idea in plain words. Nothing here contradicts the real physics, but a student going further will meet more precise language.</p>
+    <p><strong>Where we did not simplify.</strong> The measurement rule, Grover's over-rotation, and the cost of loading data are all exactly as they are. Those three are usually the first things dropped from an introduction, and they are the three that stop the subject turning into magic.</p>
+    <p><strong>If you want to run it locally</strong>, the whole project is a folder of files. With Node.js installed:</p>
+    <pre>cd web
+npm install
+npm run dev        # then open http://localhost:5273</pre>
+    <p>And to check we are not making the physics up, open the demo, press F12 for the browser console, and type:</p>
+    <pre>window.__selftest()</pre>
+    <p>It runs 29 checks against known correct answers and prints how many passed. That is the same set of checks the research code runs.</p>
+  </section>
+
+  <footer class="col">
+    <p>Part of COLLAPSE, a project about looking inside a quantum computer and measuring what is actually there. The measurements behind Part 8 are written up in full on <a href="https://automadynamics.com/collapse">the main findings page</a>.</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var cols = [3, 5, 2, 6];
+  var rows = [1, 4, 2, 3];
+  var tangled = false;
+
+  var body = document.getElementById("gridBody");
+  var sliders = document.getElementById("sliders");
+  var verdict = document.getElementById("verdict");
+
+  function colourFor(v, max) {
+    // one hue, light to dark, so the eye reads size and nothing else
+    var t = max > 0 ? Math.min(1, v / max) : 0;
+    var l = 92 - 52 * t;
+    return "hsl(184 62% " + l + "%)";
+  }
+
+  function grid() {
+    var g = [];
+    for (var r = 0; r < 4; r++) {
+      g.push([]);
+      for (var c = 0; c < 4; c++) g[r].push(rows[r] * cols[c]);
+    }
+    // The "tangle": change exactly ONE entry. That is the smallest possible
+    // break, and it is a rank-1 update, so the rank goes 1 -> 2 and no further -
+    // matching the first cross-cut gate in the demo. Swapping two entries would
+    // perturb by rank 2 and land on rank 3, which would contradict the text.
+    if (tangled) {
+      g[1][1] = g[1][1] + Math.max(4, Math.round(g[1][1] * 0.8));
+    }
+    return g;
+  }
+
+  /** How many genuinely different rows the grid has: its rank, by elimination. */
+  function rankOf(g) {
+    var m = g.map(function (row) { return row.slice(); });
+    var rank = 0;
+    var lead = 0;
+    for (var r = 0; r < 4 && lead < 4; r++) {
+      var piv = -1;
+      var best = 1e-9;
+      for (var i = r; i < 4; i++) {
+        if (Math.abs(m[i][lead]) > best) { best = Math.abs(m[i][lead]); piv = i; }
+      }
+      if (piv < 0) { lead++; r--; continue; }
+      var tmp = m[r]; m[r] = m[piv]; m[piv] = tmp;
+      for (var j = r + 1; j < 4; j++) {
+        var f = m[j][lead] / m[r][lead];
+        for (var k = lead; k < 4; k++) m[j][k] -= f * m[r][k];
+      }
+      rank++;
+      lead++;
+    }
+    return rank;
+  }
+
+  function render() {
+    var g = grid();
+    var max = 0;
+    g.forEach(function (row) { row.forEach(function (v) { if (v > max) max = v; }); });
+
+    body.innerHTML = "";
+    for (var r = 0; r < 4; r++) {
+      var tr = document.createElement("tr");
+      var th = document.createElement("th");
+      th.textContent = rows[r];
+      th.style.textTransform = "none";
+      th.style.fontSize = ".92rem";
+      th.style.color = "var(--ink)";
+      tr.appendChild(th);
+      for (var c = 0; c < 4; c++) {
+        var td = document.createElement("td");
+        var d = document.createElement("div");
+        d.className = "cell";
+        d.style.background = colourFor(g[r][c], max);
+        if (tangled && r === 1 && c === 1) {
+          d.style.outline = "3px solid var(--big)";
+          d.style.outlineOffset = "2px";
+        }
+        d.textContent = g[r][c];
+        td.appendChild(d);
+        tr.appendChild(td);
+      }
+      body.appendChild(tr);
+    }
+    for (var i = 0; i < 4; i++) document.getElementById("c" + i).textContent = cols[i];
+
+    var rank = rankOf(g);
+    var ok = rank === 1;
+    verdict.className = "verdict " + (ok ? "yes" : "no");
+    verdict.innerHTML =
+      "Made by multiplying: " + (ok ? "YES" : "NO") +
+      "<small>Rank " + rank + ". " +
+      (ok
+        ? "Every row is a scaled copy of the others."
+        : "No row and column numbers anywhere can produce this grid.") +
+      "</small>";
+  }
+
+  function buildSliders() {
+    var defs = [];
+    for (var c = 0; c < 4; c++) defs.push(["column " + (c + 1), "c", c]);
+    for (var r = 0; r < 4; r++) defs.push(["row " + (r + 1), "r", r]);
+
+    defs.forEach(function (d) {
+      var wrap = document.createElement("label");
+      wrap.className = "sliderow";
+      var name = document.createElement("span");
+      name.textContent = d[0];
+      name.style.width = "72px";
+      var input = document.createElement("input");
+      input.type = "range";
+      input.min = "1";
+      input.max = "9";
+      input.value = String(d[1] === "c" ? cols[d[2]] : rows[d[2]]);
+      var out = document.createElement("b");
+      out.textContent = input.value;
+      input.addEventListener("input", function () {
+        var v = Number(input.value);
+        out.textContent = input.value;
+        if (d[1] === "c") cols[d[2]] = v; else rows[d[2]] = v;
+        tangled = false;
+        render();
+      });
+      wrap.appendChild(name);
+      wrap.appendChild(input);
+      wrap.appendChild(out);
+      sliders.appendChild(wrap);
+    });
+  }
+
+  document.getElementById("breakBtn").addEventListener("click", function () {
+    tangled = true;
+    render();
+  });
+  document.getElementById("resetBtn").addEventListener("click", function () {
+    tangled = false;
+    cols = [3, 5, 2, 6];
+    rows = [1, 4, 2, 3];
+    sliders.innerHTML = "";
+    buildSliders();
+    render();
+  });
+
+  buildSliders();
+  render();
+})();
+</script>
+</body>
+</html>

@@ -11,6 +11,7 @@ const nextConfig = {
     return [
       { source: '/collapse', destination: '/collapse/index.html' },
       { source: '/collapse/demo', destination: '/collapse/demo/index.html' },
+      { source: '/collapse/guide', destination: '/collapse/guide/index.html' },
     ]
   },
 }
