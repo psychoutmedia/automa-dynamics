@@ -27,6 +27,15 @@ export default function SiteFooter() {
             @automadynamics
           </a>
           <a href="/feed.xml" className="hover:text-chrome/70 transition-colors">RSS</a>
+          {/* Sits beside RSS deliberately: both are machine-readable endpoints,
+              and both need a plain <a> because neither is an app-router page. */}
+          <a
+            href="/llms.txt"
+            title="Machine-readable summary of this site, for AI agents"
+            className="font-mono hover:text-chrome/70 transition-colors"
+          >
+            llms.txt
+          </a>
         </div>
       </div>
     </footer>
