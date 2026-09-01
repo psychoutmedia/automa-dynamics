@@ -1,0 +1,662 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Swap Test Is Cosine</title>
+<meta name="description" content="A measured test of whether quantum computing can take vector search away from data centres. The swap test turns out to be cosine similarity.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Swap Test Is Cosine">
+<meta property="og:description" content="A measured test of whether quantum computing can take vector search away from data centres. The swap test turns out to be cosine similarity.">
+<meta property="og:url" content="https://automadynamics.com/collapse">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Swap Test Is Cosine">
+<meta name="twitter:description" content="A measured test of whether quantum computing can take vector search away from data centres. The swap test turns out to be cosine similarity.">
+<link rel="icon" href="/logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<!-- GENERATED FILE - do not edit.
+     Source: H:\collapse\docs\findings.html
+     Rebuild: python H:\collapse\scripts\sync_site_copy.py -->
+<style>
+  :root {
+    color-scheme: light;
+    --ground:   #f4f6f7;
+    --panel:    #ffffff;
+    --ink:      #10161c;
+    --ink-2:    #3a4650;
+    --muted:    #6b7780;
+    --rule:     #d8dee1;
+    --rule-2:   #e9edef;
+    --s1:       #2a78d6;
+    --s2:       #eb6834;
+    --s3:       #1baf7a;
+    --critical: #b3261e;
+    --shadow:   0 1px 2px rgba(16,22,28,.05), 0 8px 24px rgba(16,22,28,.05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground:   #0e1417;
+      --panel:    #141c21;
+      --ink:      #e8edef;
+      --ink-2:    #b6c1c7;
+      --muted:    #8a979e;
+      --rule:     #26323a;
+      --rule-2:   #1c262c;
+      --s1:       #3987e5;
+      --s2:       #d95926;
+      --s3:       #199e70;
+      --critical: #e66767;
+      --shadow:   0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground:   #0e1417;
+    --panel:    #141c21;
+    --ink:      #e8edef;
+    --ink-2:    #b6c1c7;
+    --muted:    #8a979e;
+    --rule:     #26323a;
+    --rule-2:   #1c262c;
+    --s1:       #3987e5;
+    --s2:       #d95926;
+    --s3:       #199e70;
+    --critical: #e66767;
+    --shadow:   0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: Newsreader, Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px 100px; }
+  .col  { max-width: 660px; margin-inline: auto; }
+
+  /* The page's one bold move: the renderer's cyclic phase ramp as a rule.
+     Hue IS the subject here - it is how phase is drawn - so the divider
+     carries meaning rather than decorating. */
+  .phase-rule {
+    height: 3px; border: 0; margin: 0;
+    background: linear-gradient(90deg,
+      #e8514f 0%, #d99a1e 14%, #9fbb22 28%, #35bd68 42%,
+      #21b7b0 57%, #3d8ee0 71%, #8a6fd8 85%, #e8514f 100%);
+  }
+  .phase-rule.thin { height: 2px; opacity: .55; }
+
+  h1, h2, h3 { text-wrap: balance; font-weight: 700; letter-spacing: -0.018em; }
+  h1 { font-size: clamp(2.6rem, 6.4vw, 4.1rem); line-height: 1.02; margin: 0 0 .5rem; }
+  h2 { font-size: clamp(1.5rem, 3vw, 1.95rem); line-height: 1.16; margin: 0 0 .2rem; }
+  h3 { font-size: 1.16rem; margin: 0 0 .35rem; }
+  p  { margin: 0 0 1.05rem; }
+  a  { color: var(--s1); text-underline-offset: 3px; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .70rem; letter-spacing: .19em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 1.1rem;
+  }
+  .lede { font-size: 1.3rem; line-height: 1.5; color: var(--ink-2); }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  .num  { font-variant-numeric: tabular-nums; }
+  strong { font-weight: 700; }
+
+  header.hero { padding: 84px 0 40px; }
+  .verdict {
+    font-size: 1.42rem; line-height: 1.42; color: var(--ink);
+    border-left: 3px solid var(--s2); padding-left: 20px; margin: 30px 0 0;
+  }
+
+  section { padding: 46px 0 0; }
+  .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .70rem; letter-spacing: .19em; text-transform: uppercase;
+    color: var(--s2); margin: 0 0 .7rem;
+  }
+
+  /* Findings are numbered because they are a chain of reasoning, not a list:
+     each one only matters if the previous one holds. */
+  .finding { display: grid; grid-template-columns: 46px 1fr; gap: 22px; padding: 30px 0; border-top: 1px solid var(--rule-2); }
+  .finding:first-of-type { border-top: 0; }
+  .fnum {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .95rem; font-weight: 600; color: var(--s2);
+    padding-top: .28rem; font-variant-numeric: tabular-nums;
+  }
+  .finding p:last-child { margin-bottom: 0; }
+
+  figure { margin: 36px 0; }
+  figcaption { font-size: .88rem; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+  .panel {
+    background: var(--panel); border: 1px solid var(--rule);
+    border-radius: 3px; padding: 22px; box-shadow: var(--shadow);
+  }
+  .scroller { overflow-x: auto; }
+
+  .plates { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .plate-label {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
+    display: flex; justify-content: space-between; margin-bottom: 8px; color: var(--muted);
+  }
+  .plate-label b { color: var(--ink); font-weight: 600; }
+  canvas { width: 100%; height: auto; display: block; border-radius: 2px; background: #05070a; }
+
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
+  .stat { background: var(--panel); padding: 18px 20px; }
+  .stat .k {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .66rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted);
+  }
+  .stat .v {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 1.62rem; font-weight: 600; margin-top: 7px; font-variant-numeric: tabular-nums;
+    letter-spacing: -.02em;
+  }
+  .stat .n { font-size: .8rem; color: var(--muted); margin-top: 3px; font-family: Newsreader, serif; }
+  .v.crit { color: var(--critical); }
+  .v.good { color: var(--s3); }
+
+  table { border-collapse: collapse; width: 100%; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .82rem; font-variant-numeric: tabular-nums; }
+  th, td { padding: 8px 12px; text-align: right; border-bottom: 1px solid var(--rule-2); white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { color: var(--muted); font-weight: 500; letter-spacing: .06em; text-transform: uppercase; font-size: .68rem; }
+  tbody tr:last-child td { border-bottom: 0; }
+  .swatch { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 7px; vertical-align: baseline; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 20px; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .74rem; color: var(--ink-2); margin-bottom: 6px; }
+  .legend span { display: flex; align-items: center; }
+
+  pre {
+    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .78rem;
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 3px;
+    padding: 16px 18px; overflow-x: auto; line-height: 1.65; color: var(--ink-2);
+  }
+  code { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .87em; }
+  .col p code, li code { background: var(--rule-2); padding: 1px 5px; border-radius: 2px; }
+
+  ul.clean { padding-left: 1.15rem; margin: 0 0 1.05rem; }
+  ul.clean li { margin-bottom: .5rem; }
+
+  footer { margin-top: 70px; padding-top: 26px; border-top: 1px solid var(--rule); color: var(--muted); font-size: .88rem; }
+
+  /* Chart colours live in CSS, not in hex resolved at render time - otherwise
+     a theme change after load leaves the previous theme's gridlines and series
+     sitting on the new ground. */
+  .grid  { stroke: var(--rule-2); stroke-width: 1; }
+  .ceil  { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; }
+  .tick  { fill: var(--muted); font-family: "IBM Plex Mono", monospace; }
+  .line  { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .dot   { stroke: var(--panel); stroke-width: 2; }
+  .lab   { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+  .line.s1 { stroke: var(--s1); } .line.s2 { stroke: var(--s2); } .line.s3 { stroke: var(--s3); }
+  .dot.s1  { fill: var(--s1); }   .dot.s2  { fill: var(--s2); }   .dot.s3  { fill: var(--s3); }
+  .lab.s1  { fill: var(--s1); }   .lab.s2  { fill: var(--s2); }   .lab.s3  { fill: var(--s3); }
+  .bar.s1  { fill: var(--s1); }   .bar.s2  { fill: var(--s2); }
+  .hit   { fill: transparent; cursor: crosshair; }
+
+  .tip {
+    position: fixed; pointer-events: none; opacity: 0; transition: opacity .12s;
+    background: var(--ink); color: var(--ground); font-family: "IBM Plex Mono", monospace;
+    font-size: .72rem; padding: 7px 10px; border-radius: 3px; z-index: 40; white-space: pre;
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  @media (max-width: 660px) { .plates { grid-template-columns: 1fr; } .finding { grid-template-columns: 32px 1fr; gap: 14px; } }
+</style>
+
+<div class="wrap">
+
+  <header class="hero col">
+    <p class="eyebrow">Measurement report &middot; COLLAPSE &middot; September 2026</p>
+    <h1>The swap test is cosine</h1>
+    <p class="lede">I built a quantum semantic search engine to find out whether quantum computing could take work away from datacentres. It can compute the similarity between two sentences. It computes exactly the number numpy computes, about two billion times more slowly, on a circuit that cannot finish a single shot.</p>
+    <p class="verdict">Every number on this page was measured on one desktop machine, or is cited to a source. Nothing is asserted from memory. The code that produces all of it is in the repository.</p>
+  </header>
+
+  <hr class="phase-rule">
+
+  <section class="col">
+    <p class="kicker">What you are looking at</p>
+    <h2>Entanglement, drawn</h2>
+    <p>A quantum state of <span class="mono">n</span> qubits is 2<sup>n</sup> complex numbers. Both plates below are the full amplitude vector of a 12-qubit state - 4,096 complex numbers - with brightness for magnitude and hue for phase. The low six qubits index the horizontal axis, the high six index the vertical.</p>
+    <p>That mapping is the whole trick. A state that factorises across that split is an outer product, so it draws as a <strong>plaid</strong>: a landscape made of one row profile times one column profile. An entangled state does not factorise, and the plaid breaks.</p>
+  </section>
+
+  <figure class="col" style="max-width:none">
+    <div class="plates">
+      <div>
+        <div class="plate-label"><b>Separable</b><span>Schmidt rank 1</span></div>
+        <canvas id="plateA" width="256" height="256" aria-label="Amplitude field of a separable state, showing a smooth plaid"></canvas>
+      </div>
+      <div>
+        <div class="plate-label"><b>Entangled</b><span>Schmidt rank 64</span></div>
+        <canvas id="plateB" width="256" height="256" aria-label="Amplitude field of an entangled state, showing broken structure"></canvas>
+      </div>
+    </div>
+    <figcaption>Computed in your browser, not screenshots. The left plate is a product state; the right is the same state after six controlled-RY gates that cross the split. Nothing else changed. The Schmidt rank doubles on each of those six gates - 1&nbsp;&rarr;&nbsp;2&nbsp;&rarr;&nbsp;4&nbsp;&rarr;&nbsp;8&nbsp;&rarr;&nbsp;16&nbsp;&rarr;&nbsp;32&nbsp;&rarr;&nbsp;64 - which the test suite asserts rather than eyeballs.</figcaption>
+  </figure>
+
+  <hr class="phase-rule thin">
+
+  <section class="col">
+    <p class="kicker">The thesis under test</p>
+    <h2>Where quantum and language actually touch</h2>
+    <p>The strong claim - that quantum machines will run language models and make datacentres redundant - fails on one fact. Loading an arbitrary <span class="mono">d</span>-dimensional vector into amplitudes costs O(<span class="mono">d</span>) gates, so the classical work is finished before the quantum part starts. There is no quantum RAM anywhere, and dense arithmetic over unstructured data is not on the list of things quantum is provably good at.</p>
+    <p>But there is one genuine point of contact, and it is worth taking seriously. The <strong>swap test</strong> computes |&lang;&psi;|&phi;&rang;|<sup>2</sup> natively - and inner products between embeddings are precisely what vector search is. Retrieval is one of the largest workloads in any datacentre. If a quantum device computed that primitive natively and cheaply, the argument would have legs.</p>
+    <p>So I built it: real sentence embeddings, real amplitude encoding, a real swap test, and a retrieval benchmark on labelled documents. Five findings, in the order they have to be taken.</p>
+  </section>
+
+  <section class="col">
+    <div class="finding">
+      <div class="fnum">01</div>
+      <div>
+        <h3>The quantum kernel is bit-identical to cosine squared</h3>
+        <p>Encode an embedding as amplitudes and &lang;&psi;(u)|&psi;(v)&rang; is just u&middot;v. Across six register widths on 700 held-out documents, the largest difference between the swap test's output and classical cosine<sup>2</sup> was <strong class="mono">0.00e+00</strong>. Not close - equal, in floating point. The swap test does not find a richer notion of similarity than a dot product. It finds the same one.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="fnum">02</div>
+      <div>
+        <h3>Its only measurable difference from cosine is a loss</h3>
+        <p>The swap test returns the <em>squared</em> magnitude, which discards the sign of the inner product. Two documents pointing in opposite directions score as maximally similar. That is not an edge case: <strong class="mono">42%</strong> of document pairs in this corpus have a negative cosine, and squaring the sign away costs <strong class="mono">0.0063</strong> mean precision@10. The quantum measurement is strictly lossier than the classical operation it replaces.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="fnum">03</div>
+      <div>
+        <h3>The phase kernel loses, and tuning tries to switch it off</h3>
+        <p>Adding an IQP phase channel does produce a genuinely non-classical similarity function. It beat the equal-width classical baseline at <strong class="mono">0 of 6</strong> widths, with its scale parameter tuned in its favour at every width. The revealing part is which scale the search chose: the smallest offered, five times out of six. The tuner was trying to turn the quantum-specific term down to nothing.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="fnum">04</div>
+      <div>
+        <h3>The bill is nine orders of magnitude, and it is mostly the loading</h3>
+        <p>One inner product to &plusmn;0.001 needs 750,000 shots, because the estimator's error falls as 1/&radic;S - each decimal place costs a hundredfold more runs, and every run re-loads both vectors from scratch, since measurement destroys them. Of the 550 two-qubit gates in one shot, <strong class="mono">494</strong> are state preparation and <strong class="mono">56</strong> are the swap test everyone quotes.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <div class="fnum">05</div>
+      <div>
+        <h3>On today's hardware it does not run at all</h3>
+        <p>At the median two-qubit error rate of a current superconducting processor, this circuit accumulates <strong class="mono">1.57</strong> expected two-qubit errors <em>per shot</em>. Not per experiment - per single repetition, of which it needs 750,000. The honest verdict is not that quantum vector search is slow. It is that without full error correction, it does not produce an answer.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="phase-rule thin">
+
+  <section class="col">
+    <p class="kicker">Evidence &middot; retrieval</p>
+    <h2>Nearest-neighbour retrieval on 20 Newsgroups</h2>
+    <p>Each of 700 held-out documents is a query; a hit is a retrieved document from the same newsgroup. PCA is fitted on a disjoint 700-document training split, so the projection never sees what it is scored on. The challenger gets its hyperparameter tuned; the baselines have none.</p>
+  </section>
+
+  <figure class="col" style="max-width:none">
+    <div class="panel">
+      <div class="legend" id="legend"></div>
+      <div class="scroller"><svg id="chart" width="1020" height="380" role="img" aria-label="Precision at 10 against register width for four retrieval methods"></svg></div>
+    </div>
+    <figcaption>The orange line is drawn once because two of the four systems are the same line: classical cosine<sup>2</sup> and the quantum swap test agree to every digit at every width. The dashed rule is the full 384-dimension embedding, the ceiling any projection is working against.</figcaption>
+  </figure>
+
+  <figure class="col">
+    <div class="panel scroller">
+      <table>
+        <thead><tr><th>Width</th><th>Cosine</th><th>Cosine&sup2; &equiv; swap test</th><th>+ IQP phase</th><th>Tuned scale</th><th>Neg. pairs</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <figcaption>The same data as the chart, in full precision. Cosine&sup2; and the quantum swap test share a column because no measurement distinguished them.</figcaption>
+  </figure>
+
+  <hr class="phase-rule thin">
+
+  <section class="col">
+    <p class="kicker">Evidence &middot; cost</p>
+    <h2>What one similarity costs</h2>
+    <p>Between two 256-dimensional vectors, to three decimal places. The quantum side is derived from gate counts measured by transpiling the real circuit to a superconducting basis, priced at a published gate duration. The classical side is wall-clock on the same desk.</p>
+  </section>
+
+  <figure class="col" style="max-width:none">
+    <div class="stats">
+      <div class="stat"><div class="k">Quantum</div><div class="v crit num">79.5 s</div><div class="n">750,000 shots at 68&nbsp;ns/gate</div></div>
+      <div class="stat"><div class="k">Classical</div><div class="v good num">39 ns</div><div class="n">measured, numpy on CPU</div></div>
+      <div class="stat"><div class="k">Ratio</div><div class="v num">2.1&times;10<sup>9</sup></div><div class="n">for an identical number</div></div>
+      <div class="stat"><div class="k">Errors per shot</div><div class="v crit num">1.57</div><div class="n">expected 2-qubit faults</div></div>
+    </div>
+  </figure>
+
+  <figure class="col" style="max-width:none">
+    <div class="panel">
+      <div class="legend" id="legend2"></div>
+      <div class="scroller"><svg id="chart2" width="1020" height="330" role="img" aria-label="Two-qubit gate count for state preparation against vector dimension"></svg></div>
+    </div>
+    <figcaption>State preparation doubles with every qubit added - 11, 26, 57, 120, 247, 502 two-qubit gates for 16 through 512 dimensions - while the swap test it enables grows linearly and stays near the axis. The exponential bar is the part the optimistic framing leaves out.</figcaption>
+  </figure>
+
+  <hr class="phase-rule thin">
+
+  <section class="col">
+    <p class="kicker">The steelman</p>
+    <h2>Which of these costs could actually go away</h2>
+    <p>A debunk that stops here is not useful. The three costs behave completely differently under progress, and only one of them is truly load-bearing.</p>
+    <ul class="clean">
+      <li><strong>State preparation</strong> is the real barrier, and it is not an engineering detail. It only disappears if quantum RAM is invented, or if the data is <em>generated</em> by a quantum process rather than loaded from a disk. That second clause is the genuinely interesting frontier: quantum machines are not promising for data you already have, they are promising for data that is natively quantum - molecules, materials, lattice models.</li>
+      <li><strong>Shot noise</strong> is the Born rule, not a defect. Amplitude estimation improves it quadratically, from 1/&epsilon;<sup>2</sup> to 1/&epsilon;, which would turn 750,000 shots into roughly 1,000 - but it needs deep coherent circuits, so it trades a sampling cost for an error-correction cost.</li>
+      <li><strong>The refrigerator</strong> is the one that genuinely amortises. Twenty-five to fifty kilowatts sounds fatal, and for one inner product it is. But that draw is roughly <em>fixed as qubit count scales</em>, which is the real reason anyone believes this wins eventually. It is a floor, not a marginal cost.</li>
+    </ul>
+    <p>So the honest summary is narrow and worth stating precisely: quantum computing will not take vector search away from datacentres, because the loading dominates and the measurement is lossier than the arithmetic it replaces. The energy argument that actually threatens the datacentre is a different one - thermodynamic sampling, where generation is treated as a physical process rather than a computation. That is not quantum, and it is a separate investigation.</p>
+  </section>
+
+  <section class="col">
+    <p class="kicker">Reproduce it</p>
+    <h2>Method</h2>
+    <p>Embeddings from <span class="mono">all-MiniLM-L6-v2</span> (384-d). Amplitude encoding via PCA to 2<sup>n</sup> dimensions, fitted on the training split only. Gate counts from Qiskit's own <span class="mono">StatePreparation</span>, transpiled at optimisation level 3 to an <span class="mono">rz / sx / x / cx</span> basis. Shot-count scaling derived from binomial variance and confirmed empirically by sampling the circuit on Aer.</p>
+    <pre>cd server
+python verify.py 12           # gate and circuit physics
+python verify_semantic.py 8   # the kernel identity
+python shotnoise.py           # 1/sqrt(S) measured, not assumed
+python benchmark.py           # the retrieval table above</pre>
+    <p><strong>Cited, not measured:</strong> two-qubit gate duration 68&nbsp;ns and median two-qubit error 2.848&times;10<sup>-3</sup> for IBM Heron R2 (arXiv:2410.00916); dilution refrigerator draw 25-50&nbsp;kW continuous. Everything else on this page came off one desktop with two consumer GPUs and is regenerated by the commands above.</p>
+    <p><strong>Limits worth naming.</strong> One corpus, one embedding model, one phase-map family. A different feature map might do better than the IQP form tested here - the result that generalises is finding 01, the kernel identity, which is algebraic and holds regardless of encoding. The cost figures assume serial gate execution and no error correction; both would change under a fault-tolerant architecture, in opposite directions.</p>
+  </section>
+
+  <footer class="col">
+    <p>COLLAPSE - an amplitude-field renderer and a measurement of the quantum retrieval claim. Built and measured September 2026.</p>
+  </footer>
+</div>
+
+<div class="tip" id="tip"></div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---- data, exactly as benchmark_results.json reports it --------------------
+  var ROWS = [
+    { dim: 16,  cosine: 0.8896, sq: 0.8726, iqp: 0.8740, scale: 0.10, neg: 0.512 },
+    { dim: 32,  cosine: 0.8900, sq: 0.8793, iqp: 0.8797, scale: 0.05, neg: 0.475 },
+    { dim: 64,  cosine: 0.8886, sq: 0.8841, iqp: 0.8851, scale: 0.05, neg: 0.424 },
+    { dim: 128, cosine: 0.8843, sq: 0.8821, iqp: 0.8824, scale: 0.05, neg: 0.389 },
+    { dim: 256, cosine: 0.8810, sq: 0.8791, iqp: 0.8790, scale: 0.05, neg: 0.359 },
+    { dim: 512, cosine: 0.8799, sq: 0.8784, iqp: 0.8771, scale: 0.05, neg: 0.350 }
+  ];
+  var CEILING = 0.8799;
+  var PREP = [
+    { dim: 16, prep: 11, swap: 28 }, { dim: 32, prep: 26, swap: 35 },
+    { dim: 64, prep: 57, swap: 42 }, { dim: 128, prep: 120, swap: 49 },
+    { dim: 256, prep: 247, swap: 56 }, { dim: 512, prep: 502, swap: 63 }
+  ];
+
+  var SVGNS = "http://www.w3.org/2000/svg";
+  function el(tag, attrs) {
+    var e = document.createElementNS(SVGNS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  var tip = document.getElementById("tip");
+  function showTip(evt, text) {
+    tip.textContent = text;
+    tip.style.opacity = "1";
+    tip.style.left = Math.min(evt.clientX + 14, innerWidth - 190) + "px";
+    tip.style.top = (evt.clientY - 42) + "px";
+  }
+  function hideTip() { tip.style.opacity = "0"; }
+
+  // ---- chart 1: precision@10 -------------------------------------------------
+  function drawRetrieval() {
+    var svg = document.getElementById("chart");
+    svg.innerHTML = "";
+    var W = 1020, H = 380, L = 66, R = 208, T = 26, B = 52;
+    var lo = 0.870, hi = 0.892;
+    var x = function (i) { return L + i * (W - L - R) / (ROWS.length - 1); };
+    var y = function (v) { return T + (hi - v) / (hi - lo) * (H - T - B); };
+
+    for (var g = lo; g <= hi + 1e-9; g += 0.005) {
+      svg.appendChild(el("line", { x1: L, x2: W - R, y1: y(g), y2: y(g), "class": "grid" }));
+      var lab = el("text", { x: L - 12, y: y(g) + 4, "text-anchor": "end",
+        "class": "tick", "font-size": 11 });
+      lab.textContent = g.toFixed(3);
+      svg.appendChild(lab);
+    }
+
+    svg.appendChild(el("line", { x1: L, x2: W - R, y1: y(CEILING), y2: y(CEILING), "class": "ceil" }));
+    var ct = el("text", { x: L + 8, y: y(CEILING) - 9, "class": "tick", "font-size": 11.5 });
+    ct.textContent = "full 384-d ceiling = 0.8799";
+    svg.appendChild(ct);
+
+    ROWS.forEach(function (r, i) {
+      var t = el("text", { x: x(i), y: H - 18, "text-anchor": "middle",
+        "class": "tick", "font-size": 11.5 });
+      t.textContent = r.dim;
+      svg.appendChild(t);
+    });
+    var ax = el("text", { x: (L + W - R) / 2, y: H - 2, "text-anchor": "middle",
+      "class": "tick", "font-size": 11 });
+    ax.textContent = "PROJECTED DIMENSION";
+    svg.appendChild(ax);
+
+    var series = [
+      { key: "cosine", label: "cosine", cls: "s1" },
+      { key: "sq", label: "cosine\u00b2 \u2261 swap test", cls: "s2" },
+      { key: "iqp", label: "+ IQP phase", cls: "s3" }
+    ];
+
+    series.forEach(function (s) {
+      var d = ROWS.map(function (r, i) { return (i ? "L" : "M") + x(i) + " " + y(r[s.key]); }).join(" ");
+      svg.appendChild(el("path", { d: d, "class": "line " + s.cls }));
+
+      ROWS.forEach(function (r, i) {
+        // 2px surface ring keeps overlapping marks separable
+        svg.appendChild(el("circle", { cx: x(i), cy: y(r[s.key]), r: 4.6,
+          "class": "dot " + s.cls }));
+        var hit = el("circle", { cx: x(i), cy: y(r[s.key]), r: 15, "class": "hit" });
+        hit.addEventListener("mousemove", function (e) {
+          showTip(e, s.label + "\n" + r.dim + "-d   P@10 " + r[s.key].toFixed(4));
+        });
+        hit.addEventListener("mouseleave", hideTip);
+        svg.appendChild(hit);
+      });
+
+      // direct label at the line end - identity is never colour alone
+      var last = ROWS.length - 1;
+      var dl = el("text", { x: x(last) + 13, y: y(ROWS[last][s.key]) + 4,
+        "class": "lab " + s.cls, "font-size": 12.5 });
+      dl.textContent = s.label;
+      svg.appendChild(dl);
+    });
+
+    var lg = document.getElementById("legend");
+    lg.innerHTML = series.map(function (s) {
+      return '<span><i class="swatch" style="background:var(--' + s.cls + ')"></i>' + s.label + "</span>";
+    }).join("");
+  }
+
+  // ---- chart 2: state preparation cost --------------------------------------
+  function drawPrep() {
+    var svg = document.getElementById("chart2");
+    svg.innerHTML = "";
+    var W = 1020, H = 330, L = 66, R = 150, T = 24, B = 52;
+    var max = 560;
+    var y = function (v) { return T + (1 - v / max) * (H - T - B); };
+    var band = (W - L - R) / PREP.length;
+    var bw = Math.min(52, band * 0.34);
+
+    for (var g = 0; g <= max; g += 100) {
+      svg.appendChild(el("line", { x1: L, x2: W - R, y1: y(g), y2: y(g), "class": "grid" }));
+      var lab = el("text", { x: L - 12, y: y(g) + 4, "text-anchor": "end",
+        "class": "tick", "font-size": 11 });
+      lab.textContent = g;
+      svg.appendChild(lab);
+    }
+
+    PREP.forEach(function (r, i) {
+      var cx = L + band * (i + 0.5);
+      // 2px surface gap between adjacent bars
+      var pairs = [
+        { v: r.prep, cls: "s2", dx: -bw - 1, name: "state preparation" },
+        { v: r.swap, cls: "s1", dx: 1, name: "swap test" }
+      ];
+      pairs.forEach(function (p) {
+        var h = Math.max(2, y(0) - y(p.v));
+        var rect = el("rect", { x: cx + p.dx, y: y(p.v), width: bw, height: h,
+          "class": "bar " + p.cls, rx: 3 });
+        rect.style.cursor = "crosshair";
+        rect.addEventListener("mousemove", function (e) {
+          showTip(e, p.name + "\n" + r.dim + "-d   " + p.v + " CX gates");
+        });
+        rect.addEventListener("mouseleave", hideTip);
+        svg.appendChild(rect);
+      });
+      var vt = el("text", { x: cx - bw / 2 - 1, y: y(r.prep) - 8, "text-anchor": "middle",
+        "class": "lab s2", "font-size": 11.5 });
+      vt.textContent = r.prep;
+      svg.appendChild(vt);
+      var xt = el("text", { x: cx, y: H - 18, "text-anchor": "middle",
+        "class": "tick", "font-size": 11.5 });
+      xt.textContent = r.dim;
+      svg.appendChild(xt);
+    });
+
+    var ax = el("text", { x: (L + W - R) / 2, y: H - 2, "text-anchor": "middle",
+      "class": "tick", "font-size": 11 });
+    ax.textContent = "VECTOR DIMENSION";
+    svg.appendChild(ax);
+
+    var note = el("text", { x: W - R + 12, y: y(502) + 4, "class": "lab s2", "font-size": 12.5 });
+    note.textContent = "state prep";
+    svg.appendChild(note);
+    var note2 = el("text", { x: W - R + 12, y: y(63) + 4, "class": "lab s1", "font-size": 12.5 });
+    note2.textContent = "swap test";
+    svg.appendChild(note2);
+
+    document.getElementById("legend2").innerHTML =
+      '<span><i class="swatch" style="background:var(--s2)"></i>state preparation</span>' +
+      '<span><i class="swatch" style="background:var(--s1)"></i>the swap test itself</span>' +
+      '<span style="color:var(--muted)">two-qubit (CX) gates per shot</span>';
+  }
+
+  function fillTable() {
+    document.getElementById("tbody").innerHTML = ROWS.map(function (r) {
+      return "<tr><td>" + r.dim + "</td><td>" + r.cosine.toFixed(4) + "</td><td>" +
+        r.sq.toFixed(4) + "</td><td>" + r.iqp.toFixed(4) + "</td><td>" +
+        r.scale.toFixed(2) + "</td><td>" + Math.round(r.neg * 100) + "%</td></tr>";
+    }).join("");
+  }
+
+  // ---- the hero plates: a real statevector, computed here --------------------
+  var NQ = 12, HX = 6, NX = 64, NY = 64, N = 1 << NQ;
+
+  function normalise(re, im) {
+    var s = 0, i;
+    for (i = 0; i < N; i++) s += re[i] * re[i] + im[i] * im[i];
+    s = Math.sqrt(s) || 1;
+    for (i = 0; i < N; i++) { re[i] /= s; im[i] /= s; }
+    return { re: re, im: im };
+  }
+
+  function productState() {
+    var re = new Float64Array(N), im = new Float64Array(N);
+    var fx = new Float64Array(NX), fp = new Float64Array(NX);
+    var gy = new Float64Array(NY), gp = new Float64Array(NY);
+    // Distinctly lobed profiles, so the outer product reads unmistakably as
+    // rows times columns. Smooth single bumps are just as separable but draw
+    // as one blob, which hides the very structure the plates are about.
+    var FC = [0.18, 0.50, 0.82], FH = [1.0, 0.72, 0.92];
+    var GC = [0.20, 0.52, 0.84], GH = [0.85, 1.0, 0.62];
+    for (var x = 0; x < NX; x++) {
+      var u = x / NX, a = 0;
+      for (var k = 0; k < 3; k++) a += FH[k] * Math.exp(-Math.pow((u - FC[k]) / 0.062, 2));
+      fx[x] = a + 0.02;
+      fp[x] = 2 * Math.PI * 2.0 * u;
+    }
+    for (var yy = 0; yy < NY; yy++) {
+      var v = yy / NY, b2 = 0;
+      for (var m = 0; m < 3; m++) b2 += GH[m] * Math.exp(-Math.pow((v - GC[m]) / 0.070, 2));
+      gy[yy] = b2 + 0.02;
+      gp[yy] = -2 * Math.PI * 1.4 * v;
+    }
+    for (var y2 = 0; y2 < NY; y2++) {
+      for (var x2 = 0; x2 < NX; x2++) {
+        var i = y2 * NX + x2, m = fx[x2] * gy[y2], ph = fp[x2] + gp[y2];
+        re[i] = m * Math.cos(ph);
+        im[i] = m * Math.sin(ph);
+      }
+    }
+    return normalise(re, im);
+  }
+
+  // Controlled-RY. Chosen over controlled-phase deliberately: a diagonal gate
+  // leaves every |amplitude| untouched, so under it the plaid could never
+  // visibly break however entangled the state became.
+  function cry(st, control, target, theta) {
+    var c = Math.cos(theta / 2), s = Math.sin(theta / 2);
+    var cb = 1 << control, tb = 1 << target;
+    for (var i = 0; i < N; i++) {
+      if ((i & cb) === 0 || (i & tb) !== 0) continue;
+      var j = i | tb;
+      var ar = st.re[i], ai = st.im[i], br = st.re[j], bi = st.im[j];
+      st.re[i] = c * ar - s * br;  st.im[i] = c * ai - s * bi;
+      st.re[j] = s * ar + c * br;  st.im[j] = s * ai + c * bi;
+    }
+  }
+
+  function paint(canvas, st) {
+    var ctx = canvas.getContext("2d");
+    var img = ctx.createImageData(NX, NY);
+    var logN = Math.log2(N), range = 1.35;
+    for (var i = 0; i < N; i++) {
+      var p = st.re[i] * st.re[i] + st.im[i] * st.im[i];
+      var inten = Math.max(0, Math.min(1, 1 + Math.log2(Math.max(p, 1e-30)) / (logN * range)));
+      var ph = Math.atan2(st.im[i], st.re[i]);
+      var g = Math.pow(inten, 1.35);
+      // same cyclic phase map as the renderer: offset cosines, wrapping at +-pi
+      var r = Math.pow(0.5 + 0.5 * Math.cos(ph), 1.6);
+      var gg = Math.pow(0.5 + 0.5 * Math.cos(ph + 2.0943951), 1.6);
+      var b = Math.pow(0.5 + 0.5 * Math.cos(ph + 4.1887902), 1.6);
+      var o = i * 4;
+      img.data[o]     = Math.min(255, (r * g * 1.9 + 0.03 * r) * 255);
+      img.data[o + 1] = Math.min(255, (gg * g * 1.9 + 0.03 * gg) * 255);
+      img.data[o + 2] = Math.min(255, (b * g * 1.9 + 0.03 * b) * 255);
+      img.data[o + 3] = 255;
+    }
+    var tmp = document.createElement("canvas");
+    tmp.width = NX; tmp.height = NY;
+    tmp.getContext("2d").putImageData(img, 0, 0);
+    ctx.imageSmoothingEnabled = false;
+    ctx.drawImage(tmp, 0, 0, canvas.width, canvas.height);
+  }
+
+  function drawPlates() {
+    var a = productState();
+    paint(document.getElementById("plateA"), a);
+    var b = productState();
+    for (var j = 0; j < HX; j++) cry(b, j, HX + j, 1.15 + 0.12 * j);
+    normalise(b.re, b.im);
+    paint(document.getElementById("plateB"), b);
+  }
+
+  function render() { drawRetrieval(); drawPrep(); drawPlates(); }
+  fillTable();
+  render();
+  if (window.matchMedia) {
+    var mq = window.matchMedia("(prefers-color-scheme: dark)");
+    if (mq.addEventListener) mq.addEventListener("change", render);
+  }
+})();
+</script>
+</body>
+</html>
