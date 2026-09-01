@@ -221,8 +221,9 @@
   <header class="hero col">
     <p class="eyebrow">Measurement report &middot; COLLAPSE &middot; September 2026</p>
     <h1>The swap test is cosine</h1>
-    <p class="lede">I built a quantum semantic search engine to find out whether quantum computing could take work away from datacentres. It can compute the similarity between two sentences. It computes exactly the number numpy computes, about two billion times more slowly, on a circuit that cannot finish a single shot.</p>
-    <p class="verdict">Every number on this page was measured on one desktop machine, or is cited to a source. Nothing is asserted from memory. The code that produces all of it is in the repository.</p>
+    <p class="lede">Some claims are repeated widely enough that nobody thinks to check them. Quantum computing making vector search obsolete is one of those. It is also, unusually, a claim that can be settled by measurement rather than argument.</p>
+    <p class="lede">A quantum machine can compare two documents. What it returns is exactly what an ordinary dot product returns, around two billion times more slowly, on a circuit that cannot complete a single run.</p>
+    <p class="verdict">Every number on this page was measured directly or is cited to its source. Nothing is asserted from memory, and every figure can be regenerated from the code that produced it.</p>
   </header>
 
   <hr class="phase-rule">
@@ -245,7 +246,7 @@
         <canvas id="plateB" width="256" height="256" aria-label="Amplitude field of an entangled state, showing broken structure"></canvas>
       </div>
     </div>
-    <figcaption>Computed in your browser, not screenshots. The left plate is a product state; the right is the same state after six controlled-RY gates that cross the split. Nothing else changed. The Schmidt rank doubles on each of those six gates - 1&nbsp;&rarr;&nbsp;2&nbsp;&rarr;&nbsp;4&nbsp;&rarr;&nbsp;8&nbsp;&rarr;&nbsp;16&nbsp;&rarr;&nbsp;32&nbsp;&rarr;&nbsp;64 - which the test suite asserts rather than eyeballs.</figcaption>
+    <figcaption>Computed live in the browser, not screenshots. The left plate is a product state; the right is the same state after six controlled-RY gates that cross the split. Nothing else changed. The Schmidt rank doubles on each of those six gates - 1&nbsp;&rarr;&nbsp;2&nbsp;&rarr;&nbsp;4&nbsp;&rarr;&nbsp;8&nbsp;&rarr;&nbsp;16&nbsp;&rarr;&nbsp;32&nbsp;&rarr;&nbsp;64 - which the test suite asserts rather than eyeballs.</figcaption>
   </figure>
 
   <hr class="phase-rule thin">
@@ -253,9 +254,9 @@
   <section class="col">
     <p class="kicker">The thesis under test</p>
     <h2>Where quantum and language actually touch</h2>
-    <p>The strong claim - that quantum machines will run language models and make datacentres redundant - fails on one fact. Loading an arbitrary <span class="mono">d</span>-dimensional vector into amplitudes costs O(<span class="mono">d</span>) gates, so the classical work is finished before the quantum part starts. There is no quantum RAM anywhere, and dense arithmetic over unstructured data is not on the list of things quantum is provably good at.</p>
-    <p>But there is one genuine point of contact, and it is worth taking seriously. The <strong>swap test</strong> computes |&lang;&psi;|&phi;&rang;|<sup>2</sup> natively - and inner products between embeddings are precisely what vector search is. Retrieval is one of the largest workloads in any datacentre. If a quantum device computed that primitive natively and cheaply, the argument would have legs.</p>
-    <p>So I built it: real sentence embeddings, real amplitude encoding, a real swap test, and a retrieval benchmark on labelled documents. Five findings, in the order they have to be taken.</p>
+    <p>The strong claim - that quantum machines will run language models and make data centres redundant - fails on one fact. Loading an arbitrary <span class="mono">d</span>-dimensional vector into amplitudes costs O(<span class="mono">d</span>) gates, so the classical work is finished before the quantum part starts. There is no quantum RAM anywhere, and dense arithmetic over unstructured data is not on the list of things quantum is provably good at.</p>
+    <p>But there is one genuine point of contact, and it is worth taking seriously. The <strong>swap test</strong> computes |&lang;&psi;|&phi;&rang;|<sup>2</sup> natively - and inner products between embeddings are precisely what vector search is. Retrieval is one of the largest workloads in any data centre. If a quantum device computed that primitive natively and cheaply, the argument would have legs.</p>
+    <p>Which makes it worth building rather than debating. Real sentence embeddings, real amplitude encoding, a real swap test, and a retrieval benchmark on labelled documents. Five findings follow, in the order they have to be taken.</p>
   </section>
 
   <section class="col">
@@ -284,7 +285,7 @@
       <div class="fnum">04</div>
       <div>
         <h3>The bill is nine orders of magnitude, and it is mostly the loading</h3>
-        <p>One inner product to &plusmn;0.001 needs 750,000 shots, because the estimator's error falls as 1/&radic;S - each decimal place costs a hundredfold more runs, and every run re-loads both vectors from scratch, since measurement destroys them. Of the 550 two-qubit gates in one shot, <strong class="mono">494</strong> are state preparation and <strong class="mono">56</strong> are the swap test everyone quotes.</p>
+        <p>One inner product to &plusmn;0.001 needs 750,000 shots, because the estimator's error falls as 1/&radic;S - each decimal place costs a hundredfold more runs, and every run re-loads both vectors from scratch, since measurement destroys them. Of the 550 two-qubit gates in one shot, <strong class="mono">494</strong> are state preparation and <strong class="mono">56</strong> are the swap test itself.</p>
       </div>
     </div>
     <div class="finding">
@@ -358,7 +359,7 @@
       <li><strong>Shot noise</strong> is the Born rule, not a defect. Amplitude estimation improves it quadratically, from 1/&epsilon;<sup>2</sup> to 1/&epsilon;, which would turn 750,000 shots into roughly 1,000 - but it needs deep coherent circuits, so it trades a sampling cost for an error-correction cost.</li>
       <li><strong>The refrigerator</strong> is the one that genuinely amortises. Twenty-five to fifty kilowatts sounds fatal, and for one inner product it is. But that draw is roughly <em>fixed as qubit count scales</em>, which is the real reason anyone believes this wins eventually. It is a floor, not a marginal cost.</li>
     </ul>
-    <p>So the honest summary is narrow and worth stating precisely: quantum computing will not take vector search away from datacentres, because the loading dominates and the measurement is lossier than the arithmetic it replaces. The energy argument that actually threatens the datacentre is a different one - thermodynamic sampling, where generation is treated as a physical process rather than a computation. That is not quantum, and it is a separate investigation.</p>
+    <p>So the honest summary is narrow and worth stating precisely: quantum computing will not take vector search away from data centres, because the loading dominates and the measurement is lossier than the arithmetic it replaces. The energy argument that actually threatens the data centre is a different one - thermodynamic sampling, where generation is treated as a physical process rather than a computation. That is not quantum, and it is a separate investigation.</p>
   </section>
 
   <section class="col">
@@ -370,7 +371,7 @@ python verify.py 12           # gate and circuit physics
 python verify_semantic.py 8   # the kernel identity
 python shotnoise.py           # 1/sqrt(S) measured, not assumed
 python benchmark.py           # the retrieval table above</pre>
-    <p><strong>Cited, not measured:</strong> two-qubit gate duration 68&nbsp;ns and median two-qubit error 2.848&times;10<sup>-3</sup> for IBM Heron R2 (arXiv:2410.00916); dilution refrigerator draw 25-50&nbsp;kW continuous. Everything else on this page came off one desktop with two consumer GPUs and is regenerated by the commands above.</p>
+    <p><strong>Cited, not measured:</strong> two-qubit gate duration 68&nbsp;ns and median two-qubit error 2.848&times;10<sup>-3</sup> for IBM Heron R2 (arXiv:2410.00916); dilution refrigerator draw 25-50&nbsp;kW continuous. Everything else was measured directly on commodity hardware and is regenerated by the commands above.</p>
     <p><strong>Limits worth naming.</strong> One corpus, one embedding model, one phase-map family. A different feature map might do better than the IQP form tested here - the result that generalises is finding 01, the kernel identity, which is algebraic and holds regardless of encoding. The cost figures assume serial gate execution and no error correction; both would change under a fault-tolerant architecture, in opposite directions.</p>
   </section>
 
