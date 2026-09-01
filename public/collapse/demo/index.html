@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>COLLAPSE — the Interference Engine</title>
+    <style>
+      :root {
+        --ink: #0a0d12;
+        --line: #1d2735;
+        --dim: #5d6f86;
+        --text: #c6d4e6;
+        --hot: #22e0c8;
+        --warn: #ff6b5e;
+        --ent: #ff3ea5;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; height: 100%; background: var(--ink); overflow: hidden; }
+      body {
+        font: 12px/1.5 ui-monospace, "Cascadia Mono", "JetBrains Mono", Consolas, monospace;
+        color: var(--text);
+      }
+      canvas { display: block; }
+
+      .panel {
+        position: fixed;
+        background: rgba(10, 13, 18, 0.82);
+        border: 1px solid var(--line);
+        padding: 12px 14px;
+        backdrop-filter: blur(6px);
+      }
+      #left  { top: 16px; left: 16px; width: 288px; max-height: calc(100vh - 90px); overflow-y: auto; }
+      #right { top: 16px; right: 16px; width: 268px; max-height: calc(100vh - 90px); overflow-y: auto; }
+      #foot  { bottom: 16px; left: 16px; right: 16px; display: flex; gap: 18px; align-items: baseline; }
+
+      h1 {
+        margin: 0 0 2px; font-size: 15px; letter-spacing: 3px; font-weight: 600; color: #fff;
+      }
+      .sub { color: var(--dim); margin-bottom: 12px; font-size: 11px; letter-spacing: .4px; }
+
+      .row { display: flex; justify-content: space-between; gap: 10px; padding: 2px 0; }
+      .row span:first-child { color: var(--dim); }
+      .row span:last-child { color: var(--text); text-align: right; }
+      .row .bad { color: var(--warn); }
+
+      hr { border: 0; border-top: 1px solid var(--line); margin: 10px 0; }
+
+      .label { color: var(--dim); font-size: 10px; letter-spacing: 1.4px; margin-bottom: 4px; }
+
+      #schmidtWrap { height: 5px; background: #131b26; margin: 7px 0 5px; }
+      #schmidtBar { height: 100%; width: 0; background: var(--ent); transition: width .18s ease; }
+
+      .verdict { font-size: 15px; letter-spacing: 2.5px; font-weight: 600; }
+      .verdict.sep { color: var(--hot); }
+      .verdict.ent { color: var(--ent); }
+
+      #gate {
+        color: #fff; font-size: 12.5px; min-height: 34px;
+      }
+      #status { color: var(--dim); }
+
+      select, input[type="range"], label { font: inherit; color: var(--text); }
+      select {
+        width: 100%; background: #121924; border: 1px solid var(--line);
+        color: var(--text); padding: 5px 6px; margin-bottom: 8px;
+      }
+      .ctl { margin-bottom: 9px; }
+      .ctl > .label { display: flex; justify-content: space-between; }
+      input[type="range"] { width: 100%; accent-color: var(--hot); }
+      .note { color: var(--dim); font-size: 10.5px; line-height: 1.55; }
+      .backlink {
+        display: block; color: var(--hot); text-decoration: none; font-size: 11px;
+        letter-spacing: .08em; margin-bottom: 9px;
+      }
+      .backlink:hover { text-decoration: underline; }
+      textarea {
+        width: 100%; background: #121924; border: 1px solid var(--line);
+        color: var(--text); font: inherit; padding: 5px 6px; margin-bottom: 7px;
+        resize: vertical;
+      }
+      button {
+        width: 100%; background: #16232f; border: 1px solid var(--hot);
+        color: var(--hot); font: inherit; letter-spacing: 1.2px; padding: 6px;
+        cursor: pointer; margin-bottom: 4px;
+      }
+      button:hover { background: var(--hot); color: #06131a; }
+      .costbar { height: 4px; background: #131b26; margin: 3px 0 2px; }
+      .costbar .fill { height: 100%; width: 0; transition: width .3s ease; }
+      .fill.prep { background: var(--warn); }
+      .fill.swap { background: var(--hot); }
+      .warnv { color: var(--warn); }
+      .okv { color: var(--hot); }
+      b { color: var(--hot); font-weight: 600; }
+      .ent-t { color: var(--ent); }
+    </style>
+    <script type="module" crossorigin src="/collapse/demo/assets/index-DsQY3K9v.js"></script>
+  </head>
+  <body>
+    <div id="left" class="panel">
+      <h1>COLLAPSE</h1>
+      <div class="sub">the interference engine</div>
+
+      <div class="label">CIRCUIT</div>
+      <select id="pick">
+        <option value="entangle">entangle — watch separability die</option>
+        <option value="ghz">ghz — collapse to two spikes</option>
+        <option value="qft">qft — period finding (Shor's engine)</option>
+        <option value="grover">grover — rise, peak, over-rotate</option>
+        <option value="semantic">semantic — two sentences interfering</option>
+      </select>
+
+      <div id="semanticCtl" hidden>
+        <div class="label">SENTENCE A</div>
+        <select id="textA"></select>
+        <div class="label">SENTENCE B</div>
+        <select id="textB"></select>
+        <button id="encode">ENCODE &amp; INTERFERE</button>
+        <div class="note" style="margin-top:6px">
+          8 qubits: the embedding is 384-dimensional and 256 is the largest power of two
+          below it. Sentences are a fixed set because the encoder cannot run in a browser.
+        </div>
+      </div>
+
+      <div class="ctl">
+        <div class="label"><span>QUBITS</span><span id="qLabel">12</span></div>
+        <input id="qubits" type="range" min="8" max="18" step="2" value="12" />
+      </div>
+      <div class="ctl">
+        <div class="label"><span>HEIGHT</span><span id="hLabel">26</span></div>
+        <input id="height" type="range" min="4" max="80" step="1" value="26" />
+      </div>
+      <div class="ctl">
+        <div class="label"><span>HEIGHT CURVE</span><span id="cLabel">1.00</span></div>
+        <input id="curve" type="range" min="0.2" max="2.0" step="0.01" value="1.00" />
+      </div>
+      <div class="ctl">
+        <div class="label"><span>GLOW FALLOFF</span><span id="gLabel">1.60</span></div>
+        <input id="glow" type="range" min="0.4" max="5" step="0.05" value="1.60" />
+      </div>
+      <div class="ctl">
+        <div class="label"><span>DYNAMIC RANGE</span><span id="rLabel">1.40</span></div>
+        <input id="range" type="range" min="0.5" max="3" step="0.05" value="1.40" />
+      </div>
+      <div class="ctl">
+        <label><input id="gray" type="checkbox" /> Gray-code ordering</label>
+      </div>
+
+      <hr />
+      <a class="backlink" href="https://automadynamics.com/collapse">&larr; the measurement report</a>
+      <div class="note">
+        Height is <b>|amplitude|</b>, hue is <b>phase</b>. The low half of the register
+        indexes <b>x</b>, the high half indexes <b>y</b> — so a state that factorises
+        across that cut is an outer product and renders as a <b>plaid</b>.
+        <span class="ent-t">Entanglement is the moment the plaid stops being a
+        product of a row and a column.</span>
+      </div>
+    </div>
+
+    <div id="right" class="panel">
+      <div class="label">SEPARABILITY ACROSS THE CUT</div>
+      <div id="sep" class="verdict sep">SEPARABLE</div>
+      <div id="schmidtWrap"><div id="schmidtBar"></div></div>
+      <div class="row"><span>schmidt rank</span><span><b id="schmidt">1</b> / <span id="schmidtMax">128</span></span></div>
+
+      <hr />
+      <div class="label">STATE</div>
+      <div class="row"><span>circuit</span><span id="circuit">—</span></div>
+      <div class="row"><span>qubits</span><span id="qubitsOut">14</span></div>
+      <div class="row"><span>amplitudes</span><span id="amps">—</span></div>
+      <div class="row"><span>statevector</span><span id="mem">—</span></div>
+      <div class="row"><span>field</span><span id="grid">—</span></div>
+      <div class="row" style="display:block"><span>render cut</span>
+        <div id="cut" style="color:var(--text);text-align:left;margin-top:2px">—</div></div>
+      <div class="row"><span>max prob</span><span id="maxp">—</span></div>
+      <div class="row"><span>occupied (IPR)</span><span id="ipr">—</span></div>
+
+      <hr />
+      <div id="semanticOut" hidden>
+        <div class="label">SEMANTIC OVERLAP</div>
+        <div class="row"><span>quantum kernel |&lt;A|B&gt;|²</span><span id="kern">—</span></div>
+        <div class="row"><span>classical cosine²</span><span id="cosq">—</span></div>
+        <div class="note" id="kernNote"></div>
+        <hr />
+      </div>
+
+      <div class="label">ACT III — WHAT IT WOULD COST</div>
+      <div class="row"><span>one inner product, ±0.001</span><span></span></div>
+      <div class="costbar"><div class="fill prep" id="barPrep"></div></div>
+      <div class="row"><span>state prep</span><span><b id="cPrep">—</b> CX</span></div>
+      <div class="costbar"><div class="fill swap" id="barSwap"></div></div>
+      <div class="row"><span>the swap test itself</span><span><b id="cSwap">—</b> CX</span></div>
+      <div class="row"><span>shots needed</span><span id="cShots">—</span></div>
+      <div class="row"><span>total 2-qubit gates</span><span id="cTotal">—</span></div>
+      <div class="row"><span>quantum, at 68 ns/gate</span><span class="warnv" id="cQ">—</span></div>
+      <div class="row"><span>classical, measured</span><span class="okv" id="cC">—</span></div>
+      <div class="row"><span>expected errors / shot</span><span class="warnv" id="cErr">—</span></div>
+      <div class="note" id="costNote"></div>
+
+      <hr />
+      <div class="label">UNITARITY CHECK</div>
+      <div class="row"><span>‖ψ‖</span><span id="norm">—</span></div>
+      <div class="note">Live, not asserted. If this ever leaves 1.0 the simulation is lying.</div>
+    </div>
+
+    <div id="foot" class="panel">
+      <div><span style="color:var(--dim)">GATE </span><span id="gate">—</span></div>
+      <div style="margin-left:auto; display:flex; gap:18px;">
+        <div><span style="color:var(--dim)">step </span><span id="stepno">—</span></div>
+        <div><span style="color:var(--dim)">fps </span><span id="fps">—</span></div>
+        <div id="status">connecting</div>
+      </div>
+    </div>
+
+  </body>
+</html>

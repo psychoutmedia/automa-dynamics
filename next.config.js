@@ -8,7 +8,10 @@ const nextConfig = {
   // This maps the clean URL onto it explicitly rather than relying on the
   // host to infer a directory index.
   async rewrites() {
-    return [{ source: '/collapse', destination: '/collapse/index.html' }]
+    return [
+      { source: '/collapse', destination: '/collapse/index.html' },
+      { source: '/collapse/demo', destination: '/collapse/demo/index.html' },
+    ]
   },
 }
 
