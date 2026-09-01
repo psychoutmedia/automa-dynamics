@@ -1,6 +1,38 @@
 import HomeHero from './_components/HomeHero'
 import { Reveal, RevealGroup, SplitText } from './_components/Reveal'
 import LatestArticles from './_components/LatestArticles'
+import { SITE_URL } from '../lib/articles'
+
+/**
+ * The homepage was the only route carrying no structured data, while /about and
+ * both article routes already do. Unlike /llms.txt, schema.org is read by
+ * crawlers that exist today, so this is the cheapest machine-readability win on
+ * the site. `sameAs` and `email` match the Organization on /about deliberately.
+ */
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Organization',
+      '@id': `${SITE_URL}/#organization`,
+      name: 'Automa Dynamics',
+      url: SITE_URL,
+      logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` },
+      description:
+        'Automa Dynamics builds Project HELIOS, an operational ontology platform and enterprise digital twin.',
+      email: 'hello@automadynamics.com',
+      sameAs: ['https://x.com/automadynamics'],
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+      name: 'Automa Dynamics',
+      url: SITE_URL,
+      inLanguage: 'en-GB',
+      publisher: { '@id': `${SITE_URL}/#organization` },
+    },
+  ],
+}
 
 const principles = [
   { verb: 'Observe', line: 'Canonical operational state, derived from source records rather than assembled by hand.' },
@@ -39,6 +71,10 @@ const capabilities = [
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <HomeHero />
 
       {/* Operating principles. Replaces the previous statistics strip, whose

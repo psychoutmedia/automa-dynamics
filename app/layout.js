@@ -28,6 +28,10 @@ export const metadata = {
     canonical: '/',
     types: {
       'application/rss+xml': [{ url: '/feed.xml', title: 'Automa Dynamics Articles' }],
+      // The one standards-based way to advertise the agent-readable surface.
+      // Nothing crawls to /llms.txt on its own; this is how a parser already
+      // reading the HTML can find it.
+      'text/markdown': [{ url: '/llms-full.txt', title: 'Automa Dynamics Full Context' }],
     },
   },
   openGraph: {

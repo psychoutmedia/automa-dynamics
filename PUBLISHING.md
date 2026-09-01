@@ -69,7 +69,9 @@ npm start                         # walk /, /articles, both new slugs, /feed.xml
 
 Confirm: both articles on the index and on the homepage, covers uncropped, read
 times sensible, the "Originally published on X" link resolves, and
-`/sitemap.xml` plus `/feed.xml` list the new pieces.
+`/sitemap.xml`, `/feed.xml`, `/llms.txt` plus `/llms-full.txt` list the new
+pieces. The two `llms` endpoints generate from frontmatter and body, so they
+need no hand editing when an article ships.
 
 The site is fully static with no external requests at build or runtime, so a
 build that passes is a site that works.
@@ -85,8 +87,14 @@ Commit and push. Vercel deploys from the repo. Deploying is Mark's step.
   On Windows `pkill` does not kill Node: use `taskkill //PID <pid> //F`.
 - **`draft: true` is the safety gate.** Draft articles are visible in
   `npm run dev` only. They are excluded from production builds, the index, the
-  sitemap, the feed, and their direct URL returns 404. Nothing half-finished can
-  ship by accident.
+  sitemap, the feed, `/llms.txt`, `/llms-full.txt`, and their direct URL returns
+  404. Nothing half-finished can ship by accident.
+- **`content/positioning.md` drifts silently.** Homepage and `/about` copy lives
+  inline in JSX and cannot be extracted, so the positioning file is a parallel
+  hand-written statement, not a derived one. If you change what the company
+  claims on either page, change it there too. Keeping it to durable claims
+  (mission, product, principles, status) rather than a transcript of the
+  marketing prose is what keeps the drift slow.
 - **X gates full Article text behind auth.** It cannot be fetched
   programmatically; only a ~200 character preview is public. The raw text has to
   be copied out by hand, which is why it is step one of the handover.
