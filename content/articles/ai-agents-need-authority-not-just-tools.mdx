@@ -1,0 +1,202 @@
+---
+title: "AI Agents Need Authority, Not Just Tools"
+number: 5
+date: 2026-09-01
+draft: false
+eyebrow: "AGENT GOVERNANCE"
+description: "Giving AI tools is becoming the easy part. The harder question is authority. What may an agent actually change, spend, approve or execute?"
+cover: "/articles/ai-agents-need-authority-not-just-tools/cover.jpg"
+coverAlt: "AI Agents Need Authority, Not Just Tools"
+---
+
+The current enterprise AI race is rapidly becoming a race to give models tools. Connect the model to email. Let it query databases. Give it access to the CRM. Allow it to create tickets, update records, run workflows, place orders and communicate with customers. Every new integration increases what the agent can do. That creates an important question that receives far less attention: who gave it permission to do it?
+
+Tool access establishes capability; it does not establish authority. As AI moves from generating information to changing operational state, that distinction may become one of the most important architectural boundaries inside the autonomous enterprise.
+
+## Capability and Authority Are Different Things
+
+Human organisations already understand this distinction. A financial analyst may have enough knowledge to recommend a $5 million acquisition without possessing the authority to approve it. A warehouse manager may know exactly how to resolve an inventory problem but still require procurement approval before placing an order. Competence does not create permission. Software has traditionally handled this through relatively simple access controls, a user can read this table, edit that record, approve this workflow or access this application.
+
+AI agents complicate the model because they can combine capabilities across systems. An agent might be able to read inventory, inspect customer commitments, identify an alternative supplier, calculate the commercial exposure, compose the purchase order and submit it through a procurement system. Technically, it has everything required to solve the problem.
+
+Organisationally, several different authorities may be involved. The right to see the information is not necessarily the right to recommend an action. The right to recommend it is not necessarily the right to approve the expenditure. Approval may still not confer the right to execute it.
+
+Those boundaries are part of how companies govern themselves; an intelligent agent should not make them disappear.
+
+## A Tool Is Not a Mandate
+
+Imagine giving an AI agent access to a procurement API. The API exposes a function: create_purchase_order(). From a software perspective, the capability is clear. From a business perspective, almost nothing has been established.
+
+Can the agent use the tool for any supplier? Can it order any component? Is there a monetary limit? Can it create an order when existing inventory is available? Does the supplier need to be approved? Can it alter an existing customer commitment to justify the purchase? Does an expedited order require different authority from a standard one? What happens if the action creates a safety, regulatory or contractual consequence?
+
+The existence of a callable function answers none of these questions. Yet agent architectures can easily collapse these concepts into a single permission, the model either has access to the tool or it does not. That is too coarse for serious operational systems. A tool describes what software can execute, authority describes the conditions under which the organisation permits execution.
+
+## Real Authority Has Scope
+
+Authority inside companies is rarely binary. A logistics manager may approve additional freight expenditure up to a particular threshold. Above that amount, the decision may move to a director. A safety critical component may require a second approval regardless of cost. The same person may have authority in one region but not another. An employee may temporarily receive additional authority while covering a colleague. A senior executive may possess broad financial authority while still being prohibited from approving their own expense claim.
+
+This means machine readable authority needs dimensions. It may depend on:
+
+- the actor;
+- the action;
+- the object being acted upon;
+- monetary value;
+- risk or classification;
+- geography;
+- time;
+- current organisational state;
+- previous actions;
+- required evidence;
+- separation of duty rules.
+
+The more consequential the agent's actions become, the less useful a simple can_execute = true permission becomes. Enterprise autonomy will require something much closer to governed delegation.
+
+## "Human in the Loop" Is Not Specific Enough
+
+One of the most common answers to concerns about autonomous agents is that a human will remain in the loop. That sounds reassuring, but it leaves most of the important questions unanswered: Which human? At what point? What are they being asked to approve? What evidence are they shown? What authority do they possess? Can the same person request and approve the action? What happens when they reject it? Can the agent change the proposal and try again? Does approval expire if the operational state changes before execution?
+
+A human clicking "Approve" is not automatically governance, the approval needs meaning. Suppose an AI recommends spending $70,000 on expedited freight because a delayed component threatens several customer commitments. The approver should not merely see a generated paragraph and two buttons. They should be able to understand the operational basis of the request, the disruption, affected inventory, production dependency, customer exposure, alternative options, projected recovery and cost. The human is not there to provide ceremonial consent. They are taking responsibility for a governed decision.
+
+## Authority Should Follow the Action, Not the Interface
+
+Traditional enterprise permissions often attach to applications: you have access to the procurement system, you are an administrator in the CRM, or you can approve transactions in the finance platform. Agents weaken those application boundaries because one agent may operate across many systems at once. That suggests authority needs to become more closely associated with actions and meaning rather than with screens.
+
+Consider a single operational objective:
+
+> Protect a customer delivery threatened by a supply disruption.
+
+An agent might achieve this by:
+
+- reallocating existing inventory;
+- changing production priority;
+- rerouting a shipment;
+- purchasing expedited freight;
+- sourcing from an alternative supplier;
+- renegotiating the customer commitment.
+
+These actions may all pursue the same objective while requiring completely different authorities. Changing an internal priority may be routine. Spending $80,000 may require director approval. Switching a safety critical supplier may require engineering sign off. Changing a contractual commitment may require commercial authority. The agent therefore needs to understand more than the goal, it needs to understand the governance attached to each possible path.
+
+## Recommendation and Execution Should Be Separate States
+
+There is a tendency to talk about AI systems as either advisory or autonomous. Real organisations will probably need something more graduated. An agent may be allowed to detect a problem automatically, analyse consequences without approval, generate several possible responses and rank them, and have authority to execute some low risk actions immediately while submitting others for review.
+
+A useful model might look conceptually like:
+
+> Observe → Analyse → Recommend → Submit → Approve → Execute
+
+Different organisations will use different stages, and not every action will require all of them. The important point is that movement through the sequence should be governed. An agent capable of generating a recommendation should not automatically inherit permission to approve its own recommendation.
+
+An agent capable of executing an approved action should not be able to alter the evidence on which approval was granted. The transitions matter as much as the capabilities.
+
+## Separation of Duties Still Matters
+
+Companies have spent decades designing controls around conflicts of interest. The person requesting a payment may not be allowed to approve it. Someone modifying sensitive configuration may require independent review. High value transactions may require two authorised people. These controls can appear inefficient when viewed purely as workflow friction, but they exist because concentrated authority creates risk.
+
+AI does not remove that principle, in some cases it makes the principle more important. Imagine an agent that identifies a supply problem, calculates the financial consequences, selects a response, approves the expenditure and executes the transaction. The entire decision chain has collapsed into one machine process.
+
+Even if the individual steps are rational, there is no independent control boundary left. Automation should remove unnecessary administrative friction, it should not accidentally remove the safeguards that make consequential actions governable.
+
+## Authority Needs to Survive Delegation
+
+Humans already delegate work constantly, a director authorises a manager, the manager delegates tasks to a team, and policies define what can be done without further escalation. AI agents introduce a new form of delegation.
+
+When someone tells an agent: "Keep our priority customers on schedule," what authority has actually been delegated?
+
+The sentence describes an objective, not a permission boundary. The agent may discover dozens of possible actions that could improve delivery performance. Some may be harmless; others could involve significant expenditure, contractual changes or operational risk. A robust system needs to translate delegation into explicit scope:
+
+- Perhaps the agent may autonomously rebook freight below $2,000.
+- Perhaps it may recommend supplier changes but never execute them.
+- Perhaps customer communications require review.
+- Perhaps inventory transfers are permitted only between approved facilities.
+- Perhaps any safety critical decision requires two humans regardless of confidence.
+
+The natural language instruction can express intent. The authority model defines how far that intent is allowed to propagate into reality.
+
+## Authority Can Expire
+
+Approval is often treated as permanent once granted. Yet operational decisions are made against a particular state of the world, and that state can change.
+
+Imagine an agent recommends expedited freight because a shipment appears to be delayed by eight days, and a director approves the additional cost. Twenty minutes later, new carrier information shows that the original shipment will arrive on time after all. Should the agent still execute the approved expenditure? The answer may be no. This means some authority should be conditional on the facts that justified it remaining materially true.
+
+Approval may need to carry:
+
+- the decision being authorised;
+- the evidence available at the time;
+- the assumptions used;
+- the permitted execution window;
+- the maximum cost or risk;
+- conditions that invalidate the approval.
+
+This turns approval from a button click into a governed operational object, which becomes increasingly important as agents operate faster than humans can continuously supervise them.
+
+## The Agent Should Know When It Has Reached Its Boundary
+
+One of the most valuable behaviours in autonomous systems may be the ability to stop. An agent should be capable of recognising:
+
+> "I understand the problem and know what action would solve it, but I do not have authority to perform that action."
+
+That is not a failure of intelligence; it is evidence of governance working correctly.
+
+The agent can package the problem, evidence, alternatives and recommendation for an authorised decision maker. If approval arrives, execution can continue. This is much safer than forcing every ambiguous situation into either full autonomy or human micromanagement.
+
+Autonomy can expand progressively, routine, reversible and low risk actions may operate within broad standing authority, while expensive, irreversible, safety critical or contract changing actions require increasingly explicit approval. The boundary becomes proportional to consequence.
+
+## Confidence Should Never Manufacture Authority
+
+This point is especially important as reasoning models improve. Suppose an agent is 99% confident that rerouting a shipment is the optimal decision. That confidence says something about the agent's assessment, it says nothing about whether the agent possesses the authority to spend the money. A model should not gain additional permissions because it sounds certain.
+
+Likewise, an organisation should be wary of designs where model confidence automatically escalates autonomy without an independent policy boundary. Authority comes from governance, confidence comes from inference. Combining the two silently creates a dangerous feedback loop: the more persuasive the model becomes, the more power it gives itself. A capable autonomous system should understand that being right and being authorised are separate states.
+
+## Every Action Should Carry Its Authority With It
+
+When an agent performs an important action, the organisation should be able to reconstruct why that action was permitted not merely why the AI thought it was a good idea, but why it was authorised. That may mean being able to establish:
+
+- what action occurred;
+- which operational state prompted it;
+- what recommendation preceded it;
+- which policy governed it;
+- who or what requested it;
+- which human or delegated authority approved it;
+- what limits applied;
+- when it happened;
+- what evidence was available;
+- what changed afterwards.
+
+This creates a chain from observation to action that survives independently of the model that participated in it. If something goes wrong later, the organisation can inspect the decision rather than reconstructing it from chat transcripts. That is the difference between an AI interaction and an operational system.
+
+## Governance Can Make Agents More Useful, Not Less
+
+It is easy to frame governance as the thing preventing AI agents from reaching their full potential. The opposite may be true, organisations will hesitate to grant meaningful autonomy to systems they cannot constrain. A company may be comfortable allowing an agent to draft emails but uncomfortable allowing it to place a purchase order. It may allow an agent to recommend a production change but refuse to let it execute one.
+
+The barrier is not necessarily model intelligence, it is organisational trust. Explicit authority creates a way through that barrier. If the system can guarantee that an agent may spend up to a defined limit, on approved categories, using approved suppliers, under observable conditions, with full evidence and automatic escalation outside those boundaries, the organisation can safely delegate more. Governance becomes an enabler of autonomy. Clear boundaries allow machines to move quickly inside them.
+
+## The Autonomous Enterprise Will Need a Constitution
+
+As agents become more capable, companies may eventually need to represent organisational authority almost as explicitly as they represent financial accounts or customer records:
+
+- Who may do what?
+- Under which conditions?
+- Against which objects?
+- With whose approval?
+- Within what limits?
+- Using what evidence?
+- For how long?
+- What requires escalation?
+- What must never be automated?
+
+These questions already have answers inside most organisations. The problem is that the answers are often scattered across policies, job descriptions, application permissions, approval workflows, regulations, contracts and institutional knowledge. Humans interpret that environment continually. Autonomous software cannot safely depend on the hope that a language model will infer the correct authority from a pile of documents. The rules governing action need to become machine readable too.
+
+## From Tool Using AI to Governed Agency
+
+Giving models tools is an important step towards useful enterprise agents, but it is not the final architecture. Tools provide reach into the operational world. Evidence tells the system what is true. Dependencies explain what may be affected. Authority determines what the agent may change.
+
+When those layers come together, autonomy becomes much more interesting. An agent can understand a problem, trace its consequences, generate a response and determine whether the action falls inside its delegated authority:
+
+- Sometimes it acts immediately.
+- Sometimes it asks.
+- Sometimes it escalates.
+- Sometimes it refuses.
+
+All four behaviours can represent intelligent operation. The future autonomous enterprise will not be defined by giving AI unlimited access to more tools. It will be defined by building systems capable of answering a harder question:
+
+> This action is possible. Who has the authority to make it real?
