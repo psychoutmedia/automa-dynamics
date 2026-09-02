@@ -37,11 +37,16 @@
         margin: 0 0 2px; font-size: 15px; letter-spacing: 3px; font-weight: 600; color: #fff;
       }
       /* The brand mark sits in the panel's top-right corner: the demo is a
-         full-bleed canvas, so a fixed site header would land on top of the HUD. */
-      .panelhead { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
-      .marklink { flex: none; line-height: 0; opacity: .85; transition: opacity 200ms; }
+         full-bleed canvas, so a fixed site header would land on top of the HUD.
+         Sized to fill that corner rather than to match the site header - this is
+         the only branding in a screenshot of the running app, so it has to be
+         legible at whatever scale the screenshot ends up. Measured: 259px of
+         content, 157px of it taken by the title block. */
+      .panelhead { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+      .panelhead > div { min-width: 0; }
+      .marklink { flex: none; line-height: 0; opacity: .9; transition: opacity 200ms; }
       .marklink:hover { opacity: 1; }
-      .marklink img { width: 30px; height: 30px; object-fit: contain; display: block; }
+      .marklink img { width: 80px; height: 80px; object-fit: contain; display: block; }
       .sub { color: var(--dim); margin-bottom: 12px; font-size: 11px; letter-spacing: .4px; }
 
       .row { display: flex; justify-content: space-between; gap: 10px; padding: 2px 0; }
