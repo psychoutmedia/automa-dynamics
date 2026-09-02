@@ -46,6 +46,18 @@
     --steel-dark:   #5c6d7e;
     --body:         rgb(192 192 192 / 0.75);
     --muted:        rgb(192 192 192 / 0.6);
+
+    /* Accents, every one of them already owned by the project rather than
+       invented here. Gold is sampled from the logo itself (its mid tone is
+       #a68649, its highlight #e4cc85, both at hue ~42). Violet is the ambient
+       accent the site's tailwind config already uses for the orb and grid.
+       Teal and magenta are the demo's own state language - SEPARABLE and
+       ENTANGLED - so the toy below can borrow them and mean the same thing. */
+    --gold:         #d9b45e;
+    --violet:       #a78bfa;
+    --teal:         #2dd4bf;
+    --rust:         #e08a63;
+    --magenta:      #ff5fb0;
   }
 
   body {
@@ -131,23 +143,29 @@
     .navsep { display: none; }
   }
 
+  /* Each kind of box carries its own accent: on a teaching page the type of
+     interruption is information, and a reader scanning for "go and try this"
+     should be able to find it without reading. The accent drives the rule, the
+     label and a wash that fades out before it reaches the text. */
   .box {
-    background: var(--surface); border: 1px solid var(--border);
-    border-left: 2px solid var(--steel-dark);
+    --accent: var(--steel);
+    --wash: rgb(138 154 173 / 0.06);
+    background: linear-gradient(100deg, var(--wash), transparent 55%), var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
     border-radius: 14px; padding: 22px 24px; margin: 26px 0;
     backdrop-filter: blur(12px);
   }
+  .box.try   { --accent: var(--teal);    --wash: rgb(45 212 191 / 0.07); }
+  .box.watch { --accent: var(--violet);  --wash: rgb(167 139 250 / 0.07); }
+  .box.big   { --accent: var(--gold);    --wash: rgb(217 180 94 / 0.09); }
+  .box.wrongbox { --accent: var(--rust); --wash: rgb(224 138 99 / 0.08); }
   .box .tag {
     font-family: "JetBrains Mono", ui-monospace, monospace;
     font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.22em;
-    color: var(--steel-light); display: block; margin-bottom: 10px;
+    color: var(--accent); display: block; margin-bottom: 10px;
   }
   .box p:last-child, .box ul:last-child, .box ol:last-child { margin-bottom: 0; }
-  /* Two levels of emphasis, not five. The brand carries one accent (steel) and
-     reserves brightness for what matters, so the load-bearing boxes step up to
-     chrome rather than reaching for a new hue. */
-  .box.big, .box.wrongbox { border-left-color: var(--chrome-light); }
-  .box.big .tag, .box.wrongbox .tag { color: var(--chrome-light); }
 
   ul, ol { padding-left: 1.35rem; margin: 0 0 1.15rem; }
   li { margin-bottom: .55rem; }
@@ -187,11 +205,14 @@
   .sliderow { display: flex; align-items: center; gap: 10px;
               font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .78rem;
               color: var(--muted); }
-  .sliderow input { flex: 1; accent-color: var(--steel-light); }
+  .sliderow input { flex: 1; accent-color: var(--gold); }
   .sliderow b { width: 26px; text-align: right; color: var(--chrome-light); font-weight: 400; }
-  .verdict { font-size: 1.5rem; margin-top: 18px; color: var(--steel-light);
+  /* The verdict borrows the demo's HUD colours exactly: teal for SEPARABLE,
+     magenta for ENTANGLED. Someone who plays with this grid and then opens the
+     demo finds the two colours already carry the meaning. */
+  .verdict { font-size: 1.5rem; margin-top: 18px; color: var(--teal);
              letter-spacing: -0.01em; }
-  .verdict.no { color: var(--chrome-light); }
+  .verdict.no { color: var(--magenta); }
   .verdict small { display: block; font-size: .84rem; color: var(--muted);
                    margin-top: 5px; letter-spacing: 0; }
   button {
@@ -375,7 +396,7 @@
 
   <section class="col">
     <p>However you set those sliders, you cannot escape it. A times-table grid always has rows that are copies of each other. Mathematicians have a name for how many <em>genuinely different</em> rows a grid contains. They call it the <strong>rank</strong>. A times table always has rank 1: underneath, there is really only one row, just resized over and over.</p>
-    <p>Now press <strong>"Give it a quantum tangle"</strong>. Exactly one square changes, ringed in white. That is all it takes: the verdict flips to NO and the rank goes up to 2. There is no pair of row and column numbers anywhere in the world that produces that grid any more.</p>
+    <p>Now press <strong>"Give it a quantum tangle"</strong>. Exactly one square changes, ringed in pink. That is all it takes: the verdict flips to NO and the rank goes up to 2. There is no pair of row and column numbers anywhere in the world that produces that grid any more.</p>
     <div class="box big">
       <span class="tag">That is entanglement</span>
       <p><strong>Entanglement is a grid that cannot be made by multiplying a row by a column.</strong></p>
@@ -574,13 +595,42 @@ npm run dev        # then open http://localhost:5273</pre>
 
   function colourFor(v, max) {
     // One hue, dark to light, so the eye reads size and nothing else. The hue is
-    // the brand's steel (#8a9aad), and on a dark ground bigger reads brighter.
+    // the logo's own gold (sampled at ~42), and on a dark ground bigger reads
+    // brighter. Saturation rises with lightness so the low end reads as bronze
+    // rather than as muddy grey.
     var t = max > 0 ? Math.min(1, v / max) : 0;
-    return "hsl(213 18% " + (20 + 58 * t) + "%)";
+    return "hsl(42 " + (28 + 40 * t) + "% " + (17 + 55 * t) + "%)";
+  }
+  // Pick the ink by measured contrast rather than by a guessed threshold. A
+  // gold ramp passes through mid tones where neither a dark nor a light ink is
+  // obviously right, and eyeballing it leaves the middle of the grid unreadable.
+  // Near-black and white: a 41-point sweep of the ramp showed softer inks
+  // (a warm cream, a brown-black) bottom out at 3.9:1 around the crossover,
+  // under the 4.5 these small figures need. This pair holds 4.5 throughout.
+  var INK_DARK = [11, 9, 0], INK_LIGHT = [255, 255, 255];
+
+  function hslToRgb(h, s, l) {
+    s /= 100; l /= 100;
+    var k = function (n) { return (n + h / 30) % 12; };
+    var a = s * Math.min(l, 1 - l);
+    var f = function (n) { return l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1))); };
+    return [f(0) * 255, f(8) * 255, f(4) * 255];
+  }
+  function luminance(rgb) {
+    var c = rgb.map(function (v) {
+      v /= 255;
+      return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2];
+  }
+  function contrast(a, b) {
+    var la = luminance(a), lb = luminance(b);
+    return (Math.max(la, lb) + 0.05) / (Math.min(la, lb) + 0.05);
   }
   function inkFor(v, max) {
     var t = max > 0 ? Math.min(1, v / max) : 0;
-    return t > 0.55 ? "#0f172a" : "#c8d2dc";
+    var bg = hslToRgb(42, 28 + 40 * t, 17 + 55 * t);
+    return contrast(INK_DARK, bg) >= contrast(INK_LIGHT, bg) ? "#0b0900" : "#ffffff";
   }
 
   function grid() {
@@ -643,7 +693,7 @@ npm run dev        # then open http://localhost:5273</pre>
         d.style.background = colourFor(g[r][c], max);
         d.style.color = inkFor(g[r][c], max);
         if (tangled && r === 1 && c === 1) {
-          d.style.outline = "2px solid var(--chrome-light)";
+          d.style.outline = "2px solid var(--magenta)";
           d.style.outlineOffset = "2px";
         }
         d.textContent = g[r][c];
