@@ -36,6 +36,12 @@
       h1 {
         margin: 0 0 2px; font-size: 15px; letter-spacing: 3px; font-weight: 600; color: #fff;
       }
+      /* The brand mark sits in the panel's top-right corner: the demo is a
+         full-bleed canvas, so a fixed site header would land on top of the HUD. */
+      .panelhead { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+      .marklink { flex: none; line-height: 0; opacity: .85; transition: opacity 200ms; }
+      .marklink:hover { opacity: 1; }
+      .marklink img { width: 30px; height: 30px; object-fit: contain; display: block; }
       .sub { color: var(--dim); margin-bottom: 12px; font-size: 11px; letter-spacing: .4px; }
 
       .row { display: flex; justify-content: space-between; gap: 10px; padding: 2px 0; }
@@ -102,8 +108,15 @@
   </head>
   <body>
     <div id="left" class="panel">
-      <h1>COLLAPSE</h1>
-      <div class="sub">the interference engine</div>
+      <div class="panelhead">
+        <div>
+          <h1>COLLAPSE</h1>
+          <div class="sub">the interference engine</div>
+        </div>
+        <a class="marklink" href="https://automadynamics.com/" title="Automa Dynamics">
+          <img src="data:image/png;base64,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" alt="Automa Dynamics" width="81" height="80">
+        </a>
+      </div>
 
       <div class="label">CIRCUIT</div>
       <select id="pick">
