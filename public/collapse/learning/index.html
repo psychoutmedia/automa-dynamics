@@ -57,6 +57,12 @@
        busier without making it clearer. */
     --gold:         #d9b45e;
     --violet:       #a78bfa;
+
+    /* Not accents: quotations. The demo's HUD uses these two for SEPARABLE and
+       ENTANGLED, and Part 5 names them so a reader arriving there is not
+       surprised. They appear exactly once each, inside that sentence. */
+    --demo-sep:     #22e0c8;
+    --demo-ent:     #ff3ea5;
   }
 
   body {
@@ -411,6 +417,7 @@
     <h2>Watching it happen for real</h2>
     <p>Go back to the demo. Make sure the circuit menu says <strong>entangle</strong>, and watch the right-hand panel where it says <code>SEPARABILITY ACROSS THE CUT</code>.</p>
     <p>"Separable" is the proper word for "yes, it is a times table". And <code>schmidt rank</code> (say it "shmit") is exactly the rank you just met: how many genuinely different rows the grid has underneath.</p>
+    <p>One thing will look different. The demo says this in its own colours, <span style="color:var(--demo-sep)">teal</span> while the state is separable and <span style="color:var(--demo-ent)">pink</span> once it is entangled, rather than the gold and violet used on this page. That is on purpose. Its readout sits over a picture that is already every colour at once, so it needs colours bright enough to survive whatever is happening behind them. Instruments and articles are allowed to dress differently.</p>
     <div class="box watch">
       <span class="tag">Watch this sequence</span>
       <ol>
