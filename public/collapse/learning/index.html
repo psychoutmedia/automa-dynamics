@@ -47,16 +47,16 @@
     --body:         rgb(192 192 192 / 0.75);
     --muted:        rgb(192 192 192 / 0.6);
 
-    /* Accents, every one of them already owned by the project rather than
-       invented here. Gold is sampled from the logo itself (its mid tone is
-       #a68649, its highlight #e4cc85, both at hue ~42). Violet is the ambient
-       accent the site's tailwind config already uses for the orb and grid.
-       Teal and magenta are the demo's own state language - SEPARABLE and
-       ENTANGLED - so the toy below can borrow them and mean the same thing. */
+    /* Two accents, both already owned by the project. Gold is sampled from the
+       logo itself (its mid tone is #a68649, its highlight #e4cc85, both at hue
+       ~42). Violet is the ambient accent the site's tailwind config already uses
+       for the homepage orb and grid.
+
+       Two rather than four is the discipline: gold carries the ideas, violet
+       carries the things to go and do. A third and fourth hue made the page
+       busier without making it clearer. */
     --gold:         #d9b45e;
     --violet:       #a78bfa;
-    --teal:         #2dd4bf;
-    --magenta:      #ff5fb0;
   }
 
   body {
@@ -155,10 +155,12 @@
     border-radius: 14px; padding: 22px 24px; margin: 26px 0;
     backdrop-filter: blur(12px);
   }
-  .box.try   { --accent: var(--teal);    --wash: rgb(45 212 191 / 0.07); }
-  .box.watch { --accent: var(--violet);  --wash: rgb(167 139 250 / 0.07); }
-  .box.big   { --accent: var(--gold);    --wash: rgb(217 180 94 / 0.09); }
-  .box.wrongbox { --accent: var(--gold);  --wash: rgb(217 180 94 / 0.09); }
+  /* Violet for the boxes that ask you to go and do something, gold for the ones
+     carrying an idea. */
+  .box.try      { --accent: var(--violet); --wash: rgb(167 139 250 / 0.07); }
+  .box.watch    { --accent: var(--violet); --wash: rgb(167 139 250 / 0.07); }
+  .box.big      { --accent: var(--gold);   --wash: rgb(217 180 94 / 0.09); }
+  .box.wrongbox { --accent: var(--gold);   --wash: rgb(217 180 94 / 0.09); }
   .box .tag {
     font-family: "JetBrains Mono", ui-monospace, monospace;
     font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.22em;
@@ -206,12 +208,12 @@
               color: var(--muted); }
   .sliderow input { flex: 1; accent-color: var(--gold); }
   .sliderow b { width: 26px; text-align: right; color: var(--chrome-light); font-weight: 400; }
-  /* The verdict borrows the demo's HUD colours exactly: teal for SEPARABLE,
-     magenta for ENTANGLED. Someone who plays with this grid and then opens the
-     demo finds the two colours already carry the meaning. */
-  .verdict { font-size: 1.5rem; margin-top: 18px; color: var(--teal);
+  /* The grid's two states in the page's two accents: gold while it is still a
+     times table, violet once it is not. No red or green, because neither state
+     is a failure - one is just a fact about the other. */
+  .verdict { font-size: 1.5rem; margin-top: 18px; color: var(--gold);
              letter-spacing: -0.01em; }
-  .verdict.no { color: var(--magenta); }
+  .verdict.no { color: var(--violet); }
   .verdict small { display: block; font-size: .84rem; color: var(--muted);
                    margin-top: 5px; letter-spacing: 0; }
   button {
@@ -395,7 +397,7 @@
 
   <section class="col">
     <p>However you set those sliders, you cannot escape it. A times-table grid always has rows that are copies of each other. Mathematicians have a name for how many <em>genuinely different</em> rows a grid contains. They call it the <strong>rank</strong>. A times table always has rank 1: underneath, there is really only one row, just resized over and over.</p>
-    <p>Now press <strong>"Give it a quantum tangle"</strong>. Exactly one square changes, ringed in pink. That is all it takes: the verdict flips to NO and the rank goes up to 2. There is no pair of row and column numbers anywhere in the world that produces that grid any more.</p>
+    <p>Now press <strong>"Give it a quantum tangle"</strong>. Exactly one square changes, ringed in violet. That is all it takes: the verdict flips to NO and the rank goes up to 2. There is no pair of row and column numbers anywhere in the world that produces that grid any more.</p>
     <div class="box big">
       <span class="tag">That is entanglement</span>
       <p><strong>Entanglement is a grid that cannot be made by multiplying a row by a column.</strong></p>
@@ -692,7 +694,7 @@ npm run dev        # then open http://localhost:5273</pre>
         d.style.background = colourFor(g[r][c], max);
         d.style.color = inkFor(g[r][c], max);
         if (tangled && r === 1 && c === 1) {
-          d.style.outline = "2px solid var(--magenta)";
+          d.style.outline = "2px solid var(--violet)";
           d.style.outlineOffset = "2px";
         }
         d.textContent = g[r][c];
