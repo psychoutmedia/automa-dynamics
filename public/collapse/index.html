@@ -13,7 +13,7 @@
 <meta name="twitter:title" content="The Swap Test Is Cosine">
 <meta name="twitter:description" content="A measured test of whether quantum computing can take vector search away from data centres. The swap test turns out to be cosine similarity.">
 <link rel="icon" href="/logo.png">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..800;1,6..72,300..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
   html { -webkit-text-size-adjust: 100%; }
   body { margin: 0; }
@@ -26,181 +26,168 @@
      Source: H:\collapse\docs\findings.html
      Rebuild: python H:\collapse\scripts\sync_site_copy.py -->
 <style>
+  /* Automa Dynamics house styles. Single dark theme, deliberately: the site has
+     no light mode, so a page living on automadynamics.com commits to the same
+     ground rather than inventing a second one.
+
+     The SERIES colours are the exception and are left alone. They are a
+     validated categorical palette carrying data, not decoration, and they were
+     re-checked against this darker panel surface (#0a1020) rather than assumed
+     to still hold: all three pass lightness, chroma, CVD separation and the 3:1
+     contrast floor. */
   :root {
-    color-scheme: light;
-    --ground:   #f4f6f7;
-    --panel:    #ffffff;
-    --ink:      #10161c;
-    --ink-2:    #3a4650;
-    --muted:    #6b7780;
-    --rule:     #d8dee1;
-    --rule-2:   #e9edef;
-    --s1:       #2a78d6;
-    --s2:       #eb6834;
-    --s3:       #1baf7a;
-    --critical: #b3261e;
-    --shadow:   0 1px 2px rgba(16,22,28,.05), 0 8px 24px rgba(16,22,28,.05);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      color-scheme: dark;
-      --ground:   #0e1417;
-      --panel:    #141c21;
-      --ink:      #e8edef;
-      --ink-2:    #b6c1c7;
-      --muted:    #8a979e;
-      --rule:     #26323a;
-      --rule-2:   #1c262c;
-      --s1:       #3987e5;
-      --s2:       #d95926;
-      --s3:       #199e70;
-      --critical: #e66767;
-      --shadow:   0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
-    }
-  }
-  :root[data-theme="dark"] {
     color-scheme: dark;
-    --ground:   #0e1417;
-    --panel:    #141c21;
-    --ink:      #e8edef;
-    --ink-2:    #b6c1c7;
-    --muted:    #8a979e;
-    --rule:     #26323a;
-    --rule-2:   #1c262c;
-    --s1:       #3987e5;
-    --s2:       #d95926;
-    --s3:       #199e70;
-    --critical: #e66767;
-    --shadow:   0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    --bg:           #020617;   /* wayland-950 */
+    --panel:        #0a1020;   /* wayland-900/50 over the ground, resolved solid
+                                  so the marks' surface rings composite cleanly */
+    --border:       rgb(255 255 255 / 0.1);
+    --rule:         rgb(255 255 255 / 0.1);
+    --rule-2:       rgb(255 255 255 / 0.08);
+    --chrome-light: #e8e8e8;
+    --chrome:       #c0c0c0;
+    --steel-light:  #b8c5d6;
+    --steel:        #8a9aad;
+    --steel-dark:   #5c6d7e;
+    --ink:          #e8e8e8;
+    --ink-2:        rgb(192 192 192 / 0.85);
+    --muted:        rgb(192 192 192 / 0.6);
+    --s1:           #3987e5;
+    --s2:           #d95926;
+    --s3:           #199e70;
+    --critical:     #e66767;
   }
 
   body {
-    background: var(--ground);
-    color: var(--ink);
-    font-family: Newsreader, Georgia, "Times New Roman", serif;
-    font-size: 18px;
-    line-height: 1.62;
+    background: var(--bg);
+    color: rgb(192 192 192 / 0.75);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px 100px; }
-  .col  { max-width: 660px; margin-inline: auto; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px 110px; }
+  .col  { max-width: 40rem; margin-inline: auto; }
 
-  /* The page's one bold move: the renderer's cyclic phase ramp as a rule.
-     Hue IS the subject here - it is how phase is drawn - so the divider
-     carries meaning rather than decorating. */
+  /* Two-colour gradient on the brand's own metals: steel into chrome. */
   .phase-rule {
-    height: 3px; border: 0; margin: 0;
-    background: linear-gradient(90deg,
-      #e8514f 0%, #d99a1e 14%, #9fbb22 28%, #35bd68 42%,
-      #21b7b0 57%, #3d8ee0 71%, #8a6fd8 85%, #e8514f 100%);
+    height: 1px; border: 0; margin: 0;
+    background: linear-gradient(90deg, var(--steel-dark), var(--chrome-light));
   }
-  .phase-rule.thin { height: 2px; opacity: .55; }
+  .phase-rule.thin { opacity: .5; }
 
-  h1, h2, h3 { text-wrap: balance; font-weight: 700; letter-spacing: -0.018em; }
-  h1 { font-size: clamp(2.6rem, 6.4vw, 4.1rem); line-height: 1.02; margin: 0 0 .5rem; }
-  h2 { font-size: clamp(1.5rem, 3vw, 1.95rem); line-height: 1.16; margin: 0 0 .2rem; }
-  h3 { font-size: 1.16rem; margin: 0 0 .35rem; }
-  p  { margin: 0 0 1.05rem; }
-  a  { color: var(--s1); text-underline-offset: 3px; }
+  h1, h2, h3 { color: var(--chrome-light); font-weight: 400; text-wrap: balance; }
+  h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); letter-spacing: -0.03em; line-height: 1.06; margin: 0 0 18px; }
+  h2 { font-size: clamp(1.75rem, 4vw, 3rem);  letter-spacing: -0.02em; line-height: 1.12; margin: 0 0 12px; }
+  h3 { font-size: 1.22rem; letter-spacing: -0.01em; font-weight: 500; margin: 0 0 8px; }
+  p  { margin: 0 0 1.15rem; }
+  a  { color: var(--steel-light); text-decoration-color: rgb(138 154 173 / 0.4);
+       text-underline-offset: 3px; transition: color 200ms; }
+  a:hover { color: var(--chrome-light); }
+  strong { color: var(--chrome-light); font-weight: 500; }
+  em { color: var(--chrome); }
 
   .eyebrow {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: .70rem; letter-spacing: .19em; text-transform: uppercase;
-    color: var(--muted); margin: 0 0 1.1rem;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.6875rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgb(192 192 192 / 0.65); margin: 0 0 1.2rem;
   }
-  .lede { font-size: 1.3rem; line-height: 1.5; color: var(--ink-2); }
-  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+  .lede {
+    font-size: clamp(1.25rem, 2.4vw, 1.75rem); line-height: 1.28;
+    color: var(--chrome-light); letter-spacing: -0.01em;
+  }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
   .num  { font-variant-numeric: tabular-nums; }
-  strong { font-weight: 700; }
 
-  header.hero { padding: 84px 0 40px; }
+  header.hero { padding: 150px 0 34px; }
   .verdict {
-    font-size: 1.42rem; line-height: 1.42; color: var(--ink);
-    border-left: 3px solid var(--s2); padding-left: 20px; margin: 30px 0 0;
+    font-size: 1.2rem; line-height: 1.45; color: var(--chrome-light);
+    border-left: 2px solid var(--steel-dark); padding-left: 22px; margin: 32px 0 0;
   }
 
-  section { padding: 46px 0 0; }
+  section { padding: 54px 0 0; }
   .kicker {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: .70rem; letter-spacing: .19em; text-transform: uppercase;
-    color: var(--s2); margin: 0 0 .7rem;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.6875rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: rgb(192 192 192 / 0.65); margin: 0 0 .8rem;
   }
 
   /* Findings are numbered because they are a chain of reasoning, not a list:
      each one only matters if the previous one holds. */
-  .finding { display: grid; grid-template-columns: 46px 1fr; gap: 22px; padding: 30px 0; border-top: 1px solid var(--rule-2); }
+  .finding { display: grid; grid-template-columns: 46px 1fr; gap: 22px; padding: 32px 0; border-top: 1px solid var(--rule-2); }
   .finding:first-of-type { border-top: 0; }
   .fnum {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: .95rem; font-weight: 600; color: var(--s2);
-    padding-top: .28rem; font-variant-numeric: tabular-nums;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: .9rem; font-weight: 400; color: var(--steel);
+    padding-top: .34rem; font-variant-numeric: tabular-nums;
   }
   .finding p:last-child { margin-bottom: 0; }
 
   figure { margin: 36px 0; }
-  figcaption { font-size: .88rem; color: var(--muted); margin-top: 12px; line-height: 1.5; }
+  figcaption { font-size: .88rem; color: var(--muted); margin-top: 14px; line-height: 1.55; }
   .panel {
-    background: var(--panel); border: 1px solid var(--rule);
-    border-radius: 3px; padding: 22px; box-shadow: var(--shadow);
+    background: rgb(15 23 42 / 0.5); border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px; backdrop-filter: blur(12px);
   }
   .scroller { overflow-x: auto; }
 
   .plates { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .plate-label {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
-    display: flex; justify-content: space-between; margin-bottom: 8px; color: var(--muted);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.6875rem; letter-spacing: 0.2em; text-transform: uppercase;
+    display: flex; justify-content: space-between; margin-bottom: 10px; color: var(--muted);
   }
-  .plate-label b { color: var(--ink); font-weight: 600; }
-  canvas { width: 100%; height: auto; display: block; border-radius: 2px; background: #05070a; }
+  .plate-label b { color: var(--chrome-light); font-weight: 400; }
+  canvas { width: 100%; height: auto; display: block; border-radius: 8px; background: #05070a; }
 
-  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); border-radius: 3px; overflow: hidden; }
-  .stat { background: var(--panel); padding: 18px 20px; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(158px, 1fr)); gap: 1px;
+           background: var(--border); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+  .stat { background: rgb(15 23 42 / 0.5); padding: 20px 22px; }
   .stat .k {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: .66rem; letter-spacing: .15em; text-transform: uppercase; color: var(--muted);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 0.6875rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
   }
   .stat .v {
-    font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 1.62rem; font-weight: 600; margin-top: 7px; font-variant-numeric: tabular-nums;
-    letter-spacing: -.02em;
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 1.6rem; font-weight: 400; margin-top: 9px; font-variant-numeric: tabular-nums;
+    letter-spacing: -.02em; color: var(--chrome-light);
   }
-  .stat .n { font-size: .8rem; color: var(--muted); margin-top: 3px; font-family: Newsreader, serif; }
+  .stat .n { font-size: .82rem; color: var(--muted); margin-top: 5px; }
   .v.crit { color: var(--critical); }
   .v.good { color: var(--s3); }
+  .dot   { stroke: var(--panel); stroke-width: 2; }
 
-  table { border-collapse: collapse; width: 100%; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .82rem; font-variant-numeric: tabular-nums; }
-  th, td { padding: 8px 12px; text-align: right; border-bottom: 1px solid var(--rule-2); white-space: nowrap; }
+  table { border-collapse: collapse; width: 100%; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .8rem; font-variant-numeric: tabular-nums; color: var(--chrome-light); }
+  th, td { padding: 10px 12px; text-align: right; border-bottom: 1px solid var(--rule-2); white-space: nowrap; }
   th:first-child, td:first-child { text-align: left; }
-  thead th { color: var(--muted); font-weight: 500; letter-spacing: .06em; text-transform: uppercase; font-size: .68rem; }
+  thead th { color: var(--muted); font-weight: 400; letter-spacing: .18em; text-transform: uppercase; font-size: 0.6875rem; border-bottom-color: rgb(255 255 255 / 0.15); }
   tbody tr:last-child td { border-bottom: 0; }
   .swatch { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 7px; vertical-align: baseline; }
 
-  .legend { display: flex; flex-wrap: wrap; gap: 20px; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .74rem; color: var(--ink-2); margin-bottom: 6px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 20px; font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .74rem; color: var(--muted); margin-bottom: 8px; }
   .legend span { display: flex; align-items: center; }
 
   pre {
-    font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .78rem;
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 3px;
-    padding: 16px 18px; overflow-x: auto; line-height: 1.65; color: var(--ink-2);
+    font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .8rem;
+    background: rgb(15 23 42 / 0.5); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 18px; overflow-x: auto; line-height: 1.65; color: rgb(192 192 192 / 0.85);
   }
-  code { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: .87em; }
-  .col p code, li code { background: var(--rule-2); padding: 1px 5px; border-radius: 2px; }
+  code { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: .86em; color: var(--chrome-light); }
+  .col p code, li code { background: rgb(30 41 59 / 0.6); padding: .15em .4em; border-radius: .25rem; }
 
   ul.clean { padding-left: 1.15rem; margin: 0 0 1.05rem; }
   ul.clean li { margin-bottom: .5rem; }
 
-  footer { margin-top: 70px; padding-top: 26px; border-top: 1px solid var(--rule); color: var(--muted); font-size: .88rem; }
+  footer { margin-top: 74px; padding-top: 26px; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
 
   /* Chart colours live in CSS, not in hex resolved at render time - otherwise
      a theme change after load leaves the previous theme's gridlines and series
      sitting on the new ground. */
   .grid  { stroke: var(--rule-2); stroke-width: 1; }
   .ceil  { stroke: var(--muted); stroke-width: 1.5; stroke-dasharray: 5 4; }
-  .tick  { fill: var(--muted); font-family: "IBM Plex Mono", monospace; }
+  .tick  { fill: var(--muted); font-family: "JetBrains Mono", monospace; }
   .line  { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
   .dot   { stroke: var(--panel); stroke-width: 2; }
-  .lab   { font-family: "IBM Plex Mono", monospace; font-weight: 600; }
+  .lab   { font-family: "JetBrains Mono", monospace; font-weight: 500; }
   .line.s1 { stroke: var(--s1); } .line.s2 { stroke: var(--s2); } .line.s3 { stroke: var(--s3); }
   .dot.s1  { fill: var(--s1); }   .dot.s2  { fill: var(--s2); }   .dot.s3  { fill: var(--s3); }
   .lab.s1  { fill: var(--s1); }   .lab.s2  { fill: var(--s2); }   .lab.s3  { fill: var(--s3); }
@@ -208,25 +195,87 @@
   .hit   { fill: transparent; cursor: crosshair; }
 
   .callout {
-    display: flex; flex-direction: column; gap: 5px;
-    border-left: 3px solid var(--s3); padding: 14px 0 14px 20px;
-    background: linear-gradient(90deg, color-mix(in srgb, var(--s3) 7%, transparent), transparent 70%);
+    display: flex; flex-direction: column; gap: 6px;
+    border-left: 2px solid var(--steel-dark); padding: 16px 0 16px 22px;
+    background: linear-gradient(90deg, rgb(138 154 173 / 0.07), transparent 70%);
   }
   .callout a {
-    font-weight: 700; font-size: 1.12rem; color: var(--ink);
-    text-decoration-color: var(--s3); text-decoration-thickness: 2px;
+    font-weight: 500; font-size: 1.1rem; color: var(--chrome-light);
+    text-decoration-color: var(--steel); text-decoration-thickness: 1px;
   }
-  .callout a:hover { color: var(--s3); }
+  .callout a:hover { color: var(--steel-light); }
   .callout span { color: var(--muted); font-size: .95rem; line-height: 1.5; }
+
+
+  /* Site navigation, matching app/_components/SiteHeader.js: transparent over
+     the top of the page, resolving to a blurred wayland-950 bar once scrolled
+     past 50px. Links are absolute rather than relative because these same files
+     are also published as standalone artifacts, where a root-relative /articles
+     would point at the wrong host. */
+  .sitenav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: transparent; border-bottom: 1px solid transparent;
+    transition: background 500ms, border-color 500ms, backdrop-filter 500ms;
+  }
+  .sitenav.scrolled {
+    background: rgb(2 6 23 / 0.8);
+    backdrop-filter: blur(16px);
+    border-bottom-color: rgb(255 255 255 / 0.05);
+  }
+  .navinner {
+    max-width: 80rem; margin: 0 auto; padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .wordmark {
+    font-weight: 500; font-size: 1.0625rem; letter-spacing: 0.08em;
+    color: var(--chrome-light); text-decoration: none; white-space: nowrap;
+  }
+  .wordmark:hover { color: #fff; }
+  .navlinks { display: flex; align-items: center; gap: 18px; font-size: .8rem; }
+  .navlinks a {
+    color: rgb(192 192 192 / 0.7); text-decoration: none; transition: color 200ms;
+    white-space: nowrap;
+  }
+  .navlinks a:hover { color: var(--chrome-light); }
+  .navlinks a.here { color: var(--chrome-light); }
+  .navsep { width: 1px; height: 14px; background: rgb(255 255 255 / 0.15); }
+  @media (max-width: 640px) {
+    .wordmark { font-size: .9rem; letter-spacing: .04em; }
+    .navlinks { gap: 13px; font-size: .74rem; }
+    .navsep { display: none; }
+  }
+
+  /* Per-character opacity cascade, matching the site's SplitText: the letters
+     are laid out normally and only opacity changes, so the text materialises in
+     place with no reflow and nothing sliding. */
+  .cascade > span { opacity: 0; }
+  .cascade.shown > span { opacity: 1; transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1); }
+  @media (prefers-reduced-motion: reduce) {
+    .cascade > span, .cascade.shown > span { opacity: 1 !important; transition: none !important; }
+  }
 
   .tip {
     position: fixed; pointer-events: none; opacity: 0; transition: opacity .12s;
-    background: var(--ink); color: var(--ground); font-family: "IBM Plex Mono", monospace;
-    font-size: .72rem; padding: 7px 10px; border-radius: 3px; z-index: 40; white-space: pre;
+    background: var(--chrome-light); color: #020617; font-family: "JetBrains Mono", monospace;
+    font-size: .72rem; padding: 7px 10px; border-radius: 6px; z-index: 60; white-space: pre;
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
   @media (max-width: 660px) { .plates { grid-template-columns: 1fr; } .finding { grid-template-columns: 32px 1fr; gap: 14px; } }
 </style>
+
+<nav class="sitenav" id="sitenav">
+  <div class="navinner">
+    <a class="wordmark" href="https://automadynamics.com/">AUTOMA DYNAMICS</a>
+    <div class="navlinks">
+      <a href="https://automadynamics.com/collapse" class="here">Report</a>
+      <a href="https://automadynamics.com/collapse/learning">Learning</a>
+      <a href="https://automadynamics.com/collapse/demo">Demo</a>
+      <span class="navsep"></span>
+      <a href="https://automadynamics.com/articles">Articles</a>
+      <a href="https://automadynamics.com/">Site</a>
+    </div>
+  </div>
+</nav>
 
 <div class="wrap">
 
@@ -670,13 +719,76 @@ python benchmark.py           # the retrieval table above</pre>
     paint(document.getElementById("plateB"), b);
   }
 
-  function render() { drawRetrieval(); drawPrep(); drawPlates(); }
   fillTable();
-  render();
-  if (window.matchMedia) {
-    var mq = window.matchMedia("(prefers-color-scheme: dark)");
-    if (mq.addEventListener) mq.addEventListener("change", render);
-  }
+  drawRetrieval();
+  drawPrep();
+  drawPlates();
+})();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  // Matches the site header: transparent at the top, solid once scrolled past
+  // 50px, so the bar never sits as a hard edge across the opening screen.
+  var nav = document.getElementById("sitenav");
+  if (!nav) return;
+  var onScroll = function () {
+    nav.classList.toggle("scrolled", window.scrollY > 50);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+})();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  // Reproduces the site's SplitText component without React: 0.022s per
+  // character, the whole cascade capped at 0.7s so a long heading still lands
+  // before the reader gets impatient, 0.5s per letter, fired at -25% of the
+  // viewport so each heading gets its own moment on a tall screen.
+  var STAGGER = 0.022, MAX_CASCADE = 0.7, MARGIN = "0px 0px -25% 0px";
+
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!("IntersectionObserver" in window)) return;
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("shown");
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: MARGIN, threshold: 0 });
+
+  document.querySelectorAll("h1, h2").forEach(function (h) {
+    var text = h.textContent;
+    // The spans are aria-hidden and the real string sits on aria-label, or a
+    // screen reader spells the heading out one letter at a time.
+    h.setAttribute("aria-label", text);
+    h.textContent = "";
+    h.classList.add("cascade");
+    var step = Math.min(STAGGER, MAX_CASCADE / Math.max(text.length, 1));
+    Array.prototype.forEach.call(text, function (ch, i) {
+      if (ch === " ") {
+        // Spaces stay plain text so the browser can still break lines freely.
+        h.appendChild(document.createTextNode(" "));
+        return;
+      }
+      var sp = document.createElement("span");
+      sp.setAttribute("aria-hidden", "true");
+      sp.style.transitionDelay = (i * step).toFixed(3) + "s";
+      sp.textContent = ch;
+      h.appendChild(sp);
+    });
+    var vh = window.innerHeight || 0;
+    var box = h.getBoundingClientRect();
+    // A viewport we cannot measure (a zero-size or prerendering window) must
+    // mean SHOW, never hide: the failure mode of guessing wrong here is
+    // invisible body text.
+    if (!vh || (box.top < vh && box.bottom > 0)) h.classList.add("shown");
+    else io.observe(h);
+  });
 })();
 </script>
 </body>

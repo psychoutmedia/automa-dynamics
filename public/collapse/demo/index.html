@@ -68,10 +68,15 @@
       .ctl > .label { display: flex; justify-content: space-between; }
       input[type="range"] { width: 100%; accent-color: var(--hot); }
       .note { color: var(--dim); font-size: 10.5px; line-height: 1.55; }
+      .navblock {
+        border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+        padding: 9px 0 6px; margin-bottom: 11px;
+      }
       .backlink {
         display: block; color: var(--hot); text-decoration: none; font-size: 11px;
-        letter-spacing: .08em; margin-bottom: 9px;
+        letter-spacing: .08em; margin-bottom: 5px;
       }
+      .backlink.strong { color: #fff; letter-spacing: .12em; margin-bottom: 7px; }
       .backlink:hover { text-decoration: underline; }
       textarea {
         width: 100%; background: #121924; border: 1px solid var(--line);
@@ -146,8 +151,11 @@
       </div>
 
       <hr />
-      <a class="backlink" href="https://automadynamics.com/collapse">&larr; the measurement report</a>
-      <a class="backlink" href="https://automadynamics.com/collapse/learning">&larr; how this works, from scratch</a>
+      <div class="navblock">
+        <a class="backlink strong" href="https://automadynamics.com/">&larr; AUTOMA DYNAMICS</a>
+        <a class="backlink" href="https://automadynamics.com/collapse">the measurement report</a>
+        <a class="backlink" href="https://automadynamics.com/collapse/learning">how this works, from scratch</a>
+      </div>
       <div class="note">
         Height is <b>|amplitude|</b>, hue is <b>phase</b>. The low half of the register
         indexes <b>x</b>, the high half indexes <b>y</b> — so a state that factorises

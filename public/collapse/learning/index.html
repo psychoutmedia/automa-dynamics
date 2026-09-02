@@ -70,7 +70,7 @@
   strong { color: var(--chrome-light); font-weight: 500; }
   em { color: var(--chrome); }
 
-  header.hero { padding: 96px 0 34px; }
+  header.hero { padding: 150px 0 34px; }
   .kidline {
     font-size: clamp(1.25rem, 2.4vw, 1.75rem); line-height: 1.28;
     color: var(--chrome-light); font-weight: 400; letter-spacing: -0.01em;
@@ -83,6 +83,45 @@
     font-family: "JetBrains Mono", ui-monospace, monospace;
     font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.25em;
     color: rgb(192 192 192 / 0.65); margin-bottom: 10px;
+  }
+
+
+  /* Site navigation, matching app/_components/SiteHeader.js: transparent over
+     the top of the page, resolving to a blurred wayland-950 bar once scrolled
+     past 50px. Links are absolute rather than relative because these same files
+     are also published as standalone artifacts, where a root-relative /articles
+     would point at the wrong host. */
+  .sitenav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: transparent; border-bottom: 1px solid transparent;
+    transition: background 500ms, border-color 500ms, backdrop-filter 500ms;
+  }
+  .sitenav.scrolled {
+    background: rgb(2 6 23 / 0.8);
+    backdrop-filter: blur(16px);
+    border-bottom-color: rgb(255 255 255 / 0.05);
+  }
+  .navinner {
+    max-width: 80rem; margin: 0 auto; padding: 16px 24px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .wordmark {
+    font-weight: 500; font-size: 1.0625rem; letter-spacing: 0.08em;
+    color: var(--chrome-light); text-decoration: none; white-space: nowrap;
+  }
+  .wordmark:hover { color: #fff; }
+  .navlinks { display: flex; align-items: center; gap: 18px; font-size: .8rem; }
+  .navlinks a {
+    color: rgb(192 192 192 / 0.7); text-decoration: none; transition: color 200ms;
+    white-space: nowrap;
+  }
+  .navlinks a:hover { color: var(--chrome-light); }
+  .navlinks a.here { color: var(--chrome-light); }
+  .navsep { width: 1px; height: 14px; background: rgb(255 255 255 / 0.15); }
+  @media (max-width: 640px) {
+    .wordmark { font-size: .9rem; letter-spacing: .04em; }
+    .navlinks { gap: 13px; font-size: .74rem; }
+    .navsep { display: none; }
   }
 
   .box {
@@ -198,6 +237,20 @@
     * { transition: none !important; animation: none !important; }
   }
 </style>
+
+<nav class="sitenav" id="sitenav">
+  <div class="navinner">
+    <a class="wordmark" href="https://automadynamics.com/">AUTOMA DYNAMICS</a>
+    <div class="navlinks">
+      <a href="https://automadynamics.com/collapse">Report</a>
+      <a href="https://automadynamics.com/collapse/learning" class="here">Learning</a>
+      <a href="https://automadynamics.com/collapse/demo">Demo</a>
+      <span class="navsep"></span>
+      <a href="https://automadynamics.com/articles">Articles</a>
+      <a href="https://automadynamics.com/">Site</a>
+    </div>
+  </div>
+</nav>
 
 <div class="wrap">
 
@@ -710,6 +763,21 @@ npm run dev        # then open http://localhost:5273</pre>
     if (!vh || (box.top < vh && box.bottom > 0)) h.classList.add("shown");
     else io.observe(h);
   });
+})();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  // Matches the site header: transparent at the top, solid once scrolled past
+  // 50px, so the bar never sits as a hard edge across the opening screen.
+  var nav = document.getElementById("sitenav");
+  if (!nav) return;
+  var onScroll = function () {
+    nav.classList.toggle("scrolled", window.scrollY > 50);
+  };
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
 })();
 </script>
 </body>
