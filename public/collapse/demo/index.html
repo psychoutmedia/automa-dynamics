@@ -38,13 +38,19 @@
       }
       canvas { display: block; }
 
+      /* Opacity, not backdrop-filter.
+         A backdrop blur has to re-snapshot whatever is behind it every time
+         that changes, and what is behind every one of these panels is a WebGL
+         canvas repainting at 60fps. On iOS that produced whole-screen black
+         flicker on iPad and lost the field entirely on iPhone, where the bars
+         cover more of a full-bleed canvas. The blur was decoration; legibility
+         over a bright field is the actual requirement and opacity delivers it
+         for free. */
       .panel {
         position: fixed;
-        background: rgba(10, 13, 18, 0.82);
+        background: rgba(10, 13, 18, 0.94);
         border: 1px solid var(--line);
         padding: 12px 14px;
-        -webkit-backdrop-filter: blur(6px);
-        backdrop-filter: blur(6px);
       }
       #left  { top: 16px; left: 16px; width: 288px; max-height: calc(100vh - 90px); overflow-y: auto; }
       #right { top: 16px; right: 16px; width: 268px; max-height: calc(100vh - 90px); overflow-y: auto; }
@@ -107,6 +113,12 @@
       .ctl > .label { display: flex; justify-content: space-between; }
       input[type="range"] { width: 100%; accent-color: var(--hot); }
       .note { color: var(--dim); font-size: 10.5px; line-height: 1.55; }
+      #diag {
+        position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        z-index: 90; background: #05080c; border: 1px solid var(--hot);
+        color: var(--text); padding: 10px 12px; font-size: 11px; line-height: 1.7;
+        max-width: 88vw; white-space: pre; overflow: auto; max-height: 80vh;
+      }
       .safebox {
         border: 1px solid var(--line); border-left: 2px solid var(--hot);
         background: #0d151d; padding: 8px 10px; margin-bottom: 10px;
@@ -213,8 +225,7 @@
         #tabbar {
           display: flex; position: fixed; left: 0; right: 0; bottom: 0;
           height: var(--barh); padding-bottom: env(safe-area-inset-bottom, 0px);
-          background: rgba(10, 13, 18, 0.94);
-          -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+          background: rgba(10, 13, 18, 0.96);
           border-top: 1px solid var(--line); z-index: 50;
         }
         #tabbar button {
@@ -279,7 +290,7 @@
         body[data-sheet="right"] #right { transform: none; }
       }
     </style>
-    <script type="module" crossorigin src="/collapse/demo/assets/index-5BKhyzLd.js"></script>
+    <script type="module" crossorigin src="/collapse/demo/assets/index-NMx69kqD.js"></script>
   </head>
   <body>
     <div id="topbar" class="panel">
@@ -425,6 +436,8 @@
         <div id="status">connecting</div>
       </div>
     </div>
+
+    <div id="diag" hidden></div>
 
     <div id="tabbar">
       <button type="button" id="tabLeft" data-sheet="left" aria-controls="left" aria-expanded="false">CIRCUIT</button>
