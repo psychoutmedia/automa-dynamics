@@ -113,6 +113,12 @@
       .ctl > .label { display: flex; justify-content: space-between; }
       input[type="range"] { width: 100%; accent-color: var(--hot); }
       .note { color: var(--dim); font-size: 10.5px; line-height: 1.55; }
+      /* ?bare=1 - canvas only. If the flicker survives losing every overlay,
+         it is not the DOM layers compositing over the canvas, and that is one
+         round trip saved on a device I cannot test on. */
+      body.bare #topbar, body.bare #left, body.bare #right,
+      body.bare #foot, body.bare #tabbar { display: none !important; }
+
       #diag {
         position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
         z-index: 90; background: #05080c; border: 1px solid var(--hot);
@@ -290,7 +296,7 @@
         body[data-sheet="right"] #right { transform: none; }
       }
     </style>
-    <script type="module" crossorigin src="/collapse/demo/assets/index-NMx69kqD.js"></script>
+    <script type="module" crossorigin src="/collapse/demo/assets/index-C33C_kUY.js"></script>
   </head>
   <body>
     <div id="topbar" class="panel">
