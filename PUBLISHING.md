@@ -1,13 +1,20 @@
 # Publishing drill
 
 The standing cadence for automadynamics.com articles. Two articles per week,
-published **Tuesday** and **Friday**.
+announced on X on **Tuesday** and **Friday**.
 
-## What Mark hands over, once a week
+**The site goes first.** An article ships here before it is announced on X, on
+purpose: it is the bonus for anyone who visits the site directly rather than
+waiting for the post. The site's publish date therefore leads the X date,
+sometimes by several days, and the tweet ID for a piece does not exist yet when
+that piece ships. That is the normal state, not a missing input.
 
-1. Raw text of both articles (copied out of X, where they are written first).
-2. Two cover images (source PNGs, typically ~2MB at 1983x793).
-3. The two tweet IDs the articles were announced under.
+## What Mark hands over
+
+1. Raw text of the article (written in X's composer first, then copied out).
+2. The cover image (source PNG, typically ~2MB at 1983x793).
+3. Later, once the piece is announced on X: the tweet ID, backfilled into the
+   frontmatter of an article that is already live.
 
 ## What gets done
 
@@ -29,7 +36,7 @@ One file per article at `content/articles/<slug>.mdx`:
 ```yaml
 ---
 title: "Exact title as published on X"
-date: 2026-08-25          # the publish day: Tuesday or Friday
+date: 2026-08-25          # the day it goes live HERE, not the X date
 draft: false
 eyebrow: "SHORT CATEGORY"
 description: "One or two sentences. Used by the index card, OG tags and RSS."
@@ -49,11 +56,17 @@ House rule: no em dashes anywhere in the copy. Use a spaced hyphen.
 `readingTime` and the cover's intrinsic dimensions are derived automatically.
 Nothing else needs computing by hand.
 
-### 3. Tweet IDs
+### 3. Tweet IDs (a later pass)
 
 Each article's `tweetId` and `xUrl` go in its frontmatter. They render the
 "Originally published on X" attribution link at the foot of the article and
 nothing else.
+
+Because the site leads X, both keys are **absent when the article first ships**
+and get added days later, once the announcement post exists. An article with no
+`tweetId` renders correctly with no attribution link, so this is a clean two-step
+rather than a broken state. Strip any `?s=20` or similar share-tracking suffix
+from the URL: every `xUrl` on the site is a bare status link.
 
 There are no tweet embeds on the site. They were removed deliberately: the
 embeds published like and reply counts, and visible low engagement reads as
