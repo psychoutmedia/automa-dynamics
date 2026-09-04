@@ -107,6 +107,18 @@
       .ctl > .label { display: flex; justify-content: space-between; }
       input[type="range"] { width: 100%; accent-color: var(--hot); }
       .note { color: var(--dim); font-size: 10.5px; line-height: 1.55; }
+      .safebox {
+        border: 1px solid var(--line); border-left: 2px solid var(--hot);
+        background: #0d151d; padding: 8px 10px; margin-bottom: 10px;
+      }
+      .safetoggle {
+        display: flex; align-items: center; gap: 8px; cursor: pointer;
+        color: #fff; letter-spacing: 1.4px; font-size: 11px;
+      }
+      .safetoggle input { width: 15px; height: 15px; accent-color: var(--hot); margin: 0; }
+      .safebox .note { margin-top: 6px; }
+      body.unsafe .safebox { border-left-color: var(--warn); }
+      body.unsafe .safetoggle { color: var(--warn); }
       .navblock {
         border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
         padding: 9px 0 6px; margin-bottom: 11px;
@@ -267,7 +279,7 @@
         body[data-sheet="right"] #right { transform: none; }
       }
     </style>
-    <script type="module" crossorigin src="/collapse/demo/assets/index-RStvcQiG.js"></script>
+    <script type="module" crossorigin src="/collapse/demo/assets/index-5BKhyzLd.js"></script>
   </head>
   <body>
     <div id="topbar" class="panel">
@@ -299,6 +311,14 @@
         <option value="grover">grover — rise, peak, over-rotate</option>
         <option value="semantic">semantic — two sentences interfering</option>
       </select>
+
+      <div class="safebox">
+        <label class="safetoggle">
+          <input id="safe" type="checkbox" checked />
+          <span>SAFE MODE</span>
+        </label>
+        <div class="note" id="safeNote"></div>
+      </div>
 
       <div id="semanticCtl" hidden>
         <div class="label">SENTENCE A</div>
