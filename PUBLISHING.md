@@ -14,7 +14,7 @@ that piece ships. That is the normal state, not a missing input.
 1. Raw text of the article (written in X's composer first, then copied out).
 2. The cover image (source PNG, typically ~2MB at 1983x793).
 3. The caption: the short lead-in Mark writes to introduce the piece, usually
-   arriving alongside the cover. **This becomes `description` verbatim.**
+   arriving alongside the cover. **Its framing must reach `description`.**
 4. Later, once the piece is announced on X: the tweet ID, backfilled into the
    frontmatter of an article that is already live.
 
@@ -41,7 +41,7 @@ title: "Exact title as published on X"
 date: 2026-08-25          # the day it goes live HERE, not the X date
 draft: false
 eyebrow: "SHORT CATEGORY"
-description: "Mark's caption, near enough verbatim. Index card, OG tags, RSS."
+description: "Frames the piece. Index card, OG tags, RSS."
 cover: "/articles/<slug>/cover.jpg"
 coverAlt: "Same as title"
 tweetId: "0000000000000000000"
@@ -55,14 +55,18 @@ changed**, only formatting.
 
 House rule: no em dashes anywhere in the copy. Use a spaced hyphen.
 
-**`description` is Mark's caption, not a summary written here.** It sits on the
-index card directly beneath the title, so its job is to introduce the article to
-someone who has not read it. Do not invent one, and never paraphrase the
-article's opening paragraph: the card then reads as the piece starting
-mid-sentence rather than being introduced. Compare against the body's first line
-before shipping - if they share an opening, the description is wrong. Trim only
-what the card already renders: the caption often repeats the title and series
-number, and both appear immediately above.
+**`description` must frame the article, not merely restate it.** It sits on the
+index card directly beneath the title, so it is the only thing telling a reader
+who has not opened the piece why they should. Two jobs: say where this one sits
+in the series when that matters (an arc opening, a direct answer to an earlier
+article), and say what is at stake. A line that only re-tells the opening
+paragraph does neither, and the card then reads as the article starting
+mid-sentence rather than being introduced.
+
+Mark's caption is the source for the framing half - it is where he says what the
+piece is for. Lift that framing; the wording around it can be written here. Trim
+whatever the card already renders, since the caption usually repeats the title
+and series number and both appear immediately above.
 
 `readingTime` and the cover's intrinsic dimensions are derived automatically.
 Nothing else needs computing by hand.
