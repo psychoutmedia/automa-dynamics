@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- viewport-fit=cover so the field runs under the notch and the home
+         indicator; every piece of chrome pads itself back out with env(). -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0a0d12" />
     <title>COLLAPSE — the Interference Engine</title>
     <style>
       :root {
@@ -13,12 +16,25 @@
         --hot: #22e0c8;
         --warn: #ff6b5e;
         --ent: #ff3ea5;
+        /* One copy of the brand mark, used by the panel head on wide screens
+           and by the compact top bar on narrow ones. */
+        --mark: url("data:image/png;base64,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");
+        /* Compact-layout chrome heights. The sheets, the gate line and the
+           camera fit are all measured off these three, so they stay in step. */
+        --toph: calc(46px + env(safe-area-inset-top, 0px));
+        --barh: calc(52px + env(safe-area-inset-bottom, 0px));
+        --footh: 30px;
       }
       * { box-sizing: border-box; }
-      html, body { margin: 0; height: 100%; background: var(--ink); overflow: hidden; }
+      html, body {
+        margin: 0; height: 100%; background: var(--ink);
+        overflow: hidden; overscroll-behavior: none;
+      }
       body {
         font: 12px/1.5 ui-monospace, "Cascadia Mono", "JetBrains Mono", Consolas, monospace;
         color: var(--text);
+        -webkit-tap-highlight-color: transparent;
+        -webkit-text-size-adjust: 100%;
       }
       canvas { display: block; }
 
@@ -27,11 +43,19 @@
         background: rgba(10, 13, 18, 0.82);
         border: 1px solid var(--line);
         padding: 12px 14px;
+        -webkit-backdrop-filter: blur(6px);
         backdrop-filter: blur(6px);
       }
       #left  { top: 16px; left: 16px; width: 288px; max-height: calc(100vh - 90px); overflow-y: auto; }
       #right { top: 16px; right: 16px; width: 268px; max-height: calc(100vh - 90px); overflow-y: auto; }
       #foot  { bottom: 16px; left: 16px; right: 16px; display: flex; gap: 18px; align-items: baseline; }
+
+      /* Compact-only chrome: a top bar carrying the brand, and a tab bar that
+         raises each panel as a bottom sheet. Hidden by default so the wide
+         layout is untouched. The media query below is their only switch, and
+         main.ts reads whether #tabbar is displayed rather than restating the
+         breakpoint in JS. */
+      #topbar, #tabbar { display: none; }
 
       h1 {
         margin: 0 0 2px; font-size: 15px; letter-spacing: 3px; font-weight: 600; color: #fff;
@@ -46,7 +70,10 @@
       .panelhead > div { min-width: 0; }
       .marklink { flex: none; line-height: 0; opacity: .9; transition: opacity 200ms; }
       .marklink:hover { opacity: 1; }
-      .marklink img { width: 80px; height: 80px; object-fit: contain; display: block; }
+      .mark {
+        display: block; width: 80px; height: 80px;
+        background: var(--mark) center / contain no-repeat;
+      }
       .sub { color: var(--dim); margin-bottom: 12px; font-size: 11px; letter-spacing: .4px; }
 
       .row { display: flex; justify-content: space-between; gap: 10px; padding: 2px 0; }
@@ -69,6 +96,7 @@
         color: #fff; font-size: 12.5px; min-height: 34px;
       }
       #status { color: var(--dim); }
+      #status.fault { color: var(--warn); }
 
       select, input[type="range"], label { font: inherit; color: var(--text); }
       select {
@@ -108,10 +136,150 @@
       .okv { color: var(--hot); }
       b { color: var(--hot); font-weight: 600; }
       .ent-t { color: var(--ent); }
+
+      /* ---------------------------------------------------------------------
+         Compact layout.
+
+         The exact negation of (min-width 1000px AND min-height 620px), so iPad
+         landscape and desktop keep the two docked side panels and everything
+         narrower or shorter - both iPhone orientations, iPad portrait - drops
+         to sheets. A 288px and a 268px panel cannot coexist with a 393px
+         screen: docked side by side they overlap each other and bury the
+         canvas completely, which is exactly what the field looked like on a
+         phone. Here the canvas gets the whole screen and each panel is raised
+         on demand.
+         --------------------------------------------------------------------- */
+      @media (max-width: 999px), (max-height: 619px) {
+        #topbar {
+          display: flex; align-items: center; justify-content: space-between;
+          gap: 12px; top: 0; left: 0; right: 0; height: var(--toph);
+          padding: 0 12px;
+          padding-top: env(safe-area-inset-top, 0px);
+          border-width: 0 0 1px 0; z-index: 45;
+        }
+        #topbar h1 { font-size: 13px; letter-spacing: 2.4px; }
+        #topbar .sub { margin: 0; font-size: 9.5px; letter-spacing: .3px; }
+        #topbar .mark { width: 32px; height: 32px; }
+
+        /* Branding lives in the top bar now; the copy inside the left panel
+           would repeat it and eat a fifth of the sheet. */
+        #left .panelhead { display: none; }
+
+        #left, #right {
+          top: auto; left: 0; right: 0; width: auto;
+          bottom: calc(var(--barh) + var(--footh));
+          /* Capped at 62% rather than everything the bars leave over: the
+             controls are tall enough to fill the screen, and a sheet that
+             buries the field means dragging HEIGHT with nothing to watch.
+             vh first - iOS below 16.4 has no dvh and would drop the whole
+             declaration, falling back to the wide layout's max-height. */
+          max-height: min(62vh, calc(100vh - var(--toph) - var(--barh) - var(--footh) - 10px));
+          max-height: min(62dvh, calc(100dvh - var(--toph) - var(--barh) - var(--footh) - 10px));
+          overflow-y: auto; overscroll-behavior: contain;
+          -webkit-overflow-scrolling: touch;
+          border-width: 1px 0 0 0;
+          padding: 14px 16px 18px;
+          z-index: 40;
+          transform: translateY(calc(100% + var(--barh) + var(--footh)));
+          transition: transform .26s cubic-bezier(.4, 0, .2, 1);
+        }
+        body[data-sheet="left"]  #left,
+        body[data-sheet="right"] #right { transform: none; }
+
+        #foot {
+          left: 0; right: 0; bottom: var(--barh); top: auto;
+          height: var(--footh); padding: 0 12px; gap: 10px;
+          align-items: center; border-width: 1px 0 0 0;
+          font-size: 10.5px; z-index: 30; overflow: hidden;
+        }
+        #foot > div:first-child {
+          min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+        }
+        #foot > div:last-child { gap: 10px !important; flex: none; }
+        #gate { font-size: 11px; min-height: 0; }
+
+        #tabbar {
+          display: flex; position: fixed; left: 0; right: 0; bottom: 0;
+          height: var(--barh); padding-bottom: env(safe-area-inset-bottom, 0px);
+          background: rgba(10, 13, 18, 0.94);
+          -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+          border-top: 1px solid var(--line); z-index: 50;
+        }
+        #tabbar button {
+          flex: 1; width: auto; margin: 0; border: 0; border-right: 1px solid var(--line);
+          background: transparent; color: var(--dim); font-size: 11px; letter-spacing: 1.6px;
+          padding: 0; height: 100%;
+        }
+        #tabbar button:last-child { border-right: 0; }
+        #topbar, #foot, #tabbar, #left, #right {
+          padding-left: max(12px, env(safe-area-inset-left, 0px));
+          padding-right: max(12px, env(safe-area-inset-right, 0px));
+        }
+        #tabbar button:hover { background: transparent; color: var(--dim); }
+        #tabbar button[aria-expanded="true"] { color: var(--hot); background: #101a24; }
+
+        /* iOS zooms the whole page whenever a focused control is under 16px. */
+        select, textarea { font-size: 16px; padding: 9px 8px; }
+        input[type="range"] { height: 32px; }
+        .ctl { margin-bottom: 14px; }
+        .backlink { font-size: 12px; padding: 5px 0; margin-bottom: 2px; }
+        label { display: inline-block; padding: 6px 0; }
+        input[type="checkbox"] { width: 18px; height: 18px; vertical-align: -3px; }
+        button#encode { padding: 11px 6px; }
+        .note { font-size: 11px; }
+      }
+
+      /* Sheets are full-bleed, so on a wide-but-compact viewport - iPhone
+         landscape, iPad portrait - a readout row would throw its label and its
+         value to opposite edges of the screen. Cap the content column with
+         padding rather than the sheet itself, so the sheet still reaches both
+         edges and every control type centres the same way. */
+      @media (min-width: 620px) and (max-width: 999px),
+             (min-width: 620px) and (max-height: 619px) {
+        #left, #right {
+          padding-left: max(16px, calc((100% - 640px) / 2));
+          padding-right: max(16px, calc((100% - 640px) / 2));
+        }
+      }
+
+      /* A phone held sideways has 393px of height and would spend a third of it
+         on chrome, then hide the field behind a 244px bottom sheet. Thin the
+         bars and slide the panel in from the edge instead, which leaves the
+         field the majority of a screen that is now wide rather than tall. */
+      @media (max-height: 619px) {
+        :root {
+          --toph: calc(38px + env(safe-area-inset-top, 0px));
+          --barh: calc(44px + env(safe-area-inset-bottom, 0px));
+          --footh: 26px;
+        }
+      }
+      @media (max-height: 619px) and (min-width: 620px) {
+        #left, #right {
+          top: var(--toph); bottom: calc(var(--barh) + var(--footh));
+          left: auto; right: 0; width: min(370px, 54vw);
+          max-height: none;
+          border-width: 0 0 0 1px;
+          padding: 12px 16px 16px;
+          padding-right: max(16px, env(safe-area-inset-right, 0px));
+          transform: translateX(calc(100% + 8px));
+        }
+        body[data-sheet="left"]  #left,
+        body[data-sheet="right"] #right { transform: none; }
+      }
     </style>
-    <script type="module" crossorigin src="/collapse/demo/assets/index-DsQY3K9v.js"></script>
+    <script type="module" crossorigin src="/collapse/demo/assets/index-RStvcQiG.js"></script>
   </head>
   <body>
+    <div id="topbar" class="panel">
+      <div>
+        <h1>COLLAPSE</h1>
+        <div class="sub">the interference engine</div>
+      </div>
+      <a class="marklink" href="https://automadynamics.com/" title="Automa Dynamics">
+        <span class="mark" role="img" aria-label="Automa Dynamics"></span>
+      </a>
+    </div>
+
     <div id="left" class="panel">
       <div class="panelhead">
         <div>
@@ -119,7 +287,7 @@
           <div class="sub">the interference engine</div>
         </div>
         <a class="marklink" href="https://automadynamics.com/" title="Automa Dynamics">
-          <img src="data:image/png;base64,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" alt="Automa Dynamics" width="81" height="80">
+          <span class="mark" role="img" aria-label="Automa Dynamics"></span>
         </a>
       </div>
 
@@ -237,6 +405,11 @@
         <div id="status">connecting</div>
       </div>
     </div>
-
+
+    <div id="tabbar">
+      <button type="button" id="tabLeft" data-sheet="left" aria-controls="left" aria-expanded="false">CIRCUIT</button>
+      <button type="button" id="tabRight" data-sheet="right" aria-controls="right" aria-expanded="false">READOUT</button>
+    </div>
+
   </body>
 </html>
