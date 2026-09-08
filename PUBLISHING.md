@@ -100,11 +100,20 @@ what X and LinkedIn show when the index is linked. Without it that route falls
 back to the site-wide logo. Individual articles already advertise their own
 cover art, so this is only ever about the index.
 
-The frame is the hero - crest, series heading, standfirst, and the newest
-cover art just breaking into the bottom edge. That last part is the only bit
-that goes stale, and it goes stale gracefully, so this does not need running on
-every publish. Run it when the top of the page changes, or when the sliver of
-cover at the bottom has been the same piece for a while.
+The frame runs from above the crest down to the first article's read time:
+crest, series heading, standfirst, then the newest piece complete with its cover
+art, number, title and description. Nothing may be cut in half - a sliced cover
+on the bottom edge reads as a broken image rather than a page.
+
+Because the frame ends on the newest article, the card advertises whatever is at
+the top of the index. Worth a rerun after a publish, though a card one article
+behind is not a defect.
+
+The `top` and `bottom` offsets in the script are what to edit if the page grows;
+the viewport width follows from them. The container is a fixed 1152px at any
+window size, so a narrower viewport does not enlarge the text, it only trims the
+margin. **Fitting more of the page into the frame means capturing WIDER, not
+narrower.**
 
 Chrome is driven through `puppeteer-core`, which uses the browser already
 installed rather than downloading one. Set `CHROME_PATH` if it cannot find it.

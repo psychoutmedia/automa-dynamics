@@ -16,32 +16,32 @@ import { existsSync, mkdirSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import puppeteer from 'puppeteer-core'
 
-// Open Graph and X both render large cards at 1.91:1. Captured at 2x so the
-// image stays sharp on a retina timeline.
-//
-// Captured at 1600 CSS pixels rather than 1200 because the page's container
-// tops out at 1152px: a narrower viewport does not make the text bigger, it
-// only trims the margin, and 1600 fits the heading, the intro and the first
-// cover inside one 1.91:1 frame.
-const CARD_W = 1600
-const CARD_H = Math.round(CARD_W / 1.905)
-const SCALE = 1.5
+// Open Graph and X both render large cards at 1.91:1, delivered here at 2400px
+// wide so the image stays sharp on a retina timeline.
+const RATIO = 1.905
+const OUTPUT_W = 2400
 
 const BASE = process.env.OG_BASE ?? 'http://localhost:3000'
 
 /**
- * Each target frames a slice of its page. `top` is the CSS pixel offset the
- * 1.91:1 crop starts at, chosen so the shot lands on content rather than on
- * whatever happens to be at the top of the scroll.
+ * A target names the band of the page the card should show: `top` and `bottom`
+ * are CSS pixel offsets down the document, and the viewport width follows from
+ * them, because the frame has to be 1.91:1 whatever it contains.
  *
- * /articles is framed on the hero: the crest, the series heading, the standfirst,
- * and the cover art of the newest piece just breaking into the bottom of the
- * frame. That last part matters. It reads as a collection with something in it,
- * where a shot of the first article card alone would look like a link to that
- * one article, which is what an article's own card already does.
+ * That is the whole trick, and it is worth stating plainly. The page's container
+ * is a fixed 1152px however wide the window is, so a narrower viewport does not
+ * enlarge the text, it only trims the margin. Fitting more of the page into a
+ * short, wide frame therefore means capturing at a WIDER viewport, which shrinks
+ * the content against the frame. Zooming out is done by asking for more width.
+ *
+ * /articles is framed from above the crest down to the first article's read
+ * time: crest, series heading, standfirst, then the newest piece complete with
+ * its cover art, number, title and description. Nothing is allowed to be cut in
+ * half. A card with a sliced cover on its bottom edge looks like a broken image
+ * rather than a page.
  */
 const TARGETS = [
-  { path: '/articles', out: 'public/articles/og.png', top: 130 },
+  { path: '/articles', out: 'public/articles/og.png', top: 140, bottom: 1440 },
 ]
 
 const CHROME_CANDIDATES = [
@@ -64,12 +64,20 @@ const browser = await puppeteer.launch({
   args: ['--no-sandbox', '--disable-dev-shm-usage', '--hide-scrollbars'],
 })
 
-for (const { path, out, top } of TARGETS) {
+for (const { path, out, top, bottom } of TARGETS) {
+  const height = bottom - top
+  const width = Math.round(height * RATIO)
+  // Capture at whatever density lands the finished card on OUTPUT_W, so a wider
+  // frame comes back at the same delivered size rather than a bigger file.
+  const scale = OUTPUT_W / width
+
   const page = await browser.newPage()
   await page.setViewport({
-    width: CARD_W,
-    height: CARD_H + top,
-    deviceScaleFactor: SCALE,
+    width,
+    // A little past the crop, so nothing at the bottom edge is still being laid
+    // out when the shot is taken.
+    height: bottom + 80,
+    deviceScaleFactor: scale,
   })
 
   // Headings type on one character at a time and blocks fade in on scroll, so a
@@ -94,12 +102,12 @@ for (const { path, out, top } of TARGETS) {
   await page.evaluate(() => document.fonts.ready)
 
   mkdirSync(dirname(resolve(out)), { recursive: true })
-  await page.screenshot({
-    path: out,
-    clip: { x: 0, y: top, width: CARD_W, height: CARD_H },
-  })
+  await page.screenshot({ path: out, clip: { x: 0, y: top, width, height } })
   await page.close()
-  console.log(`${out}  <-  ${BASE}${path} at y=${top}  (${CARD_W}x${CARD_H} @${SCALE}x)`)
+  console.log(
+    `${out}  <-  ${BASE}${path} y=${top}..${bottom}  ` +
+      `(${width}x${height} @${scale.toFixed(2)}x -> ${OUTPUT_W}x${Math.round(height * scale)})`,
+  )
 }
 
 await browser.close()
