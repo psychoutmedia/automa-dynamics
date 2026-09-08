@@ -1,0 +1,298 @@
+---
+title: "Digital Twins Shouldn't Stop at Machines"
+number: 8
+date: 2026-09-08
+draft: false
+eyebrow: "DIGITAL TWINS"
+description: "A machine can be perfectly healthy while the system around it is failing. A twin that stops at the asset cannot answer the question the business actually cares about, which is what happens next."
+cover: "/articles/digital-twins-shouldnt-stop-at-machines/cover.jpg"
+coverAlt: "Digital Twins Shouldn't Stop at Machines"
+---
+
+Digital twins usually begin with something physical. A turbine. A robot. A production line. A building. A vehicle. Sensors observe the asset. Software maintains a digital representation of its condition.
+
+Engineers use that representation to understand performance, predict failures and simulate changes before making them in the real world.
+
+This is an extraordinarily useful idea. It may also be much smaller than the opportunity. A machine never exists operationally by itself. It sits inside a network of inventory, people, suppliers, contracts, maintenance schedules, production plans, customers, permissions and commitments. Knowing everything about the machine does not automatically tell us what the machine means to the organisation. For that, the twin has to grow.
+
+## A Machine Can Be Healthy While the Business Is in Trouble
+
+Imagine a factory containing an industrial robot. Its digital twin knows the robot extremely well. Motor temperatures are normal. Vibration is within tolerance. Energy consumption is stable. Joint wear indicates another 1,200 operating hours before maintenance is required. No fault codes are active. From the machine's perspective, everything is healthy.
+
+Now consider the surrounding operation. The robot is scheduled to produce a component required by three customer orders. One upstream material shipment is late. Available inventory will last only two days. A replacement supplier exists, but its material has not completed qualification. One customer carries a contractual penalty if delivery slips beyond Friday. Nothing is wrong with the robot. Something is very wrong with the system around it.
+
+The physical twin cannot answer the question the business actually cares about: What happens next?
+
+## Telemetry Tells Us What the Asset Is Doing
+
+Traditional digital twins are naturally good at telemetry:
+
+- Temperature.
+- Pressure.
+- Position.
+- Velocity.
+- Load.
+- Energy consumption.
+- Runtime.
+- Fault state.
+
+Those observations describe physical reality with increasing precision. Operational reality contains another class of facts:
+
+- Which production order depends on the asset?
+- Which customer depends on that production order?
+- Which contractual commitment governs the customer delivery?
+- Which inventory is allocated to the work?
+- Which maintenance window can be moved?
+- Which alternative facility could absorb the load?
+- Who has authority to make that change?
+
+These facts cannot be discovered by installing another temperature sensor. They belong to the organisation. A richer digital twin therefore needs to represent more than the physical state of things. It needs enough context to understand why those things matter.
+
+## The Real Object May Be the System
+
+There is a conceptual shift here. Suppose we build a digital twin of a factory. Where does the factory end?
+
+- At the walls?
+- At the production equipment?
+- At the warehouse next door?
+- What about the suppliers providing its materials?
+- What about shipments already travelling towards it?
+- What about the customer commitments dependent on its output?
+- What about the electricity network keeping it operational?
+
+The boundary becomes difficult to draw because real operations are systems of dependency. The factory is physically local. Its consequences are geographically distributed.
+
+A supplier failure in Taiwan can change what happens on a production line in Manchester. That production change can alter a delivery in Chicago. The delayed delivery can trigger a contractual consequence elsewhere.
+
+A faithful operational model eventually has to follow the dependencies wherever they lead. The twin becomes less like a digital replica of an object and more like a model of a living system.
+
+## Relationships Become Part of the Twin
+
+OI Article 003 argued that the edges between business objects are often where operational meaning lives. The same principle changes what we mean by a digital twin. Knowing that a warehouse contains a component is useful. Knowing that the component is required by a particular product is more useful.
+
+Knowing which production orders require that product, which customer commitments depend on those production orders and which shipments replenish the warehouse creates something qualitatively different.
+
+The twin can now answer questions about consequence.
+
+- A machine fails. What production is affected?
+- A shipment is delayed. Which factories become constrained?
+- A supplier disappears. Which products inherit the exposure?
+- A customer changes an order. Which production and inventory decisions should be reconsidered?
+
+The individual records have become part of a connected operational world. That connection is what allows the twin to "reason beyond observation."
+
+## A Business Twin Needs Objects That Aren't Physical
+
+Some of the most consequential things inside an organisation cannot be touched.
+
+A contract is real. A customer commitment is real. An approval is real. A production schedule is real. A spending limit is real. A regulatory obligation is real. None of them needs a physical sensor to matter.
+
+This is where the idea of digital twins becomes particularly interesting. If a digital twin exists to represent the state of something important in the real world, then physical objects are only one category of candidate.
+
+An organisation also contains institutional objects. Orders. Policies. Roles. Obligations. Decisions. Risks. Authorisations. These objects interact with physical assets constantly. A machine may technically be capable of producing another 500 units tonight. Whether it should do so may depend on labour rules, maintenance requirements, material availability, customer priority and energy cost.
+
+The physical capability is only one part of operational state.
+
+## Commitments May Matter More Than Assets
+
+Companies do not exist merely to operate machinery. They make commitments. A supplier commits to deliver material. A factory commits capacity to production. A production plan commits resources. A company commits to deliver something to a customer. A contract gives that commitment commercial meaning. Much of business can be understood as chains of commitments supported by physical and informational systems.
+
+That makes commitments particularly important inside an operational twin.
+
+Suppose two identical machines fail at two identical factories. The engineering event is the same. The business consequence may be completely different. Machine A supports spare production with several days of inventory buffer. Machine B supports the final production step for an urgent contractual delivery. The sensor data may describe equivalent failures.
+
+The operational twin should understand radically different consequences. The difference lives outside the machines.
+
+## Time Makes the Twin Alive
+
+A static model of an organisation is useful. A temporal model is far more powerful.
+
+- Inventory moves.
+- Orders progress.
+- Ships change location.
+- Contracts begin and expire.
+- People acquire and lose authority.
+- Production schedules change.
+- Machines degrade.
+- Approvals are granted.
+- Decisions supersede previous decisions.
+
+The operational world is continuously changing.
+
+A useful twin therefore needs more than a representation of what exists. It needs state through time.
+
+- What was true yesterday?
+- What changed?
+- When did it change?
+- What was known when the decision was made?
+- Which relationship existed at that moment?
+- What does the organisation believe now?
+
+This turns the digital twin from a sophisticated diagram into something closer to operational memory. The twin remembers the organisation's changing world.
+
+## History Matters Because Decisions Have Context
+
+Imagine investigating a production decision six months later. Today, the warehouse has plenty of inventory. The supplier is delivering normally. The customer order has already been fulfilled. Looking only at current state might make the historical decision appear irrational.
+
+At the time, however, the organisation may have been facing an eight day shipment delay, low stock and a contractual deadline. A trustworthy operational twin should make both realities accessible. Current truth explains what the organisation can do now. Historical truth explains why it did what it did then.
+
+This becomes particularly important when AI participates in decision making. The organisation may need to reconstruct the exact world an agent or human was responding to. Without temporal state, yesterday's rational decision can become today's inexplicable one.
+
+## The Twin Should Include Uncertainty
+
+Physical telemetry can create the impression that digital twins are precise representations. Operational systems are rarely that clean. A carrier estimates arrival on Wednesday. A supplier predicts production will recover tomorrow. Demand is expected to rise. A component may fail inspection. A customer may accept a revised commitment.
+
+These are meaningful operational states without being established facts. The twin should be capable of representing them honestly:
+
+- Confirmed.
+- Estimated.
+- Observed.
+- Predicted.
+- Disputed.
+- Superseded.
+- Unknown.
+
+That distinction matters because different kinds of state should produce different kinds of action. A confirmed shortage may justify intervention. A forecast shortage may justify preparation. A weak signal may justify monitoring.
+
+If uncertainty disappears inside the twin, software can become extremely precise about a world that never actually existed.
+
+## A Digital Twin Should Know Why It Believes Something
+
+The previous articles in this series established a recurring requirement:
+
+> "Important claims need evidence."
+
+Digital twins are no exception. If the twin reports that a factory has 7,200 usable units, where did that number come from? If it reports that $1.6 million of customer commitments are exposed, how was that calculated? If it says a supplier substitution is permitted, which policy or qualification establishes that?
+
+The useful twin does more than display state. It maintains a path from state back to evidence. This creates a very different experience from a dashboard. A dashboard might show: 12 orders at risk. An evidential twin allows the user to move through the claim:
+
+> 12 orders → production requirements → constrained component → inventory position → delayed shipment → disruption event.
+
+The number becomes inspectable. The model can explain itself through the structure of the world it represents.
+
+## The Twin Should Know Who Can Change the World
+
+Representing operational state creates an obvious temptation. If the twin knows the current situation and can simulate a better one, why not allow software to make the change? Sometimes that will make sense. But the twin also needs to represent authority. A maintenance system may know that moving a service window improves availability. A planning system may know that reallocating inventory protects an important order. An AI may discover that expedited freight solves a shortage.
+
+None of those observations automatically grants permission to act. An operational twin becomes much more useful when it understands the difference between:
+
+- possible
+- recommended
+- approved
+- executed
+
+The world may contain multiple possible futures. Authority determines which ones the organisation is allowed to create.
+
+## Decisions Should Become Part of the World
+
+There is another important step. If a human approves an action, the decision itself should become part of the twin.
+
+- Who approved it?
+- When?
+- Against which evidence?
+- Under which authority?
+- What rationale was recorded?
+- Which action followed?
+- What changed afterwards?
+
+The organisation now possesses more than an operational model. It has a model of how the operational model changed. That creates institutional memory. Instead of keeping the physical world in one system, decisions in email, approvals in another application and evidence scattered across documents, the relationships between them can remain visible.
+
+The twin begins to represent causality: This happened. It created this exposure. These responses were considered. This decision was authorised. This action occurred. This state followed. That chain is much closer to how humans understand events.
+
+## Simulation Is Where the Idea Becomes Powerful
+
+Once a digital twin contains meaningful dependencies, another capability emerges naturally. We can change the model without changing the world.
+
+- What happens if this shipment arrives four days later?
+- What happens if this factory loses capacity?
+- What happens if we allocate the remaining inventory to Customer A instead of Customer B?
+- What happens if we reroute the shipment?
+- What happens if the alternative supplier fails too?
+
+The twin becomes a safe environment for exploring consequence. This is especially powerful because the alternatives can share the same starting state. Change one assumption. Recalculate the consequences. Compare the results. The organisation can examine possible futures before committing to one of them.
+
+Generative AI fits extremely well here. It can propose interesting scenarios and response strategies. The deterministic twin can calculate what those scenarios actually imply.
+
+## Digital Twins Could Become Decision Environments
+
+This points towards a much broader interpretation of the technology. A digital twin need not merely be something engineers inspect when a machine behaves strangely. It can become an environment in which organisations understand situations.
+
+A disruption occurs. The twin shows the affected objects. Dependencies reveal where the consequence propagates. Operational state establishes current exposure. Simulation explores possible responses. Policies establish authority. Humans and agents compare alternatives. An approved action changes the real world. New observations flow back into the twin. The loop continues.
+
+> Observe → understand → decide → act → observe again.
+
+At that point, the twin has moved beyond monitoring. It has become part of the organisation's decision architecture.
+
+## This Does Not Require One Giant Database
+
+There is an important architectural boundary here. An enterprise digital twin does not require replacing every existing business system with one enormous platform. ERP systems can remain ERP systems. Warehouse systems can remain warehouse systems. Manufacturing systems can continue running manufacturing. Identity platforms can manage identities. Contract systems can manage contracts.
+
+The challenge is establishing enough common identity, semantics, relationships, time and provenance that those specialised systems can contribute to one coherent operational model. The twin can therefore be logically unified while remaining physically distributed.
+
+That matters because successful enterprise architecture usually evolves. It rarely begins again from zero. The objective is not technological centralisation. The objective is operational coherence.
+
+## A Data Lake Is Not Automatically a Twin
+
+Putting every corporate dataset into one location creates access. It does not automatically create understanding. A lake may contain shipment records, inventory tables, customer orders and production schedules. The relationships between them may still be ambiguous. The state may still be stale. Identities may still conflict. Historical values may be overwritten. Authority may remain buried inside application logic.
+
+A digital twin needs something beyond accumulation. It needs a model.
+
+- What are the objects?
+- How are they related?
+- Which states are authoritative?
+- What changed over time?
+- What evidence supports each conclusion?
+- What actions are possible?
+- Who may authorise them?
+
+Those questions turn stored information into operational structure.
+
+## AI Makes the Broader Twin More Valuable
+
+The rise of generative AI changes the economics of building rich operational models. Historically, complex enterprise models often demanded equally complex interfaces. Users needed to know which system to open, which report to run and how information had been organised. Natural language interfaces dramatically reduce that friction.
+
+A user can ask: "Why is the Singapore delivery at risk?" The AI can traverse the operational model, gather relevant state and explain the result.
+
+Then: "What happens if we prioritise that customer?" The twin can simulate the consequence.
+
+Then: "Who needs to approve the additional freight?" The authority model can answer.
+
+Then: "Prepare the recommendation."
+
+AI becomes the conversational surface across a much more structured world. This is where combining generative intelligence with digital twins becomes especially interesting. The twin gives the model somewhere reliable to stand. The model gives humans a much easier way to explore the twin.
+
+## The Twin Can Outlive the Model
+
+There is a strategic benefit here too. Models change extraordinarily quickly. An organisation may use one frontier model this year and another next year. Different tasks may use completely different models. The operational twin should survive all of them.
+
+Identity remains identity. Historical state remains historical state. Contracts remain contracts. Evidence remains evidence. Authority remains authority. A newer model may understand the world better. It should not require the organisation to rebuild the world every time intelligence improves. This makes the digital twin part of the enterprise's durable infrastructure. Models become replaceable interpreters over something the organisation itself owns.
+
+## Eventually the Boundary Expands Again
+
+Once we accept that a digital twin can represent an organisation rather than merely its machinery, the next question becomes difficult to avoid. Why stop at the company? A factory depends on transport infrastructure. Transport depends on roads, ports and energy. Cities contain buildings, utilities, logistics, emergency services, people and businesses. Off world industry would contain power, communications, robotics, manufacturing, storage and life support dependencies.
+
+The same architecture begins appearing at larger scales.
+
+- Objects.
+- Relationships.
+- State.
+- Time.
+- Evidence.
+- Authority.
+- Consequences.
+
+At some point, the concept of the digital twin starts converging with something much larger:
+
+> A machine readable model of a functioning system.
+
+That is where digital twins begin moving from industrial technology towards infrastructure for autonomy.
+
+## From Asset Intelligence to Operational Intelligence
+
+The first generation of digital twins taught us how valuable it can be to maintain a living representation of a physical asset. The next generation may broaden the thing being represented.
+
+The machine remains important. So does everything depending on it. The supplier feeding it. The inventory supporting it. The production commitment using it. The customer waiting for its output. The contract governing that commitment. The person authorised to change the plan. The evidence explaining why. The history showing what happened afterwards.
+
+Put those pieces together and the twin begins to represent more than equipment. It represents operational reality. That creates a foundation for AI capable of doing something much more useful than talking about machines. It can begin understanding the systems those machines belong to.
+
+The machine is one object in the twin. The real prize is the living system around it.

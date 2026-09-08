@@ -57,6 +57,17 @@ export default function ArticlesIndex() {
       />
       <section className="section-padding pt-32 md:pt-40 pb-0">
         <div className="max-w-6xl mx-auto">
+          {/* The Operational Intelligence mark, standing as the crest for the series.
+              Decorative: the heading directly beneath it already names the series. */}
+          <Image
+            src="/oi-mark.png"
+            alt=""
+            aria-hidden="true"
+            width={320}
+            height={320}
+            className="w-12 h-12 md:w-14 md:h-14 mb-6"
+            priority
+          />
           <p className="type-label mb-8">Articles</p>
           <SplitText
             as="h1"
