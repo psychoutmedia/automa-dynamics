@@ -88,7 +88,34 @@ embeds published like and reply counts, and visible low engagement reads as
 negative social proof on a page trying to establish an enterprise-grade company.
 The outbound link does the same traffic job without the counters.
 
-### 4. Checks before pushing
+### 4. The /articles card (optional, on a slow week)
+
+```bash
+npm run build && npm start     # in another shell
+npm run og                     # then stop the server
+```
+
+Writes `public/articles/og.png`: an actual screenshot of `/articles`, which is
+what X and LinkedIn show when the index is linked. Without it that route falls
+back to the site-wide logo. Individual articles already advertise their own
+cover art, so this is only ever about the index.
+
+The frame is the hero - crest, series heading, standfirst, and the newest
+cover art just breaking into the bottom edge. That last part is the only bit
+that goes stale, and it goes stale gracefully, so this does not need running on
+every publish. Run it when the top of the page changes, or when the sliver of
+cover at the bottom has been the same piece for a while.
+
+Chrome is driven through `puppeteer-core`, which uses the browser already
+installed rather than downloading one. Set `CHROME_PATH` if it cannot find it.
+The capture asks for `prefers-reduced-motion`, because `Reveal.js` renders its
+settled state outright under that query - fighting the typed-heading cascade any
+other way catches half a word at half opacity.
+
+**X caches card images hard.** A URL it has already scraped can keep showing the
+old card for days. Posting the link with a `?v=2` style suffix forces a refetch.
+
+### 5. Checks before pushing
 
 ```bash
 rm -rf .next && npm run build     # must pass; drafts are excluded here
@@ -104,7 +131,7 @@ need no hand editing when an article ships.
 The site is fully static with no external requests at build or runtime, so a
 build that passes is a site that works.
 
-### 5. Push
+### 6. Push
 
 Commit and push. Vercel deploys from the repo. Deploying is Mark's step.
 
