@@ -2,7 +2,7 @@
 
 ## Context
 
-AutomaDynamics publishes articles arguing that enterprise AI needs structured, inspectable,
+Automa Dynamics publishes articles arguing that enterprise AI needs structured, inspectable,
 machine-readable ground truth. Article 005 argues authority must be machine readable. 004 argues
 explanations need evidence, not prose. 003 argues a business is a graph. The site itself currently
 serves agents nothing but React hydration, which argues against the thesis.
@@ -25,7 +25,7 @@ nothing discovers these files:
 What the same data does support: among the files that were fetched, **Claude-Code outfetched every
 AI retrieval bot**. The split is push vs. pull. Nothing crawls to it; but when an architect *points*
 Claude Code, Cursor or an internal vendor-evaluation pipeline at the domain, this is the path it
-lands on. That is AutomaDynamics' actual buyer.
+lands on. That is Automa Dynamics' actual buyer.
 
 **Never claim an SEO or citation benefit from this work.** The 300k-domain study says there is none.
 
