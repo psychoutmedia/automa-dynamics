@@ -138,17 +138,77 @@ export default function ArgusPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* What ARGUS is. */}
-      <section className="px-6 md:px-12 lg:px-24 pt-32 md:pt-44 pb-20 md:pb-28">
+      {/* Hero. The graph is the point of the page, so it opens it: one line of
+          framing, the way in, and the screenshot starting above the fold. */}
+      <section className="px-6 md:px-12 lg:px-24 pt-28 md:pt-36 pb-16 md:pb-24">
         <RevealGroup className={SHELL} stagger={0.12}>
           <Reveal>
             <p className={`${LABEL} mb-6`}>Safety</p>
           </Reveal>
-          <SplitText as="h1" text="ARGUS" className={`${DISPLAY} mb-8`} />
+          <SplitText as="h1" text="ARGUS" className={`${DISPLAY} mb-6`} />
           <Reveal>
-            <p className={`${LEAD} ${MEASURE} mb-10`}>
+            <p className={`${LEAD} max-w-[40rem] mb-6`}>
               Independent assurance reconstruction for frontier AI
             </p>
+          </Reveal>
+          <Reveal>
+            <p className={`font-mono text-xs md:text-sm tracking-[0.12em] ${GOLD} mb-8`}>
+              PROOF-1 &middot; GPT-6 ASTRA &middot; TECHNICAL COMPLETE - EXTERNAL REVIEW OPEN
+            </p>
+          </Reveal>
+          <Reveal>
+            <div className="flex flex-col sm:flex-row gap-4 mb-10 md:mb-12">
+              <a
+                href={GRAPH}
+                className="btn-primary !px-5 sm:!px-8 text-center text-[0.9375rem] sm:text-base"
+              >
+                {/* Arrow joined to the last word so a wrap never strands it. */}
+                Open interactive assurance{' '}
+                <span className="whitespace-nowrap">
+                  graph <span aria-hidden="true">&rarr;</span>
+                </span>
+              </a>
+              <a href="#review" className="btn-secondary text-center">
+                Review questions
+              </a>
+            </div>
+          </Reveal>
+          <Reveal>
+            <a
+              href={GRAPH}
+              aria-label="Open the interactive assurance graph"
+              className="block rounded-2xl overflow-hidden border border-white/10 hover:border-[#a78bfa]/50 transition-colors mb-6"
+            >
+              <Image
+                src="/safety/argus/executive-graph.png"
+                alt="ARGUS Proof-1 executive assurance graph: root claim C1 supported by arguments A1 to A5, with dependencies, an assumption, gaps G2, G3 and G10, and key evidence nodes."
+                width={1551}
+                height={1099}
+                className="w-full h-auto"
+                priority
+              />
+            </a>
+          </Reveal>
+          <Reveal>
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-3">
+              <p className="text-sm leading-relaxed text-chrome/65">
+                Select any node to inspect its underlying register record, evidence status,
+                limitations, provenance and relationships.
+              </p>
+              <p className="text-sm leading-relaxed text-chrome/65">
+                The Executive view shows the main assurance structure. The Full Assurance Graph
+                exposes the complete Proof-1 representation.
+              </p>
+            </div>
+          </Reveal>
+        </RevealGroup>
+      </section>
+
+      {/* What ARGUS is. */}
+      <section className={`${SECTION} border-t border-white/5`}>
+        <RevealGroup className={SHELL} stagger={0.12}>
+          <Reveal>
+            <p className={`${LABEL} mb-6`}>Method</p>
           </Reveal>
           <Reveal>
             <p className={`${BODY} ${MEASURE} mb-6`}>
@@ -261,51 +321,6 @@ export default function ArgusPage() {
                 <div className="text-sm text-chrome/65 leading-snug">{label}</div>
               </Reveal>
             ))}
-          </RevealGroup>
-        </div>
-      </section>
-
-      {/* The graph. A screenshot here; the real thing gets its own full-width page. */}
-      <section className={`${SECTION} border-t border-white/5`}>
-        <div className={SHELL}>
-          <RevealGroup>
-            <Reveal>
-              <p className={`${LABEL} mb-6`}>Inspect</p>
-            </Reveal>
-            <SplitText text="Interactive assurance graph" className={`${DISPLAY_SM} mb-10`} />
-            <Reveal>
-              <a
-                href={GRAPH}
-                className="group block rounded-2xl overflow-hidden border border-white/10 hover:border-[#a78bfa]/50 transition-colors mb-10"
-              >
-                <Image
-                  src="/safety/argus/executive-graph.png"
-                  alt="ARGUS Proof-1 executive assurance graph: root claim C1 supported by arguments A1 to A5, with dependencies, an assumption, gaps G2, G3 and G10, and key evidence nodes."
-                  width={1551}
-                  height={1099}
-                  className="w-full h-auto"
-                  priority={false}
-                />
-              </a>
-            </Reveal>
-            <Reveal>
-              <a href={GRAPH} className="btn-primary inline-flex items-center gap-2 mb-10">
-                Open interactive assurance graph
-                <span aria-hidden="true">&rarr;</span>
-              </a>
-            </Reveal>
-            <Reveal>
-              <p className={`${BODY} ${MEASURE} mb-6`}>
-                Select any node to inspect its underlying register record, evidence status,
-                limitations, provenance and relationships.
-              </p>
-            </Reveal>
-            <Reveal>
-              <p className={`${BODY} ${MEASURE}`}>
-                The Executive view shows the main assurance structure. The Full Assurance Graph
-                exposes the complete Proof-1 representation.
-              </p>
-            </Reveal>
           </RevealGroup>
         </div>
       </section>
