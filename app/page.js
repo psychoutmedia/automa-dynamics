@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import HomeHero from './_components/HomeHero'
 import { Reveal, RevealGroup, SplitText } from './_components/Reveal'
 import LatestArticles from './_components/LatestArticles'
@@ -189,6 +190,57 @@ export default function Home() {
                 <p className="text-chrome/70 text-sm leading-relaxed">{capability.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ARGUS. The second line of work, built the same way as HELIOS above:
+          the claim, then the graph, then the way in. Copy is drawn from the
+          /safety/argus page so the two never disagree. */}
+      <section id="argus" className="section-padding border-b border-white/5">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <p className="type-label mb-8">Safety</p>
+            <SplitText text="ARGUS" className="type-display text-chrome-light mb-10" />
+            <p className="type-lead type-measure mx-auto mb-6">
+              Independent assurance reconstruction for frontier AI
+            </p>
+            <p className="type-body type-measure mx-auto mb-8">
+              ARGUS represents an assurance case as claim, argument, evidence, dependency and gap,
+              so the public reasoning behind a safety claim is easier for an independent third
+              party to inspect, challenge and discuss. It does not produce safety scores or
+              certifications.
+            </p>
+            <p className="font-mono text-xs tracking-[0.12em] text-[#d9b45e]">
+              PROOF-1 &middot; GPT-6 ASTRA &middot; EXTERNAL REVIEW OPEN
+            </p>
+          </div>
+
+          <a
+            href="/safety/argus/proof-1"
+            aria-label="Open the interactive assurance graph"
+            className="block rounded-2xl overflow-hidden border border-white/10 hover:border-[#a78bfa]/50 transition-colors mb-10"
+          >
+            <Image
+              src="/safety/argus/executive-graph.png"
+              alt="ARGUS Proof-1 executive assurance graph: root claim C1 supported by arguments A1 to A5, with dependencies, an assumption, gaps and key evidence nodes."
+              width={1551}
+              height={1099}
+              className="w-full h-auto"
+            />
+          </a>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/safety/argus/proof-1"
+              className="btn-primary !px-5 sm:!px-8 text-center text-[0.9375rem] sm:text-base"
+            >
+              Open interactive assurance graph{' '}
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="/safety/argus" className="btn-secondary text-center">
+              About ARGUS
+            </a>
           </div>
         </div>
       </section>

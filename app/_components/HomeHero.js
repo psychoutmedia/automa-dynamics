@@ -18,8 +18,10 @@ export default function HomeHero() {
 
   const enter = mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
 
+  // Top padding clears the fixed nav: on a short phone screen the hero is
+  // taller than the viewport and would otherwise start underneath it.
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16 sm:pb-24">
       <div className="absolute inset-0 bg-grid-pattern bg-[length:50px_50px] opacity-20" />
 
       <div
@@ -65,21 +67,24 @@ export default function HomeHero() {
         </p>
 
         <div
-          className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-700 ${enter}`}
+          className={`grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:flex-wrap sm:gap-4 justify-center transition-all duration-1000 delay-700 ${enter}`}
         >
-          <Link href="/#platform" className="btn-primary inline-flex items-center gap-2">
-            Explore the Platform
+          <Link href="/#platform" className="btn-primary col-span-2 inline-flex items-center justify-center gap-2">
+            Explore HELIOS
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </Link>
-          <Link href="/articles" className="btn-secondary">
+          <Link href="/#argus" className="btn-secondary !px-3 sm:!px-8 text-center text-sm sm:text-base">
+            Explore ARGUS
+          </Link>
+          <Link href="/articles" className="btn-secondary !px-3 sm:!px-8 text-center text-sm sm:text-base">
             Read the Articles
           </Link>
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block">
         <div className="w-6 h-10 border-2 border-chrome/30 rounded-full flex justify-center pt-2">
           <div className="w-1 h-2 bg-chrome/50 rounded-full animate-pulse" />
         </div>
