@@ -1,6 +1,20 @@
 import Image from 'next/image'
 import { SITE_URL } from '../../../lib/articles'
-import { Reveal, RevealGroup, SplitText } from '../../_components/Reveal'
+
+/* Deliberately static. The site's scroll reveals start every block at
+   opacity 0 and fade it in after hydration; on a page this dense that read as
+   a second of blank screen followed by a wave across all the text. A research
+   page meant for inspection should simply be there on first paint. These keep
+   the same layout markup as the animated components, without the motion. */
+function RevealGroup({ children, className }) {
+  return <div className={className}>{children}</div>
+}
+function Reveal({ children, className }) {
+  return <div className={className}>{children}</div>
+}
+function SplitText({ text, className, as: Tag = 'h2' }) {
+  return <Tag className={className}>{text}</Tag>
+}
 
 const DESCRIPTION =
   'ARGUS reconstructs frontier AI safety claims as inspectable assurance cases. Proof-1 maps the public evidence behind GPT-6 Astra’s cybersecurity release claim, and where that evidence stops. External review open.'
