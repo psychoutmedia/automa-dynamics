@@ -15,9 +15,10 @@ export default function SiteFooter() {
           />
           <span className="text-sm text-chrome/65">&copy; 2026 Automa Dynamics</span>
         </div>
-        <div className="flex items-center gap-6 text-sm text-chrome/65">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-chrome/65">
           <Link href="/about" className="hover:text-chrome/70 transition-colors">About</Link>
           <Link href="/articles" className="hover:text-chrome/70 transition-colors">Articles</Link>
+          <Link href="/safety/argus" className="hover:text-chrome/70 transition-colors">Safety</Link>
           <a
             href="https://x.com/automadynamics"
             target="_blank"

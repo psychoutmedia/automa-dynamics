@@ -14,6 +14,8 @@ export default function sitemap() {
     { url: BASE_URL, changeFrequency: 'monthly', priority: 1 },
     { url: `${BASE_URL}/about`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE_URL}/articles`, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${BASE_URL}/safety/argus`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/safety/argus/proof-1`, changeFrequency: 'monthly', priority: 0.6 },
     ...articles,
   ]
 }

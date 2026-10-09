@@ -11,6 +11,7 @@ const links = [
   { href: '/about', label: 'About' },
   { href: '/#platform', label: 'Platform' },
   { href: '/articles', label: 'Articles' },
+  { href: '/safety/argus', label: 'Safety' },
   { href: '/#contact', label: 'Contact' },
 ]
 
@@ -39,7 +40,7 @@ export default function SiteHeader() {
           />
           <span className="hidden sm:inline font-semibold text-lg tracking-wide">AUTOMA DYNAMICS</span>
         </Link>
-        <div className="flex items-center gap-4 md:gap-8 text-xs md:text-sm text-chrome/70">
+        <div className="flex items-center gap-3 sm:gap-4 md:gap-8 text-xs md:text-sm text-chrome/70">
           {links.map((link) => (
             <Link key={link.href} href={link.href} className="hover:text-chrome-light transition-colors">
               {link.label}

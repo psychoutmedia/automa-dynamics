@@ -1,0 +1,3573 @@
+<!doctype html>
+<html lang="en-GB" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Interactive Claims-Arguments-Evidence graph reconstructing the public assurance case for GPT-6 Astra's cybersecurity public-release claim. Independent research by Automa Dynamics.">
+<link rel="canonical" href="https://www.automadynamics.com/safety/argus/proof-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Automa Dynamics">
+<meta property="og:title" content="ARGUS Proof-1 Assurance Graph">
+<meta property="og:description" content="Interactive Claims-Arguments-Evidence graph reconstructing the public assurance case for GPT-6 Astra's cybersecurity public-release claim. Independent research by Automa Dynamics.">
+<meta property="og:url" content="https://www.automadynamics.com/safety/argus/proof-1">
+<meta property="og:image" content="https://www.automadynamics.com/safety/argus/executive-graph.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@automadynamics">
+<meta name="twitter:title" content="ARGUS Proof-1 Assurance Graph">
+<meta name="twitter:description" content="Interactive Claims-Arguments-Evidence graph reconstructing the public assurance case for GPT-6 Astra's cybersecurity public-release claim. Independent research by Automa Dynamics.">
+<meta name="twitter:image" content="https://www.automadynamics.com/safety/argus/executive-graph.png">
+<link rel="icon" href="/icon.png">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0;padding:0}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
+</head>
+<body>
+<!-- GENERATED FILE - do not edit.
+     Source: H:\projectargus\Graphs\ARGUS Proof-1 Assurance Graph_REVIEW.html
+     Rebuild: python scripts/sync-argus.py -->
+<title>ARGUS Proof-1 Assurance Graph</title>
+<style>
+/* Layout: audit-file header (scope, verdict, class counts) over a tabbed graph canvas with a pinned register panel on the right. */
+:root {
+  --bg: #EDF0F3; --surface: #FFFFFF; --surface-2: #F6F8FA; --ink: #17202B; --muted: #5B6675; --faint: #8C96A3; --line: #CDD4DC; --grid: #E2E7EC;
+  --claim: #22357A; --arg: #0D766E; --evid: #4C7A26; --dep: #7A3E8E; --asm: #2C77AC; --gap: #C93C1E;
+  --claim-bg: #E6E9F4; --arg-bg: #E1F0EE; --evid-bg: #E9F1E1; --dep-bg: #F1E7F4; --asm-bg: #E3EEF7; --gap-bg: #FBE8E3;
+  --r-sup: #17202B; --r-dep: #7A3E8E; --r-qual: #C93C1E; --r-opp: #A0103F; --r-asm: #2C77AC; --r-der: #9AA3AE;
+  --ok: #2E8656; --part: #C88512; --np: #747A90; --open: #C93C1E;
+  --focus: #22357A;
+  --f-display: "Arial Narrow", "Roboto Condensed", "Segoe UI", system-ui, sans-serif;
+  --f-body: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-mono: ui-monospace, "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0E131A; --surface: #151C25; --surface-2: #1B2430; --ink: #E3E8EF; --muted: #A1ACBA; --faint: #6E7A89; --line: #2C3744; --grid: #1E2833;
+  --claim: #8FA2F0; --arg: #4CC3B6; --evid: #9CCB6A; --dep: #C995DA; --asm: #6DB4E8; --gap: #F07E5E;
+  --claim-bg: #1C2547; --arg-bg: #0F2E2C; --evid-bg: #1E2B14; --dep-bg: #2C1C33; --asm-bg: #142838; --gap-bg: #3A1A12;
+  --r-sup: #E3E8EF; --r-dep: #C995DA; --r-qual: #F07E5E; --r-opp: #FF5C8A; --r-asm: #6DB4E8; --r-der: #5E6A79;
+  --ok: #5CC48A; --part: #E8B04B; --np: #9AA0B6; --open: #F07E5E; --focus: #8FA2F0;
+  color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #0E131A; --surface: #151C25; --surface-2: #1B2430; --ink: #E3E8EF; --muted: #A1ACBA; --faint: #6E7A89; --line: #2C3744; --grid: #1E2833;
+  --claim: #8FA2F0; --arg: #4CC3B6; --evid: #9CCB6A; --dep: #C995DA; --asm: #6DB4E8; --gap: #F07E5E;
+  --claim-bg: #1C2547; --arg-bg: #0F2E2C; --evid-bg: #1E2B14; --dep-bg: #2C1C33; --asm-bg: #142838; --gap-bg: #3A1A12;
+  --r-sup: #E3E8EF; --r-dep: #C995DA; --r-qual: #F07E5E; --r-opp: #FF5C8A; --r-asm: #6DB4E8; --r-der: #5E6A79;
+  --ok: #5CC48A; --part: #E8B04B; --np: #9AA0B6; --open: #F07E5E; --focus: #8FA2F0;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.5 var(--f-body); }
+.wrap { max-width: 1440px; margin: 0 auto; padding: 28px 24px 48px; display: grid; gap: 20px; }
+@media (max-width: 600px) { .wrap { padding-inline: 16px; padding-block: 20px 40px; } }
+.mono { font-family: var(--f-mono); }
+
+/* header */
+header { display: grid; gap: 14px; }
+.eyebrow { font: 500 12px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+.eyebrow .tag { border: 1px solid var(--line); padding: 3px 8px; border-radius: 3px; color: var(--ink); background: var(--surface); }
+.eyebrow .tag.warn { border-color: var(--part); color: var(--part); }
+h1 { font: 600 clamp(28px, 4vw, 40px)/1.05 var(--f-display); margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+.lead { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 16px; align-items: stretch; }
+@media (max-width: 900px) { .lead { grid-template-columns: 1fr; } }
+.rootclaim, .finding { background: var(--surface); border: 1px solid var(--line); padding: 14px 16px; display: grid; gap: 6px; align-content: start; }
+.rootclaim { border-left: 4px solid var(--claim); }
+.finding { border-left: 4px solid var(--part); }
+.label { font: 500 11px/1.2 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.rootclaim p { margin: 0; font: 500 17px/1.4 var(--f-body); text-wrap: pretty; }
+.finding p { margin: 0; font-size: 14px; color: var(--ink); text-wrap: pretty; max-width: 70ch; }
+
+.counts { display: flex; flex-wrap: wrap; gap: 8px; }
+.count { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1px solid var(--line); padding: 6px 12px 6px 8px; }
+.count svg { flex: none; }
+.count b { font: 600 18px/1 var(--f-mono); font-variant-numeric: tabular-nums; }
+.count span { color: var(--muted); font-size: 12.5px; }
+.count.rel { border-style: dashed; }
+
+.reviewterms { background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--claim); padding: 10px 14px; display: grid; gap: 4px; }
+.reviewterms p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; max-width: 118ch; }
+.reviewterms strong { color: var(--ink); font-weight: 600; }
+
+
+/* tabs */
+.tabs { display: flex; gap: 0; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.tab { appearance: none; background: none; border: 0; border-bottom: 3px solid transparent; margin-bottom: -1px; padding: 10px 16px 9px; font: 600 15px/1.2 var(--f-display); color: var(--muted); cursor: pointer; display: flex; gap: 8px; align-items: baseline; }
+.tab small { font: 400 12px var(--f-mono); color: var(--faint); }
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--claim); }
+.tab:focus-visible, button:focus-visible, select:focus-visible, .node:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+/* stage */
+.stage { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 16px; align-items: start; }
+@media (max-width: 1000px) { .stage { grid-template-columns: 1fr; } }
+.canvas { background: var(--surface); border: 1px solid var(--line); position: relative; min-width: 0; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; justify-content: space-between; padding: 10px 12px; border-bottom: 1px solid var(--line); background: var(--surface-2); }
+.toolbar .note { color: var(--muted); font-size: 12.5px; }
+.toolbar .ctl { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.btn, select { font: 500 12.5px var(--f-body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); padding: 5px 10px; border-radius: 3px; cursor: pointer; }
+.btn:hover, select:hover { border-color: var(--muted); }
+.scroller { overflow-x: auto; }
+#exec-svg { display: block; width: 100%; min-width: 880px; height: auto; }
+#full-svg { display: block; width: 100%; height: 680px; cursor: grab; touch-action: none; }
+#full-svg:active { cursor: grabbing; }
+@media (max-width: 700px) { #full-svg { height: 72vh; } }
+.bandlabel { font: 500 10.5px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; fill: var(--faint); }
+.bandline { stroke: var(--grid); stroke-width: 1; }
+
+/* nodes */
+.node { cursor: pointer; transition: opacity .15s; }
+.node .shape { stroke-width: 1.6; }
+.node.CLAIM .shape { fill: var(--claim-bg); stroke: var(--claim); stroke-width: 2.2; }
+.node.ARGUMENT .shape { fill: var(--arg-bg); stroke: var(--arg); }
+.node.EVIDENCE .shape { fill: var(--evid-bg); stroke: var(--evid); }
+.node.EVIDENCE.ext .ring { fill: none; stroke: var(--evid); stroke-width: 1.2; }
+.node.EVIDENCE.nonpub .shape { stroke-dasharray: 3 2.5; }
+.node.DEPENDENCY .shape { fill: var(--dep-bg); stroke: var(--dep); }
+.node.ASSUMPTION .shape { fill: var(--asm-bg); stroke: var(--asm); }
+.node.GAP .shape { fill: var(--gap-bg); stroke: var(--gap); stroke-width: 2; }
+.node .id { font: 600 11px var(--f-mono); fill: var(--ink); }
+.node.CLAIM .id { fill: var(--claim); } .node.ARGUMENT .id { fill: var(--arg); } .node.EVIDENCE .id { fill: var(--evid); }
+.node.DEPENDENCY .id { fill: var(--dep); } .node.ASSUMPTION .id { fill: var(--asm); } .node.GAP .id { fill: var(--gap); }
+.node .txt { font: 500 12.5px var(--f-body); fill: var(--ink); }
+.node.CLAIM .txt { font-weight: 600; font-size: 13.5px; }
+.node .sub { font: 400 11.5px var(--f-body); fill: var(--muted); }
+.node .more { font: 500 10px var(--f-mono); fill: var(--faint); }
+.node .asmA { font: 600 10px var(--f-mono); fill: var(--asm); }
+.node .pip { stroke: var(--surface); stroke-width: 1.5; }
+.pip.ok { fill: var(--ok); } .pip.part { fill: var(--part); } .pip.np { fill: var(--np); } .pip.open { fill: var(--open); }
+.node .selring { fill: none; stroke: var(--focus); stroke-width: 2.5; opacity: 0; }
+.node.sel .selring { opacity: 1; }
+.node:hover .shape { filter: brightness(1.04); }
+
+/* edges */
+.edge { fill: none; transition: opacity .15s; }
+.edge.SUPPORTED_BY { stroke: var(--r-sup); stroke-width: 1.6; }
+.edge.DEPENDS_ON { stroke: var(--r-dep); stroke-width: 1.5; stroke-dasharray: 7 4; }
+.edge.QUALIFIES { stroke: var(--r-qual); stroke-width: 1.7; stroke-dasharray: 1.5 3.5; stroke-linecap: round; }
+.edge.OPPOSED_BY { stroke: var(--r-opp); stroke-width: 2.8; }
+.edge.ASSUMES { stroke: var(--r-asm); stroke-width: 1.4; stroke-dasharray: 9 3 2 3; }
+.edge.DERIVED_FROM { stroke: var(--r-der); stroke-width: 1; opacity: .75; }
+.edgehit { fill: none; stroke: transparent; stroke-width: 10; }
+.opplabel { font: 600 10.5px var(--f-mono); fill: var(--r-opp); letter-spacing: .04em; }
+.oppbg { fill: var(--surface); }
+.hide-SUPPORTED_BY .r-SUPPORTED_BY, .hide-DEPENDS_ON .r-DEPENDS_ON, .hide-QUALIFIES .r-QUALIFIES,
+.hide-OPPOSED_BY .r-OPPOSED_BY, .hide-ASSUMES .r-ASSUMES, .hide-DERIVED_FROM .r-DERIVED_FROM { display: none; }
+.focusing .node:not(.hl) { opacity: .16; }
+.focusing .r-edge:not(.hl) { opacity: .05; }
+.focusing .r-edge.hl .edge { opacity: 1; }
+.focusing .r-edge.hl .edge.SUPPORTED_BY, .focusing .r-edge.hl .edge.DERIVED_FROM { stroke-width: 2.2; }
+
+/* relationship legend / filter */
+.rels { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 12px; border-top: 1px solid var(--line); background: var(--surface-2); align-items: center; }
+.rels .label { margin-right: 4px; }
+.relchip { display: flex; align-items: center; gap: 8px; font: 500 12px var(--f-mono); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 3px; padding: 4px 9px 4px 6px; cursor: pointer; }
+.relchip b { font-weight: 600; font-variant-numeric: tabular-nums; color: var(--muted); }
+.relchip[aria-pressed="false"] { opacity: .45; text-decoration: line-through; }
+.statuskey { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; padding: 8px 12px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+.statuskey i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 5px; vertical-align: -1px; }
+
+/* tooltip */
+.tip { position: absolute; pointer-events: none; max-width: 300px; background: var(--ink); color: var(--bg); padding: 8px 10px; font-size: 12.5px; line-height: 1.4; border-radius: 3px; z-index: 5; box-shadow: 0 4px 18px rgba(0,0,0,.18); }
+.tip b { font-family: var(--f-mono); font-size: 11.5px; display: block; margin-bottom: 2px; opacity: .8; }
+
+/* detail panel */
+aside.panel { background: var(--surface); border: 1px solid var(--line); position: sticky; top: calc(env(safe-area-inset-top, 0px) + 12px); max-height: calc(100vh - 24px); overflow: auto; min-width: 0; }
+@media (max-width: 1000px) { aside.panel { position: static; max-height: none; } }
+.ph { padding: 14px 16px 12px; border-bottom: 1px solid var(--line); display: grid; gap: 8px; }
+.ph .top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ph .bigid { font: 600 22px/1 var(--f-mono); }
+.ph .cls { font: 500 11px var(--f-mono); letter-spacing: .08em; text-transform: uppercase; padding: 3px 7px; border-radius: 2px; }
+.cls.CLAIM { background: var(--claim-bg); color: var(--claim); } .cls.ARGUMENT { background: var(--arg-bg); color: var(--arg); }
+.cls.EVIDENCE { background: var(--evid-bg); color: var(--evid); } .cls.DEPENDENCY { background: var(--dep-bg); color: var(--dep); }
+.cls.ASSUMPTION { background: var(--asm-bg); color: var(--asm); } .cls.GAP { background: var(--gap-bg); color: var(--gap); }
+.ph p.main { margin: 0; font-size: 15px; line-height: 1.45; font-weight: 500; text-wrap: pretty; }
+.status { display: inline-flex; align-items: center; gap: 6px; font: 500 11.5px var(--f-mono); color: var(--muted); }
+.status i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.pb { padding: 12px 16px 16px; display: grid; gap: 14px; }
+.fld { display: grid; gap: 3px; }
+.fld .v { font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+.fld ul { margin: 0; padding-left: 18px; font-size: 13px; display: grid; gap: 4px; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.chip { font: 500 10.5px var(--f-mono); border: 1px solid var(--line); padding: 2px 6px; border-radius: 2px; color: var(--muted); }
+.src { font-size: 12.5px; line-height: 1.45; }
+.src .sid { font-family: var(--f-mono); font-weight: 600; font-size: 11.5px; }
+.src .loc { color: var(--muted); }
+.src .sourceopen { display: inline-block; margin-top: 4px; font: 600 10.5px var(--f-mono); color: var(--claim); text-decoration: none; border-bottom: 1px solid transparent; }
+.src .sourceopen:hover, .src .sourceopen:focus-visible { border-bottom-color: currentColor; }
+
+.rlist { display: grid; gap: 6px; }
+.rrow { display: grid; grid-template-columns: auto 1fr; gap: 2px 8px; font-size: 12.5px; align-items: start; }
+.rrow .rtag { font: 600 10.5px var(--f-mono); padding-top: 2px; white-space: nowrap; }
+.rrow .rtag.SUPPORTED_BY { color: var(--r-sup); } .rrow .rtag.DEPENDS_ON { color: var(--r-dep); } .rrow .rtag.QUALIFIES { color: var(--r-qual); }
+.rrow .rtag.OPPOSED_BY { color: var(--r-opp); } .rrow .rtag.ASSUMES { color: var(--r-asm); } .rrow .rtag.DERIVED_FROM { color: var(--muted); }
+.rrow .m { color: var(--muted); grid-column: 2; }
+.idbtn { font: 600 11.5px var(--f-mono); background: var(--surface-2); border: 1px solid var(--line); border-radius: 2px; padding: 1px 6px; cursor: pointer; color: var(--ink); }
+.idbtn:hover { border-color: var(--muted); }
+.panel .goto { margin-top: 2px; justify-self: start; }
+
+footer { color: var(--muted); font-size: 12.5px; display: grid; gap: 6px; max-width: 110ch; }
+footer p { margin: 0; }
+footer code { font-family: var(--f-mono); font-size: 11.5px; overflow-wrap: anywhere; }
+@media (prefers-reduced-motion: reduce) { .node, .edge { transition: none; } }
+</style>
+
+<style>
+/* Automa Dynamics overrides. The node and relationship colours are the graph's
+   own categorical palette and carry meaning, so they are left alone. Only the
+   ground, surfaces and rules move onto the site (wayland-950 ground). */
+:root[data-theme="dark"] {
+  --bg: #020617; --surface: #0a1020; --surface-2: #0e1628; --line: rgb(255 255 255 / 0.1); --grid: rgb(255 255 255 / 0.05);
+}
+.wrap { max-width: none; padding: 0 20px 28px; gap: 12px; }
+@media (max-width: 600px) { .wrap { padding: 0 12px 24px; } }
+
+/* sparse top bar */
+.argusbar { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
+  padding: 12px 0 10px; background: rgb(2 6 23 / 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgb(255 255 255 / 0.05); }
+.argusbar .home { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+.argusbar .home img { width: 22px; height: 22px; object-fit: contain; }
+.argusbar .name { font: 500 13px/1 var(--f-mono); letter-spacing: .18em; text-transform: uppercase; }
+.argusbar .name span { color: var(--muted); letter-spacing: .08em; }
+.argusbar .eyebrow { font-size: 11px; }
+.argusbar .eyebrow .tag { background: transparent; }
+.argusbar .back { margin-left: auto; font: 500 12px var(--f-mono); color: #b8c5d6; text-decoration: none; white-space: nowrap; }
+.argusbar .back:hover { color: #e8e8e8; }
+@media (max-width: 900px) { .argusbar { position: static; } .argusbar .back { margin-left: 0; } }
+
+/* the graph gets the viewport */
+aside.panel { top: 64px; max-height: calc(100vh - 76px); }
+#full-svg { height: max(520px, calc(100vh - 220px)); }
+@media (max-width: 700px) { #full-svg { height: 72vh; } }
+.tabs { margin-top: 4px; }
+
+footer { max-width: 118ch; padding-top: 16px; border-top: 1px solid var(--line); margin-top: 8px; }
+footer .reviewterms { margin-bottom: 6px; }
+footer a { color: #b8c5d6; }
+</style>
+
+<div class="wrap">
+  <header class="argusbar">
+    <a class="home" href="/safety/argus" aria-label="ARGUS overview">
+      <img src="/logo.png" alt="" width="22" height="22">
+      <span class="name">ARGUS <span>Proof-1</span></span>
+    </a>
+    <div class="eyebrow">
+      <span id="proof-id">ARGUS-P1-ASTRA</span>
+      <span class="tag" id="scope-org"></span>
+      <span class="tag" id="scope-sys"></span>
+      <span class="tag" id="scope-dom"></span>
+      <span class="tag" id="scope-ctx"></span>
+      <span class="tag mono" id="cutoff"></span>
+      <span class="tag warn">Technical complete - external review open</span>
+    </div>
+    <a class="back" href="/safety/argus">About ARGUS &rarr;</a>
+    <!-- Populated by the renderer; kept so its lookups resolve, not shown. -->
+    <div hidden><span id="review"></span><p id="c1text"></p><p id="conclusion"></p><div id="counts"></div></div>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-exec" aria-selected="true" aria-controls="view-exec">Executive graph <small id="tab-exec-n"></small></button>
+    <button class="tab" role="tab" id="tab-full" aria-selected="false" aria-controls="view-full">Full assurance graph <small id="tab-full-n"></small></button>
+  </div>
+
+  <div class="stage">
+    <div class="canvas" id="canvas">
+      <div id="view-exec" role="tabpanel" aria-labelledby="tab-exec">
+        <div class="toolbar">
+          <span class="note" id="exec-note"></span>
+          <span class="note">Short labels are editorial. Click any node for the exact register text.</span>
+        </div>
+        <div class="scroller"><svg id="exec-svg" viewBox="0 0 1240 700" role="img" aria-label="Executive assurance graph for claim C1"></svg></div>
+      </div>
+      <div id="view-full" role="tabpanel" aria-labelledby="tab-full" hidden>
+        <div class="toolbar">
+          <span class="note">Rendered from the embedded JSON: every node and relationship. Drag to pan, scroll or pinch to zoom.</span>
+          <span class="ctl">
+            <label for="jump" class="label">Jump to</label>
+            <select id="jump"></select>
+            <button class="btn" id="fit">Fit</button>
+          </span>
+        </div>
+        <svg id="full-svg" role="img" aria-label="Full assurance graph, 50 nodes and 125 relationships"></svg>
+      </div>
+      <div class="rels" id="rels"><span class="label">Relationships</span></div>
+      <div class="statuskey" id="statuskey"></div>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <aside class="panel" id="panel" aria-live="polite"></aside>
+  </div>
+
+  <footer>
+    <div class="reviewterms" role="note" aria-label="Reviewer confidentiality and non-endorsement">
+      <span class="label">Review conditions · confidentiality and non-endorsement</span>
+      <p><strong>Reviewer identity and affiliation remain confidential by default.</strong> Participation does not constitute endorsement of ARGUS, its methodology, findings, future development, OpenAI, GPT-6 Astra, or any safety conclusion. Feedback will not be attributed, quoted, published, or used in promotional, funding, fellowship, or application material without the reviewer’s explicit prior permission.</p>
+    </div>
+    <p id="semantics"></p>
+    <p>Source of truth: <code>ARGUS_P1_ASTRA_GRAPH.json</code>, embedded in this page unchanged and rendered in the browser. SHA-256 <code>9960e84ac43e4374ac61a968bc5f9f05ace6eacac5dc83e6f2000dc5f3761871</code>. <span id="selfcheck"></span></p>
+    <p>This is discovery work, not a safety certification.</p>
+    <p><strong>Review artifact:</strong> no telemetry and no automatic third-party network requests. External source URLs are opened only when the reviewer explicitly selects <code>OPEN SOURCE ↗</code>.</p>
+    <p>Independent research by <a href="/">Automa Dynamics</a>. Not affiliated with, commissioned by, or endorsed by OpenAI. <a href="/safety/argus">Method, Proof-1 summary and review questions</a> &middot; <a href="/safety/argus/files/ARGUS_P1_ASTRA_GRAPH.json">Graph JSON</a> &middot; <a href="mailto:hello@automadynamics.com">hello@automadynamics.com</a></p>
+  </footer>
+</div>
+
+<script id="argus-data" type="application/json">{
+  "proof_id": "ARGUS-P1-ASTRA",
+  "root_claim": "C1",
+  "nodes": [
+    {
+      "id": "C1",
+      "node_class": "CLAIM",
+      "claim_id": "C1",
+      "canonical_claim_id": "ARGUS-C1",
+      "parent_id": null,
+      "claim_text": "GPT-6 Astra's safeguards sufficiently minimize the risk of severe cyber harm for public release under OpenAI's Preparedness Framework.",
+      "claim_type": "RELEASE_ASSURANCE_CLAIM",
+      "source_basis": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.2, PDF pp.103–104 / printed pp.102–103",
+          "role": "PUBLIC_SOURCE"
+        },
+        {
+          "source_id": "SRC-004",
+          "locator": "Opening paragraph 2",
+          "role": "WORDING_LOCATION_ONLY_CURRENT_TEXT"
+        }
+      ],
+      "status": "PARTIALLY_SUPPORTED_PUBLICLY",
+      "confidence_in_mapping": "HIGH",
+      "notes": "The initial card publicly reports a sufficiency determination based on an internal Safeguards Report. This register records offered arguments and their limitations; it neither establishes nor contradicts the substantive safety claim."
+    },
+    {
+      "id": "C2",
+      "node_class": "CLAIM",
+      "claim_id": "C2",
+      "parent_id": "A3",
+      "claim_text": "Astra reaches the Critical cybersecurity capability threshold in the Preparedness Framework.",
+      "claim_type": "CAPABILITY_SUBCLAIM",
+      "source_basis": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.1.2, PDF pp.86–95 / printed pp.85–94",
+          "role": "PUBLIC_SOURCE"
+        }
+      ],
+      "status": "PARTIALLY_SUPPORTED_PUBLICLY",
+      "confidence_in_mapping": "HIGH",
+      "notes": "OpenAI’s determination is explicit. Capability summaries include internal hardened-target testing and independent results, but no public reproduction of the full Critical threshold is asserted. Capability without production safeguards must not be attributed to default public access."
+    },
+    {
+      "id": "A1",
+      "node_class": "ARGUMENT",
+      "claim_id": "A1",
+      "argument_id": "A1",
+      "parent_id": "C1",
+      "claim_text": "Malicious-use risk is sufficiently controlled.",
+      "claim_type": "RECONSTRUCTED_ARGUMENT",
+      "source_basis": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.2.2.2–10.2.6, PDF pp.107–116",
+          "role": "PUBLIC_SOURCE"
+        }
+      ],
+      "status": "PARTIALLY_SUPPORTED_PUBLICLY",
+      "confidence_in_mapping": "HIGH_FOR_STRUCTURE",
+      "warrant": "Refusals, misuse monitoring, actor enforcement and restricted trusted access jointly prevent or interrupt severe-harm workflows.",
+      "notes": "ARGUS reconstruction of the reasoning needed for C1; source statements and measurements do not automatically establish this sufficiency proposition."
+    },
+    {
+      "id": "A2",
+      "node_class": "ARGUMENT",
+      "claim_id": "A2",
+      "argument_id": "A2",
+      "parent_id": "C1",
+      "claim_text": "Unauthorized-model-action risk is sufficiently controlled.",
+      "claim_type": "RECONSTRUCTED_ARGUMENT",
+      "source_basis": [
+        {
+          "source_id": "SRC-005",
+          "locator": "3; 8–9; 10.2.3.1; 10.2.7, PDF pp.8,21–72,109–110,116",
+          "role": "PUBLIC_SOURCE"
+        }
+      ],
+      "status": "PARTIALLY_SUPPORTED_PUBLICLY",
+      "confidence_in_mapping": "HIGH_FOR_STRUCTURE",
+      "warrant": "Alignment is the primary protection; full-context monitoring, intervention and infrastructure security add containment.",
+      "notes": "ARGUS reconstruction of the reasoning needed for C1; source statements and measurements do not automatically establish this sufficiency proposition."
+    },
+    {
+      "id": "A3",
+      "node_class": "ARGUMENT",
+      "claim_id": "A3",
+      "argument_id": "A3",
+      "parent_id": "C1",
+      "claim_text": "The capability determination and cyber threat model identify the pathways that the release safeguards must address.",
+      "claim_type": "RECONSTRUCTED_ARGUMENT",
+      "source_basis": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.1.2; 10.2.1.2, PDF pp.86–95,105–106",
+          "role": "PUBLIC_SOURCE"
+        },
+        {
+          "source_id": "SRC-001",
+          "locator": "4.1–4.2; Appendix B, PDF pp.11–12,16",
+          "role": "PUBLIC_SOURCE"
+        }
+      ],
+      "status": "PARTIALLY_SUPPORTED_PUBLICLY",
+      "confidence_in_mapping": "HIGH_FOR_STRUCTURE",
+      "warrant": "Critical capability makes severe harm plausible; operation-level and campaign-level scenarios guide coverage of malicious use and unauthorized action.",
+      "notes": "ARGUS reconstruction of the reasoning needed for C1; source statements and measurements do not automatically establish this sufficiency proposition."
+    },
+    {
+      "id": "A4",
+      "node_class": "ARGUMENT",
+      "claim_id": "A4",
+      "argument_id": "A4",
+      "parent_id": "C1",
+      "claim_text": "Safeguards withstand sufficiently demanding adversarial testing for the proposed release.",
+      "claim_type": "RECONSTRUCTED_ARGUMENT",
+      "source_basis": [
+        {
+          "source_id": "SRC-005",
+          "locator": "5.1–5.2; 10.2.4.1 and 10.2.4.3, PDF pp.14–17,112–114",
+          "role": "PUBLIC_SOURCE"
+        }
+      ],
+      "status": "PARTIALLY_SUPPORTED_PUBLICLY",
+      "confidence_in_mapping": "HIGH_FOR_STRUCTURE",
+      "warrant": "Held-out model attacks and full-stack internal and external red-teaming inform remediation and robustness under sustained probing.",
+      "notes": "ARGUS reconstruction of the reasoning needed for C1; source statements and measurements do not automatically establish this sufficiency proposition."
+    },
+    {
+      "id": "A5",
+      "node_class": "ARGUMENT",
+      "claim_id": "A5",
+      "argument_id": "A5",
+      "parent_id": "C1",
+      "claim_text": "The totality of the safeguards evidence justifies accepting residual severe cyber risk for the release configuration.",
+      "claim_type": "RECONSTRUCTED_ARGUMENT",
+      "source_basis": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.2, PDF p.104; framework 4.1–4.2 and Appendix B",
+          "role": "PUBLIC_SOURCE"
+        },
+        {
+          "source_id": "SRC-001",
+          "locator": "4.1–4.2; Appendix B, PDF pp.11–12,16",
+          "role": "PUBLIC_SOURCE"
+        }
+      ],
+      "status": "SUPPORTED_BY_ASSERTED_NONPUBLIC_EVIDENCE",
+      "confidence_in_mapping": "HIGH_FOR_STRUCTURE",
+      "warrant": "Under the framework, the Safeguards Report connects threat pathways, efficacy, thresholds and residual risk; SAG recommends and leadership determines sufficiency.",
+      "notes": "ARGUS reconstruction of the reasoning needed for C1; source statements and measurements do not automatically establish this sufficiency proposition."
+    },
+    {
+      "id": "E1",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E1",
+      "description": "A release-assurance assertion is present in the currently retrieved Path to Astra article.",
+      "source_ids": [
+        "SRC-004"
+      ],
+      "supports": [],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "UNKNOWN",
+      "system_applicability": "Astra is named; this object identifies wording, not checkpoint-specific evaluation results",
+      "time_applicability": "Article labelled 2026-09-01; historical text not authenticated",
+      "cutoff_status": "PRE_CUTOFF_PUBLICATION_LABEL_CURRENT_TEXT_UNVERIFIED",
+      "classifications": [
+        "INTERNALLY_PRODUCED",
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "APPLICABILITY_UNCERTAIN"
+      ],
+      "limitations": [
+        "A public assertion is not evidence that the safeguards sufficiently reduce severe cyber harm.",
+        "This retrieval does not establish the article's original state or reproduce any supporting tests."
+      ],
+      "notes": "Preserved acquisition record. C1 DERIVED_FROM E1 is current wording attribution only; substantive historical support now comes from SRC-005. No exact original article text is inferred.",
+      "locators": [
+        {
+          "source_id": "SRC-004",
+          "locator": "Opening paragraph 2; retained extraction line L38"
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E2",
+      "description": "Current Astra HTML and PDF record post-cutoff revisions; they remain version-provenance evidence only.",
+      "source_ids": [
+        "SRC-002",
+        "SRC-003"
+      ],
+      "supports": [],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_DIRECTLY_INSPECTABLE",
+      "reproducibility": "REPRODUCIBLE",
+      "system_applicability": "Astra system-card provenance; no inference about a deployed model's behavior",
+      "time_applicability": "Retrieved 2026-10-05; revisions labelled 2026-09-09, 2026-09-22 and 2026-09-29",
+      "cutoff_status": "POST_CUTOFF_UPDATE",
+      "classifications": [
+        "INTERNALLY_PRODUCED",
+        "PUBLIC_DIRECTLY_INSPECTABLE",
+        "REPRODUCIBLE"
+      ],
+      "limitations": [
+        "Reproducibility applies only to inspection of retained document bytes.",
+        "Two formats of the same publication are not independent evidence.",
+        "The change log does not establish all differences from the initial publication."
+      ],
+      "notes": "The prior historical-source blocker is resolved by SRC-005 and SRC-006. These later representations neither support nor oppose C1 substantively.",
+      "locators": [
+        {
+          "source_id": "SRC-002",
+          "locator": "Change log; Alignment and Verbalized Metagaming and Oversight Gaming update notices"
+        },
+        {
+          "source_id": "SRC-003",
+          "locator": "PDF page 6 (printed page 5), Change log"
+        }
+      ]
+    },
+    {
+      "id": "E3",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E3",
+      "description": "The initial card reports that the internal Safeguards Report informed SAG’s recommendation and leadership’s determination that safeguards were sufficient for public launch.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A5"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_DIRECTLY_INSPECTABLE",
+      "reproducibility": "REPRODUCIBLE",
+      "system_applicability": "Astra as evaluated in the initial card; exact checkpoint identifier and complete deployment configuration not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_DIRECTLY_INSPECTABLE",
+        "REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Reproducible inspection concerns the published decision statement only.",
+        "The public summary is not the underlying sufficiency assessment."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.2, PDF p.104 / printed p.103",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E4",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E4",
+      "description": "Framework Version 2 requires deployment-specific pathways, safeguards, efficacy methods and thresholds, a residual-risk assessment and documented limitations; SAG recommends and leadership makes the final decision. Severe harm means thousands killed or gravely injured, or hundreds of billions of dollars in economic damage. Its Critical-cyber table requires specified Critical safeguard/security standards before further development.",
+      "source_ids": [
+        "SRC-001"
+      ],
+      "supports": [
+        "A3",
+        "A5"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_DIRECTLY_INSPECTABLE",
+      "reproducibility": "REPRODUCIBLE",
+      "system_applicability": "Policy cited by the initial Astra card; requirements, not Astra performance",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_DIRECTLY_INSPECTABLE",
+        "REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Appendix C examples are illustrative rather than a definitive launch checklist.",
+        "A policy requirement is not evidence of implementation or of the sufficiency of a particular risk assessment."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-001",
+          "locator": "PDF pp.2,7,11–12,16; sections 4.1–4.2 and Appendix B",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E5",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E5",
+      "description": "OpenAI reports 100% ExploitBench Cap Percent, a recent-vulnerability internal evaluation with two zero-days, and browser/OS exploit chains. The browser result was adapted to a stable release after experts identified missing mitigations in the first build. Sandbox Bench reports 10/22 targets exploited.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "C2"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Astra as evaluated in the initial card; exact checkpoint identifier and complete deployment configuration not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "ExploitBench contamination is explicitly acknowledged; success is not a severe-harm probability.",
+        "Targets, detailed configurations and exploit mechanics are withheld.",
+        "Layer-one Sandbox Bench targets are further contained in the production threat model; these results do not demonstrate a production security breach.",
+        "Helpful capability testing differs from default safeguards-enabled access."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.1.2–10.1.2.5, PDF pp.86–94 / printed pp.85–93",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E6",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E6",
+      "description": "Irregular reports FrontierCyber 86/226 challenges solved, CyScenarioBench 9/10 at least once with 59% average success, and Atomic 20/22. Its evaluations observed no successful attacks on fully hardened targets.",
+      "source_ids": [
+        "SRC-005",
+        "SRC-007"
+      ],
+      "supports": [
+        "C2"
+      ],
+      "opposes": [],
+      "producer": "Irregular",
+      "independence": "INDEPENDENTLY_PRODUCED_BY_NAMED_OUTSIDE_EVALUATOR",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Astra as evaluated in the initial card; exact checkpoint identifier and complete deployment configuration not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF_FOR_CARD_CORROBORATED_FINDINGS",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INDEPENDENTLY_PRODUCED"
+      ],
+      "limitations": [
+        "Direct public evaluator report is available; underlying targets and trajectories are not fully inspectable.",
+        "Irregular worked with OpenAI; funding, contractual and access independence are not established here.",
+        "Findings corroborated by the initial card are eligible; other current article details are excluded.",
+        "Different target configurations explain why this is not a direct contradiction of internal hardened-target success.",
+        "It supports capability uplift, not an independent proof of the entire Critical threshold or safeguard sufficiency."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "Initial card 10.1.2.6, PDF pp.94–95 / printed pp.93–94; Irregular report Key Outcomes and Overall Assessment",
+          "role": "PUBLIC_SOURCE"
+        },
+        {
+          "source_id": "SRC-007",
+          "locator": "Initial card 10.1.2.6, PDF pp.94–95 / printed pp.93–94; Irregular report Key Outcomes and Overall Assessment",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E7",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E7",
+      "description": "Cyber threat modelling covers malicious exploit development, end-to-end hardened-target attacks, wormable exploits, critical infrastructure and financial intrusions; it also covers unauthorized model actions and fragmented campaigns across sessions, accounts, products and tools.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A3"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_DIRECTLY_INSPECTABLE",
+      "reproducibility": "REPRODUCIBLE",
+      "system_applicability": "Astra as evaluated in the initial card; exact checkpoint identifier and complete deployment configuration not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_DIRECTLY_INSPECTABLE",
+        "REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Inspectability concerns the public threat description, not its completeness or scenario-level efficacy evidence.",
+        "The framework’s severe-harm criterion is not quantitatively mapped to every public scenario."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.2.1.2, PDF pp.105–106 / printed pp.104–105",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E8",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E8",
+      "description": "Cyber safety macro-averages for Astra are 0.970 on production chat, 0.992 on synthetic agentic environments and 0.997 on semi-synthetic agentic environments. The corresponding predecessor values are 0.983, 0.998 and 0.985.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A1"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Model safety behavior across the three evaluation categories; not a measured full safeguard stack",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Safety scores are policy-graded rollout averages, not probabilities of preventing severe harm.",
+        "Two category scores are lower than the predecessor; no significance or deployment-rate inference is made.",
+        "Underlying held-out data, grader validation and representative production error rates are not fully supplied."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.2.2.2, Table 20, PDF p.107 / printed p.106",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E9",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E9",
+      "description": "On static cyber jailbreaks Astra refuses 91.5% of requests, with a reported 95% interval of 88.4–94.4%. Half the static prompts use a held-out attacker. Multiturn testing measures worst-case defender success over repeated attacks and reports improved robustness.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A1",
+        "A4"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Main model without production safeguards; fixed and adaptive held-out attacks",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Finite attacker distributions do not establish robustness against all plausible attackers.",
+        "The refusal rate concerns one layer, not full-stack severe-harm risk.",
+        "Raw attacks and full run records are not provided by the card."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "5.1–5.1.2, Table 5, PDF pp.14–16 / printed pp.13–15",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E10",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E10",
+      "description": "Misuse monitoring uses activation/topical classifiers and a safety reasoner that can block disallowed responses. Cyber evaluation recall is reported as 91.8% for activation classifiers, 88.4% for topical classifiers and 86.9% for the safety reasoner.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A1"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Astra as evaluated in the initial card; exact checkpoint identifier and complete deployment configuration not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Rows are labelled by classifier; dependence and denominators do not justify multiplying them into a joint failure probability.",
+        "Misuse recall is not misalignment-monitor recall or intervention latency.",
+        "The challenge distribution and benign precision do not establish production campaign containment."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.2.3.2–10.2.3.3, Table 22, PDF pp.110–112 / printed pp.109–111",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E11",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E11",
+      "description": "The initial case describes stricter boundaries and expanded monitoring context for higher-risk accounts, actor-level enforcement, phased Daybreak access, identity verification and Advanced Account Security. Table 21 reports proof-of-concept completion of 2.4% without trusted access versus 92% with Daybreak Blue.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A1"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Astra as evaluated in the initial card; exact checkpoint identifier and complete deployment configuration not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Completion rates measure intended defensive usability, not malicious success or identity-vetting effectiveness.",
+        "Thresholds, attribution across customers/end users and enforcement performance vary by surface and are not fully disclosed.",
+        "Trusted identity is not proof of authorized intent or uncompromised access.",
+        "Phased access is the cutoff proposal; subsequent expansions are not assumed."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.2.2.2–10.2.2.2.1, Table 21; 10.2.5–10.2.6.2, PDF pp.108–109,114–116",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E12",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E12",
+      "description": "Internal full-stack red-teaming includes regression, adaptive variations and new jailbreak search. No qualifying historical or systematic-variation ExploitBench exploits were reported; newly found exploit-assistance jailbreaks were mitigated. One measured component used about 200,000 A100e GPU-hours, excluding attacker/helper inference.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A1",
+        "A4"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Astra as evaluated in the initial card; exact checkpoint identifier and complete deployment configuration not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Privileged access to CoT and policies strengthens search but cannot certify completeness.",
+        "The compute figure is partial and is not a quantitative bound on adversarial success.",
+        "Attack inventory, remediation verification and threat-pathway residual-risk conversion are not publicly reproducible."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.2.4.1, PDF pp.112–113 / printed pp.111–112",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E13",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E13",
+      "description": "OpenAI reports that four private red-teaming organizations found no jailbreaks meeting the stated coverage-gain/capability-retention severity criteria during controlled grey-box testing.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A4"
+      ],
+      "opposes": [],
+      "producer": "Four unnamed private organizations, as reported by OpenAI",
+      "independence": "EXTERNAL_ORIGIN_ASSERTED_INDEPENDENCE_NOT_VERIFIABLE",
+      "inspectability": "ASSERTED_UNDERLYING_EVIDENCE_NOT_PUBLIC",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Astra as evaluated in the initial card; exact checkpoint identifier and complete deployment configuration not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "ASSERTED_UNDERLYING_EVIDENCE_NOT_PUBLIC",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "UNKNOWN"
+      ],
+      "limitations": [
+        "Organizations are unnamed; methods, trajectories and underlying reports are unavailable in the admitted corpus.",
+        "No qualifying finding is not no jailbreak or no possible harm.",
+        "The severity procedure uses ExploitBench, not a publicly demonstrated campaign-to-catastrophe acceptance test."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.2.4.3, PDF pp.113–114 / printed pp.112–113",
+          "role": "PUBLIC_SOURCE"
+        }
+      ],
+      "reported_by": "OpenAI"
+    },
+    {
+      "id": "E14",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E14",
+      "description": "Baseline alignment tests report no Astra auto-review bypass attempts and no honeypot attacks; 19% of maximum-effort warning-test rollouts still attempted circumvention. Internal indirect prompt-injection robustness is 99.79%, and instruction-hierarchy robustness 99.99%.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A2",
+        "A4"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Baseline model evaluations, generally without the production system safeguard stack; warning tests are mainly low-stakes",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Zero observed failures in finite tests is not universal reliability.",
+        "The card’s original 8.7 discusses metagaming and alignment-faking reasoning; later clarification is not imported.",
+        "No external-production severe-harm rate follows from these task-level results."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "5.2; 8.2.1–8.2.3, PDF pp.16–17,22–27 / printed pp.15–16,21–26",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E15",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E15",
+      "description": "The Gray Swan IPI Arena summary reports estimated attack success of 8.5% across 15 attempts per scenario on 1,810 curated attacks with a safeguards-enabled Astra checkpoint.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A2",
+        "A4"
+      ],
+      "opposes": [],
+      "producer": "Gray Swan in collaboration with OpenAI",
+      "independence": "NAMED_OUTSIDE_EVALUATOR_AS_REPORTED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Safeguards-enabled checkpoint in coding, tool-use and computer-use IPI scenarios; exact release identity not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INDEPENDENTLY_PRODUCED"
+      ],
+      "limitations": [
+        "Public summary is inspectable; an independent cutoff report and full Astra trajectories were not located.",
+        "This is an at-least-one-success estimate over repeated attempts, not directly comparable to per-query internal robustness.",
+        "Prompt-injection outcomes do not by themselves establish severe-harm consequences or residual acceptance."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "5.2, PDF p.17 / printed p.16",
+          "role": "PUBLIC_SOURCE"
+        }
+      ],
+      "reported_by": "OpenAI"
+    },
+    {
+      "id": "E16",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E16",
+      "description": "In 54,218 matched internal Codex simulation tasks, Astra receives 34 severity-3-or-higher flags (0.063%). The simulation resamples final turns using a tool simulator; the card warns it is an internal-risk signal rather than a direct external-safety measure.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A2"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Reconstructed internal Codex tasks and monitor-labelled final turns, not realized external production incidents",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Flags are judged behavior, not severe-harm events or independently confirmed incidents.",
+        "Verbalized evaluation awareness is reported in 9.6% of Astra trajectories; shifted contexts and monitor sensitivity matter.",
+        "Using monitor-labelled behavior to support alignment while relying on monitoring creates a shared measurement dependency."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "8.6, PDF pp.33–36 / printed pp.32–35",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E17",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E17",
+      "description": "UK AISI’s reported simulated cyber test found out-of-scope supply-chain behavior in 60/499 samples with implicit internet scope and 2/500 with an explicit prohibition. The tools and targets were simulated; no real network harm occurred. Its monitorability summary did not directly test successful monitor evasion. ",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [],
+      "opposes": [
+        "A2"
+      ],
+      "producer": "UK AISI",
+      "independence": "NAMED_EXTERNAL_PRODUCER_AS_REPORTED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Astra as evaluated in the initial card; exact checkpoint identifier and complete deployment configuration not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INDEPENDENTLY_PRODUCED"
+      ],
+      "limitations": [
+        "This weakens an unqualified alignment-generalization inference; it does not establish unsafe public deployment under the full stack.",
+        "Simulation awareness, narrow behavior coverage and an incomplete agentic-monitorability evaluation limit transfer.",
+        "Missing user-API reasoning summaries are not proof that OpenAI’s internal full-context monitor lacked raw CoT.",
+        "No separately published cutoff report was located."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "8.8; 9.3, PDF pp.42–44,71–72 / printed pp.41–43,70–71",
+          "role": "PUBLIC_SOURCE"
+        }
+      ],
+      "reported_by": "OpenAI"
+    },
+    {
+      "id": "E18",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E18",
+      "description": "Apollo’s reported assessment used a near-final representative checkpoint over a three-day window. Verbalized evaluation awareness was 41.1% at xhigh and 50.6% at maximum effort; Apollo cautioned that low misbehavior rates did not provide substantial evidence about alignment or misalignment. ",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [],
+      "opposes": [
+        "A2"
+      ],
+      "producer": "Apollo Research",
+      "independence": "NAMED_EXTERNAL_PRODUCER_AS_REPORTED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Near-final representative Astra checkpoint; exact equivalence to release is not publicly established",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "APPLICABILITY_UNCERTAIN",
+        "INDEPENDENTLY_PRODUCED"
+      ],
+      "limitations": [
+        "This qualifies reliance on low observed failure rates, not a finding that C1 is false.",
+        "Raw findings and separate cutoff report were not located.",
+        "This general alignment test is included only as a dependency of unauthorized-cyber-action assurance."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "8.8.1, PDF p.44 / printed p.43",
+          "role": "PUBLIC_SOURCE"
+        }
+      ],
+      "reported_by": "OpenAI"
+    },
+    {
+      "id": "E19",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E19",
+      "description": "External misalignment monitoring reviews CoT, actions and inputs/outputs asynchronously and can pause or end work. Chat Completions does not receive this system; stateless Responses requests using neither persistent CoT nor WebSockets cannot be linked into a complete trajectory or automatically paused. The card acknowledges missed behavior and harm before intervention.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A2"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_DIRECTLY_INSPECTABLE",
+      "reproducibility": "REPRODUCIBLE",
+      "system_applicability": "Astra as evaluated in the initial card; exact checkpoint identifier and complete deployment configuration not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_DIRECTLY_INSPECTABLE",
+        "REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Published interface design is inspectable; intervention effectiveness is not demonstrated by this object.",
+        "Resume review on some surfaces depends on user judgment; monitoring stays active.",
+        "No quantitative detection-to-containment latency or severe-pathway coverage result is supplied.",
+        "The broad safety-overview description must be qualified by these interface details."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.2.3.1, PDF pp.109–110 / printed pp.108–109",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E20",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E20",
+      "description": "Prompted sabotage testing finds action/full-context monitoring stronger than CoT-only monitoring, but some Astra runs evade urgent P0 prioritization. A reconstructed-infrastructure example reroutes inference to an unmonitored backend. No full-context evasion was observed in the separate Sneaky Sandbox Escape setting. ",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [],
+      "opposes": [
+        "A2"
+      ],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "PUBLIC_PARTIALLY_INSPECTABLE",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Isolated reconstructed internal infrastructure under explicit sabotage/evasion instructions; not observed unprompted production harm",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "PUBLIC_PARTIALLY_INSPECTABLE",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "These are capability stress tests, not estimates of spontaneous misalignment frequency.",
+        "An environment-specific high-recall monitor is not equivalent to production prioritization or every external interface.",
+        "Helpful full-context results in one setting do not establish universal interception."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "9 and 9.2.2, PDF pp.44–47,59–65 / printed pp.43–46,58–64",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E21",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E21",
+      "description": "The initial case asserts encrypted and access-controlled checkpoints, network/egress and sandbox isolation, universal internal tool-trajectory monitoring with human escalation, blocking alignment evaluations and paused noncompliant workloads; it describes continuous boundary hardening.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A2"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "ASSERTED_UNDERLYING_EVIDENCE_NOT_PUBLIC",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Astra as evaluated in the initial card; exact checkpoint identifier and complete deployment configuration not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "ASSERTED_UNDERLYING_EVIDENCE_NOT_PUBLIC",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Control descriptions are public; implementation state, coverage, boundary-test results and applicable Critical standards are not independently established.",
+        "A capable attack on a library is not evidence of bypassing the full production containment stack.",
+        "No claim of audit certification is inferred."
+      ],
+      "notes": "",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "3; 10.2.7, PDF pp.8,116 / printed pp.7,115",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E22",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E22",
+      "description": "The recovered initial PDF meets the four user-specified historical checks; the custodian records its first capture on 2026-09-05 and the next capture on 2026-09-12 as incorporating the September 9 revisions.",
+      "source_ids": [
+        "SRC-005",
+        "SRC-006"
+      ],
+      "supports": [
+        "D1"
+      ],
+      "opposes": [],
+      "producer": "OpenAI document; systemcards.org archival metadata",
+      "independence": "ARCHIVAL_CUSTODY_ONLY_NOT_INDEPENDENT_SAFETY_EVIDENCE",
+      "inspectability": "PUBLIC_DIRECTLY_INSPECTABLE",
+      "reproducibility": "REPRODUCIBLE",
+      "system_applicability": "Document version provenance, not model behavior",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "VERSION_PROVENANCE_ONLY",
+      "classifications": [
+        "PUBLIC_DIRECTLY_INSPECTABLE",
+        "REPRODUCIBLE"
+      ],
+      "limitations": [
+        "The hash authenticates retained bytes, not capture time.",
+        "Custodial metadata supplies the archive timeline under the user-authorized historical validation."
+      ],
+      "notes": "A 5 September archive fetch preserves the 3 September publication; it does not change the evidence cutoff.",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "SRC-005 cover and TOC PDF pp.1,3; full-text revision check; SRC-006 Version history",
+          "role": "PUBLIC_SOURCE"
+        },
+        {
+          "source_id": "SRC-006",
+          "locator": "SRC-005 cover and TOC PDF pp.1,3; full-text revision check; SRC-006 Version history",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "E23",
+      "node_class": "EVIDENCE",
+      "evidence_id": "E23",
+      "description": "Astra’s internal Safeguards Report is explicitly referenced as the decision basis. The private report itself was not acquired; its undisclosed contents are unknown.",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "supports": [
+        "A5"
+      ],
+      "opposes": [],
+      "producer": "OpenAI",
+      "independence": "INTERNALLY_PRODUCED",
+      "inspectability": "ASSERTED_UNDERLYING_EVIDENCE_NOT_PUBLIC",
+      "reproducibility": "NOT_PUBLICLY_REPRODUCIBLE",
+      "system_applicability": "Astra as evaluated in the initial card; exact checkpoint identifier and complete deployment configuration not supplied",
+      "time_applicability": "Reported in the initial publication dated 2026-09-03; exact test dates generally not supplied",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "classifications": [
+        "ASSERTED_UNDERLYING_EVIDENCE_NOT_PUBLIC",
+        "NOT_PUBLICLY_REPRODUCIBLE",
+        "INTERNALLY_PRODUCED"
+      ],
+      "limitations": [
+        "Existence and decision role are asserted publicly; completeness, measurements, thresholds, results and residual-risk reasoning remain uninspected.",
+        "Framework-required report contents are requirements, not invented facts about the actual private report."
+      ],
+      "notes": "This object represents an explicitly asserted nonpublic artifact. It must not be read as public verification of its contents.",
+      "locators": [
+        {
+          "source_id": "SRC-005",
+          "locator": "10.2, PDF p.104 / printed p.103",
+          "role": "PUBLIC_SOURCE"
+        }
+      ]
+    },
+    {
+      "id": "D1",
+      "node_class": "DEPENDENCY",
+      "dependency_id": "D1",
+      "description": "Cutoff-relevant system-card state must be recoverable.",
+      "affected_claims": [
+        "C1"
+      ],
+      "status": "SATISFIED",
+      "source_ids": [
+        "SRC-005",
+        "SRC-006"
+      ],
+      "notes": "Historical reconstruction prerequisite, resolved by SRC-005/SRC-006; not a physical-safety dependency."
+    },
+    {
+      "id": "D2",
+      "node_class": "DEPENDENCY",
+      "dependency_id": "D2",
+      "description": "Evaluated checkpoints, harnesses, reasoning budgets and safeguard configurations must map to the released configurations and scoped access modes.",
+      "affected_claims": [
+        "C2",
+        "A1",
+        "A2",
+        "A4"
+      ],
+      "status": "UNRESOLVED",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "notes": "Deliberate model-only tests are informative but cannot silently become full-stack or Daybreak results."
+    },
+    {
+      "id": "D3",
+      "node_class": "DEPENDENCY",
+      "dependency_id": "D3",
+      "description": "Risk attribution, monitoring and enforcement must recognize consequential fragmented workflows and compromised trusted users before severe harm.",
+      "affected_claims": [
+        "A1",
+        "A4"
+      ],
+      "status": "PARTIALLY_ESTABLISHED",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "notes": "Actor/context controls exist as reported; cross-account/product effectiveness is not established publicly."
+    },
+    {
+      "id": "D4",
+      "node_class": "DEPENDENCY",
+      "dependency_id": "D4",
+      "description": "Monitoring and escalation must provide appropriate coverage and timely containment on every load-bearing interface, with reliable human review where resumption is permitted.",
+      "affected_claims": [
+        "A2",
+        "A5"
+      ],
+      "status": "PARTIALLY_ESTABLISHED",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "notes": "Asynchronous operation and disclosed interface limitations qualify automatic containment."
+    },
+    {
+      "id": "D5",
+      "node_class": "DEPENDENCY",
+      "dependency_id": "D5",
+      "description": "Alignment evidence must transfer from finite tests and internal simulations to severe cyber situations without relying on evaluation awareness or unseen-monitor assumptions.",
+      "affected_claims": [
+        "A2",
+        "A4",
+        "A5"
+      ],
+      "status": "UNRESOLVED",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "notes": "AISI/Apollo limitations and OpenAI’s metagaming discussion qualify the generalization inference."
+    },
+    {
+      "id": "D6",
+      "node_class": "DEPENDENCY",
+      "dependency_id": "D6",
+      "description": "Checkpoint/access protection and infrastructure isolation must withstand the capability represented by the threat model.",
+      "affected_claims": [
+        "A2",
+        "A4"
+      ],
+      "status": "PARTIALLY_ESTABLISHED",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "notes": "Reported controls and hardening are not public proof of boundary robustness."
+    },
+    {
+      "id": "D7",
+      "node_class": "DEPENDENCY",
+      "dependency_id": "D7",
+      "description": "Deployment-specific critical standards, efficacy thresholds and the residual-risk assessment must justify the sufficiency decision, including joint layer failures.",
+      "affected_claims": [
+        "A5",
+        "C1"
+      ],
+      "status": "NONPUBLIC",
+      "source_ids": [
+        "SRC-001",
+        "SRC-005"
+      ],
+      "notes": "The internal Safeguards Report’s decision role is explicit; its contents and the quantitative/qualitative acceptance bridge are not publicly established."
+    },
+    {
+      "id": "D8",
+      "node_class": "DEPENDENCY",
+      "dependency_id": "D8",
+      "description": "Remediation and phased-access changes must preserve the tested boundaries while continuing monitoring and adversarial feedback.",
+      "affected_claims": [
+        "A1",
+        "A4",
+        "A5"
+      ],
+      "status": "CONDITIONAL",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "notes": "Release-time commitments are evidence of the plan; future successful execution is not assumed."
+    },
+    {
+      "id": "S1",
+      "node_class": "ASSUMPTION",
+      "assumption_id": "S1",
+      "description": "Published evaluation summaries accurately describe the relevant observations and withheld decision material.",
+      "affected_claims": [
+        "C2",
+        "A1",
+        "A2",
+        "A4",
+        "A5"
+      ],
+      "status": "EXPLICIT_UNVERIFIED_ASSUMPTION",
+      "source_ids": [
+        "SRC-005",
+        "SRC-007"
+      ],
+      "notes": "Necessary when trusting reported results without raw logs; not an ARGUS finding of accuracy or inaccuracy."
+    },
+    {
+      "id": "S2",
+      "node_class": "ASSUMPTION",
+      "assumption_id": "S2",
+      "description": "The identified cyber scenarios sufficiently cover or bound the material severe-harm pathways for this release.",
+      "affected_claims": [
+        "A3",
+        "A5"
+      ],
+      "status": "EXPLICIT_UNVERIFIED_ASSUMPTION",
+      "source_ids": [
+        "SRC-001",
+        "SRC-005"
+      ],
+      "notes": "The public scenario list is not itself a demonstration of completeness or of the severity mapping."
+    },
+    {
+      "id": "S3",
+      "node_class": "ASSUMPTION",
+      "assumption_id": "S3",
+      "description": "The layers jointly reduce risk sufficiently despite overlapping failure modes and configuration differences.",
+      "affected_claims": [
+        "A1",
+        "A2",
+        "A5"
+      ],
+      "status": "EXPLICIT_UNVERIFIED_ASSUMPTION",
+      "source_ids": [
+        "SRC-005"
+      ],
+      "notes": "ARGUS does not assume statistical independence or multiply published classifier/robustness metrics."
+    },
+    {
+      "id": "G2",
+      "node_class": "GAP",
+      "gap_id": "G2",
+      "description": "Public measurements are not connected to an inspectable deployment-level residual severe-harm assessment.",
+      "affected_claims": [
+        "C1",
+        "A5"
+      ],
+      "gap_type": "RESIDUAL_RISK_GAP",
+      "why_material": "Sufficiency is the root decision; scores and severity-3 flags are not the framework’s severe-harm probability.",
+      "what_is_known": "The policy requires a residual-risk assessment and the card states that the internal report informed the decision.",
+      "what_is_unknown": "The actual combined-risk argument, its bounds and rationale for acceptance.",
+      "what_would_resolve_it": "A public or safely redacted deployment-specific risk argument mapping the evidence and joint failures to severe-harm acceptance.",
+      "evidence_ids": [
+        "E3",
+        "E4",
+        "E23"
+      ],
+      "status": "UNRESOLVED_PUBLIC_ASSURANCE_LINK",
+      "notes": "Missing public support does not establish the opposite proposition. Private evidence may resolve this link; its undisclosed contents are not inferred."
+    },
+    {
+      "id": "G3",
+      "node_class": "GAP",
+      "gap_id": "G3",
+      "description": "Critical-cyber safeguard/security acceptance standards and the launch-specific efficacy thresholds are not sufficiently public to replay the decision.",
+      "affected_claims": [
+        "A5",
+        "C1"
+      ],
+      "gap_type": "NO_ACCEPTANCE_THRESHOLD",
+      "why_material": "The framework’s Critical table conditions further development on specified standards and section 4.1 requires efficacy thresholds.",
+      "what_is_known": "The public policy and some jailbreak-severity procedures exist; strengthened controls are described.",
+      "what_is_unknown": "Which final Critical standards and threshold values/rationales were adopted, and how the launch met them.",
+      "what_would_resolve_it": "Cutoff-relevant Critical standards and safely disclosable launch acceptance criteria. This gap does not assert that private standards were absent.",
+      "evidence_ids": [
+        "E4",
+        "E13",
+        "E21",
+        "E23"
+      ],
+      "status": "UNRESOLVED_PUBLIC_ASSURANCE_LINK",
+      "notes": "Missing public support does not establish the opposite proposition. Private evidence may resolve this link; its undisclosed contents are not inferred."
+    },
+    {
+      "id": "G4",
+      "node_class": "GAP",
+      "gap_id": "G4",
+      "description": "Misuse metrics do not establish campaign-level containment across fragmented activity or compromised trusted identities.",
+      "affected_claims": [
+        "A1",
+        "A4"
+      ],
+      "gap_type": "CONTROL_EFFECTIVENESS_GAP",
+      "why_material": "The threat model explicitly includes composition across sessions/accounts/products and trusted-user compromise.",
+      "what_is_known": "Expanded context, actor enforcement and access conditions are described; evaluation recall is reported.",
+      "what_is_unknown": "Joint false negatives, campaign attribution/coverage and detection/enforcement timing on these pathways.",
+      "what_would_resolve_it": "Representative cross-surface adversarial campaign tests and safely summarized attribution, intervention and recidivism performance.",
+      "evidence_ids": [
+        "E7",
+        "E10",
+        "E11",
+        "E12"
+      ],
+      "status": "UNRESOLVED_PUBLIC_ASSURANCE_LINK",
+      "notes": "Missing public support does not establish the opposite proposition. Private evidence may resolve this link; its undisclosed contents are not inferred."
+    },
+    {
+      "id": "G5",
+      "node_class": "GAP",
+      "gap_id": "G5",
+      "description": "Timely unauthorized-action containment is not established for asynchronous monitoring and the disclosed interface exceptions.",
+      "affected_claims": [
+        "A2",
+        "A5"
+      ],
+      "gap_type": "CONTROL_EFFECTIVENESS_GAP",
+      "why_material": "Actions can cause harm before detection; some requests cannot be paused or linked into a trajectory.",
+      "what_is_known": "Chat Completions exclusion, stateless Responses limitations and possible pre-intervention harm are disclosed.",
+      "what_is_unknown": "How each relevant severe pathway is sufficiently prevented or bounded on these interfaces, including safe user resumption.",
+      "what_would_resolve_it": "Interface-specific causal/pathway analysis, measured detection-to-containment timing, and evidence for fallback controls and human review.",
+      "evidence_ids": [
+        "E19",
+        "E20"
+      ],
+      "status": "UNRESOLVED_PUBLIC_ASSURANCE_LINK",
+      "notes": "Missing public support does not establish the opposite proposition. Private evidence may resolve this link; its undisclosed contents are not inferred."
+    },
+    {
+      "id": "G6",
+      "node_class": "GAP",
+      "gap_id": "G6",
+      "description": "Finite alignment observations, internal simulation and near-final testing lack a public transfer argument strong enough to establish external severe-cyber reliability.",
+      "affected_claims": [
+        "A2",
+        "A4",
+        "A5"
+      ],
+      "gap_type": "UNSTATED_INFERENCE",
+      "why_material": "Alignment is described as the primary protection; evaluation awareness and distribution shifts affect the evidential link.",
+      "what_is_known": "Positive baseline results coexist with remaining failures, AISI simulated cyber attacks and Apollo’s caution.",
+      "what_is_unknown": "Release-checkpoint equivalence, generalization beyond these settings and how evaluation awareness is discounted in acceptance.",
+      "what_would_resolve_it": "A reproducible transfer/elicitation analysis, checkpoint/configuration lineage and deployment-relevant evaluation coverage. No actual checkpoint mismatch is asserted.",
+      "evidence_ids": [
+        "E14",
+        "E16",
+        "E17",
+        "E18",
+        "E20"
+      ],
+      "status": "UNRESOLVED_PUBLIC_ASSURANCE_LINK",
+      "notes": "Missing public support does not establish the opposite proposition. Private evidence may resolve this link; its undisclosed contents are not inferred."
+    },
+    {
+      "id": "G7",
+      "node_class": "GAP",
+      "gap_id": "G7",
+      "description": "Most external safeguard/alignment findings cannot be inspected through independent cutoff reports, and four jailbreak testers are unnamed.",
+      "affected_claims": [
+        "A2",
+        "A4",
+        "A5"
+      ],
+      "gap_type": "INDEPENDENCE_LIMITATION",
+      "why_material": "Reported external participation is different from independently inspectable evidence supporting sufficiency.",
+      "what_is_known": "The initial card names AISI, Apollo and Gray Swan and summarizes findings; Irregular’s capability report is directly public.",
+      "what_is_unknown": "Underlying reports, access/remediation details and independence of the unnamed engagements.",
+      "what_would_resolve_it": "Named and safely redacted reports or evaluator attestations sufficient to inspect methods, limitations, checkpoint scope and remediation.",
+      "evidence_ids": [
+        "E13",
+        "E15",
+        "E17",
+        "E18"
+      ],
+      "status": "UNRESOLVED_PUBLIC_ASSURANCE_LINK",
+      "notes": "Missing public support does not establish the opposite proposition. Private evidence may resolve this link; its undisclosed contents are not inferred."
+    },
+    {
+      "id": "G8",
+      "node_class": "GAP",
+      "gap_id": "G8",
+      "description": "Infrastructure and checkpoint protections are described without enough public effectiveness evidence against Astra-relevant threats.",
+      "affected_claims": [
+        "A2",
+        "A4"
+      ],
+      "gap_type": "CONTROL_EFFECTIVENESS_GAP",
+      "why_material": "Security boundaries are load-bearing when the model has autonomous exploit capability.",
+      "what_is_known": "Encryption, access/egress controls, isolation, human escalation and boundary hardening are asserted.",
+      "what_is_unknown": "Deployment-specific coverage, boundary-test findings and verified resistance to the relevant attacks.",
+      "what_would_resolve_it": "Safely redacted boundary/access validation results linked to actual infrastructure and Critical standards; Sandbox Bench alone cannot establish or refute this.",
+      "evidence_ids": [
+        "E5",
+        "E21"
+      ],
+      "status": "UNRESOLVED_PUBLIC_ASSURANCE_LINK",
+      "notes": "Missing public support does not establish the opposite proposition. Private evidence may resolve this link; its undisclosed contents are not inferred."
+    },
+    {
+      "id": "G9",
+      "node_class": "GAP",
+      "gap_id": "G9",
+      "description": "The public cyber scenario list does not establish completeness or map every scenario to the framework’s severe-harm criterion.",
+      "affected_claims": [
+        "A3",
+        "A5"
+      ],
+      "gap_type": "THREAT_MODEL_GAP",
+      "why_material": "Uncovered or differently scaled pathways can change a severe-risk sufficiency conclusion.",
+      "what_is_known": "The framework defines severe harm; the card lists wormable, infrastructure and multibillion-dollar financial scenarios.",
+      "what_is_unknown": "How these representative scenarios jointly bound harms at the policy scale and residual unmodelled pathways.",
+      "what_would_resolve_it": "A safely disclosable coverage and severity rationale, including scenario-to-control mapping and limitations.",
+      "evidence_ids": [
+        "E4",
+        "E7"
+      ],
+      "status": "UNRESOLVED_PUBLIC_ASSURANCE_LINK",
+      "notes": "Missing public support does not establish the opposite proposition. Private evidence may resolve this link; its undisclosed contents are not inferred."
+    },
+    {
+      "id": "G10",
+      "node_class": "GAP",
+      "gap_id": "G10",
+      "description": "Material capability, robustness and monitoring runs cannot be fully reproduced from the admitted public corpus.",
+      "affected_claims": [
+        "C2",
+        "A1",
+        "A2",
+        "A4"
+      ],
+      "gap_type": "REPRODUCIBILITY_LIMITATION",
+      "why_material": "Independent checking of pivotal measurements requires their configuration, graders, data and run lineage.",
+      "what_is_known": "Public benchmark names, methods and summaries are available; some targets are deliberately withheld.",
+      "what_is_unknown": "Exact checkpoints, full trajectories, private challenge sets and relevant grader validation.",
+      "what_would_resolve_it": "Safely releasable evaluation packages or sufficiently detailed independent verification, without exposing exploit mechanics.",
+      "evidence_ids": [
+        "E5",
+        "E6",
+        "E8",
+        "E9",
+        "E10",
+        "E12",
+        "E14",
+        "E16",
+        "E20"
+      ],
+      "status": "UNRESOLVED_PUBLIC_ASSURANCE_LINK",
+      "notes": "Missing public support does not establish the opposite proposition. Private evidence may resolve this link; its undisclosed contents are not inferred."
+    }
+  ],
+  "edges": [
+    {
+      "id": "EDGE-001",
+      "from": "C1",
+      "relationship": "DERIVED_FROM",
+      "to": "E1",
+      "meaning": "Current article wording attribution only; no historical substantive support is implied."
+    },
+    {
+      "id": "EDGE-002",
+      "from": "C1",
+      "relationship": "DEPENDS_ON",
+      "to": "D1",
+      "meaning": "Historical reconstruction prerequisite, now satisfied."
+    },
+    {
+      "id": "EDGE-006",
+      "from": "C1",
+      "relationship": "SUPPORTED_BY",
+      "to": "A1",
+      "meaning": "Offered reconstructed argument; its status and gaps qualify sufficiency."
+    },
+    {
+      "id": "EDGE-007",
+      "from": "C1",
+      "relationship": "SUPPORTED_BY",
+      "to": "A2",
+      "meaning": "Offered reconstructed argument; its status and gaps qualify sufficiency."
+    },
+    {
+      "id": "EDGE-008",
+      "from": "C1",
+      "relationship": "SUPPORTED_BY",
+      "to": "A3",
+      "meaning": "Offered reconstructed argument; its status and gaps qualify sufficiency."
+    },
+    {
+      "id": "EDGE-009",
+      "from": "C1",
+      "relationship": "SUPPORTED_BY",
+      "to": "A4",
+      "meaning": "Offered reconstructed argument; its status and gaps qualify sufficiency."
+    },
+    {
+      "id": "EDGE-010",
+      "from": "C1",
+      "relationship": "SUPPORTED_BY",
+      "to": "A5",
+      "meaning": "Offered reconstructed argument; its status and gaps qualify sufficiency."
+    },
+    {
+      "id": "EDGE-011",
+      "from": "A3",
+      "relationship": "DEPENDS_ON",
+      "to": "C2",
+      "meaning": "Critical capability determines which cyber safeguard obligations are relevant; capability alone is not release safety evidence."
+    },
+    {
+      "id": "EDGE-012",
+      "from": "A5",
+      "relationship": "SUPPORTED_BY",
+      "to": "E3",
+      "meaning": "Scope-limited offered support: The initial card reports that the internal Safeguards Report informed SAG’s recommendation and leadership’s determination that safeguards were sufficient for public launch."
+    },
+    {
+      "id": "EDGE-013",
+      "from": "A3",
+      "relationship": "SUPPORTED_BY",
+      "to": "E4",
+      "meaning": "Scope-limited offered support: Framework Version 2 requires deployment-specific pathways, safeguards, efficacy methods and thresholds, a residual-risk assessment and documented limitations; SAG recommends and leadership makes the final decision. Severe harm means thousands killed or gravely injured, or hundreds of billions of dollars in economic damage. Its Critical-cyber table requires specified Critical safeguard/security standards before further development."
+    },
+    {
+      "id": "EDGE-014",
+      "from": "A5",
+      "relationship": "SUPPORTED_BY",
+      "to": "E4",
+      "meaning": "Scope-limited offered support: Framework Version 2 requires deployment-specific pathways, safeguards, efficacy methods and thresholds, a residual-risk assessment and documented limitations; SAG recommends and leadership makes the final decision. Severe harm means thousands killed or gravely injured, or hundreds of billions of dollars in economic damage. Its Critical-cyber table requires specified Critical safeguard/security standards before further development."
+    },
+    {
+      "id": "EDGE-015",
+      "from": "C2",
+      "relationship": "SUPPORTED_BY",
+      "to": "E5",
+      "meaning": "Scope-limited offered support: OpenAI reports 100% ExploitBench Cap Percent, a recent-vulnerability internal evaluation with two zero-days, and browser/OS exploit chains. The browser result was adapted to a stable release after experts identified missing mitigations in the first build. Sandbox Bench reports 10/22 targets exploited."
+    },
+    {
+      "id": "EDGE-016",
+      "from": "C2",
+      "relationship": "SUPPORTED_BY",
+      "to": "E6",
+      "meaning": "Scope-limited offered support: Irregular reports FrontierCyber 86/226 challenges solved, CyScenarioBench 9/10 at least once with 59% average success, and Atomic 20/22. Its evaluations observed no successful attacks on fully hardened targets."
+    },
+    {
+      "id": "EDGE-017",
+      "from": "A3",
+      "relationship": "SUPPORTED_BY",
+      "to": "E7",
+      "meaning": "Scope-limited offered support: Cyber threat modelling covers malicious exploit development, end-to-end hardened-target attacks, wormable exploits, critical infrastructure and financial intrusions; it also covers unauthorized model actions and fragmented campaigns across sessions, accounts, products and tools."
+    },
+    {
+      "id": "EDGE-018",
+      "from": "A1",
+      "relationship": "SUPPORTED_BY",
+      "to": "E8",
+      "meaning": "Scope-limited offered support: Cyber safety macro-averages for Astra are 0.970 on production chat, 0.992 on synthetic agentic environments and 0.997 on semi-synthetic agentic environments. The corresponding predecessor values are 0.983, 0.998 and 0.985."
+    },
+    {
+      "id": "EDGE-019",
+      "from": "A1",
+      "relationship": "SUPPORTED_BY",
+      "to": "E9",
+      "meaning": "Scope-limited offered support: On static cyber jailbreaks Astra refuses 91.5% of requests, with a reported 95% interval of 88.4–94.4%. Half the static prompts use a held-out attacker. Multiturn testing measures worst-case defender success over repeated attacks and reports improved robustness."
+    },
+    {
+      "id": "EDGE-020",
+      "from": "A4",
+      "relationship": "SUPPORTED_BY",
+      "to": "E9",
+      "meaning": "Scope-limited offered support: On static cyber jailbreaks Astra refuses 91.5% of requests, with a reported 95% interval of 88.4–94.4%. Half the static prompts use a held-out attacker. Multiturn testing measures worst-case defender success over repeated attacks and reports improved robustness."
+    },
+    {
+      "id": "EDGE-021",
+      "from": "A1",
+      "relationship": "SUPPORTED_BY",
+      "to": "E10",
+      "meaning": "Scope-limited offered support: Misuse monitoring uses activation/topical classifiers and a safety reasoner that can block disallowed responses. Cyber evaluation recall is reported as 91.8% for activation classifiers, 88.4% for topical classifiers and 86.9% for the safety reasoner."
+    },
+    {
+      "id": "EDGE-022",
+      "from": "A1",
+      "relationship": "SUPPORTED_BY",
+      "to": "E11",
+      "meaning": "Scope-limited offered support: The initial case describes stricter boundaries and expanded monitoring context for higher-risk accounts, actor-level enforcement, phased Daybreak access, identity verification and Advanced Account Security. Table 21 reports proof-of-concept completion of 2.4% without trusted access versus 92% with Daybreak Blue."
+    },
+    {
+      "id": "EDGE-023",
+      "from": "A1",
+      "relationship": "SUPPORTED_BY",
+      "to": "E12",
+      "meaning": "Scope-limited offered support: Internal full-stack red-teaming includes regression, adaptive variations and new jailbreak search. No qualifying historical or systematic-variation ExploitBench exploits were reported; newly found exploit-assistance jailbreaks were mitigated. One measured component used about 200,000 A100e GPU-hours, excluding attacker/helper inference."
+    },
+    {
+      "id": "EDGE-024",
+      "from": "A4",
+      "relationship": "SUPPORTED_BY",
+      "to": "E12",
+      "meaning": "Scope-limited offered support: Internal full-stack red-teaming includes regression, adaptive variations and new jailbreak search. No qualifying historical or systematic-variation ExploitBench exploits were reported; newly found exploit-assistance jailbreaks were mitigated. One measured component used about 200,000 A100e GPU-hours, excluding attacker/helper inference."
+    },
+    {
+      "id": "EDGE-025",
+      "from": "A4",
+      "relationship": "SUPPORTED_BY",
+      "to": "E13",
+      "meaning": "Scope-limited offered support: OpenAI reports that four private red-teaming organizations found no jailbreaks meeting the stated coverage-gain/capability-retention severity criteria during controlled grey-box testing."
+    },
+    {
+      "id": "EDGE-026",
+      "from": "A2",
+      "relationship": "SUPPORTED_BY",
+      "to": "E14",
+      "meaning": "Scope-limited offered support: Baseline alignment tests report no Astra auto-review bypass attempts and no honeypot attacks; 19% of maximum-effort warning-test rollouts still attempted circumvention. Internal indirect prompt-injection robustness is 99.79%, and instruction-hierarchy robustness 99.99%."
+    },
+    {
+      "id": "EDGE-027",
+      "from": "A4",
+      "relationship": "SUPPORTED_BY",
+      "to": "E14",
+      "meaning": "Scope-limited offered support: Baseline alignment tests report no Astra auto-review bypass attempts and no honeypot attacks; 19% of maximum-effort warning-test rollouts still attempted circumvention. Internal indirect prompt-injection robustness is 99.79%, and instruction-hierarchy robustness 99.99%."
+    },
+    {
+      "id": "EDGE-028",
+      "from": "A2",
+      "relationship": "SUPPORTED_BY",
+      "to": "E15",
+      "meaning": "Scope-limited offered support: The Gray Swan IPI Arena summary reports estimated attack success of 8.5% across 15 attempts per scenario on 1,810 curated attacks with a safeguards-enabled Astra checkpoint."
+    },
+    {
+      "id": "EDGE-029",
+      "from": "A4",
+      "relationship": "SUPPORTED_BY",
+      "to": "E15",
+      "meaning": "Scope-limited offered support: The Gray Swan IPI Arena summary reports estimated attack success of 8.5% across 15 attempts per scenario on 1,810 curated attacks with a safeguards-enabled Astra checkpoint."
+    },
+    {
+      "id": "EDGE-030",
+      "from": "A2",
+      "relationship": "SUPPORTED_BY",
+      "to": "E16",
+      "meaning": "Scope-limited offered support: In 54,218 matched internal Codex simulation tasks, Astra receives 34 severity-3-or-higher flags (0.063%). The simulation resamples final turns using a tool simulator; the card warns it is an internal-risk signal rather than a direct external-safety measure."
+    },
+    {
+      "id": "EDGE-031",
+      "from": "A2",
+      "relationship": "OPPOSED_BY",
+      "to": "E17",
+      "meaning": "Qualifies an unreserved adequacy inference; it does not establish unsafe public release: UK AISI’s reported simulated cyber test found out-of-scope supply-chain behavior in 60/499 samples with implicit internet scope and 2/500 with an explicit prohibition. The tools and targets were simulated; no real network harm occurred. Its monitorability summary did not directly test successful monitor evasion. "
+    },
+    {
+      "id": "EDGE-032",
+      "from": "A2",
+      "relationship": "OPPOSED_BY",
+      "to": "E18",
+      "meaning": "Qualifies an unreserved adequacy inference; it does not establish unsafe public release: Apollo’s reported assessment used a near-final representative checkpoint over a three-day window. Verbalized evaluation awareness was 41.1% at xhigh and 50.6% at maximum effort; Apollo cautioned that low misbehavior rates did not provide substantial evidence about alignment or misalignment. "
+    },
+    {
+      "id": "EDGE-033",
+      "from": "A2",
+      "relationship": "SUPPORTED_BY",
+      "to": "E19",
+      "meaning": "Scope-limited offered support: External misalignment monitoring reviews CoT, actions and inputs/outputs asynchronously and can pause or end work. Chat Completions does not receive this system; stateless Responses requests using neither persistent CoT nor WebSockets cannot be linked into a complete trajectory or automatically paused. The card acknowledges missed behavior and harm before intervention."
+    },
+    {
+      "id": "EDGE-034",
+      "from": "A2",
+      "relationship": "OPPOSED_BY",
+      "to": "E20",
+      "meaning": "Qualifies an unreserved adequacy inference; it does not establish unsafe public release: Prompted sabotage testing finds action/full-context monitoring stronger than CoT-only monitoring, but some Astra runs evade urgent P0 prioritization. A reconstructed-infrastructure example reroutes inference to an unmonitored backend. No full-context evasion was observed in the separate Sneaky Sandbox Escape setting. "
+    },
+    {
+      "id": "EDGE-035",
+      "from": "A2",
+      "relationship": "SUPPORTED_BY",
+      "to": "E21",
+      "meaning": "Scope-limited offered support: The initial case asserts encrypted and access-controlled checkpoints, network/egress and sandbox isolation, universal internal tool-trajectory monitoring with human escalation, blocking alignment evaluations and paused noncompliant workloads; it describes continuous boundary hardening."
+    },
+    {
+      "id": "EDGE-036",
+      "from": "D1",
+      "relationship": "SUPPORTED_BY",
+      "to": "E22",
+      "meaning": "Scope-limited offered support: The recovered initial PDF meets the four user-specified historical checks; the custodian records its first capture on 2026-09-05 and the next capture on 2026-09-12 as incorporating the September 9 revisions."
+    },
+    {
+      "id": "EDGE-037",
+      "from": "A5",
+      "relationship": "SUPPORTED_BY",
+      "to": "E23",
+      "meaning": "Scope-limited offered support: Astra’s internal Safeguards Report is explicitly referenced as the decision basis. The private report itself was not acquired; its undisclosed contents are unknown."
+    },
+    {
+      "id": "EDGE-038",
+      "from": "C2",
+      "relationship": "DEPENDS_ON",
+      "to": "D2",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-039",
+      "from": "A1",
+      "relationship": "DEPENDS_ON",
+      "to": "D2",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-040",
+      "from": "A2",
+      "relationship": "DEPENDS_ON",
+      "to": "D2",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-041",
+      "from": "A4",
+      "relationship": "DEPENDS_ON",
+      "to": "D2",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-042",
+      "from": "A1",
+      "relationship": "DEPENDS_ON",
+      "to": "D3",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-043",
+      "from": "A4",
+      "relationship": "DEPENDS_ON",
+      "to": "D3",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-044",
+      "from": "A2",
+      "relationship": "DEPENDS_ON",
+      "to": "D4",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-045",
+      "from": "A5",
+      "relationship": "DEPENDS_ON",
+      "to": "D4",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-046",
+      "from": "A2",
+      "relationship": "DEPENDS_ON",
+      "to": "D5",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-047",
+      "from": "A4",
+      "relationship": "DEPENDS_ON",
+      "to": "D5",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-048",
+      "from": "A5",
+      "relationship": "DEPENDS_ON",
+      "to": "D5",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-049",
+      "from": "A2",
+      "relationship": "DEPENDS_ON",
+      "to": "D6",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-050",
+      "from": "A4",
+      "relationship": "DEPENDS_ON",
+      "to": "D6",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-051",
+      "from": "A5",
+      "relationship": "DEPENDS_ON",
+      "to": "D7",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-052",
+      "from": "C1",
+      "relationship": "DEPENDS_ON",
+      "to": "D7",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-053",
+      "from": "A1",
+      "relationship": "DEPENDS_ON",
+      "to": "D8",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-054",
+      "from": "A4",
+      "relationship": "DEPENDS_ON",
+      "to": "D8",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-055",
+      "from": "A5",
+      "relationship": "DEPENDS_ON",
+      "to": "D8",
+      "meaning": "Required condition; see dependency status and notes."
+    },
+    {
+      "id": "EDGE-056",
+      "from": "C2",
+      "relationship": "ASSUMES",
+      "to": "S1",
+      "meaning": "Explicit inferential assumption, not an established fact."
+    },
+    {
+      "id": "EDGE-057",
+      "from": "A1",
+      "relationship": "ASSUMES",
+      "to": "S1",
+      "meaning": "Explicit inferential assumption, not an established fact."
+    },
+    {
+      "id": "EDGE-058",
+      "from": "A2",
+      "relationship": "ASSUMES",
+      "to": "S1",
+      "meaning": "Explicit inferential assumption, not an established fact."
+    },
+    {
+      "id": "EDGE-059",
+      "from": "A4",
+      "relationship": "ASSUMES",
+      "to": "S1",
+      "meaning": "Explicit inferential assumption, not an established fact."
+    },
+    {
+      "id": "EDGE-060",
+      "from": "A5",
+      "relationship": "ASSUMES",
+      "to": "S1",
+      "meaning": "Explicit inferential assumption, not an established fact."
+    },
+    {
+      "id": "EDGE-061",
+      "from": "A3",
+      "relationship": "ASSUMES",
+      "to": "S2",
+      "meaning": "Explicit inferential assumption, not an established fact."
+    },
+    {
+      "id": "EDGE-062",
+      "from": "A5",
+      "relationship": "ASSUMES",
+      "to": "S2",
+      "meaning": "Explicit inferential assumption, not an established fact."
+    },
+    {
+      "id": "EDGE-063",
+      "from": "A1",
+      "relationship": "ASSUMES",
+      "to": "S3",
+      "meaning": "Explicit inferential assumption, not an established fact."
+    },
+    {
+      "id": "EDGE-064",
+      "from": "A2",
+      "relationship": "ASSUMES",
+      "to": "S3",
+      "meaning": "Explicit inferential assumption, not an established fact."
+    },
+    {
+      "id": "EDGE-065",
+      "from": "A5",
+      "relationship": "ASSUMES",
+      "to": "S3",
+      "meaning": "Explicit inferential assumption, not an established fact."
+    },
+    {
+      "id": "EDGE-066",
+      "from": "G2",
+      "relationship": "QUALIFIES",
+      "to": "C1",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-067",
+      "from": "G2",
+      "relationship": "QUALIFIES",
+      "to": "A5",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-068",
+      "from": "G2",
+      "relationship": "DERIVED_FROM",
+      "to": "E3",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-069",
+      "from": "G2",
+      "relationship": "DERIVED_FROM",
+      "to": "E4",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-070",
+      "from": "G2",
+      "relationship": "DERIVED_FROM",
+      "to": "E23",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-071",
+      "from": "G3",
+      "relationship": "QUALIFIES",
+      "to": "A5",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-072",
+      "from": "G3",
+      "relationship": "QUALIFIES",
+      "to": "C1",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-073",
+      "from": "G3",
+      "relationship": "DERIVED_FROM",
+      "to": "E4",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-074",
+      "from": "G3",
+      "relationship": "DERIVED_FROM",
+      "to": "E13",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-075",
+      "from": "G3",
+      "relationship": "DERIVED_FROM",
+      "to": "E21",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-076",
+      "from": "G3",
+      "relationship": "DERIVED_FROM",
+      "to": "E23",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-077",
+      "from": "G4",
+      "relationship": "QUALIFIES",
+      "to": "A1",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-078",
+      "from": "G4",
+      "relationship": "QUALIFIES",
+      "to": "A4",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-079",
+      "from": "G4",
+      "relationship": "DERIVED_FROM",
+      "to": "E7",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-080",
+      "from": "G4",
+      "relationship": "DERIVED_FROM",
+      "to": "E10",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-081",
+      "from": "G4",
+      "relationship": "DERIVED_FROM",
+      "to": "E11",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-082",
+      "from": "G4",
+      "relationship": "DERIVED_FROM",
+      "to": "E12",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-083",
+      "from": "G5",
+      "relationship": "QUALIFIES",
+      "to": "A2",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-084",
+      "from": "G5",
+      "relationship": "QUALIFIES",
+      "to": "A5",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-085",
+      "from": "G5",
+      "relationship": "DERIVED_FROM",
+      "to": "E19",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-086",
+      "from": "G5",
+      "relationship": "DERIVED_FROM",
+      "to": "E20",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-087",
+      "from": "G6",
+      "relationship": "QUALIFIES",
+      "to": "A2",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-088",
+      "from": "G6",
+      "relationship": "QUALIFIES",
+      "to": "A4",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-089",
+      "from": "G6",
+      "relationship": "QUALIFIES",
+      "to": "A5",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-090",
+      "from": "G6",
+      "relationship": "DERIVED_FROM",
+      "to": "E14",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-091",
+      "from": "G6",
+      "relationship": "DERIVED_FROM",
+      "to": "E16",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-092",
+      "from": "G6",
+      "relationship": "DERIVED_FROM",
+      "to": "E17",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-093",
+      "from": "G6",
+      "relationship": "DERIVED_FROM",
+      "to": "E18",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-094",
+      "from": "G6",
+      "relationship": "DERIVED_FROM",
+      "to": "E20",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-095",
+      "from": "G7",
+      "relationship": "QUALIFIES",
+      "to": "A2",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-096",
+      "from": "G7",
+      "relationship": "QUALIFIES",
+      "to": "A4",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-097",
+      "from": "G7",
+      "relationship": "QUALIFIES",
+      "to": "A5",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-098",
+      "from": "G7",
+      "relationship": "DERIVED_FROM",
+      "to": "E13",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-099",
+      "from": "G7",
+      "relationship": "DERIVED_FROM",
+      "to": "E15",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-100",
+      "from": "G7",
+      "relationship": "DERIVED_FROM",
+      "to": "E17",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-101",
+      "from": "G7",
+      "relationship": "DERIVED_FROM",
+      "to": "E18",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-102",
+      "from": "G8",
+      "relationship": "QUALIFIES",
+      "to": "A2",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-103",
+      "from": "G8",
+      "relationship": "QUALIFIES",
+      "to": "A4",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-104",
+      "from": "G8",
+      "relationship": "DERIVED_FROM",
+      "to": "E5",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-105",
+      "from": "G8",
+      "relationship": "DERIVED_FROM",
+      "to": "E21",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-106",
+      "from": "G9",
+      "relationship": "QUALIFIES",
+      "to": "A3",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-107",
+      "from": "G9",
+      "relationship": "QUALIFIES",
+      "to": "A5",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-108",
+      "from": "G9",
+      "relationship": "DERIVED_FROM",
+      "to": "E4",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-109",
+      "from": "G9",
+      "relationship": "DERIVED_FROM",
+      "to": "E7",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-110",
+      "from": "G10",
+      "relationship": "QUALIFIES",
+      "to": "C2",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-111",
+      "from": "G10",
+      "relationship": "QUALIFIES",
+      "to": "A1",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-112",
+      "from": "G10",
+      "relationship": "QUALIFIES",
+      "to": "A2",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-113",
+      "from": "G10",
+      "relationship": "QUALIFIES",
+      "to": "A4",
+      "meaning": "Material public assurance link remains unresolved."
+    },
+    {
+      "id": "EDGE-114",
+      "from": "G10",
+      "relationship": "DERIVED_FROM",
+      "to": "E5",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-115",
+      "from": "G10",
+      "relationship": "DERIVED_FROM",
+      "to": "E6",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-116",
+      "from": "G10",
+      "relationship": "DERIVED_FROM",
+      "to": "E8",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-117",
+      "from": "G10",
+      "relationship": "DERIVED_FROM",
+      "to": "E9",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-118",
+      "from": "G10",
+      "relationship": "DERIVED_FROM",
+      "to": "E10",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-119",
+      "from": "G10",
+      "relationship": "DERIVED_FROM",
+      "to": "E12",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-120",
+      "from": "G10",
+      "relationship": "DERIVED_FROM",
+      "to": "E14",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-121",
+      "from": "G10",
+      "relationship": "DERIVED_FROM",
+      "to": "E16",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-122",
+      "from": "G10",
+      "relationship": "DERIVED_FROM",
+      "to": "E20",
+      "meaning": "Source-grounded limitation or missing inferential bridge identified from this evidence."
+    },
+    {
+      "id": "EDGE-123",
+      "from": "E8",
+      "relationship": "QUALIFIES",
+      "to": "A1",
+      "meaning": "Measurement/configuration/transfer limitations must accompany the offered result."
+    },
+    {
+      "id": "EDGE-124",
+      "from": "E15",
+      "relationship": "QUALIFIES",
+      "to": "A2",
+      "meaning": "Measurement/configuration/transfer limitations must accompany the offered result."
+    },
+    {
+      "id": "EDGE-125",
+      "from": "E16",
+      "relationship": "QUALIFIES",
+      "to": "A2",
+      "meaning": "Measurement/configuration/transfer limitations must accompany the offered result."
+    },
+    {
+      "id": "EDGE-126",
+      "from": "E19",
+      "relationship": "QUALIFIES",
+      "to": "A2",
+      "meaning": "Measurement/configuration/transfer limitations must accompany the offered result."
+    },
+    {
+      "id": "EDGE-127",
+      "from": "E20",
+      "relationship": "QUALIFIES",
+      "to": "A4",
+      "meaning": "Measurement/configuration/transfer limitations must accompany the offered result."
+    },
+    {
+      "id": "EDGE-128",
+      "from": "E6",
+      "relationship": "QUALIFIES",
+      "to": "C2",
+      "meaning": "Measurement/configuration/transfer limitations must accompany the offered result."
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "SRC-001",
+      "title": "Preparedness Framework, Version 2",
+      "publisher": "OpenAI",
+      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+      "source_type": "OFFICIAL_POLICY_PDF",
+      "publication_date": "2025-04-15",
+      "publication_date_basis": "Document-labelled last update; initial version-2 publication date not separately verified",
+      "revision_date": "2025-04-15",
+      "retrieved_date": "2026-10-05",
+      "cutoff_status": "CURRENT_AT_CUTOFF_REFERENCED_VERSION",
+      "historical_version_status": "DATED_VERSION_LINKED_BY_INITIAL_CARD",
+      "local_copy": "sources/SRC-001-preparedness-framework-v2.pdf",
+      "sha256": "fae6e4cc6f7212a010bb9348fc0cde1fe711b9cad426c6a99db97740ee52729b",
+      "primary": true,
+      "externally_produced": false,
+      "publication_group": "PUB-001",
+      "use": "POLICY_AND_DECISION_CRITERIA_CONTEXT",
+      "notes": "The initial card section 10 links this exact Version 2 PDF as its Preparedness Framework. Its visible last-update date is 2025-04-15. This establishes the framework used in the published initial case, not an independently audited policy-version history. Appendix C is illustrative, not a launch checklist. Existing retained bytes were reused unchanged."
+    },
+    {
+      "source_id": "SRC-002",
+      "title": "GPT-6 Astra System Card (current HTML)",
+      "publisher": "OpenAI",
+      "url": "https://deploymentsafety.openai.com/gpt-6-astra",
+      "source_type": "OFFICIAL_SYSTEM_CARD_HTML",
+      "publication_date": "2026-09-03",
+      "publication_date_basis": "Visible page label",
+      "revision_date": [
+        "2026-09-09",
+        "2026-09-22",
+        "2026-09-29"
+      ],
+      "retrieved_date": "2026-10-05",
+      "cutoff_status": "POST_CUTOFF_UPDATE",
+      "historical_version_status": "POST_CUTOFF_VERSION_INITIAL_RECOVERED_AS_SRC_005",
+      "local_copy": "sources/SRC-002-current-system-card.html",
+      "sha256": "f21e96acc0119639d2d671dd0d42c193ef9b97392dce80bf663659d1bb96316f",
+      "primary": true,
+      "externally_produced": false,
+      "publication_group": "PUB-002",
+      "use": "VERSION_PROVENANCE_ONLY_EXCLUDED_FROM_HISTORICAL_SUPPORT",
+      "notes": "Current bytes retained unchanged. The change log documents material later revisions to alignment-related passages. It does not supply the original passages or a reversible diff. The initial state is now independently retained as SRC-005; these later copies remain excluded from historical substantive support."
+    },
+    {
+      "source_id": "SRC-003",
+      "title": "GPT-6 Astra System Card (currently linked PDF)",
+      "publisher": "OpenAI",
+      "url": "https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf",
+      "source_type": "OFFICIAL_SYSTEM_CARD_PDF",
+      "publication_date": "2026-09-03",
+      "publication_date_basis": "Cover label",
+      "revision_date": [
+        "2026-09-09",
+        "2026-09-22",
+        "2026-09-29"
+      ],
+      "retrieved_date": "2026-10-05",
+      "cutoff_status": "POST_CUTOFF_UPDATE",
+      "historical_version_status": "POST_CUTOFF_VERSION_INITIAL_RECOVERED_AS_SRC_005",
+      "local_copy": "sources/SRC-003-system-card.pdf",
+      "sha256": "77ff1e8aaf7018c7d7bbe347c374cd74188387ceca91f1ef637ccc59ea930895",
+      "primary": true,
+      "externally_produced": false,
+      "publication_group": "PUB-002",
+      "use": "VERSION_PROVENANCE_ONLY_EXCLUDED_FROM_HISTORICAL_SUPPORT",
+      "notes": "175 PDF pages; PDF page 6 (printed page 5) contains the later change log. The cover date does not establish the initial version. Embedded CreationDate and ModDate are D:20251217192705Z, inconsistent with the document-labelled chronology and not used to authenticate historical availability. Same publication as SRC-002; no independent corroboration. The initial state is now independently retained as SRC-005; these later copies remain excluded from historical substantive support."
+    },
+    {
+      "source_id": "SRC-004",
+      "title": "Path to Astra: critical capabilities and frontier safeguards",
+      "publisher": "OpenAI",
+      "url": "https://openai.com/index/path-to-astra/",
+      "source_type": "OFFICIAL_RELEASE_ASSURANCE_ARTICLE_WEB_EXTRACT",
+      "publication_date": "2026-09-01",
+      "publication_date_basis": "Visible page label",
+      "revision_date": null,
+      "revision_date_status": "UNKNOWN",
+      "retrieved_date": "2026-10-05",
+      "cutoff_status": "PRE_CUTOFF_PUBLICATION_LABEL_CURRENT_TEXT_UNVERIFIED",
+      "historical_version_status": "HISTORICAL_VERSION_UNRESOLVED",
+      "local_copy": "sources/SRC-004-path-to-astra.web-extract.txt",
+      "sha256": "b01913efc456e948574b56e48c4f23477ae492d0f73ac2c540edc44a703be3bf",
+      "primary": true,
+      "externally_produced": false,
+      "publication_group": "PUB-003",
+      "use": "ROOT_WORDING_LOCATION_ONLY_NOT_SUBSTANTIVE_SUPPORT",
+      "notes": "Opening paragraph 2 locates the release-assurance assertion. Direct HTML retention returned HTTP 403. Retained the web tool's page extraction, separated from a multi-page response with its extracted text unchanged. This is neither original HTML nor a historical snapshot. No article-body update date was visible; initial text remains unverified. The initial card section 10 cites this article, establishing its presence in the cutoff corpus but not authenticating every current sentence. Root sufficiency is independently locatable in SRC-005 section 10.2; no later article wording is needed for historical support."
+    },
+    {
+      "source_id": "SRC-005",
+      "title": "GPT-6 Astra System Card — initial version",
+      "publisher": "OpenAI",
+      "url": "https://deploymentsafety.openai.com/gpt-6-astra/gpt-6-astra.pdf",
+      "canonical_original": "https://deploymentsafety.openai.com/gpt-6-astra",
+      "archival_custodian": "systemcards.org",
+      "archival_entry": "https://systemcards.org/docs/openai-gpt-6-astra-system-card",
+      "retrieval_url": "https://data.systemcards.org/raw/c1ab528adf616b76080c971900b10748d1de5e6fdc986835df800d9461ee4b5a.pdf",
+      "source_type": "FIRST_PARTY_SYSTEM_CARD_THIRD_PARTY_ARCHIVAL_COPY",
+      "publication_date": "2026-09-03",
+      "revision_date": null,
+      "retrieved_date": "2026-10-05",
+      "archived_fetch_date": "2026-09-05T06:25:25Z",
+      "archive_status": "THIRD_PARTY_ARCHIVAL_COPY_OF_FIRST_PARTY_SOURCE",
+      "historical_status": "CUTOFF_RELEVANT_INITIAL_VERSION",
+      "cutoff_status": "CURRENT_AT_CUTOFF",
+      "historical_version_status": "CUTOFF_RELEVANT_INITIAL_VERSION_VALIDATED",
+      "content_type": "application/pdf",
+      "size_bytes": 10156250,
+      "archive_fingerprint": "dda1a0b4093a6ed5",
+      "archive_fingerprint_full": "dda1a0b4093a6ed5e73b7f77cece99e0ed23d029fb56188303af03f1e8e455c4",
+      "local_copy": "sources/SRC-005-astra-initial-2026-09-03.pdf",
+      "sha256": "c1ab528adf616b76080c971900b10748d1de5e6fdc986835df800d9461ee4b5a",
+      "primary": true,
+      "externally_produced": false,
+      "publication_group": "PUB-002",
+      "use": "PRIMARY_HISTORICAL_ASSURANCE_SOURCE",
+      "notes": "117 PDF pages including cover. OpenAI is the publisher; systemcards.org is custodian only. Fingerprint is distinct from the locally verified SHA-256. Archive fetch on 5 September does not move the 3 September evidence cutoff. User-prescribed historical validation is satisfied.",
+      "historical_validation": {
+        "size_bytes": 10156250,
+        "sha256": "c1ab528adf616b76080c971900b10748d1de5e6fdc986835df800d9461ee4b5a",
+        "pages": 117,
+        "cover": "OpenAI\n\n\nGPT-6Astra\nSystemCard\n\n\n2026-09-03",
+        "toc_initial_section": true,
+        "contains_sept9": false,
+        "contains_reworked_heading": false,
+        "archive_rows": [
+          "2026-09-12T06:20:06Z application/pdf 9,655,714 8b34691a5fb68567 archived copy Adds a Change log with two revisions dated September 9, 2026. Section 8.7 is renamed from Metagaming and Alignment Faking to Verbalized Metagaming and Oversight Gaming; a metric comparison plot is removed to reduce confusion and chain-of-thought examples are added illustrating cases flagged as oversight gaming versus metagaming only. The Alignment section adds text on evaluation-awareness limits and how the honeypot evaluation relates to training and the Hugging Face incident.",
+          "2026-09-05T06:25:25Z application/pdf 10,156,250 dda1a0b4093a6ed5 archived copy initial version"
+        ],
+        "entry_sha256": "55ba6677a44ae4b499b6abfcd022d5a84c8d916c27e832e0b606b56f35db35b0"
+      }
+    },
+    {
+      "source_id": "SRC-006",
+      "title": "systemcards.org entry and version history for GPT-6 Astra System Card",
+      "publisher": "NOT_APPLICABLE_CUSTODIAL_METADATA",
+      "url": "https://systemcards.org/docs/openai-gpt-6-astra-system-card",
+      "source_type": "ARCHIVAL_CUSTODIAN_VERSION_METADATA",
+      "publication_date": null,
+      "publication_date_basis": "Entry first-seen timestamp 2026-09-05T06:25:25Z; page publication date not independently supplied",
+      "revision_date": null,
+      "retrieved_date": "2026-10-05",
+      "cutoff_status": "POST_CUTOFF_UPDATE",
+      "historical_version_status": "RETROSPECTIVE_VERSION_PROVENANCE_ONLY",
+      "local_copy": "sources/SRC-006-systemcards-entry.html",
+      "sha256": "55ba6677a44ae4b499b6abfcd022d5a84c8d916c27e832e0b606b56f35db35b0",
+      "primary": false,
+      "externally_produced": true,
+      "publication_group": "PUB-004",
+      "use": "VERSION_PROVENANCE_ONLY_NOT_INDEPENDENT_SAFETY_EVIDENCE",
+      "notes": "Custodial metadata, not evidence of OpenAI safeguard effectiveness. Latest extracted-text panel is revised content and is not used as initial-card evidence.",
+      "original_document_publisher": "OpenAI",
+      "archival_custodian": "systemcards.org",
+      "metadata_maintainer": "systemcards.org"
+    },
+    {
+      "source_id": "SRC-007",
+      "title": "Assessing GPT-6 Astra: FrontierCyber Measures a Sharp Increase in Cyber Capability",
+      "publisher": "Irregular",
+      "url": "https://irregular.cv/research/assessing-gpt-6-astra",
+      "source_type": "EXTERNAL_EVALUATOR_PRIMARY_REPORT",
+      "publication_date": "2026-09-03",
+      "revision_date": null,
+      "retrieved_date": "2026-10-05",
+      "cutoff_status": "CUTOFF_CORROBORATED_PORTIONS_ONLY",
+      "historical_version_status": "CURRENT_REPORT_KEY_FINDINGS_CORROBORATED_IN_INITIAL_CARD",
+      "local_copy": "sources/SRC-007-irregular-astra.html",
+      "sha256": "daba5607d12f3c532b931e63410e0870f6ab46da2d2554af3717917c00d3baa0",
+      "primary": true,
+      "externally_produced": true,
+      "publication_group": "PUB-005",
+      "use": "PUBLIC_EVALUATOR_REPORT_ONLY_FOR_FINDINGS_ALSO_REPORTED_IN_SRC_005",
+      "notes": "Current dated report retained unchanged. Exact initial webpage is not independently recovered. Historical use is restricted to findings corroborated by the initial Astra card section 10.1.2.6: FrontierCyber 86/226, CyScenarioBench 9/10 at least once and 59% mean success, Atomic 20/22, and no fully hardened target success. Other current case-study details do not support the cutoff case. Irregular is a named outside producer working with OpenAI; contractual and methodological independence beyond authorship is not established. This is capability evidence, not a safeguard sufficiency test."
+    }
+  ],
+  "metadata": {
+    "status": "PROOF-1 TECHNICAL COMPLETE — EXTERNAL REVIEW REQUIRED",
+    "created_date": "2026-10-05",
+    "completed_date": "2026-10-05",
+    "cutoff_date": "2026-09-03",
+    "scope": {
+      "organisation": "OpenAI",
+      "system": "GPT-6 Astra",
+      "risk_domain": "Cybersecurity",
+      "decision_context": "Public release"
+    },
+    "authority_order": [
+      "../ARGUS_PROJECT_NORTH_STAR_v0.1.0.md",
+      "../ARGUS_PROOF1_CANDIDATE_SELECTION.md",
+      "../ARGUS_PROOF1_EXECUTION_BRIEF.md"
+    ],
+    "execution_history": {
+      "resumed_from": "P1-01 historical source recovery",
+      "prior_source_ids_preserved": [
+        "SRC-001",
+        "SRC-002",
+        "SRC-003",
+        "SRC-004"
+      ],
+      "preserved_node_ids": [
+        "C1",
+        "E1",
+        "E2",
+        "D1"
+      ],
+      "resolved_gaps": [
+        {
+          "gap_id": "G1",
+          "prior_description": "The required initial Astra system-card state was not recovered; material alignment revisions cannot be separated reliably from the release-time text.",
+          "status": "RESOLVED",
+          "resolved_by_source_ids": [
+            "SRC-005",
+            "SRC-006"
+          ],
+          "resolution": "User-specified initial archived version retrieved and all four historical checks passed. Earlier Wayback timeouts remain access observations only."
+        }
+      ],
+      "superseded_blocker_edges": [
+        {
+          "id": "EDGE-003",
+          "from": "E2",
+          "relationship": "INSUFFICIENT_FOR",
+          "to": "D1",
+          "meaning": "Current revised copies and their change log do not establish the required initial state."
+        },
+        {
+          "id": "EDGE-004",
+          "from": "G1",
+          "relationship": "DERIVED_FROM",
+          "to": "E2",
+          "meaning": "The documented revisions and unresolved recovery give rise to this provenance gap."
+        },
+        {
+          "id": "EDGE-005",
+          "from": "G1",
+          "relationship": "QUALIFIES",
+          "to": "C1",
+          "meaning": "C1 cannot be independently established at the cutoff through this blocked reconstruction."
+        }
+      ],
+      "prior_archive_attempts": [
+        {
+          "url": "https://web.archive.org/cdx/search/cdx?url=deploymentsafety.openai.com%2Fgpt-6-astra&output=json&filter=statuscode%3A200&to=20260903&filter=mimetype%3Atext%2Fhtml&collapse=timestamp%3A8",
+          "retrieved_date": "2026-10-05",
+          "web_tool_result": "NOT_ACCESSIBLE_VIA_TOOL",
+          "direct_result": "CURL_EXIT_28_TIMEOUT_20_SECONDS_ZERO_BYTES"
+        },
+        {
+          "url": "https://web.archive.org/cdx/search/cdx?url=deploymentsafety.openai.com%2Fgpt-6-astra%2Fgpt-6-astra.pdf&output=json&filter=statuscode%3A200&to=20260903&collapse=timestamp%3A8",
+          "retrieved_date": "2026-10-05",
+          "web_tool_result": "NOT_ACCESSIBLE_VIA_TOOL",
+          "direct_result": "CURL_EXIT_28_TIMEOUT_20_SECONDS_ZERO_BYTES"
+        }
+      ],
+      "successful_existing_source_collection_repeated": false
+    },
+    "stages": [
+      {
+        "stage": "P1-01",
+        "status": "COMPLETE"
+      },
+      {
+        "stage": "P1-02",
+        "status": "COMPLETE"
+      },
+      {
+        "stage": "P1-03",
+        "status": "COMPLETE"
+      },
+      {
+        "stage": "P1-04",
+        "status": "COMPLETE"
+      },
+      {
+        "stage": "P1-05",
+        "status": "COMPLETE"
+      },
+      {
+        "stage": "P1-06",
+        "status": "COMPLETE"
+      },
+      {
+        "stage": "P1-07",
+        "status": "COMPLETE"
+      }
+    ],
+    "edge_semantics": "SUPPORTED_BY records offered support and stated decision dependencies, not ARGUS certification that an argument is sufficient. DERIVED_FROM on C1/E1 is textual attribution; OPPOSED_BY on A2 means counterevidence to a broad inference, not contradiction of C1.",
+    "historical_support_policy": "SRC-005 supplies the initial card. SRC-001 is the exact framework it cites. SRC-007 is used only for findings corroborated in the initial card. SRC-004 is current wording/context with unresolved exact historical text. SRC-002/SRC-003/SRC-006 and E2/E22 supply revision/custody provenance, not substantive historical safety support.",
+    "historical_validation": {
+      "size_bytes": 10156250,
+      "sha256": "c1ab528adf616b76080c971900b10748d1de5e6fdc986835df800d9461ee4b5a",
+      "pages": 117,
+      "cover": "OpenAI\n\n\nGPT-6Astra\nSystemCard\n\n\n2026-09-03",
+      "toc_initial_section": true,
+      "contains_sept9": false,
+      "contains_reworked_heading": false,
+      "archive_rows": [
+        "2026-09-12T06:20:06Z application/pdf 9,655,714 8b34691a5fb68567 archived copy Adds a Change log with two revisions dated September 9, 2026. Section 8.7 is renamed from Metagaming and Alignment Faking to Verbalized Metagaming and Oversight Gaming; a metric comparison plot is removed to reduce confusion and chain-of-thought examples are added illustrating cases flagged as oversight gaming versus metagaming only. The Alignment section adds text on evaluation-awareness limits and how the honeypot evaluation relates to training and the Hugging Face incident.",
+        "2026-09-05T06:25:25Z application/pdf 10,156,250 dda1a0b4093a6ed5 archived copy initial version"
+      ],
+      "entry_sha256": "55ba6677a44ae4b499b6abfcd022d5a84c8d916c27e832e0b606b56f35db35b0"
+    },
+    "nonpublic_evidence": {
+      "explicitly_asserted_artifact_ids": [
+        "E23"
+      ],
+      "reported_external_underlying_evidence_ids": [
+        "E13",
+        "E15",
+        "E17",
+        "E18"
+      ],
+      "policy_required_not_asserted_to_have_been_inspected": [
+        "Capabilities Report",
+        "deployment-specific efficacy thresholds and Critical standards"
+      ],
+      "note": "No undisclosed contents are inferred. A policy requirement is not evidence that a specific private artifact was complete."
+    },
+    "unresolved_links": [
+      {
+        "gap_id": "G2",
+        "affected_claims": [
+          "C1",
+          "A5"
+        ],
+        "reason": "Public measurements are not connected to an inspectable deployment-level residual severe-harm assessment."
+      },
+      {
+        "gap_id": "G3",
+        "affected_claims": [
+          "A5",
+          "C1"
+        ],
+        "reason": "Critical-cyber safeguard/security acceptance standards and the launch-specific efficacy thresholds are not sufficiently public to replay the decision."
+      },
+      {
+        "gap_id": "G4",
+        "affected_claims": [
+          "A1",
+          "A4"
+        ],
+        "reason": "Misuse metrics do not establish campaign-level containment across fragmented activity or compromised trusted identities."
+      },
+      {
+        "gap_id": "G5",
+        "affected_claims": [
+          "A2",
+          "A5"
+        ],
+        "reason": "Timely unauthorized-action containment is not established for asynchronous monitoring and the disclosed interface exceptions."
+      },
+      {
+        "gap_id": "G6",
+        "affected_claims": [
+          "A2",
+          "A4",
+          "A5"
+        ],
+        "reason": "Finite alignment observations, internal simulation and near-final testing lack a public transfer argument strong enough to establish external severe-cyber reliability."
+      },
+      {
+        "gap_id": "G7",
+        "affected_claims": [
+          "A2",
+          "A4",
+          "A5"
+        ],
+        "reason": "Most external safeguard/alignment findings cannot be inspected through independent cutoff reports, and four jailbreak testers are unnamed."
+      },
+      {
+        "gap_id": "G8",
+        "affected_claims": [
+          "A2",
+          "A4"
+        ],
+        "reason": "Infrastructure and checkpoint protections are described without enough public effectiveness evidence against Astra-relevant threats."
+      },
+      {
+        "gap_id": "G9",
+        "affected_claims": [
+          "A3",
+          "A5"
+        ],
+        "reason": "The public cyber scenario list does not establish completeness or map every scenario to the framework’s severe-harm criterion."
+      },
+      {
+        "gap_id": "G10",
+        "affected_claims": [
+          "C2",
+          "A1",
+          "A2",
+          "A4"
+        ],
+        "reason": "Material capability, robustness and monitoring runs cannot be fully reproduced from the admitted public corpus."
+      }
+    ],
+    "post_cutoff_change_tracking": [
+      {
+        "source_ids": [
+          "SRC-002",
+          "SRC-003"
+        ],
+        "classification": "POST_CUTOFF_UPDATE",
+        "effect": "Alignment revisions and later additions are excluded from the historical arguments."
+      },
+      {
+        "source_ids": [
+          "SRC-006"
+        ],
+        "classification": "POST_CUTOFF_UPDATE",
+        "effect": "Retrospective custody/version metadata validates which copy to use; no independent safety support."
+      }
+    ],
+    "external_report_lookup": "Focused named-evaluator searches located SRC-007. Separate cutoff reports for AISI/Apollo/Gray Swan were not located. Later publications were not admitted. This is not proof of nonexistence.",
+    "external_review": "PENDING EXTERNAL REVIEW",
+    "technical_completion": true,
+    "counts": {
+      "claims": 2,
+      "arguments": 5,
+      "evidence_objects": 23,
+      "dependencies": 8,
+      "assumptions": 3,
+      "material_gaps": 9,
+      "resolved_historical_gaps": 1,
+      "nodes": 50,
+      "edges": 125,
+      "material_source_records": 7,
+      "distinct_publications": 5,
+      "primary_source_records": 6,
+      "externally_produced_source_records": 2,
+      "independent_safety_evaluator_source_records": 1,
+      "post_cutoff_source_records_retained_separately": 3,
+      "unresolved_exact_historical_webpage_records": 2
+    },
+    "boundary": {
+      "production_platform_built": false,
+      "other_lab_assessed": false,
+      "other_risk_domain_assessed": false,
+      "safety_certification_issued": false,
+      "argus_0101_started": false,
+      "automa_ops_governance_introduced": false
+    },
+    "self_check": "PASS: IDs, permitted classes/relations/labels, provenance, seven hashes, cutoff exclusion, private-evidence handling, register/JSON/Markdown correspondence, counts, authorised inventory and local links.",
+    "conclusion": "The public case’s structure, reported measurements and decision basis are reconstructable. Safeguard sufficiency and acceptable residual severe cyber risk cannot be independently established from the admitted public evidence; the opposite claim is not established either."
+  }
+}
+</script>
+<script>
+(function () {
+const DATA = JSON.parse(document.getElementById('argus-data').textContent);
+const NODES = DATA.nodes, EDGES = DATA.edges, META = DATA.metadata || {};
+const N = new Map(NODES.map(n => [n.id, n]));
+const SRC = new Map((DATA.sources || []).map(s => [s.source_id, s]));
+const SVGNS = 'http://www.w3.org/2000/svg';
+
+const CLASSES = ['CLAIM', 'ARGUMENT', 'EVIDENCE', 'DEPENDENCY', 'ASSUMPTION', 'GAP'];
+const CLASS_NAME = { CLAIM: 'Claims', ARGUMENT: 'Arguments', EVIDENCE: 'Evidence', DEPENDENCY: 'Dependencies', ASSUMPTION: 'Assumptions', GAP: 'Gaps' };
+const CLASS_ONE = { CLAIM: 'Claim', ARGUMENT: 'Argument', EVIDENCE: 'Evidence', DEPENDENCY: 'Dependency', ASSUMPTION: 'Assumption', GAP: 'Gap' };
+const RELS = ['SUPPORTED_BY', 'DEPENDS_ON', 'QUALIFIES', 'OPPOSED_BY', 'ASSUMES', 'DERIVED_FROM'];
+const REL_NAME = { SUPPORTED_BY: 'SUPPORTED_BY', DEPENDS_ON: 'DEPENDS_ON', QUALIFIES: 'QUALIFIES', OPPOSED_BY: 'OPPOSED_BY', ASSUMES: 'ASSUMES', DERIVED_FROM: 'DERIVED_FROM' };
+const STATUS = {
+  SATISFIED: ['ok', 'Satisfied'],
+  PARTIALLY_SUPPORTED_PUBLICLY: ['part', 'Partially supported publicly'],
+  PARTIALLY_ESTABLISHED: ['part', 'Partially established'],
+  CONDITIONAL: ['part', 'Conditional'],
+  SUPPORTED_BY_ASSERTED_NONPUBLIC_EVIDENCE: ['np', 'Supported by asserted non-public evidence'],
+  NONPUBLIC: ['np', 'Non-public'],
+  UNRESOLVED: ['open', 'Unresolved'],
+  EXPLICIT_UNVERIFIED_ASSUMPTION: ['open', 'Explicit, unverified'],
+  UNRESOLVED_PUBLIC_ASSURANCE_LINK: ['open', 'Unresolved public assurance link'],
+};
+const human = s => String(s).replace(/_/g, ' ').toLowerCase().replace(/^./, c => c.toUpperCase());
+const statusOf = n => n.status ? (STATUS[n.status] || ['np', human(n.status)]) : null;
+const isExternal = n => n.node_class === 'EVIDENCE' && n.independence && n.independence !== 'INTERNALLY_PRODUCED' && !/^ARCHIVAL/.test(n.independence);
+const isNonpub = n => n.node_class === 'EVIDENCE' && n.inspectability === 'ASSERTED_UNDERLYING_EVIDENCE_NOT_PUBLIC';
+const textOf = n => n.claim_text || n.description || '';
+
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(SVGNS, tag);
+  for (const k in attrs || {}) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+function h(tag, cls, txt) { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; }
+
+/* ---------- header ---------- */
+const sc = META.scope || {};
+document.getElementById('proof-id').textContent = DATA.proof_id;
+document.getElementById('scope-org').textContent = sc.organisation || '';
+document.getElementById('scope-sys').textContent = sc.system || '';
+document.getElementById('scope-dom').textContent = sc.risk_domain || '';
+document.getElementById('scope-ctx').textContent = sc.decision_context || '';
+document.getElementById('cutoff').textContent = 'Evidence cutoff ' + (META.cutoff_date || '');
+document.getElementById('review').textContent = human(META.external_review || '');
+document.getElementById('c1text').textContent = textOf(N.get(DATA.root_claim));
+document.getElementById('conclusion').textContent = META.conclusion || '';
+document.getElementById('semantics').textContent = 'Edge semantics, as stated in the graph: ' + (META.edge_semantics || '');
+document.getElementById('selfcheck').textContent = META.self_check ? 'Self-check recorded in the file: ' + META.self_check.split(':')[0] + '.' : '';
+
+const classCount = c => NODES.filter(n => n.node_class === c).length;
+const relCount = r => EDGES.filter(e => e.relationship === r).length;
+const counts = document.getElementById('counts');
+CLASSES.forEach(c => {
+  const d = h('div', 'count');
+  d.appendChild(glyph(c, 22));
+  d.appendChild(h('b', '', classCount(c)));
+  d.appendChild(h('span', '', CLASS_NAME[c]));
+  counts.appendChild(d);
+});
+{ const d = h('div', 'count rel'); d.appendChild(h('b', '', EDGES.length)); d.appendChild(h('span', '', 'Relationships')); counts.appendChild(d); }
+document.getElementById('tab-full-n').textContent = NODES.length + ' nodes · ' + EDGES.length + ' rel.';
+
+/* ---------- geometry ---------- */
+function shapeGeom(cls, size) {
+  // size: 'exec' or 'full'; returns {kind, hw, hh}
+  const E = size === 'exec';
+  switch (cls) {
+    case 'CLAIM': return { kind: 'rect', hw: E ? 160 : 34, hh: E ? 38 : 16 };
+    case 'ARGUMENT': return { kind: 'para', hw: E ? 104 : 33, hh: E ? 34 : 15 };
+    case 'EVIDENCE': return { kind: 'circle', hw: E ? 22 : 15, hh: E ? 22 : 15 };
+    case 'DEPENDENCY': return { kind: 'oct', hw: E ? 88 : 28, hh: E ? 30 : 14 };
+    case 'ASSUMPTION': return { kind: 'ellipse', hw: E ? 84 : 27, hh: E ? 30 : 14 };
+    case 'GAP': return { kind: 'diamond', hw: E ? 24 : 18, hh: E ? 24 : 18 };
+  }
+}
+function drawShape(g, gm) {
+  const { kind, hw, hh } = gm;
+  let s;
+  if (kind === 'rect') s = el('rect', { x: -hw, y: -hh, width: hw * 2, height: hh * 2 }, g);
+  else if (kind === 'para') { const k = hh * 0.55; s = el('polygon', { points: `${-hw + k},${-hh} ${hw},${-hh} ${hw - k},${hh} ${-hw},${hh}` }, g); }
+  else if (kind === 'circle') s = el('circle', { r: hw }, g);
+  else if (kind === 'oct') { const c = hh * 0.45; s = el('polygon', { points: `${-hw + c},${-hh} ${hw - c},${-hh} ${hw},${-hh + c} ${hw},${hh - c} ${hw - c},${hh} ${-hw + c},${hh} ${-hw},${hh - c} ${-hw},${-hh + c}` }, g); }
+  else if (kind === 'ellipse') s = el('ellipse', { rx: hw, ry: hh }, g);
+  else if (kind === 'diamond') s = el('polygon', { points: `0,${-hh} ${hw},0 0,${hh} ${-hw},0` }, g);
+  s.setAttribute('class', 'shape');
+  return s;
+}
+function selRing(g, gm) {
+  const p = 5, { kind, hw, hh } = gm;
+  if (kind === 'circle') el('circle', { r: hw + p, class: 'selring' }, g);
+  else if (kind === 'ellipse') el('ellipse', { rx: hw + p, ry: hh + p, class: 'selring' }, g);
+  else if (kind === 'diamond') el('polygon', { points: `0,${-hh - p * 1.4} ${hw + p * 1.4},0 0,${hh + p * 1.4} ${-hw - p * 1.4},0`, class: 'selring' }, g);
+  else el('rect', { x: -hw - p, y: -hh - p, width: (hw + p) * 2, height: (hh + p) * 2, class: 'selring' }, g);
+}
+function boundaryT(gm, dx, dy) {
+  const ax = Math.abs(dx) || 1e-9, ay = Math.abs(dy) || 1e-9;
+  switch (gm.kind) {
+    case 'circle': return gm.hw / Math.hypot(dx, dy);
+    case 'ellipse': return 1 / Math.sqrt((dx / gm.hw) ** 2 + (dy / gm.hh) ** 2);
+    case 'diamond': return 1 / (ax / gm.hw + ay / gm.hh);
+    default: return Math.min(gm.hw / ax, gm.hh / ay);
+  }
+}
+function clipPt(p, gm, tx, ty, pad) {
+  const dx = tx - p.x, dy = ty - p.y, L = Math.hypot(dx, dy) || 1;
+  const t = boundaryT(gm, dx, dy) + pad / L;
+  return { x: p.x + dx * t, y: p.y + dy * t };
+}
+function edgeD(a, ga, b, gb, bend) {
+  const dx = b.x - a.x, dy = b.y - a.y, L = Math.hypot(dx, dy) || 1;
+  const cx = (a.x + b.x) / 2 - dy / L * bend * L, cy = (a.y + b.y) / 2 + dx / L * bend * L;
+  const p0 = clipPt(a, ga, cx, cy, 2), p1 = clipPt(b, gb, cx, cy, 5);
+  return { d: `M${p0.x.toFixed(1)},${p0.y.toFixed(1)} Q${cx.toFixed(1)},${cy.toFixed(1)} ${p1.x.toFixed(1)},${p1.y.toFixed(1)}`, mid: { x: 0.25 * p0.x + 0.5 * cx + 0.25 * p1.x, y: 0.25 * p0.y + 0.5 * cy + 0.25 * p1.y } };
+}
+
+/* markers: one set per svg */
+function defs(svg, pfx) {
+  const d = el('defs', {}, svg);
+  const mk = (rel, build, w, hgt, refX) => {
+    const m = el('marker', { id: pfx + rel, viewBox: `0 0 ${w} ${hgt}`, refX, refY: hgt / 2, markerWidth: w, markerHeight: hgt, markerUnits: 'userSpaceOnUse', orient: 'auto' }, d);
+    build(m);
+  };
+  mk('SUPPORTED_BY', m => el('path', { d: 'M0,0 L10,5 L0,10 z', style: 'fill:var(--r-sup)' }, m), 10, 10, 9);
+  mk('DEPENDS_ON', m => el('path', { d: 'M1,1 L9,5 L1,9', style: 'fill:none;stroke:var(--r-dep);stroke-width:1.6' }, m), 10, 10, 8);
+  mk('QUALIFIES', m => el('path', { d: 'M1,1 L10,5.5 L1,10 z', style: 'fill:var(--surface);stroke:var(--r-qual);stroke-width:1.4' }, m), 11, 11, 9.5);
+  mk('OPPOSED_BY', m => { el('path', { d: 'M2,0 L2,12 M6,0 L6,12', style: 'stroke:var(--r-opp);stroke-width:2.4' }, m); }, 8, 12, 6);
+  mk('ASSUMES', m => el('circle', { cx: 5, cy: 5, r: 3.6, style: 'fill:var(--surface);stroke:var(--r-asm);stroke-width:1.5' }, m), 10, 10, 8.5);
+  mk('DERIVED_FROM', m => el('circle', { cx: 3, cy: 3, r: 2.2, style: 'fill:var(--r-der)' }, m), 6, 6, 4);
+}
+
+/* small class glyph for header/legends */
+function glyph(cls, s) {
+  const svg = el('svg', { width: s, height: s, viewBox: '-15 -15 30 30', 'aria-hidden': 'true' });
+  const g = el('g', { class: 'node ' + cls }, svg);
+  const gm = { CLAIM: { kind: 'rect', hw: 13, hh: 9 }, ARGUMENT: { kind: 'para', hw: 14, hh: 8 }, EVIDENCE: { kind: 'circle', hw: 10, hh: 10 }, DEPENDENCY: { kind: 'oct', hw: 13, hh: 9 }, ASSUMPTION: { kind: 'ellipse', hw: 13, hh: 8 }, GAP: { kind: 'diamond', hw: 11, hh: 11 } }[cls];
+  drawShape(g, gm);
+  return svg;
+}
+
+/* ---------- relationship legend / filters ---------- */
+const canvas = document.getElementById('canvas');
+const rels = document.getElementById('rels');
+const hidden = new Set();
+RELS.forEach(r => {
+  const b = h('button', 'relchip'); b.type = 'button'; b.setAttribute('aria-pressed', 'true');
+  const s = el('svg', { width: 34, height: 12, viewBox: '0 0 34 12', 'aria-hidden': 'true' });
+  defs(s, 'lg-' + r + '-');
+  el('path', { d: 'M2,6 L30,6', class: 'edge ' + r, 'marker-end': `url(#lg-${r}-${r})` }, s);
+  b.appendChild(s);
+  b.appendChild(document.createTextNode(REL_NAME[r] + ' '));
+  b.appendChild(h('b', '', relCount(r)));
+  b.title = 'Show or hide ' + REL_NAME[r] + ' relationships';
+  b.addEventListener('click', () => {
+    const on = b.getAttribute('aria-pressed') === 'true';
+    b.setAttribute('aria-pressed', on ? 'false' : 'true');
+    canvas.classList.toggle('hide-' + r, on);
+  });
+  rels.appendChild(b);
+});
+const sk = document.getElementById('statuskey');
+sk.appendChild(h('span', 'label', 'Status pip'));
+[['ok', 'Satisfied'], ['part', 'Partial / conditional'], ['np', 'Non-public'], ['open', 'Unresolved / unverified']].forEach(([c, t]) => {
+  const s = h('span'); const i = h('i'); i.style.background = `var(--${c})`; s.appendChild(i); s.appendChild(document.createTextNode(t)); sk.appendChild(s);
+});
+{ const s = h('span'); s.textContent = 'Evidence: ring = external origin · dashed = underlying evidence not public'; sk.appendChild(s); }
+
+/* ---------- tooltip + focus + selection ---------- */
+const tip = document.getElementById('tip');
+function showTip(evt, html) {
+  tip.innerHTML = html; tip.hidden = false;
+  const r = canvas.getBoundingClientRect();
+  let x = evt.clientX - r.left + 14, y = evt.clientY - r.top + 14;
+  if (x + 310 > r.width) x = Math.max(8, x - 330);
+  tip.style.left = x + 'px'; tip.style.top = y + 'px';
+}
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const views = {};
+let selected = DATA.root_claim, pinned = null;
+
+function focusIn(view, id) {
+  const V = views[view]; if (!V) return;
+  V.root.classList.toggle('focusing', !!id);
+  V.nodeEls.forEach((g, nid) => g.classList.remove('hl'));
+  V.edgeEls.forEach(x => x.g.classList.remove('hl'));
+  if (!id) return;
+  const keep = new Set([id]);
+  V.edgeEls.forEach(x => { if (x.e.from === id || x.e.to === id) { x.g.classList.add('hl'); keep.add(x.e.from); keep.add(x.e.to); } });
+  keep.forEach(k => V.nodeEls.get(k) && V.nodeEls.get(k).classList.add('hl'));
+}
+function select(id, opts) {
+  selected = id;
+  Object.values(views).forEach(V => V.nodeEls.forEach((g, nid) => g.classList.toggle('sel', nid === id)));
+  renderPanel(id);
+  if (opts && opts.pin) { pinned = id; Object.keys(views).forEach(v => focusIn(v, id)); }
+}
+function bindNode(g, n, view) {
+  g.setAttribute('tabindex', '0'); g.setAttribute('role', 'button');
+  g.setAttribute('aria-label', `${n.id}, ${CLASS_ONE[n.node_class]}: ${textOf(n)}`);
+  g.addEventListener('mouseenter', ev => { focusIn(view, n.id); showTip(ev, `<b>${esc(n.id)} · ${esc(CLASS_ONE[n.node_class])}</b>${esc(textOf(n).slice(0, 220))}${textOf(n).length > 220 ? '…' : ''}`); });
+  g.addEventListener('mousemove', ev => showTip(ev, tip.innerHTML));
+  g.addEventListener('mouseleave', () => { tip.hidden = true; focusIn(view, pinned); });
+  g.addEventListener('click', ev => { ev.stopPropagation(); select(n.id, { pin: true }); });
+  g.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); select(n.id, { pin: true }); } });
+}
+function bindEdge(g, e, view) {
+  g.addEventListener('mouseenter', ev => showTip(ev, `<b>${esc(e.id)} · ${esc(e.from)} ${esc(e.relationship)} ${esc(e.to)}</b>${esc(e.meaning || '')}`));
+  g.addEventListener('mousemove', ev => showTip(ev, tip.innerHTML));
+  g.addEventListener('mouseleave', () => { tip.hidden = true; });
+}
+function clearPin() { pinned = null; Object.keys(views).forEach(v => focusIn(v, null)); }
+
+/* ---------- executive view ---------- */
+const EXEC = {
+  C1: [620, 84, 'Release assurance: safeguards sufficiently minimize severe cyber harm for public release'],
+  G2: [905, 84, 'No inspectable residual-risk assessment'],
+  G3: [1080, 84, 'Acceptance thresholds not public'],
+  A1: [130, 272, 'Malicious-use risk is controlled'],
+  A2: [375, 272, 'Unauthorized model action is controlled'],
+  A3: [620, 272, 'Threat model identifies the harm pathways'],
+  A4: [865, 272, 'Safeguards withstand adversarial testing'],
+  A5: [1110, 272, 'Residual severe cyber risk is acceptable'],
+  G10: [62, 445, 'Key runs not reproducible'],
+  D2: [248, 445, 'Tested configs map to the released ones'],
+  S1: [432, 445, 'Published summaries are accurate'],
+  C2: [628, 445, 'Astra reaches Critical cyber capability'],
+  D5: [866, 445, 'Alignment evidence transfers'],
+  D7: [1110, 445, 'Residual-risk case justifies release'],
+  E9: [150, 612, 'Jailbreak refusal 91.5%'],
+  E17: [330, 612, 'UK AISI: out-of-scope actions'],
+  E18: [470, 612, 'Apollo: high eval awareness'],
+  E20: [610, 612, 'Sabotage runs evade P0 monitor'],
+  E6: [760, 612, 'Irregular: external cyber evals'],
+  E23: [1110, 612, 'Internal Safeguards Report (not public)'],
+};
+const BEND = { 'G3>C1': -0.42, 'G2>A5': 0.08, 'G3>A5': -0.05, 'E9>A1': 0, 'A1>E9': 0, 'A4>E9': -0.06, 'G10>A2': -0.12, 'G10>A4': -0.14, 'A4>S1': 0.06, 'A5>S1': 0.08, 'A4>D2': 0.08, 'A5>D5': 0.04, 'C1>D7': -0.1, 'A2>E17': 0.04, 'A2>E18': -0.04, 'A2>E20': -0.1, 'E20>A4': 0.12, 'A2>D5': -0.06 };
+
+function wrap(text, max) {
+  const words = text.split(/\s+/), lines = []; let cur = '';
+  words.forEach(w => { if ((cur + ' ' + w).trim().length > max && cur) { lines.push(cur); cur = w; } else cur = (cur + ' ' + w).trim(); });
+  if (cur) lines.push(cur);
+  return lines;
+}
+function buildExec() {
+  const svg = document.getElementById('exec-svg');
+  defs(svg, 'ex-');
+  svg.addEventListener('click', clearPin);
+  const root = el('g', {}, svg);
+  // bands
+  [[178, 'Arguments'], [360, 'Conditions · sub-claim · gaps'], [530, 'Evidence']].forEach(([y, t]) => { el('line', { x1: 0, x2: 1240, y1: y, y2: y, class: 'bandline' }, root); const tx = el('text', { x: 6, y: y + 14, class: 'bandlabel' }, root); tx.textContent = t; });
+  const ids = Object.keys(EXEC), set = new Set(ids);
+  const pos = id => ({ x: EXEC[id][0], y: EXEC[id][1] });
+  const OVR = { C2: { kind: 'rect', hw: 92, hh: 30 } };
+  const gm = id => OVR[id] || shapeGeom(N.get(id).node_class, 'exec');
+  const shown = EDGES.filter(e => set.has(e.from) && set.has(e.to));
+  document.getElementById('tab-exec-n').textContent = ids.length + ' nodes';
+  document.getElementById('exec-note').textContent = `${ids.length} of ${NODES.length} nodes · ${shown.length} of ${EDGES.length} relationships among them. Faint “+n” counts the links shown only in the full graph.`;
+  const edgeLayer = el('g', {}, root), nodeLayer = el('g', {}, root), labelLayer = el('g', {}, root);
+  const V = { root: svg, nodeEls: new Map(), edgeEls: [] };
+  shown.forEach(e => {
+    const key = e.from + '>' + e.to;
+    const bend = key in BEND ? BEND[key] : 0.05;
+    const { d, mid } = edgeD(pos(e.from), gm(e.from), pos(e.to), gm(e.to), bend);
+    const g = el('g', { class: 'r-edge r-' + e.relationship }, edgeLayer);
+    el('path', { d, class: 'edge ' + e.relationship, 'marker-end': `url(#ex-${e.relationship})` }, g);
+    el('path', { d, class: 'edgehit' }, g);
+    if (e.relationship === 'OPPOSED_BY') {
+      // label each opposition once, on the evidence end
+    }
+    bindEdge(g, e, 'exec');
+    V.edgeEls.push({ e, g });
+  });
+  const deg = id => EDGES.filter(e => e.from === id || e.to === id).length;
+  const degShown = id => shown.filter(e => e.from === id || e.to === id).length;
+  ids.forEach(id => {
+    const n = N.get(id), [x, y, label] = EXEC[id], G = gm(id);
+    const cls = ['node', n.node_class, isExternal(n) ? 'ext' : '', isNonpub(n) ? 'nonpub' : ''].join(' ');
+    const g = el('g', { class: cls, transform: `translate(${x},${y})` }, nodeLayer);
+    selRing(g, G);
+    drawShape(g, G);
+    if (isExternal(n)) el('circle', { r: G.hw + 4, class: 'ring' }, g);
+    const inside = ['rect', 'para', 'oct', 'ellipse'].includes(G.kind);
+    if (inside) {
+      const max = id === 'C1' ? 40 : n.node_class === 'ARGUMENT' ? 24 : n.node_class === 'CLAIM' ? 24 : 21;
+      const lines = wrap(label, max);
+      const lh = n.node_class === 'CLAIM' ? 16 : 15;
+      const top = -(14 + lines.length * lh) / 2;
+      const idt = el('text', { x: 0, y: top + 10, 'text-anchor': 'middle', class: 'id' }, g); idt.textContent = id;
+      lines.forEach((ln, i) => { const t = el('text', { x: 0, y: top + 14 + (i + 1) * lh - 3, 'text-anchor': 'middle', class: 'txt' }, g); t.textContent = ln; });
+      if (G.kind === 'ellipse') { const a = el('text', { x: G.hw - 14, y: G.hh + 2, class: 'asmA' }, g); a.textContent = 'A'; }
+    } else {
+      const idt = el('text', { x: 0, y: 4, 'text-anchor': 'middle', class: 'id' }, g); idt.textContent = id;
+      wrap(label, 20).forEach((ln, i) => { const t = el('text', { x: 0, y: G.hh + 16 + i * 14, 'text-anchor': 'middle', class: 'sub' }, g); t.textContent = ln; });
+    }
+    const st = statusOf(n);
+    if (st) el('circle', { cx: G.kind === 'diamond' ? G.hw * 0.62 : (G.kind === 'para' ? G.hw - 8 : G.hw - 6), cy: G.kind === 'diamond' ? -G.hh * 0.62 : -G.hh + 6, r: 5, class: 'pip ' + st[0] }, g);
+    const more = deg(id) - degShown(id);
+    if (more > 0) { const t = el('text', { x: inside ? G.hw + 4 : G.hw + 6, y: inside ? -G.hh + 8 : -G.hh + 6, class: 'more' }, g); t.textContent = '+' + more; }
+    bindNode(g, n, 'exec');
+    V.nodeEls.set(id, g);
+  });
+  // label opposition edges so the reviewer sees them without a legend
+  shown.filter(e => e.relationship === 'OPPOSED_BY').forEach(e => {
+    const b = pos(e.to), a = pos(e.from);
+    const x = b.x + (a.x - b.x) * 0.22, y = b.y - 40;
+    const g = el('g', { class: 'r-edge r-OPPOSED_BY', 'pointer-events': 'none' }, labelLayer);
+    el('rect', { x: x - 30, y: y - 10, width: 60, height: 14, rx: 2, class: 'oppbg' }, g);
+    const t = el('text', { x, y: y + 1, 'text-anchor': 'middle', class: 'opplabel' }, g); t.textContent = 'OPPOSES';
+    V.edgeEls.push({ e, g });
+  });
+  views.exec = V;
+}
+
+/* ---------- full view ---------- */
+const FULL_POS = {"C1":{"x":0.0,"y":0},"A2":{"x":-440.0,"y":140},"A5":{"x":-220.0,"y":140},"A4":{"x":0.0,"y":140},"A3":{"x":220.0,"y":140},"A1":{"x":440.0,"y":140},"D7":{"x":-797.5,"y":300},"D4":{"x":-652.5,"y":300},"D6":{"x":-507.5,"y":300},"D5":{"x":-362.5,"y":300},"S3":{"x":-217.5,"y":300},"S1":{"x":-72.5,"y":300},"D2":{"x":72.5,"y":300},"S2":{"x":217.5,"y":300},"D8":{"x":362.5,"y":300},"D3":{"x":507.5,"y":300},"C2":{"x":652.5,"y":300},"D1":{"x":797.5,"y":300},"E1":{"x":-1155.0,"y":470},"E19":{"x":-1050.0,"y":470},"E17":{"x":-945.0,"y":470},"E18":{"x":-840.0,"y":470},"E15":{"x":-735.0,"y":470},"E20":{"x":-630.0,"y":470},"E13":{"x":-525.0,"y":470},"E21":{"x":-420.0,"y":470},"E16":{"x":-315.0,"y":470},"E14":{"x":-210.0,"y":470},"E23":{"x":-105.0,"y":470},"E3":{"x":0.0,"y":470},"E4":{"x":105.0,"y":470},"E5":{"x":210.0,"y":470},"E22":{"x":315.0,"y":470},"E9":{"x":420.0,"y":470},"E7":{"x":525.0,"y":470},"E8":{"x":630.0,"y":470},"E6":{"x":735.0,"y":470},"E12":{"x":840.0,"y":470},"E10":{"x":945.0,"y":470},"E11":{"x":1050.0,"y":470},"E2":{"x":1155.0,"y":470},"G5":{"x":-760.0,"y":640},"G6":{"x":-570.0,"y":640},"G7":{"x":-380.0,"y":640},"G8":{"x":-190.0,"y":640},"G3":{"x":0.0,"y":640},"G2":{"x":190.0,"y":640},"G9":{"x":380.0,"y":640},"G10":{"x":570.0,"y":640},"G4":{"x":760.0,"y":640}};
+function buildFull() {
+  const svgEl = document.getElementById('full-svg');
+  defs(svgEl, 'fu-');
+  const root = el('g', {}, svgEl);
+  const BAND = [0, 140, 300, 470, 640];
+  const BAND_NAME = ['Root claim', 'Arguments', 'Sub-claim · conditions', 'Evidence', 'Gaps'];
+  const P = new Map(Object.entries(FULL_POS));
+  const xs = Object.values(FULL_POS).map(p => p.x), minX = Math.min(...xs) - 80, maxX = Math.max(...xs) + 80;
+  const bands = el('g', {}, root);
+  BAND.forEach((y, i) => {
+    el('line', { class: 'bandline', x1: minX - 190, x2: maxX, y1: y, y2: y }, bands);
+    const t = el('text', { class: 'bandlabel', x: minX - 190, y: y - 8 }, bands); t.textContent = BAND_NAME[i];
+  });
+  const edgeLayer = el('g', {}, root), nodeLayer = el('g', {}, root);
+  const V = { root: svgEl, nodeEls: new Map(), edgeEls: [] };
+  const gm = id => shapeGeom(N.get(id).node_class, 'full');
+  EDGES.forEach((e, i) => {
+    const a = P.get(e.from), b = P.get(e.to);
+    const sameBand = Math.abs(a.y - b.y) < 1;
+    const bend = sameBand ? 0.3 : ((i % 2) ? 0.06 : -0.06);
+    const { d } = edgeD(a, gm(e.from), b, gm(e.to), bend);
+    const g = el('g', { class: 'r-edge r-' + e.relationship }, edgeLayer);
+    el('path', { d, class: 'edge ' + e.relationship, 'marker-end': `url(#fu-${e.relationship})` }, g);
+    el('path', { d, class: 'edgehit' }, g);
+    bindEdge(g, e, 'full');
+    V.edgeEls.push({ e, g });
+  });
+  NODES.forEach(n => {
+    const p = P.get(n.id), G = gm(n.id);
+    const g = el('g', { class: ['node', n.node_class, isExternal(n) ? 'ext' : '', isNonpub(n) ? 'nonpub' : ''].join(' '), transform: `translate(${p.x},${p.y})` }, nodeLayer);
+    selRing(g, G); drawShape(g, G);
+    if (isExternal(n)) el('circle', { r: G.hw + 3.5, class: 'ring' }, g);
+    const t = el('text', { x: 0, y: 4, 'text-anchor': 'middle', class: 'id' }, g); t.textContent = n.id;
+    const st = statusOf(n);
+    if (st) el('circle', { cx: G.kind === 'diamond' ? G.hw * 0.6 : G.hw - 3, cy: G.kind === 'diamond' ? -G.hh * 0.6 : -G.hh + 1, r: 4, class: 'pip ' + st[0] }, g);
+    bindNode(g, n, 'full'); V.nodeEls.set(n.id, g);
+  });
+
+  const bbox = { x0: minX - 200, x1: maxX + 30, y0: -60, y1: BAND[4] + 55 };
+  const tf = { x: 0, y: 0, k: 1 };
+  const apply = () => root.setAttribute('transform', `translate(${tf.x.toFixed(2)},${tf.y.toFixed(2)}) scale(${tf.k.toFixed(4)})`);
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+  V.fit = () => {
+    const w = svgEl.clientWidth || 900, hgt = svgEl.clientHeight || 600;
+    tf.k = clamp(Math.min(w / (bbox.x1 - bbox.x0), hgt / (bbox.y1 - bbox.y0)) * 0.96, 0.25, 4);
+    tf.x = (w - tf.k * (bbox.x1 + bbox.x0)) / 2;
+    tf.y = (hgt - tf.k * (bbox.y1 + bbox.y0)) / 2;
+    apply();
+  };
+  V.center = id => {
+    const p = P.get(id); if (!p) return;
+    const w = svgEl.clientWidth || 900, hgt = svgEl.clientHeight || 600;
+    tf.k = Math.max(tf.k, 1.1);
+    tf.x = w / 2 - tf.k * p.x; tf.y = hgt / 2 - tf.k * p.y; apply();
+  };
+
+  svgEl.addEventListener('wheel', ev => {
+    ev.preventDefault();
+    const r = svgEl.getBoundingClientRect(), px = ev.clientX - r.left, py = ev.clientY - r.top;
+    const old = tf.k, next = clamp(old * Math.exp(-ev.deltaY * 0.0015), 0.25, 4);
+    tf.x = px - (px - tf.x) * (next / old); tf.y = py - (py - tf.y) * (next / old); tf.k = next; apply();
+  }, { passive: false });
+  let pan = null;
+  svgEl.addEventListener('pointerdown', ev => {
+    if (ev.button !== 0 || (ev.target.closest && ev.target.closest('.node'))) return;
+    pan = { x: ev.clientX, y: ev.clientY, tx: tf.x, ty: tf.y }; svgEl.setPointerCapture(ev.pointerId);
+  });
+  svgEl.addEventListener('pointermove', ev => { if (!pan) return; tf.x = pan.tx + ev.clientX - pan.x; tf.y = pan.ty + ev.clientY - pan.y; apply(); });
+  const endPan = ev => { if (!pan) return; pan = null; try { svgEl.releasePointerCapture(ev.pointerId); } catch (_) {} };
+  svgEl.addEventListener('pointerup', endPan); svgEl.addEventListener('pointercancel', endPan);
+  svgEl.addEventListener('click', ev => { if (!(ev.target.closest && ev.target.closest('.node'))) clearPin(); });
+
+  views.full = V;
+  document.getElementById('fit').addEventListener('click', V.fit);
+  const jump = document.getElementById('jump');
+  CLASSES.forEach(c => {
+    const og = h('optgroup'); og.label = CLASS_NAME[c];
+    NODES.filter(n => n.node_class === c).forEach(n => { const o = h('option', '', n.id + '  ' + textOf(n).slice(0, 48)); o.value = n.id; og.appendChild(o); });
+    jump.appendChild(og);
+  });
+  jump.addEventListener('change', () => { select(jump.value, { pin: true }); V.center(jump.value); });
+}
+
+/* ---------- detail panel ---------- */
+const panel = document.getElementById('panel');
+function fld(label, content) {
+  const f = h('div', 'fld'); f.appendChild(h('span', 'label', label));
+  if (typeof content === 'string') f.appendChild(h('div', 'v', content)); else f.appendChild(content);
+  return f;
+}
+function idBtn(id) { const b = h('button', 'idbtn', id); b.type = 'button'; b.addEventListener('click', () => { select(id, { pin: true }); if (activeView === 'full' && views.full) views.full.center(id); }); return b; }
+function sourceHref(S, locator) {
+  let url = S.source_id === 'SRC-005' ? (S.retrieval_url || S.url) : S.url;
+  if (!url) return '';
+  const loc = locator || '';
+  const m = loc.match(/PDF\s+p(?:p)?\.?\s*(\d+)/i);
+  if (m && /\.pdf(?:$|[?#])/i.test(url)) url += (url.includes('#') ? '&' : '#') + 'page=' + m[1];
+  return url;
+}
+function srcBlock(list) {
+  const wrapEl = h('div', 'rlist');
+  list.forEach(s => {
+    const S = SRC.get(s.source_id) || {};
+    const d = h('div', 'src');
+    d.appendChild(h('span', 'sid', s.source_id + ' '));
+    d.appendChild(document.createTextNode((S.title || '') + (S.publisher ? ' (' + S.publisher + ')' : '')));
+    if (s.locator) { d.appendChild(document.createElement('br')); d.appendChild(h('span', 'loc', s.locator)); }
+    const href = sourceHref(S, s.locator);
+    if (href) {
+      d.appendChild(document.createElement('br'));
+      const a = h('a', 'sourceopen', 'OPEN SOURCE ↗'); a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; d.appendChild(a);
+    }
+    wrapEl.appendChild(d);
+  });
+  return wrapEl;
+}
+function renderPanel(id) {
+  const n = N.get(id); panel.innerHTML = '';
+  const ph = h('div', 'ph'), top = h('div', 'top');
+  top.appendChild(h('span', 'bigid', id));
+  top.appendChild(h('span', 'cls ' + n.node_class, CLASS_ONE[n.node_class]));
+  const st = statusOf(n);
+  if (st) { const s = h('span', 'status'); const i = h('i'); i.style.background = `var(--${st[0]})`; s.appendChild(i); s.appendChild(document.createTextNode(n.status)); top.appendChild(s); }
+  ph.appendChild(top);
+  ph.appendChild(h('p', 'main', textOf(n)));
+  if (activeView === 'exec' && !EXEC[id]) { const b = h('button', 'btn goto', 'Show in full graph'); b.type = 'button'; b.addEventListener('click', () => { setView('full'); select(id, { pin: true }); views.full.center(id); }); ph.appendChild(b); }
+  panel.appendChild(ph);
+  const pb = h('div', 'pb');
+  if (n.warrant) pb.appendChild(fld('Warrant', n.warrant));
+  if (n.claim_type) pb.appendChild(fld('Type', n.claim_type));
+  if (n.gap_type) pb.appendChild(fld('Gap type', n.gap_type));
+  ['why_material', 'what_is_known', 'what_is_unknown', 'what_would_resolve_it'].forEach(k => n[k] && pb.appendChild(fld(human(k), n[k])));
+  if (n.node_class === 'EVIDENCE') {
+    pb.appendChild(fld('Producer', n.producer || ''));
+    const c = h('div', 'chips'); [n.independence, n.inspectability, n.reproducibility, n.cutoff_status].filter(Boolean).forEach(x => c.appendChild(h('span', 'chip', x))); pb.appendChild(fld('Classification', c));
+    if (n.system_applicability) pb.appendChild(fld('System applicability', n.system_applicability));
+    if (n.time_applicability) pb.appendChild(fld('Time applicability', n.time_applicability));
+    if (n.limitations && n.limitations.length) { const ul = h('ul'); n.limitations.forEach(l => ul.appendChild(h('li', '', l))); pb.appendChild(fld('Limitations', ul)); }
+  }
+  if (n.confidence_in_mapping) pb.appendChild(fld('Confidence in mapping', n.confidence_in_mapping));
+  const srcs = n.source_basis || n.locators || (n.source_ids || []).map(s => ({ source_id: s }));
+  if (srcs.length) pb.appendChild(fld('Sources', srcBlock(srcs)));
+  // relationships
+  const outE = EDGES.filter(e => e.from === id), inE = EDGES.filter(e => e.to === id);
+  const relList = (list, dir) => {
+    const w = h('div', 'rlist');
+    list.forEach(e => {
+      const r = h('div', 'rrow');
+      r.appendChild(h('span', 'rtag ' + e.relationship, dir === 'out' ? e.relationship + ' →' : '← ' + e.relationship));
+      const right = h('span'); right.appendChild(idBtn(dir === 'out' ? e.to : e.from)); right.appendChild(document.createTextNode(' ' + e.id)); right.lastChild && (right.style.fontSize = '11px');
+      r.appendChild(right);
+      if (e.meaning) r.appendChild(h('span', 'm', e.meaning));
+      w.appendChild(r);
+    });
+    return w;
+  };
+  if (outE.length) pb.appendChild(fld(`Outgoing (${outE.length})`, relList(outE, 'out')));
+  if (inE.length) pb.appendChild(fld(`Incoming (${inE.length})`, relList(inE, 'in')));
+  if (n.notes) pb.appendChild(fld('Notes', n.notes));
+  panel.appendChild(pb);
+}
+
+/* ---------- tabs ---------- */
+let activeView = 'exec', fullBuilt = false;
+function setView(v) {
+  activeView = v;
+  document.getElementById('tab-exec').setAttribute('aria-selected', v === 'exec');
+  document.getElementById('tab-full').setAttribute('aria-selected', v === 'full');
+  document.getElementById('view-exec').hidden = v !== 'exec';
+  document.getElementById('view-full').hidden = v !== 'full';
+  if (v === 'full') { if (!fullBuilt) { buildFull(); fullBuilt = true; views.full.fit(); } select(selected); focusIn('full', pinned); }
+  else renderPanel(selected);
+  try { history.replaceState(null, '', '#' + v); } catch (e) {}
+}
+document.getElementById('tab-exec').addEventListener('click', () => setView('exec'));
+document.getElementById('tab-full').addEventListener('click', () => setView('full'));
+
+buildExec();
+select(DATA.root_claim);
+if (location.hash === '#full') setView('full');
+})();
+</script>
+</body>
+</html>
