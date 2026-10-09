@@ -20,7 +20,7 @@ const jsonLd = {
       url: SITE_URL,
       logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` },
       description:
-        'Automa Dynamics builds Project HELIOS, an operational ontology platform and enterprise digital twin.',
+        'Automa Dynamics builds Project HELIOS, an operational ontology platform and enterprise digital twin, and ARGUS, independent assurance reconstruction for frontier AI.',
       email: 'hello@automadynamics.com',
       sameAs: ['https://x.com/automadynamics'],
     },

@@ -208,8 +208,9 @@ export default function ArgusPage() {
       <section className={`${SECTION} border-t border-white/5`}>
         <RevealGroup className={SHELL} stagger={0.12}>
           <Reveal>
-            <p className={`${LABEL} mb-6`}>Method</p>
+            <p className={`${LABEL} mb-6`}>How it works</p>
           </Reveal>
+          <SplitText text="Method" className={`${DISPLAY} mb-10`} />
           <Reveal>
             <p className={`${BODY} ${MEASURE} mb-6`}>
               Frontier AI developers increasingly publish safety frameworks, system cards,

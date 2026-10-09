@@ -15,7 +15,7 @@ const jetbrains = JetBrains_Mono({
 })
 
 const DESCRIPTION =
-  'Automa Dynamics builds Project HELIOS, an operational ontology platform and enterprise digital twin. Observe. Understand. Decide. Act.'
+  'Automa Dynamics builds Project HELIOS, an operational ontology platform and enterprise digital twin, and ARGUS, independent assurance reconstruction for frontier AI.'
 
 export const metadata = {
   metadataBase: new URL('https://www.automadynamics.com'),

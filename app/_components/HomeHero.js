@@ -63,7 +63,9 @@ export default function HomeHero() {
         >
           We build software that models an organisation as a living system, so the people
           responsible for it can see what is true, understand what a change affects, and act on
-          evidence rather than assertion.
+          evidence rather than assertion. We hold frontier AI to the same standard,
+          reconstructing public safety claims so independent reviewers can inspect the evidence
+          behind them.
         </p>
 
         <div

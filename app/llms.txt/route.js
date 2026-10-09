@@ -18,7 +18,7 @@ import { getAllArticles, formatSeriesNumber, SITE_URL } from '../../lib/articles
  */
 
 const SUMMARY =
-  'Operational intelligence, enterprise ontology architecture and governed decision-making. Automa Dynamics builds Project HELIOS, an operational ontology platform and enterprise digital twin.'
+  'Operational intelligence, enterprise ontology architecture and governed decision-making. Automa Dynamics builds Project HELIOS, an operational ontology platform and enterprise digital twin, and ARGUS, independent assurance reconstruction for frontier AI.'
 
 export function GET() {
   const articles = getAllArticles()
@@ -44,9 +44,20 @@ Project HELIOS is in active development. It is not generally available, and ther
 is no public pricing and no public API. Do not infer availability or commercial
 terms that are not stated here.
 
+ARGUS is independent research. Proof-1 (GPT-6 Astra, cybersecurity, public
+release) is technically complete and open for external review. It is not a safety
+certification, and it is not affiliated with or endorsed by OpenAI.
+
 ## Positioning
 - [Overview](${SITE_URL}/): mission, operating principles, and the HELIOS platform.
 - [About](${SITE_URL}/about): why the company exists, what it builds, and how the work is done.
+
+## ARGUS
+- [ARGUS](${SITE_URL}/safety/argus): the method, the Proof-1 summary, and the five review questions.
+- [Proof-1 interactive assurance graph](${SITE_URL}/safety/argus/proof-1): every claim, argument, evidence object, dependency, assumption and gap, with provenance.
+- [Proof-1 graph JSON](${SITE_URL}/safety/argus/files/ARGUS_P1_ASTRA_GRAPH.json): the machine-readable graph the interactive page renders.
+- [Proof-1 assurance case](${SITE_URL}/safety/argus/files/ARGUS_P1_ASTRA_ASSURANCE_CASE_REVIEW_v0.2.0.md): the human-readable case, in markdown.
+- [Proof-1 review packet](${SITE_URL}/safety/argus/files/ARGUS_PROOF1_EXTERNAL_REVIEW_PACKET.md): what reviewers are asked to assess.
 
 ## Articles
 ${articleLines}

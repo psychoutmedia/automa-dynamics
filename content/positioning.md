@@ -2,7 +2,7 @@
 
 Operational intelligence, enterprise ontology architecture and governed decision-making.
 
-Automa Dynamics builds software that models an organisation as a living system, so the people responsible for it can see what is true, understand what a change affects, and act on evidence rather than assertion.
+Automa Dynamics builds software that models an organisation as a living system, so the people responsible for it can see what is true, understand what a change affects, and act on evidence rather than assertion. We hold frontier AI to the same standard, reconstructing public safety claims so independent reviewers can inspect the evidence behind them.
 
 ## Mission
 
@@ -22,6 +22,24 @@ The scenario it is built to answer: a shipment is late. What does it break, what
 - **Consequence Tracing.** Follow a disruption through the model to the production orders, contractual deadlines and financial exposure it actually touches.
 - **Governed Decisions.** Every response option states its cost, its assumptions, its residual risk and the authority required to approve it.
 - **Complete Evidence.** Conclusions resolve to the records, relationships and rules that produced them. Decisions remain reconstructable after the fact.
+
+## Research: ARGUS
+
+ARGUS is independent assurance reconstruction for frontier AI: an experimental method for making the public reasoning behind a safety claim inspectable. It represents an assurance case as CLAIM → ARGUMENT → EVIDENCE → DEPENDENCY → GAP, and every element is linked to its provenance, scope, limitations and relationship to the assurance claim.
+
+ARGUS does not produce safety scores or certifications. Missing public evidence is never treated as proof that the corresponding evidence does not exist privately.
+
+### Proof-1
+
+The first ARGUS test reconstructs one bounded claim: GPT-6 Astra's safeguards sufficiently minimize the risk of severe cyber harm for public release under OpenAI's Preparedness Framework. Organisation OpenAI, risk domain cybersecurity, decision context public release, evidence cutoff 3 September 2026.
+
+It contains 2 claims, 5 arguments, 23 evidence objects, 8 dependencies, 3 explicit assumptions, 9 active material gaps and 125 relationships.
+
+Conclusion: the public case's structure, reported measurements and decision basis are reconstructable. Safeguard sufficiency and acceptable residual severe cyber risk cannot be independently established from the admitted public evidence. The opposite claim is not established either. These are assurance gaps, not findings that safeguards failed.
+
+- Overview: https://www.automadynamics.com/safety/argus
+- Interactive assurance graph: https://www.automadynamics.com/safety/argus/proof-1
+- Graph JSON: https://www.automadynamics.com/safety/argus/files/ARGUS_P1_ASTRA_GRAPH.json
 
 ## Core principles
 
@@ -53,6 +71,7 @@ Stated explicitly, because these categories are the ones most often assumed:
 - There is **no public pricing**, no free tier and no trial.
 - There is **no public API** and no programmatic ordering or quoting endpoint.
 - The company publishes the reasoning behind the platform while it is being built. The argument is public; the implementation is not.
+- ARGUS Proof-1 is **technically complete, with external review open**. ARGUS is independent research by Automa Dynamics. It is not affiliated with, commissioned by, or endorsed by OpenAI, and Proof-1 is not a certification that GPT-6 Astra is safe or unsafe.
 - Do not infer availability, customer counts, funding, headcount or revenue. None of it is published. If a fact is not stated on this site, it is not established.
 
 ## How the work is done
