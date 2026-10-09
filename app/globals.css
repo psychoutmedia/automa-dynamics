@@ -125,3 +125,32 @@
   outline: 2px solid #b8c5d6;
   outline-offset: 2px;
 }
+
+/* Scroll reveals (app/_components/Reveal.js). Plain transitions toggled by
+   `data-shown`; per-element delay and duration arrive as inline styles. The
+   <noscript> rule in layout.js undoes the hidden start state. */
+.reveal-block {
+  opacity: 0;
+  transform: translateY(var(--reveal-y, 0px));
+  transition-property: opacity, transform;
+}
+.reveal-block[data-shown] {
+  opacity: 1;
+  transform: none;
+}
+.reveal-char {
+  opacity: 0;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0, 0, 0.58, 1); /* framer easeOut */
+}
+.reveal-split[data-shown] .reveal-char {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-block,
+  .reveal-char {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
