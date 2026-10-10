@@ -3,6 +3,7 @@ import HomeHero from './_components/HomeHero'
 import { Reveal, RevealGroup, SplitText } from './_components/Reveal'
 import LatestArticles from './_components/LatestArticles'
 import { SITE_URL } from '../lib/articles'
+import ArgusUpdate from './_components/ArgusUpdate'
 
 /**
  * The homepage was the only route carrying no structured data, while /about and
@@ -212,12 +213,14 @@ export default function Home() {
               certifications.
             </p>
             <p className="font-mono text-xs tracking-[0.12em] text-[#d9b45e]">
-              PROOF-1 &middot; GPT-6 ASTRA &middot; EXTERNAL REVIEW OPEN
+              PROOF-1.1 &middot; GPT-6 ASTRA &middot; UPDATED 9 OCT 2026
             </p>
           </div>
 
+          <ArgusUpdate className="mb-10" />
+
           <a
-            href="/safety/argus/proof-1"
+            href="/safety/argus/proof-1#exec"
             aria-label="Open the interactive assurance graph"
             className="block rounded-2xl overflow-hidden border border-white/10 hover:border-[#a78bfa]/50 transition-colors mb-10"
           >
@@ -232,7 +235,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/safety/argus/proof-1"
+              href="/safety/argus/proof-1#exec"
               className="btn-primary !px-5 sm:!px-8 text-center text-[0.9375rem] sm:text-base"
             >
               Open interactive assurance graph{' '}

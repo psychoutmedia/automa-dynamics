@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { SITE_URL } from '../../../lib/articles'
+import ArgusUpdate from '../../_components/ArgusUpdate'
 
 /* Deliberately static. The site's scroll reveals start every block at
    opacity 0 and fade it in after hydration; on a page this dense that read as
@@ -70,9 +71,8 @@ const SHELL = 'max-w-6xl mx-auto'
 const GOLD = 'text-[#d9b45e]'
 const VIOLET_LINK = 'text-[#a78bfa] hover:text-[#c4b5fd] transition-colors'
 
-const GRAPH = '/safety/argus/proof-1'
+const GRAPH = '/safety/argus/proof-1#exec'
 const FILES = '/safety/argus/files'
-const DELTA = '/safety/argus/proof-1-1'
 
 const chain = ['CLAIM', 'ARGUMENT', 'EVIDENCE', 'DEPENDENCY', 'GAP']
 
@@ -110,7 +110,6 @@ const questions = [
 
 const artifacts = [
   { verb: 'View', label: 'Interactive Assurance Graph', href: GRAPH },
-  { verb: 'Update', label: 'Proof-1.1 Temporal Assurance (3 Sep to 9 Oct)', href: DELTA },
   {
     verb: 'Inspect',
     label: 'Machine-readable P1.1 Delta JSON',
@@ -161,7 +160,7 @@ export default function ArgusPage() {
           </Reveal>
           <Reveal>
             <p className={`font-mono text-xs md:text-sm tracking-[0.12em] ${GOLD} mb-8`}>
-              PROOF-1 &middot; GPT-6 ASTRA &middot; TECHNICAL COMPLETE - EXTERNAL REVIEW OPEN
+              PROOF-1.1 &middot; GPT-6 ASTRA &middot; UPDATED 9 OCT 2026 - EXTERNAL REVIEW OPEN
             </p>
           </Reveal>
           <Reveal>
@@ -180,6 +179,9 @@ export default function ArgusPage() {
                 Review questions
               </a>
             </div>
+          </Reveal>
+          <Reveal>
+            <ArgusUpdate className="mb-10 md:mb-12" />
           </Reveal>
           <Reveal>
             <a
@@ -206,11 +208,6 @@ export default function ArgusPage() {
               <p className="text-sm leading-relaxed text-chrome/65">
                 The Executive view shows the main assurance structure. The Full Assurance Graph
                 exposes the complete Proof-1 representation.
-              </p>
-              <p className="text-sm leading-relaxed text-chrome/65 md:col-span-2">
-                Update, 9 October 2026: <a href={DELTA} className={VIOLET_LINK}>Proof-1.1</a>{' '}
-                re-examines all nine gaps against the later public record. None is resolved; three
-                are partially narrowed, one is more constrained and five are unchanged.
               </p>
             </div>
           </Reveal>
