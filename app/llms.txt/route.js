@@ -55,6 +55,8 @@ certification, and it is not affiliated with or endorsed by OpenAI.
 ## ARGUS
 - [ARGUS](${SITE_URL}/safety/argus): the method, the Proof-1 summary, and the five review questions.
 - [Proof-1 interactive assurance graph](${SITE_URL}/safety/argus/proof-1): every claim, argument, evidence object, dependency, assumption and gap, with provenance.
+- [Proof-1.1 temporal assurance](${SITE_URL}/safety/argus/proof-1-1): the nine gaps re-examined from the 3 September 2026 cutoff to the public record on 9 October 2026, with every source change and evidence-quality record.
+- [Proof-1.1 delta JSON](${SITE_URL}/safety/argus/files/ARGUS_P11_DELTA.json): the machine-readable P1.1 overlay.
 - [Proof-1 graph JSON](${SITE_URL}/safety/argus/files/ARGUS_P1_ASTRA_GRAPH.json): the machine-readable graph the interactive page renders.
 - [Proof-1 assurance case](${SITE_URL}/safety/argus/files/ARGUS_P1_ASTRA_ASSURANCE_CASE_REVIEW_v0.2.0.md): the human-readable case, in markdown.
 - [Proof-1 review packet](${SITE_URL}/safety/argus/files/ARGUS_PROOF1_EXTERNAL_REVIEW_PACKET.md): what reviewers are asked to assess.

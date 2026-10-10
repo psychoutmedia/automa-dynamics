@@ -1,6 +1,12 @@
 """Build /safety/argus/proof-1 from the ARGUS review graph.
 
     python scripts/sync-argus.py [source.html]
+    python scripts/sync-argus.py --p11 [source.html]    # /safety/argus/proof-1-1
+
+--p11 builds the P1.1 temporal viewer instead: the same graph plus a third
+"Temporal delta" tab and the P1.1 overlay (ARGUS_P11_DELTA.json), both embedded
+byte for byte and guarded against the copies published under files/. It opens
+on that tab; #exec and #full still deep-link to the graph views.
 
 The source is the self-contained review artifact exported from the ARGUS
 project. This script never edits the graph itself: the embedded JSON and the
@@ -193,6 +199,30 @@ EXEC_ZOOM = r"""<script>
 FOOTER_TAIL = """    <p>Independent research by <a href="/">Automa Dynamics</a>. Not affiliated with, commissioned by, or endorsed by OpenAI. <a href="/safety/argus">Method, Proof-1 summary and review questions</a> &middot; <a href="/safety/argus/files/ARGUS_P1_ASTRA_GRAPH.json">Graph JSON</a> &middot; <a href="mailto:hello@automadynamics.com">hello@automadynamics.com</a></p>
   </footer>"""
 
+# P1.1 temporal viewer (--p11). Built by substitution on the Proof-1 templates
+# above, so the Proof-1 build path stays exactly as it was.
+P11_SRC = pathlib.Path(r"H:\projectargus\Graphs\ARGUS Proof-1.1 Temporal Assurance_REVIEW.html")
+P11_OUT = ROOT / "public" / "safety" / "argus" / "proof-1-1" / "index.html"
+P11_PUBLISHED_JSON = ROOT / "public" / "safety" / "argus" / "files" / "ARGUS_P11_DELTA.json"
+P11_TITLE = "ARGUS Proof-1.1 Temporal Assurance"
+P11_DESCRIPTION = (
+    "Proof-1.1 re-examines the nine public assurance gaps behind GPT-6 Astra's cybersecurity "
+    "release claim, from the 3 September 2026 cutoff to the public record on 9 October 2026. "
+    "Independent research by Automa Dynamics."
+)
+P11_URL = "https://www.automadynamics.com/safety/argus/proof-1-1"
+P11_FOOTER_TAIL = """    <p>Independent research by <a href="/">Automa Dynamics</a>. Not affiliated with, commissioned by, or endorsed by OpenAI. <a href="/safety/argus">Method and review questions</a> &middot; <a href="/safety/argus/proof-1">Proof-1 graph (T0)</a> &middot; <a href="/safety/argus/files/ARGUS_P1_ASTRA_GRAPH.json">Graph JSON</a> &middot; <a href="/safety/argus/files/ARGUS_P11_DELTA.json">P1.1 delta JSON</a> &middot; <a href="mailto:hello@automadynamics.com">hello@automadynamics.com</a></p>
+  </footer>"""
+
+
+def p11_templates():
+    head = HEAD.replace(TITLE, P11_TITLE).replace(DESCRIPTION, P11_DESCRIPTION).replace(URL, P11_URL)
+    head = head.replace("python scripts/sync-argus.py -->", "python scripts/sync-argus.py --p11 -->")
+    bar = BAR.replace("ARGUS <span>Proof-1</span>", "ARGUS <span>Proof-1.1</span>")
+    bar = bar.replace(f'<span class="tag warn">{STATUS}</span>',
+                      f'<span class="tag warn">{STATUS}</span>\n      <span class="tag mono">T0 3 Sep &rarr; T1 9 Oct 2026</span>')
+    return head, bar
+
 
 def must_sub(pattern, repl, text, flags=re.S):
     new, n = re.subn(pattern, lambda _m: repl, text, count=1, flags=flags)
@@ -202,8 +232,22 @@ def must_sub(pattern, repl, text, flags=re.S):
 
 
 def main():
-    src = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else DEFAULT_SRC
+    global HEAD, BAR, FOOTER_TAIL, OUT
+    args = sys.argv[1:]
+    p11 = "--p11" in args
+    args = [a for a in args if a != "--p11"]
+    src = pathlib.Path(args[0]) if args else (P11_SRC if p11 else DEFAULT_SRC)
     html = src.read_text(encoding="utf-8")
+    if p11:
+        HEAD, BAR = p11_templates()
+        FOOTER_TAIL, OUT = P11_FOOTER_TAIL, P11_OUT
+        # Guard: the overlay embedded in the page must be the JSON published beside it.
+        ptag = '<script id="argus-p11" type="application/json">'
+        if ptag not in html:
+            sys.exit("sync-argus: --p11 source has no embedded P1.1 overlay")
+        pa = html.index(ptag) + len(ptag)
+        if html[pa:html.index("</script>", pa)].encode("utf-8") != P11_PUBLISHED_JSON.read_bytes():
+            sys.exit("sync-argus: embedded P1.1 overlay differs from public/safety/argus/files/ARGUS_P11_DELTA.json")
 
     # Guard: the graph embedded in the page must be the JSON published beside it.
     tag = '<script id="argus-data" type="application/json">'
@@ -229,7 +273,9 @@ def main():
     html = must_sub(r"  <header>.*?</header>\n", BAR, html)
 
     # 5. Footer: terms first, the page is online now, and a way back.
-    html = must_sub(r"  <footer>\n", "  <footer>\n    " + terms + "\n", html)
+    # The P1.1 viewer's review invitation lived in the replaced header; it moves here.
+    invite = '    <div class="invite" id="invite" hidden></div>\n' if p11 else ""
+    html = must_sub(r"  <footer>\n", "  <footer>\n" + invite + "    " + terms + "\n", html)
     html = html.replace("<strong>Offline review artifact:</strong>", "<strong>Review artifact:</strong>", 1)
     html = must_sub(r"\n  </footer>", "\n" + FOOTER_TAIL, html)
 

@@ -72,6 +72,7 @@ const VIOLET_LINK = 'text-[#a78bfa] hover:text-[#c4b5fd] transition-colors'
 
 const GRAPH = '/safety/argus/proof-1'
 const FILES = '/safety/argus/files'
+const DELTA = '/safety/argus/proof-1-1'
 
 const chain = ['CLAIM', 'ARGUMENT', 'EVIDENCE', 'DEPENDENCY', 'GAP']
 
@@ -109,6 +110,13 @@ const questions = [
 
 const artifacts = [
   { verb: 'View', label: 'Interactive Assurance Graph', href: GRAPH },
+  { verb: 'Update', label: 'Proof-1.1 Temporal Assurance (3 Sep to 9 Oct)', href: DELTA },
+  {
+    verb: 'Inspect',
+    label: 'Machine-readable P1.1 Delta JSON',
+    href: `${FILES}/ARGUS_P11_DELTA.json`,
+    file: true,
+  },
   {
     verb: 'Read',
     label: 'Human-readable Assurance Case',
@@ -198,6 +206,11 @@ export default function ArgusPage() {
               <p className="text-sm leading-relaxed text-chrome/65">
                 The Executive view shows the main assurance structure. The Full Assurance Graph
                 exposes the complete Proof-1 representation.
+              </p>
+              <p className="text-sm leading-relaxed text-chrome/65 md:col-span-2">
+                Update, 9 October 2026: <a href={DELTA} className={VIOLET_LINK}>Proof-1.1</a>{' '}
+                re-examines all nine gaps against the later public record. None is resolved; three
+                are partially narrowed, one is more constrained and five are unchanged.
               </p>
             </div>
           </Reveal>
@@ -518,7 +531,7 @@ export default function ArgusPage() {
             <Reveal>
               <ul className="divide-y divide-white/10 border-y border-white/10">
                 {artifacts.map((a) => (
-                  <li key={a.verb}>
+                  <li key={a.href}>
                     <a
                       href={a.href}
                       className="group grid grid-cols-[5rem_minmax(0,1fr)_auto] sm:grid-cols-[6.5rem_minmax(0,1fr)_auto] items-baseline gap-4 py-4"
