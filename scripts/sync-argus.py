@@ -46,6 +46,15 @@ URL = "https://www.automadynamics.com/safety/argus/proof-1"
 OG_IMAGE = "https://www.automadynamics.com/safety/argus/executive-graph.png"
 STATUS = "Technical complete - external review open"
 
+SUM_OUT = ROOT / "public" / "safety" / "argus" / "proof-1" / "summary" / "index.html"
+SUM_URL = "https://www.automadynamics.com/safety/argus/proof-1/summary"
+SUM_TITLE = "ARGUS Proof-1 Case Summary: GPT-6 Astra"
+SUM_DESCRIPTION = (
+    "ARGUS Proof-1 on one page: the GPT-6 Astra cybersecurity release claim, the reconstruction conclusion "
+    "and counts, with the interactive assurance graph and the 9 October 2026 temporal update built in. "
+    "Assurance gaps, not findings that safeguards failed. Not affiliated with OpenAI."
+)
+
 HEAD = f"""<!doctype html>
 <html lang="en-GB" data-theme="dark">
 <head>
@@ -98,12 +107,17 @@ SITE_CSS = """
 .argusbar .eyebrow .tag { background: transparent; }
 .argusbar .back { margin-left: auto; font: 500 12px var(--f-mono); color: #b8c5d6; text-decoration: none; white-space: nowrap; }
 .argusbar .back:hover { color: #e8e8e8; }
+.argusbar .back { white-space: normal; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.argusbar .back a { color: inherit; text-decoration: none; white-space: nowrap; }
+.argusbar .back a:hover, .argusbar .back a:focus-visible { color: #e8e8e8; }
 @media (max-width: 900px) { .argusbar { position: static; } .argusbar .back { margin-left: 0; } }
 
 /* the graph gets the viewport */
 aside.panel { top: 64px; max-height: calc(100vh - 76px); }
 #full-svg { height: max(520px, calc(100vh - 220px)); }
 @media (max-width: 700px) { #full-svg { height: 72vh; } }
+/* The Full view's Jump-to menu ran 8px past a 390px screen; let it shrink. */
+@media (max-width: 700px) { #view-full .ctl { min-width: 0; max-width: 100%; flex-wrap: wrap; } #jump { min-width: 0; max-width: 100%; } }
 /* Executive view: fitted to the viewport like the full graph, not stretched to
    the page width, and zoomable (see EXEC_ZOOM). */
 #view-exec .scroller { overflow: hidden; }
@@ -133,7 +147,7 @@ BAR = f"""  <header class="argusbar">
       <span class="tag warn">{STATUS}</span>
       <span class="tag mono">Updated 9 Oct 2026</span>
     </div>
-    <a class="back" href="/safety/argus">About ARGUS &rarr;</a>
+    <span class="back"><a href="/safety/argus/proof-1/summary#exec">Case summary</a> <a href="/safety/argus">About ARGUS &rarr;</a></span>
     <!-- Populated by the renderer; kept so its lookups resolve, not shown. -->
     <div hidden><span id="review"></span><p id="c1text"></p><p id="conclusion"></p><div id="counts"></div></div>
   </header>
@@ -240,6 +254,8 @@ def main():
     # 2. Site palette and full-width layout, after the artifact stylesheet.
     html = must_sub(r"</style>\s*\n(?=\s*<div class=\"wrap\">)", "</style>\n" + SITE_CSS + "\n", html)
 
+    pre = html  # before the header is collapsed; the case summary starts from here
+
     # 3. Lift the review terms out of the header before replacing it.
     m = re.search(r'\s*<div class="reviewterms".*?</div>\n', html, re.S)
     if not m:
@@ -269,6 +285,51 @@ def main():
     digest = hashlib.sha256(embedded.encode("utf-8")).hexdigest()
     nodes = len(json.loads(embedded)["nodes"])
     print(f"wrote {OUT.relative_to(ROOT)}  ({nodes} nodes, embedded JSON sha256 {digest[:12]}...)")
+
+    # Case summary: the viewer's original one-page layout. The same sparse bar, then
+    # the header the viewer was built with (title, root claim, conclusion, counts,
+    # review conditions) with the live graph and record panel directly beneath.
+    s = pre
+    m = re.search(r"  <header>\n.*?  </header>\n", s, re.S)
+    eb = m and re.search(r"    <div class=\"eyebrow\">.*?\n    </div>\n", m.group(0), re.S)
+    if not m or not eb:
+        sys.exit("sync-argus: summary header or eyebrow not found")
+    card = m.group(0).replace("  <header>\n", '  <header class="casehead">\n', 1).replace(eb.group(0), "", 1)
+    sbar = BAR
+    for old, new in [
+        ('<span class="name">ARGUS <span>Proof-1</span></span>',
+         '<span class="name">ARGUS <span>Proof-1 &middot; Case summary</span></span>'),
+        ('<a href="/safety/argus/proof-1/summary#exec">Case summary</a>', '<a href="/safety/argus/proof-1#exec">Full-screen graph</a>'),
+        # The header below carries c1text, conclusion and counts; only #review stays hidden here.
+        ('<div hidden><span id="review"></span><p id="c1text"></p><p id="conclusion"></p><div id="counts"></div></div>',
+         '<div hidden><span id="review"></span></div>'),
+    ]:
+        if sbar.count(old) != 1:
+            sys.exit(f"sync-argus: summary bar anchor not found: {old[:50]!r}")
+        sbar = sbar.replace(old, new)
+    s = s.replace(m.group(0), sbar + card, 1)
+    s = s.replace("<strong>Offline review artifact:</strong>", "<strong>Review artifact:</strong>", 1)
+    s = must_sub(r"\n  </footer>", "\n" + FOOTER_TAIL, s)
+    if s.count(EXEC_NOTE) != 1:
+        sys.exit("sync-argus: summary executive toolbar note not found")
+    s = s.replace(EXEC_NOTE, EXEC_NOTE + "\n          " + EXEC_CTL, 1)
+    s = re.sub(r"\s*</body>\s*</html>\s*\Z", "", s)
+    s = s.rstrip() + "\n" + EXEC_ZOOM + "\n</body>\n</html>\n"
+    for old, new, n in [
+        (f"<title>{TITLE} | Automa Dynamics</title>", f"<title>{SUM_TITLE} | Automa Dynamics</title>", 1),
+        (f'content="{TITLE}"', f'content="{SUM_TITLE}"', 2),
+        (f'content="{DESCRIPTION}"', f'content="{SUM_DESCRIPTION}"', 3),
+        (f'"{URL}"', f'"{SUM_URL}"', 2),
+    ]:
+        if s.count(old) != n:
+            sys.exit(f"sync-argus: summary head anchor found {s.count(old)}x, expected {n}: {old[:50]!r}")
+        s = s.replace(old, new)
+    b = s.index(tag) + len(tag)
+    if s[b:s.index("</script>", b)] != embedded:
+        sys.exit("sync-argus: embedded graph changed in summary")
+    SUM_OUT.parent.mkdir(parents=True, exist_ok=True)
+    SUM_OUT.write_text(s, encoding="utf-8", newline="\n")
+    print(f"wrote {SUM_OUT.relative_to(ROOT)}  (same embedded JSON)")
 
 
 if __name__ == "__main__":

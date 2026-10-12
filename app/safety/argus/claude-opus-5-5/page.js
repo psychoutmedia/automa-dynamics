@@ -237,7 +237,25 @@ export default function ArgusProof2Page() {
             2026
           </p>
 
-          <div className="card-glass p-8 md:p-10 max-w-[48rem] border-l-2 border-l-[#d9b45e] mb-10">
+          <div className="flex flex-col sm:flex-row gap-4 mb-10">
+            <a
+              href={`${EXPLORER}#exec`}
+              className="btn-primary !px-5 sm:!px-8 text-center text-[0.9375rem] sm:text-base"
+            >
+              Explore the interactive assurance{' '}
+              <span className="whitespace-nowrap">
+                graph <span aria-hidden="true">&rarr;</span>
+              </span>
+            </a>
+            <a href={SUMMARY} className="btn-secondary text-center">
+              Case summary
+            </a>
+            <a href="/safety/argus" className="btn-secondary text-center">
+              About ARGUS
+            </a>
+          </div>
+
+          <div className="card-glass p-8 md:p-10 max-w-[48rem] border-l-2 border-l-[#d9b45e] mb-12">
             <p className="font-mono text-xs text-chrome/65 mb-5 tracking-wide">{'// The finding'}</p>
             <p className="text-[1.0625rem] md:text-[1.1875rem] leading-relaxed text-chrome-light font-normal mb-5">
               Anthropic&rsquo;s public release materials describe a multi-stage cyber-safeguard
@@ -252,21 +270,6 @@ export default function ArgusProof2Page() {
               inspectable evidence, not findings that safeguards failed or that internal evidence
               does not exist.
             </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <a
-              href={`${EXPLORER}#exec`}
-              className="btn-primary !px-5 sm:!px-8 text-center text-[0.9375rem] sm:text-base"
-            >
-              Explore the interactive assurance{' '}
-              <span className="whitespace-nowrap">
-                graph <span aria-hidden="true">&rarr;</span>
-              </span>
-            </a>
-            <a href="/safety/argus" className="btn-secondary text-center">
-              About ARGUS
-            </a>
           </div>
 
           <dl className="grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-x-8 gap-y-3 max-w-[40rem] mb-8">
@@ -311,13 +314,14 @@ export default function ArgusProof2Page() {
           </P>
 
           <ArgusCaseCard proof="p2" headingLevel="h3" className="mt-10 mb-4" />
-          <p className="text-sm text-chrome/65 mb-14">
-            The case at a glance, as the explorer reads it from the graph.{' '}
-            <a className={VIOLET_LINK} href={SUMMARY}>
-              Open the one-page case summary
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-14">
+            <a href={SUMMARY} className="btn-primary inline-flex items-center justify-center gap-2 !px-5 sm:!px-8">
+              Open the case summary <span aria-hidden="true">&rarr;</span>
             </a>
-            .
-          </p>
+            <p className="text-sm text-chrome/65">
+              Claim, finding and counts on one page, with the interactive graph built in.
+            </p>
+          </div>
 
           <P className="mb-8">
             The <a className={VIOLET_LINK} href={`${EXPLORER}#exec`}>Executive assurance graph</a>{' '}

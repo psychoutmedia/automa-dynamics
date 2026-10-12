@@ -363,12 +363,17 @@ footer code { font-family: var(--f-mono); font-size: 11.5px; overflow-wrap: anyw
 .argusbar .eyebrow .tag { background: transparent; }
 .argusbar .back { margin-left: auto; font: 500 12px var(--f-mono); color: #b8c5d6; text-decoration: none; white-space: nowrap; }
 .argusbar .back:hover { color: #e8e8e8; }
+.argusbar .back { white-space: normal; display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.argusbar .back a { color: inherit; text-decoration: none; white-space: nowrap; }
+.argusbar .back a:hover, .argusbar .back a:focus-visible { color: #e8e8e8; }
 @media (max-width: 900px) { .argusbar { position: static; } .argusbar .back { margin-left: 0; } }
 
 /* the graph gets the viewport */
 aside.panel { top: 64px; max-height: calc(100vh - 76px); }
 #full-svg { height: max(520px, calc(100vh - 220px)); }
 @media (max-width: 700px) { #full-svg { height: 72vh; } }
+/* The Full view's Jump-to menu ran 8px past a 390px screen; let it shrink. */
+@media (max-width: 700px) { #view-full .ctl { min-width: 0; max-width: 100%; flex-wrap: wrap; } #jump { min-width: 0; max-width: 100%; } }
 /* Executive view: fitted to the viewport like the full graph, not stretched to
    the page width, and zoomable (see EXEC_ZOOM). */
 #view-exec .scroller { overflow: hidden; }
@@ -398,7 +403,7 @@ footer a { color: #b8c5d6; }
       <span class="tag warn">Technical complete - external review open</span>
       <span class="tag mono">Updated 9 Oct 2026</span>
     </div>
-    <a class="back" href="/safety/argus">About ARGUS &rarr;</a>
+    <span class="back"><a href="/safety/argus/proof-1/summary#exec">Case summary</a> <a href="/safety/argus">About ARGUS &rarr;</a></span>
     <!-- Populated by the renderer; kept so its lookups resolve, not shown. -->
     <div hidden><span id="review"></span><p id="c1text"></p><p id="conclusion"></p><div id="counts"></div></div>
   </header>

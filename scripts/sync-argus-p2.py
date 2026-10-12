@@ -53,6 +53,15 @@ DESCRIPTION = (
 )
 OG_IMAGE = f"{BASE}/safety/argus/claude-opus-5-5/executive-graph.png"
 
+SUM_OUT = ROOT / "public" / "safety" / "argus" / "claude-opus-5-5" / "summary" / "index.html"
+SUM_ROUTE = "/safety/argus/claude-opus-5-5/summary"
+SUM_TITLE = "ARGUS Proof-2 Case Summary: Claude Opus 5.5"
+SUM_DESCRIPTION = (
+    "ARGUS Proof-2 on one page: Anthropic's Claude Opus 5.5 cyber-safeguard claim in its own words, ARGUS's "
+    "scope note, the reconstruction finding and counts, with the interactive assurance graph built in. "
+    "Eight open public-assurance gaps, not findings that safeguards failed. Not affiliated with Anthropic."
+)
+
 BR_OUT = ROOT / "public" / "safety" / "argus" / "claude-opus-5-5" / "branches" / "index.html"
 BR_ROUTE = "/safety/argus/claude-opus-5-5/branches"
 BR_TITLE = "ARGUS Proof-2 Branch Reader: Claude Opus 5.5"
@@ -148,6 +157,7 @@ body.embed .argusbar { display: none; }
 """
 
 BAR_LINKS = f"""    <nav class="links" aria-label="ARGUS Proof-2">
+      <a href="{SUM_ROUTE}">Case summary</a>
       <a href="{FINDINGS}">Findings</a>
       <a href="/safety/argus">About ARGUS &rarr;</a>
       @@THEME@@
@@ -232,39 +242,63 @@ def main():
     if not theme:
         sys.exit("sync-argus-p2: theme button not found")
     eyebrow = eb.group(0).replace(theme.group(0), "", 1)
-    bar = ('  <header class="argusbar" id="xhead">\n'
-           '    <a class="home" href="/safety/argus" aria-label="ARGUS overview">\n'
-           '      <img src="/logo.png" alt="" width="22" height="22">\n'
-           '      <span class="name">ARGUS <span>Proof-2</span></span>\n'
-           '    </a>\n' + eyebrow + BAR_LINKS.replace("@@THEME@@", theme.group(1)) + '\n'
-           + HIDDEN + '\n  </header>\n')
-    html = html.replace(hdr, bar, 1)
+    bar_open = ('    <a class="home" href="/safety/argus" aria-label="ARGUS overview">\n'
+                '      <img src="/logo.png" alt="" width="22" height="22">\n'
+                '      <span class="name">ARGUS <span>Proof-2</span></span>\n'
+                '    </a>\n' + eyebrow + BAR_LINKS.replace("@@THEME@@", theme.group(1)) + '\n')
+    pre = html
+
+    # Explorer: header collapsed to the bar, reading conditions to the footer.
+    html = pre.replace(hdr, '  <header class="argusbar" id="xhead">\n' + bar_open + HIDDEN + '\n  </header>\n', 1)
     if html.count('  <footer id="xfoot">\n') != 1:
         sys.exit("sync-argus-p2: footer not found")
     html = html.replace('  <footer id="xfoot">\n', '  <footer id="xfoot">\n' + terms.group(0), 1)
 
-    # Executive view: Proof-1's Fit control beside the toolbar note, and its pan/zoom script.
-    if html.count(_p1.EXEC_NOTE) != 1:
-        sys.exit("sync-argus-p2: executive toolbar note not found, source layout changed")
-    html = html.replace(_p1.EXEC_NOTE, _p1.EXEC_NOTE + "\n          " + _p1.EXEC_CTL, 1)
-    if html.count("</body>\n</html>") != 1:
-        sys.exit("sync-argus-p2: document end not found")
-    html = html.replace("</body>\n</html>", _p1.EXEC_ZOOM + "\n</body>\n</html>", 1)
+    # Case summary: the original one-page layout (76f65ee). The same bar, then the
+    # case card the viewer was built with (title, root claim, finding, counts,
+    # reading conditions) with the live graph and record panel directly beneath.
+    card = hdr.replace('  <header id="xhead">\n', '  <header class="casehead">\n', 1).replace(eb.group(0), "", 1)
+    summary = pre.replace(hdr, '  <header class="argusbar" id="xhead">\n' + bar_open + '  </header>\n' + card, 1)
 
-    # Publication CSS goes last inside the single stylesheet, so it wins on equal specificity.
-    if html.count("</style>\n</head>") != 1:
-        sys.exit("sync-argus-p2: stylesheet end not found")
-    html = html.replace("</style>\n</head>", SITE_CSS + "</style>\n</head>", 1)
+    def finish(page, label):
+        # Executive view: Proof-1's Fit control beside the toolbar note, and its pan/zoom script.
+        if page.count(_p1.EXEC_NOTE) != 1:
+            sys.exit(f"sync-argus-p2 ({label}): executive toolbar note not found, source layout changed")
+        page = page.replace(_p1.EXEC_NOTE, _p1.EXEC_NOTE + "\n          " + _p1.EXEC_CTL, 1)
+        if page.count("</body>\n</html>") != 1:
+            sys.exit(f"sync-argus-p2 ({label}): document end not found")
+        page = page.replace("</body>\n</html>", _p1.EXEC_ZOOM + "\n</body>\n</html>", 1)
+        # Publication CSS goes last inside the single stylesheet, so it wins on equal specificity.
+        if page.count("</style>\n</head>") != 1:
+            sys.exit(f"sync-argus-p2 ({label}): stylesheet end not found")
+        page = page.replace("</style>\n</head>", SITE_CSS + "</style>\n</head>", 1)
+        for banned in ("noindex", "proto-banner\" id", "Local prototype", "owner review pending",
+                       "not publication-ready", "DRAFT.html"):
+            if banned in page:
+                sys.exit(f"sync-argus-p2 ({label}): prototype-only text survived: {banned!r}")
+        # The embedded block must still be byte-identical after the page edits.
+        a = page.index(tag) + len(tag)
+        if hashlib.sha256(page[a:page.index("</script>", a)].encode("utf-8")).hexdigest() != EXPECTED:
+            sys.exit(f"sync-argus-p2 ({label}): embedded graph changed during conversion")
+        return page
 
-    for banned in ("noindex", "proto-banner\" id", "Local prototype", "owner review pending",
-                   "not publication-ready", "DRAFT.html"):
-        if banned in html:
-            sys.exit(f"sync-argus-p2: prototype-only text survived: {banned!r}")
-
-    # The embedded block must still be byte-identical after the page edits.
-    a = html.index(tag) + len(tag)
-    if hashlib.sha256(html[a:html.index("</script>", a)].encode("utf-8")).hexdigest() != EXPECTED:
-        sys.exit("sync-argus-p2: embedded graph changed during conversion")
+    html = finish(html, "explorer")
+    summary = finish(summary, "summary")
+    for old, new, n in [
+        (f"{TITLE} | Automa Dynamics</title>", f"{SUM_TITLE} | Automa Dynamics</title>", 1),
+        (f'content="{TITLE}"', f'content="{SUM_TITLE}"', 2),
+        (f'content="{DESCRIPTION}"', f'content="{SUM_DESCRIPTION}"', 3),
+        (f'"{BASE}{ROUTE}"', f'"{BASE}{SUM_ROUTE}"', 2),
+        ('<span class="name">ARGUS <span>Proof-2</span></span>',
+         '<span class="name">ARGUS <span>Proof-2 &middot; Case summary</span></span>', 1),
+        (f'      <a href="{SUM_ROUTE}">Case summary</a>\n', f'      <a href="{ROUTE}#exec">Full-screen graph</a>\n', 1),
+    ]:
+        if summary.count(old) != n:
+            sys.exit(f"sync-argus-p2: summary anchor found {summary.count(old)}x, expected {n}: {old[:60]!r}")
+        summary = summary.replace(old, new)
+    SUM_OUT.parent.mkdir(parents=True, exist_ok=True)
+    SUM_OUT.write_text(summary, encoding="utf-8", newline="\n")
+    print(f"wrote {SUM_OUT.relative_to(ROOT)} ({len(summary.encode('utf-8')):,} bytes; same embedded graph)")
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(html, encoding="utf-8", newline="\n")

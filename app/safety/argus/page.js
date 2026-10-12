@@ -75,7 +75,7 @@ const VIOLET_LINK = 'text-[#a78bfa] hover:text-[#c4b5fd] transition-colors'
 const GRAPH = '/safety/argus/proof-1#exec'
 const FILES = '/safety/argus/files'
 const P2 = '/safety/argus/claude-opus-5-5'
-const P1_SUMMARY = '/safety/argus/proof-1/summary'
+const P1_SUMMARY = '/safety/argus/proof-1/summary#exec'
 
 /* The two ARGUS cases, side by side on the first screen. Counts are inventory,
    not safety scores; each card carries its own status line. */
@@ -89,6 +89,7 @@ const cases = [
     status: 'Technical complete · updated 9 Oct 2026 · external review open',
     href: GRAPH,
     cta: 'Open the Proof-1 graph',
+    summary: P1_SUMMARY,
     more: '#proof-1',
     moreLabel: 'Proof-1 summary',
   },
@@ -101,6 +102,7 @@ const cases = [
     status: 'Technical complete · fidelity audit complete · not externally peer reviewed',
     href: P2,
     cta: 'Read the Proof-2 findings',
+    summary: `${P2}/summary`,
     more: `${P2}/explore#exec`,
     moreLabel: 'Proof-2 graph',
   },
@@ -199,9 +201,12 @@ export default function ArgusPage() {
                     {c.gaps}{' '}
                     <span className="text-chrome/65">&middot; link judgements, not safety scores</span>
                   </p>
-                  <div className="mt-auto flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                  <div className="mt-auto flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-4 sm:gap-x-6">
                     <a href={c.href} className="btn-primary inline-flex items-center justify-center gap-2 !px-5">
                       {c.cta} <span aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a href={c.summary} className="btn-secondary !px-5 text-center">
+                      Case summary
                     </a>
                     <a href={c.more} className={`text-sm ${VIOLET_LINK}`}>
                       {c.moreLabel}
@@ -348,13 +353,14 @@ export default function ArgusPage() {
                   read from the published graph JSON. Replaces the hand-typed claim quote
                   and counts grid that used to sit here. */}
               <ArgusCaseCard proof="p1" headingLevel="h3" className="mb-4" />
-              <p className="text-sm text-chrome/65 mb-12">
-                The case at a glance, as the graph viewer reads it.{' '}
-                <a className={VIOLET_LINK} href={P1_SUMMARY}>
-                  Open the one-page case summary
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-12">
+                <a href={P1_SUMMARY} className="btn-primary inline-flex items-center justify-center gap-2 !px-5 sm:!px-8">
+                  Open the case summary <span aria-hidden="true">&rarr;</span>
                 </a>
-                .
-              </p>
+                <p className="text-sm text-chrome/65">
+                  Claim, conclusion and counts on one page, with the interactive graph built in.
+                </p>
+              </div>
             </Reveal>
             <Reveal>
               <dl className="grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-x-8 gap-y-3 max-w-[36rem] mb-12">
@@ -495,6 +501,9 @@ export default function ArgusPage() {
                   className="btn-primary inline-flex items-center justify-center gap-2 !px-5 sm:!px-8"
                 >
                   Read the Proof-2 findings <span aria-hidden="true">&rarr;</span>
+                </a>
+                <a href={`${P2}/summary`} className="btn-secondary text-center">
+                  Case summary
                 </a>
                 <a href={`${P2}/explore#exec`} className="btn-secondary text-center">
                   Open the Proof-2 graph
