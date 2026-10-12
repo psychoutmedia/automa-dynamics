@@ -47,6 +47,9 @@ terms that are not stated here.
 ARGUS is independent research. Proof-1 (GPT-6 Astra, cybersecurity, public
 release) is technically complete and open for external review. It is not a safety
 certification, and it is not affiliated with or endorsed by OpenAI.
+Proof-2 (Claude Opus 5.5, cybersecurity, release baseline 22 September 2026)
+records eight open public-assurance gaps. It has not been externally peer reviewed,
+and it is not affiliated with or endorsed by Anthropic.
 
 ## Positioning
 - [Overview](${SITE_URL}/): mission, operating principles, and the HELIOS platform.
@@ -60,6 +63,9 @@ certification, and it is not affiliated with or endorsed by OpenAI.
 - [Proof-1 graph JSON](${SITE_URL}/safety/argus/files/ARGUS_P1_ASTRA_GRAPH.json): the machine-readable graph the interactive page renders.
 - [Proof-1 assurance case](${SITE_URL}/safety/argus/files/ARGUS_P1_ASTRA_ASSURANCE_CASE_REVIEW_v0.2.0.md): the human-readable case, in markdown.
 - [Proof-1 review packet](${SITE_URL}/safety/argus/files/ARGUS_PROOF1_EXTERNAL_REVIEW_PACKET.md): what reviewers are asked to assess.
+- [Proof-2 findings: Claude Opus 5.5](${SITE_URL}/safety/argus/claude-opus-5-5): what the public cybersecurity assurance record establishes, the eight open public-assurance gaps, limitations and sources.
+- [Proof-2 interactive assurance graph](${SITE_URL}/safety/argus/claude-opus-5-5/explore): Executive and Full graphs, 50 nodes and 121 edge records, with evidence records and source locators.
+- [Proof-2 graph JSON](${SITE_URL}/safety/argus/files/ARGUS_P2_ASSURANCE_GRAPH.json): the machine-readable graph the Proof-2 explorer renders.
 
 ## Articles
 ${articleLines}

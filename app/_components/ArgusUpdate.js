@@ -45,7 +45,7 @@ export default function ArgusUpdate({ className = '' }) {
         >
           See what changed <span aria-hidden="true">&rarr;</span>
         </a>
-        <p className="text-sm text-chrome/55">
+        <p className="text-sm text-chrome/65">
           Public-evidence link judgements, not safety scores.
         </p>
       </div>

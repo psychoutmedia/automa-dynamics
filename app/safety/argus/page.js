@@ -18,7 +18,7 @@ function SplitText({ text, className, as: Tag = 'h2' }) {
 }
 
 const DESCRIPTION =
-  'ARGUS reconstructs frontier AI safety claims as inspectable assurance cases. Proof-1 maps the public evidence behind GPT-6 Astra’s cybersecurity release claim, and where that evidence stops. External review open.'
+  'ARGUS reconstructs frontier AI safety claims as inspectable assurance cases. Two cases: Proof-1 maps the public evidence behind GPT-6 Astra’s cybersecurity release claim; Proof-2 reconstructs the public cybersecurity assurance record for Claude Opus 5.5. Each shows where the public evidence stops.'
 
 export const metadata = {
   title: 'ARGUS',
@@ -73,6 +73,36 @@ const VIOLET_LINK = 'text-[#a78bfa] hover:text-[#c4b5fd] transition-colors'
 
 const GRAPH = '/safety/argus/proof-1#exec'
 const FILES = '/safety/argus/files'
+const P2 = '/safety/argus/claude-opus-5-5'
+
+/* The two ARGUS cases, side by side on the first screen. Counts are inventory,
+   not safety scores; each card carries its own status line. */
+const cases = [
+  {
+    proof: 'Proof-1',
+    system: 'GPT-6 Astra',
+    org: 'OpenAI',
+    meta: 'Cybersecurity · evidence cutoff 3 September 2026',
+    gaps: '9 active material gaps',
+    status: 'Technical complete · updated 9 Oct 2026 · external review open',
+    href: GRAPH,
+    cta: 'Open the Proof-1 graph',
+    more: '#proof-1',
+    moreLabel: 'Proof-1 summary',
+  },
+  {
+    proof: 'Proof-2',
+    system: 'Claude Opus 5.5',
+    org: 'Anthropic',
+    meta: 'Cybersecurity · release baseline 22 September 2026',
+    gaps: '8 open public-assurance gaps',
+    status: 'Technical complete · fidelity audit complete · not externally peer reviewed',
+    href: P2,
+    cta: 'Read the Proof-2 findings',
+    more: `${P2}/explore#exec`,
+    moreLabel: 'Proof-2 graph',
+  },
+]
 
 const chain = ['CLAIM', 'ARGUMENT', 'EVIDENCE', 'DEPENDENCY', 'GAP']
 
@@ -157,6 +187,37 @@ export default function ArgusPage() {
             <p className={`${LEAD} max-w-[40rem] mb-6`}>
               Independent assurance reconstruction for frontier AI
             </p>
+          </Reveal>
+          <Reveal>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14 md:mb-16" aria-label="ARGUS cases">
+              {cases.map((c) => (
+                <li
+                  key={c.proof}
+                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8 flex flex-col"
+                >
+                  <p className={`font-mono text-xs tracking-[0.12em] ${GOLD} mb-4`}>
+                    {c.proof.toUpperCase()} &middot; {c.org.toUpperCase()}
+                  </p>
+                  <h2 className="text-[1.75rem] md:text-[2rem] leading-tight tracking-[-0.01em] text-chrome-light mb-3">
+                    {c.system}
+                  </h2>
+                  <p className="text-sm text-chrome/65 mb-1">{c.meta}</p>
+                  <p className="text-sm text-chrome/65 mb-5">{c.status}</p>
+                  <p className="font-mono text-sm text-chrome-light mb-6">
+                    {c.gaps}{' '}
+                    <span className="text-chrome/65">&middot; link judgements, not safety scores</span>
+                  </p>
+                  <div className="mt-auto flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                    <a href={c.href} className="btn-primary inline-flex items-center justify-center gap-2 !px-5">
+                      {c.cta} <span aria-hidden="true">&rarr;</span>
+                    </a>
+                    <a href={c.more} className={`text-sm ${VIOLET_LINK}`}>
+                      {c.moreLabel}
+                    </a>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </Reveal>
           <Reveal>
             <p className={`font-mono text-xs md:text-sm tracking-[0.12em] ${GOLD} mb-8`}>
@@ -273,7 +334,7 @@ export default function ArgusPage() {
       </section>
 
       {/* Proof-1. */}
-      <section className={`${SECTION} border-t border-white/5`}>
+      <section id="proof-1" className={`${SECTION} border-t border-white/5`}>
         <div className={SHELL}>
           <RevealGroup>
             <Reveal>
@@ -404,6 +465,60 @@ export default function ArgusPage() {
                   cannot be independently established from the admitted public evidence. The
                   opposite claim is not established either.
                 </p>
+              </div>
+            </Reveal>
+          </RevealGroup>
+        </div>
+      </section>
+
+      {/* Proof-2. The full findings live on their own page; this is the pointer. */}
+      <section id="proof-2" className={`${SECTION} border-t border-white/5`}>
+        <div className={SHELL}>
+          <RevealGroup>
+            <Reveal>
+              <p className={`${LABEL} mb-6`}>Proof-2</p>
+            </Reveal>
+            <SplitText text="Claude Opus 5.5" className={`${DISPLAY} mb-4`} />
+            <Reveal>
+              <p className={`${LEAD} ${MEASURE} mb-10`}>
+                What the public cybersecurity assurance record establishes
+              </p>
+            </Reveal>
+            <Reveal>
+              <p className={`${BODY} ${MEASURE} mb-6`}>
+                Anthropic&rsquo;s public release materials describe a multi-stage cyber-safeguard
+                system and extensive testing, including favourable results and disclosed adverse
+                findings. They support a bounded account of what Anthropic said it deployed and what
+                its evaluations reported. They do not, on their own, allow an outside reader to
+                verify comprehensive coverage of the released system, the robustness of every
+                fallback configuration, or the model-specific acceptance of residual cyber risk.
+              </p>
+            </Reveal>
+            <Reveal>
+              <p className={`${LEAD} ${MEASURE} mb-10`}>
+                Eight open public-assurance gaps: requests for inspectable evidence, not findings
+                that safeguards failed.
+              </p>
+            </Reveal>
+            <Reveal>
+              <p className={`${BODY} ${MEASURE} mb-10`}>
+                Release baseline 22 September 2026. 50 typed nodes and 121 edge records. A targeted
+                source-to-visual fidelity audit is complete; the study has not been externally peer
+                reviewed. Independent research, not affiliated with, commissioned by, or endorsed by
+                Anthropic.
+              </p>
+            </Reveal>
+            <Reveal>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href={P2}
+                  className="btn-primary inline-flex items-center justify-center gap-2 !px-5 sm:!px-8"
+                >
+                  Read the Proof-2 findings <span aria-hidden="true">&rarr;</span>
+                </a>
+                <a href={`${P2}/explore#exec`} className="btn-secondary text-center">
+                  Open the Proof-2 graph
+                </a>
               </div>
             </Reveal>
           </RevealGroup>

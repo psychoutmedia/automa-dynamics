@@ -1,0 +1,2711 @@
+{
+  "schema_version": "ARGUS-P2-0.1",
+  "case_id": "ARGUS-P2",
+  "created_date": "2026-10-11",
+  "organisation": "Anthropic",
+  "model": "Claude Opus 5.5",
+  "risk_domain": "Cybersecurity",
+  "release_baseline": "2026-09-22",
+  "root_id": "P2-C-001",
+  "authority": "../ARGUS_P2_OWNER_DECISION_RATIFIED_v0.1.0.md",
+  "framework_qualification": "PUBLISHER_DATED_V2_EFFECTIVE_2026-07-24; OCTOBER_BYTES_VERIFIED; SEPTEMBER_EXACT_BYTES_NOT_AUTHENTICATED",
+  "historical_limit": "The recovered October FCF PDF is not independently authenticated as byte-identical to the document available on 22 September 2026.",
+  "fcf_sha256": "8e4d91e12861218ee8068e2ad1f50ce84d803d0fac22f0492e6a9dccbbe5e23f",
+  "taxonomy_note": "Six node kinds and argument/gap groupings are ARGUS_ANALYST_GROUPING. Publisher cyber categories, severity axes and FCF tiers retain PUBLISHER_DEFINED labels; arguments combining these are MIXED. Alternatives are recorded per gap.",
+  "edge_semantics": {
+    "supports": "bounded evidential support, not entailment or independent confirmation",
+    "qualifies": "limits scope, strength or interpretation; includes adverse findings not logically contradicting the bounded root",
+    "depends_on": "necessary applicability condition, not presumed satisfaction",
+    "leaves_open": "unresolved material public warrant; not evidence private work does not exist"
+  },
+  "sources": [
+    {
+      "id": "P2C-SRC-001",
+      "title": "Anthropic — System Card: Claude Opus 5.5",
+      "path": "../proof2_candidate/sources/P2C-SRC-001_opus55_system_card_release.pdf",
+      "sha256": "7311c9c6bbb16d012f1c12c7418b05949fcf7ae3e30d2c40f22050074b2a7378",
+      "hash_basis": "REUSED_PREDECESSOR_VERIFICATION_NOT_RECALCULATED",
+      "publication_or_effective_date": "2026-09-22",
+      "revision": "No numbered revision stated",
+      "retrieval": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "role": "Primary root, controls, reported evaluations and constraints",
+      "locators": [
+        "§§1.3–1.6 pp.12–13",
+        "§2.1.1 p.14",
+        "§§3.1–3.5 pp.47–60",
+        "§§5.2–5.2.2.3 pp.83–90",
+        "§6.5.1 pp.123–126"
+      ]
+    },
+    {
+      "id": "P2C-SRC-002",
+      "title": "Anthropic — Introducing Claude Opus 5.5",
+      "path": "../proof2_candidate/sources/P2C-SRC-002_launch_release.html",
+      "sha256": "e7f652231f2d6d4d8851cb64c8f9489f6cba0172a7fe5fb92fa1b63c249dbfc5",
+      "hash_basis": "REUSED_PREDECESSOR_VERIFICATION_NOT_RECALCULATED",
+      "publication_or_effective_date": "2026-09-22",
+      "revision": "NOT_REPORTED; selected archive version",
+      "retrieval": "Wire: 2026-10-10T18:19:58.760920Z; decoded HTML: 2026-10-10T18:20:49.137092Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:28:54Z",
+      "role": "Corroborates publisher deployment announcement, not independent testing",
+      "locators": [
+        "Safety → Safeguards → Cybersecurity; paragraph beginning Because Opus 5.5 has extremely strong cyber capabilities",
+        "Benchmark configuration footnote"
+      ]
+    },
+    {
+      "id": "P2C-SRC-003",
+      "title": "Anthropic — Responsible Scaling Policy v3.4",
+      "path": "../proof2_candidate/sources/P2C-SRC-003_rsp_v3_4.pdf",
+      "sha256": "6247b9e4001fd342827526fabc476c9d4dd6b2041ac00055f0ccda26f4d0b07d",
+      "hash_basis": "REUSED_PREDECESSOR_VERIFICATION_NOT_RECALCULATED",
+      "publication_or_effective_date": "Effective 2026-07-08; publication separately NOT_REPORTED",
+      "revision": "v3.4",
+      "retrieval": "2026-10-10T18:15:52.058401Z",
+      "public_availability": "PUBLISHER_DATED_PRE_CUTOFF_POLICY; exact historical bytes NOT_ESTABLISHED",
+      "role": "Chronology and policy distinction only; no cyber acceptance substitution",
+      "locators": [
+        "Cover p.1",
+        "Changelog pp.20–21"
+      ]
+    },
+    {
+      "id": "P2C-SRC-004",
+      "title": "Anthropic — RSP version history",
+      "path": "../proof2_candidate/sources/P2C-SRC-004_rsp_version_archive.html",
+      "sha256": "50e1a0b9ea33424c28c5d34767fc4b10d04f81a63cca81fd2c746c02c6d0f3b2",
+      "hash_basis": "REUSED_PREDECESSOR_VERIFICATION_NOT_RECALCULATED",
+      "publication_or_effective_date": "Original publication UNKNOWN",
+      "revision": "Visible update 2026-08-14",
+      "retrieval": "2026-10-10T18:15:52.414391Z",
+      "public_availability": "CURRENT_PRIMARY_VERSION_HISTORY; exact release-day HTML NOT_ESTABLISHED",
+      "role": "Publisher chronology corroboration only",
+      "locators": [
+        "Current and Prior Versions",
+        "July 8, 2026; August 14, 2026"
+      ]
+    },
+    {
+      "id": "P2C-SRC-005",
+      "title": "METR — Summary of predeployment evaluation of Claude Opus 5.5",
+      "path": "../proof2_candidate/sources/P2C-SRC-005_metr_opus55_report.html",
+      "sha256": "ff3d80e6fc8649432ef0ea3e0a11bb302cbfa8aa5dcb5053328977c6f47a1ead",
+      "hash_basis": "REUSED_PREDECESSOR_VERIFICATION_NOT_RECALCULATED",
+      "publication_or_effective_date": "2026-09-22",
+      "revision": "NOT_REPORTED",
+      "retrieval": "2026-10-10T18:17:25.304457Z",
+      "public_availability": "Publisher-dated release-day report; retained standalone bytes have no authenticated pre-cutoff custody",
+      "role": "Scope/independence exclusion context; AI R&D findings not reconstructed",
+      "locators": [
+        "Note on independence",
+        "Summary of evidence"
+      ]
+    },
+    {
+      "id": "P2C-SRC-006",
+      "title": "Anthropic — model switching FAQ",
+      "path": "../proof2_candidate/sources/P2C-SRC-006_fallback_faq_context.html",
+      "sha256": "26868efbf4503118228da16e2038f7b813fff590b85793d93dd7885abe585ea9",
+      "hash_basis": "REUSED_PREDECESSOR_VERIFICATION_NOT_RECALCULATED",
+      "publication_or_effective_date": "Original publication UNKNOWN",
+      "revision": "JSON-LD dateModified 2026-09-24T16:34:40Z",
+      "retrieval": "2026-10-10T18:17:59.257219Z",
+      "public_availability": "POST_RELEASE_CONTEXT; excluded from proof of release-time availability",
+      "role": "Consulted context only; no graph evidence node or release-day inference",
+      "locators": [
+        "Cybersecurity",
+        "Manage automatic model switching; Where automatic model switching applies"
+      ]
+    },
+    {
+      "id": "P2R-SRC-001",
+      "title": "Anthropic — Frontier Compliance Framework v2",
+      "path": "../p2_source_recovery/sources/P2R-SRC-001_Frontier_Compliance_Framework_July_2026.pdf",
+      "sha256": "8e4d91e12861218ee8068e2ad1f50ce84d803d0fac22f0492e6a9dccbbe5e23f",
+      "hash_basis": "REUSED_PREDECESSOR_VERIFICATION_NOT_RECALCULATED",
+      "publication_or_effective_date": "Effective 2026-07-24; first publication NOT_INDEPENDENTLY_ESTABLISHED",
+      "revision": "Version 2; no later entry in retained changelog",
+      "retrieval": "Owner-recorded standalone 2026-10-10T18:52:37Z; bulk 2026-10-10T18:55:06Z",
+      "public_availability": "PUBLISHER_DATED_V2_EFFECTIVE_2026-07-24; OCTOBER_BYTES_VERIFIED; SEPTEMBER_EXACT_BYTES_NOT_AUTHENTICATED",
+      "role": "Owner-accepted publisher-identified release-effective framework; The recovered October FCF PDF is not independently authenticated as byte-identical to the document available on 22 September 2026.",
+      "locators": [
+        "Cover p.1",
+        "§§2.3–2.4 pp.6–7",
+        "§2.5 pp.10–11",
+        "§4 pp.13–14",
+        "§7 pp.15–16; changelog p.17"
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "id": "P2-C-001",
+      "kind": "CLAIM",
+      "title": "General-access cyber safeguards deployment and reported robustness",
+      "statement": "We have therefore deployed it to the general public with cyber safeguards that enforce the same policy as on Claude Opus 5 but are comparably robust to our safeguards on Claude Fable 5 and Claude Fable 5.1, and more robust than those on Claude Opus 5 (see Section 3.5).",
+      "interpretation_label": "VERBATIM_PUBLISHER",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.2 PDF p.47"
+        }
+      ],
+      "candidate_id": "P2R-CAND-002",
+      "primary_root": true,
+      "argus_reconstruction": "At release, Anthropic reported general-access deployment with the stated cyber policy and adversarial robustness, subject to access, snapshot and configuration limits. This is not a model-specific residual-risk sufficiency assertion.",
+      "applicability": "Claude Opus 5.5 general access, release 2026-09-22. Other model names occur only in the publisher comparison or fallback dependency; no separate assessment or ranking."
+    },
+    {
+      "id": "P2-A-001",
+      "kind": "ARGUMENT",
+      "title": "Policy enforcement and deployed coverage",
+      "statement": "Reported routing and classifiers implement the stated cyber policy; the missing warrant is whether measured coverage and actual release operation justify general deployment coverage.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "MIXED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§3.2, 3.4 pp.47–48, 55–57"
+        }
+      ]
+    },
+    {
+      "id": "P2-A-002",
+      "kind": "ARGUMENT",
+      "title": "Bounded adversarial robustness",
+      "statement": "Internal and contracted tests support resistance in tested conditions; severity, comparative robustness and adverse findings must be reconciled under the publisher rubric.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "MIXED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5 pp.57–60"
+        }
+      ]
+    },
+    {
+      "id": "P2-A-003",
+      "kind": "ARGUMENT",
+      "title": "Transfer to the release snapshot",
+      "statement": "Earlier-snapshot robustness can support release assertions only to the extent the safeguard and model changes preserve relevant behaviour.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "MIXED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§1.4 p.12; §3.5 pp.57–58"
+        }
+      ]
+    },
+    {
+      "id": "P2-A-004",
+      "kind": "ARGUMENT",
+      "title": "Composite deployment and attack-surface applicability",
+      "statement": "Safeguard robustness must be scoped to interface, additional protections and fallback-served behaviour; a model-only result does not establish the deployed system result.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "MIXED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§1.5 p.13; §3.2 p.48; §5.2 pp.83–90; §6.5.1 pp.123–126"
+        }
+      ]
+    },
+    {
+      "id": "P2-A-005",
+      "kind": "ARGUMENT",
+      "title": "Evidence quality and independent scrutiny",
+      "statement": "Task counts and external participation improve inspectability but are distinct from reproducible trials and independently confirmed deployment-level inference.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "MIXED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§1.6 p.13; §§3.3, 3.5 pp.49–60; §5.2 pp.84–90"
+        }
+      ]
+    },
+    {
+      "id": "P2-A-006",
+      "kind": "ARGUMENT",
+      "title": "Capability-tier context",
+      "statement": "The lower-category assessment motivates safeguards but safeguards-disabled capability tests and qualitative tiers do not themselves measure protection.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "MIXED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§3.1–3.3 pp.47–54"
+        },
+        {
+          "source_id": "P2R-SRC-001",
+          "locator": "§§2.3–2.5 pp.6–7, 10–11; §4 pp.13–14"
+        }
+      ]
+    },
+    {
+      "id": "P2-A-007",
+      "kind": "ARGUMENT",
+      "title": "Conditional framework context",
+      "statement": "The general FCF approval and monitoring process frames deployment; no model-specific acceptance determination is inferred from that process.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "MIXED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§1.3, 2.1.1 pp.12, 14"
+        },
+        {
+          "source_id": "P2R-SRC-001",
+          "locator": "§§2.3–2.5 pp.6–7, 10–11; §4 pp.13–14"
+        }
+      ]
+    },
+    {
+      "id": "P2-E-001",
+      "kind": "EVIDENCE",
+      "title": "Root attestation",
+      "statement": "We have therefore deployed it to the general public with cyber safeguards that enforce the same policy as on Claude Opus 5 but are comparably robust to our safeguards on Claude Fable 5 and Claude Fable 5.1, and more robust than those on Claude Opus 5 (see Section 3.5).",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.2 p.47"
+        }
+      ],
+      "quote": "We have therefore deployed it to the general public with cyber safeguards that enforce the same policy as on Claude Opus 5 but are comparably robust to our safeguards on Claude Fable 5 and Claude Fable 5.1, and more robust than those on Claude Opus 5 (see Section 3.5).",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "snapshot": "Released general-access model",
+      "safeguards": "Publisher says deployed cyber policy and robustness",
+      "fallback": "Specified separately in E002",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "NOT_REPORTED",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited passage"
+      },
+      "reproducibility": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "Direct evidence that Anthropic published this proposition; not independent evidence that every component is effective."
+    },
+    {
+      "id": "P2-E-002",
+      "kind": "EVIDENCE",
+      "title": "Three-stage classifiers and access-dependent fallback",
+      "statement": "All traffic is screened by an activation probe; flagged cyber traffic goes to an Opus 5.5 lightweight classifier, then potentially violative traffic to a separate trained LLM classifier used with the probe verdict. Training data were augmented with jailbreaks and automated attacks and weighted toward long agentic tasks. Source-code vulnerability discovery is allowed; compiled-binary discovery blocked. A temporarily wider margin is described. Cyber blocks fall back to Opus 4.8 automatically in Anthropic applications; API developers must opt in; provider behaviour may differ. CVP access is prospective.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§1.5, 3.2 pp.12–13, 47–48"
+        }
+      ],
+      "quote": "This happens automatically in our own applications; on the API, the developer must opt in to automatic fallbacks.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "snapshot": "Release deployment description",
+      "safeguards": "Three-stage cyber blocking; temporarily wider safety margin, unquantified",
+      "fallback": "Opus 4.8; automatic first-party, API opt-in; other platforms/providers may differ",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "NOT_REPORTED",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited passage"
+      },
+      "reproducibility": "Architecture described, operating logs and per-interface coverage not supplied",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "Described controls and training approach; no independent deployment audit."
+    },
+    {
+      "id": "P2-E-003",
+      "kind": "EVIDENCE",
+      "title": "Coverage and vulnerability-traffic summaries",
+      "statement": "Coverage aggregates examples of harmful categories; overall recall is the share of harmful examples flagged. Vulnerability traffic sampled from monitoring probes is LLM-graded with privacy-preserving aggregation. Figures report comparable classifiers and reduced defensive vulnerability-discovery block rates. These are measured summaries, not complete per-stage confusion matrices or attack-distribution guarantees.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.4 pp.55–57; Figures 3.4.1.A and 3.4.2.A"
+        }
+      ],
+      "quote": "Overall recall is the share of harmful examples flagged across all categories.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Final snapshot by §1.4 default; exact checkpoint NOT_REPORTED",
+      "safeguards": "Each model scored against its own deployed safeguard system; wider margin",
+      "fallback": "Coverage figures do not establish composite fallback robustness",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "Sample denominator and repeat count NOT_REPORTED in accompanying prose/captions; chart values not transcribed",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "No numerical interval transcribed; no precision inferred from figure bars"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Aggregate examples/LLM labels may not represent actual adversarial traffic; privacy aggregation is explicitly reported, other missing-detail reasons UNKNOWN_REASON",
+      "result_vs_inference": "Retains qualitative figure/caption findings only; no chart percentage invented."
+    },
+    {
+      "id": "P2-E-004",
+      "kind": "EVIDENCE",
+      "title": "No identified critical-severity jailbreak and severity rubric",
+      "statement": "Anthropic reports no found critical-severity jailbreak, while explicitly expecting imperfect classifier robustness. Four severity axes are uplift, universality, weaponization effort and discoverability; the critical example combines easily discoverable, weaponizable and universal attack on a high-uplift model.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5 p.57"
+        }
+      ],
+      "quote": "We have not found evidence of a critical severity jailbreak for Claude Opus 5.5;",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Earlier Opus 5.5 snapshot (§3.5 pp.57–58); exact checkpoint NOT_REPORTED; publisher asserts final-model representativeness",
+      "safeguards": "General-access robustness context",
+      "fallback": "Not disaggregated by fallback in this clause",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "NOT_REPORTED",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited passage"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "P2R-CAND-001 supporting observation only. Not proof no jailbreak exists, no cyber harm occurs, or FCF acceptance is met."
+    },
+    {
+      "id": "P2-E-005",
+      "kind": "EVIDENCE",
+      "title": "Earlier-to-final snapshot assertion",
+      "statement": "The card expressly reports §3.5 testing on an earlier snapshot and asserts general equivalence of safeguards and representativeness of the final model. The §1.4 final-snapshot default does not override this exception.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§1.4 p.12; §3.5 pp.57–58"
+        }
+      ],
+      "quote": "We report the results of this testing on an earlier snapshot of Claude Opus 5.5 below; our safeguards generally operate equivalently across model snapshots, and we are confident the results are representative of the final model.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Earlier Opus 5.5 snapshot (§3.5 pp.57–58); exact checkpoint NOT_REPORTED; publisher asserts final-model representativeness",
+      "safeguards": "Publisher-asserted equivalence across snapshots",
+      "fallback": "Version mapping NOT_REPORTED",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "NOT_REPORTED",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited passage"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "A publisher transfer assertion, not a disclosed paired final-snapshot test."
+    },
+    {
+      "id": "P2-E-006",
+      "kind": "EVIDENCE",
+      "title": "Internal rewind-attacker evaluation",
+      "statement": "Automated helpful-only attacker can rewind and receives blocking feedback against a Claude Code assistant with production safeguards in task sandboxes. Goals have automated checks. Categories include ransomware, exfiltration, exploitation, command-and-control and self-replication. Figure caption reports comparable robustness to Fable models and stronger robustness than Opus 5.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.1 pp.58–59; Figure 3.5.1.A"
+        }
+      ],
+      "quote": "The attacker is then given a 400-call limit against the assistant,",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Earlier Opus 5.5 snapshot (§3.5 pp.57–58); exact checkpoint NOT_REPORTED; publisher asserts final-model representativeness",
+      "safeguards": "Production safeguards explicitly enabled",
+      "fallback": "Separately attributed fallback outcomes NOT_REPORTED",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "400-call budget per attacker session; task count and number of repeated sessions NOT_REPORTED in cited prose. New comparator runs reported, not their run counts.",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "No numerical uncertainty transcribed from figure; paired comparison uncertainty not established"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "Bounded internal robustness evidence. A call budget is not a run count; caption comparison is retained as publisher reporting without another-model assessment."
+    },
+    {
+      "id": "P2-E-007",
+      "kind": "EVIDENCE",
+      "title": "CAISI participation",
+      "statement": "Anthropic reports collaboration with CAISI on cyber capabilities and safeguards. This paragraph supplies no public cyber-specific result, test count or independently authored endorsement.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.2 p.59"
+        }
+      ],
+      "quote": "We collaborated with the U.S. Center for AI Standards and Innovation (CAISI)",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic and CAISI collaboration reported; individual evidence ownership not specified",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Earlier Opus 5.5 snapshot (§3.5 pp.57–58); exact checkpoint NOT_REPORTED; publisher asserts final-model representativeness",
+      "safeguards": "Cyber capabilities and safeguards mentioned; detailed configuration NOT_REPORTED",
+      "fallback": "NOT_REPORTED for this evidence item",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "NOT_REPORTED",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited passage"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "External participation reported; independent cyber result not established by this paragraph",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "Participation is evidence of engagement, not independent verification of the root."
+    },
+    {
+      "id": "P2-E-008",
+      "kind": "EVIDENCE",
+      "title": "Contracted red-team candidate breaks and exploit chain",
+      "statement": "Trajectory Labs reportedly found 13 candidate breaks across seven tasks and no universal jailbreak. Model authored core exploit mechanisms using source code; operators supplied framing and sometimes classifier-avoidance instructions. One task yielded a working privilege-escalation-to-code-execution chain over more than 100 contexts.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.3 pp.59–60"
+        }
+      ],
+      "quote": "They reported 13 candidate breaks across seven tasks but did not find any universal jailbreak.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Trajectory Labs, PBC — contracted external tester",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Earlier Opus 5.5 snapshot (§3.5 pp.57–58); exact checkpoint NOT_REPORTED; publisher asserts final-model representativeness",
+      "safeguards": "Cyber safeguards red-teaming; per-stage settings NOT_REPORTED",
+      "fallback": "Per-result serving attribution NOT_REPORTED",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "Roughly 95 hours; over 29,000 requests; 13 candidate breaks across 7 tasks. One chain: roughly 5 hours and over 100 separate contexts.",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "Contracted participation; results narrated by Anthropic; independent reproduction/adjudication NOT_ESTABLISHED",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "Material adverse finding. Source-code access, operator work and lack of universality constrain interpretation. ARGUS does not reclassify it as a critical jailbreak."
+    },
+    {
+      "id": "P2-E-009",
+      "kind": "EVIDENCE",
+      "title": "10a Labs bounded negative result",
+      "statement": "Across multi-turn developer-framed attacks, no conversation advanced beyond proof of concept; every directly offensive request was blocked. Defensive dual-use outputs were policy-permitted.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.3 p.60"
+        }
+      ],
+      "quote": "No conversation advanced past proof of concept, and every directly offensive request was blocked.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "10a Labs — contracted external tester",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Earlier Opus 5.5 snapshot (§3.5 pp.57–58); exact checkpoint NOT_REPORTED; publisher asserts final-model representativeness",
+      "safeguards": "Cyber safeguards red-teaming",
+      "fallback": "Per-result serving attribution NOT_REPORTED",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "Roughly 56 hours; 82 multi-turn conversations",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "Contracted testing reported by Anthropic; independent repeat NOT_ESTABLISHED",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "Negative observed result in bounded tasks, not evidence offensive assistance never occurs."
+    },
+    {
+      "id": "P2-E-010",
+      "kind": "EVIDENCE",
+      "title": "Gray Swan cyber-objective tests",
+      "statement": "Shade state judge recorded no breaks and no completed offensive objective. In critical-infrastructure tasks over 90% were refused outright; in exploit/ransomware tasks about a quarter were refused, while remaining responses never produced a working exploit.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.3 p.60"
+        }
+      ],
+      "quote": "Across every task set, Gray Swan’s state judge recorded no breaks, and no attempt produced a violation.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Gray Swan — contracted external tester",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Earlier Opus 5.5 snapshot (§3.5 pp.57–58); exact checkpoint NOT_REPORTED; publisher asserts final-model representativeness",
+      "safeguards": "Cyber safeguards; judge and full harness details not available in these passages",
+      "fallback": "Per-result serving attribution NOT_REPORTED",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "61 critical-infrastructure scenarios; roughly 3,300 attempts of up to 30 turns. Six exploit/ransomware scenarios; roughly 1,700 attempts.",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "Contracted evaluation reported by Anthropic; no independent deployment-level repeat established",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "Task count, multi-turn attempt count and state-judge result remain distinct; no zero real-world failure inference."
+    },
+    {
+      "id": "P2-E-011",
+      "kind": "EVIDENCE",
+      "title": "Static indirect prompt-injection benchmark",
+      "statement": "Gray Swan IPI uses 37 scenarios and 1,804 selected transferable attacks. Opus 5.5 reported ASR is 0.1%, 0.7%, 1.0% at k=1,10,15; k=15 GUI 2.8%, coding 0.5%, tool use 0.4%. Eighteen percent of rollouts fell back; none of 1,310 fallback-served rollouts was successfully attacked.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§5.2.1 pp.84–86; Figure 5.2.1.A"
+        }
+      ],
+      "quote": "none of the 1,310 fallback-served rollouts resulted in a successful attack.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Gray Swan benchmark/evaluation; reported by Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Final snapshot by §1.4 default; exact checkpoint NOT_REPORTED",
+      "safeguards": "Standard blocking classifiers on; prompt-injection-specific protections off; extended thinking",
+      "fallback": "Opus 4.8 enabled; 18% overall, 46% coding, 2% tool use, under 1% GUI",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "37 scenarios; 1,804 selected attacks; k=1,10,15 success measures; 1,310 fallback-served rollouts (not total benchmark trials)",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited prose"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Static selected attacks and competition-selection asymmetry described by publisher; not universal prompt-injection coverage",
+      "result_vs_inference": "Composite-system static result; no successful fallback attack here does not negate adaptive coding failures."
+    },
+    {
+      "id": "P2-E-012",
+      "kind": "EVIDENCE",
+      "title": "Adaptive coding exposes fallback susceptibility",
+      "statement": "Shade coding ASR is 54.61% without prompt-injection probes (37/40 scenarios), 11.13% with probes (36/40). Without probes, 64% of valid responses were fallback-served, with 85.73% ASR; none of 2,872 directly served Opus 5.5 requests succeeded. With probes all observed successes again arose in fallback-served requests.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§5.2.2.1 pp.87–88; Table 5.2.2.1.A"
+        }
+      ],
+      "quote": "With probes enabled, all observed successful attacks again came from fallback-served requests.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Gray Swan Shade tool/training; evaluation described by Anthropic; execution ownership not fully specified",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Final snapshot by §1.4 default; exact checkpoint NOT_REPORTED",
+      "safeguards": "Cyber blocking/fallback retained in both arms; table without safeguards means prompt-injection probes off, not all cyber safeguards off; thinking on",
+      "fallback": "Opus 4.8 composite; 64% of valid responses in no-probe arm, not a deployment-wide routing rate",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "40 scenarios; 200 attempts per scenario budget; attempt ASR denominator is attempts with valid response; do not assume 8,000 valid responses. 2,872 direct responses in no-probe arm.",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED; caption cautions ranking ignores margin of error"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Attacker trained/optimized on test scenarios and given many attempts; permissive threat model, not deployment incidence",
+      "result_vs_inference": "Adverse composite-system result coexists with favourable direct-model result; neither is universal."
+    },
+    {
+      "id": "P2-E-013",
+      "kind": "EVIDENCE",
+      "title": "Adaptive GUI observations constrain model-only immunity",
+      "statement": "GUI ASR is 0.07% without probes (2/2,800) and 0.04% with probes (one success); each arm has an affected scenario among 14. Six percent of requests fell back, none successfully attacked. All successful attacks were directly served by Opus 5.5.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§5.2.2.2 pp.88–89; Table 5.2.2.2.A"
+        }
+      ],
+      "quote": "all of Claude Opus 5.5’s successful attempts came from requests it answered directly.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Gray Swan Shade tool; evaluation described by Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Final snapshot by §1.4 default; exact checkpoint NOT_REPORTED",
+      "safeguards": "Blocking/fallback on; prompt-injection probes on/off; thinking on",
+      "fallback": "6% fallback-served in this setting; no fallback success observed",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "14 scenarios; 200 attempts per scenario; 2/2,800 without probes; one success with probes",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "Publisher warns differences of a few attempts at these rates are not distinguishable from noise; no numeric CI reported"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "Low but nonzero tested direct-model failures; coding-only zero results cannot establish immunity across surfaces."
+    },
+    {
+      "id": "P2-E-014",
+      "kind": "EVIDENCE",
+      "title": "Browser product configuration matters",
+      "statement": "In 110 curated environments, ASR was 0.09% without added safeguards (1/110 scenarios) and 0% with auto mode (0/110). Auto mode combines probes and tool-call classifier. The no-probe configuration does not exist in Claude Cowork, which always runs probes.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§5.2.2.3 pp.89–90; Table 5.2.2.3.A"
+        }
+      ],
+      "quote": "The “without safeguards” configuration in the table below does not exist in the Claude Cowork product:",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Final snapshot by §1.4 default; exact checkpoint NOT_REPORTED",
+      "safeguards": "Claude Cowork harness; probes plus tool-call classifier in auto mode; thinking on/high effort; no-probe arm artificial",
+      "fallback": "Classifier fallbacks included by §5.2.2; per-arm serving split NOT_REPORTED",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "110 curated environments; 10 attempts per scenario; attempt ASR denominator all attempts",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Attacks originally generated against an earlier model and applied here; evaluation harness/time limit updated; not fully adaptive to this model",
+      "result_vs_inference": "Positive result for tested product configuration; no guarantee all browser attacks are blocked."
+    },
+    {
+      "id": "P2-E-015",
+      "kind": "EVIDENCE",
+      "title": "Publisher lower cyber capability category",
+      "statement": "Card assesses Opus 5.5 in the lower FCF capability category and reports no indications of novel offensive capability. Mapping lower category to Tier 1 is ARGUS interpretation of the two tiers.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.1 p.47"
+        }
+      ],
+      "quote": "Despite Claude Opus 5.5’s cyber capabilities, the model still falls within the lower category of capabilities set out in our Frontier Compliance Framework (FCF), and we do not see indications that the model is capable of novel offensive capability.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Final snapshot by §1.4 default; exact checkpoint NOT_REPORTED",
+      "safeguards": "Cyber safeguard classifiers disabled; escape-attempt classifier enabled for capability evaluations",
+      "fallback": "Underlying API model; not fallback-served production measurements",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "NOT_REPORTED",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited passage"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "P2R-CAND-003 context only. No-indication statement does not prove incapability or establish safeguard efficacy."
+    },
+    {
+      "id": "P2-E-016",
+      "kind": "EVIDENCE",
+      "title": "ExploitBench capability with repeated trials",
+      "statement": "41 V8 vulnerabilities, five trials each under two 300-turn arms. Plain mean flags 13.99, AutoNudge 14.15; Cap% 91% in each. Full arbitrary code execution 301/410 (73.4%) across both arms. Deterministic verifiers replay challenge-response over randomized heap layouts.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.3.1 pp.49–50"
+        }
+      ],
+      "quote": "We run five trials per vulnerability.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Final snapshot by §1.4 default; exact checkpoint NOT_REPORTED",
+      "safeguards": "Cyber safeguards off; escape classifier/other safety measures on; target sandbox, ASLR and canaries on",
+      "fallback": "API underlying Opus 5.5",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "41 environments × 5 trials × 2 arms = 410 reported runs; 300-turn budget each; Cap% uses random three-trial subset",
+        "seeds": "NOT_REPORTED; randomized layouts/subset do not disclose seeds",
+        "variance_or_confidence_intervals": "NOT_REPORTED in text"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "Demonstrates reported capability and within-study repetition; does not demonstrate release safeguard failure or independent replication."
+    },
+    {
+      "id": "P2-E-017",
+      "kind": "EVIDENCE",
+      "title": "Other capability evaluations and methodological constraints",
+      "statement": "CyScenarioBench: 67.6% mean solve rate over 10 private challenges. Binary Exploitation Benchmark: 106 control-flow hijacks across 831 entrypoints/228 projects, with rewritten harness and prior bugs fixed. ExploitGym: 289/869 intended exploits at two hours, 300/869 at six hours, with target mitigations disabled and agent-judge verification against expert-audited trajectories.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§3.3.2–3.3.4 pp.50–54"
+        }
+      ],
+      "quote": "the evaluation set is kept private to avoid contamination.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Final snapshot by §1.4 default; exact checkpoint NOT_REPORTED",
+      "safeguards": "Cyber safeguard classifiers off; escape-attempt classifier on; ExploitGym target mitigations disabled (distinct from model safeguards)",
+      "fallback": "API underlying model",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "10 challenges; 831 entrypoints in 228 projects; 869 instances at two time budgets. Repeat counts per task NOT_REPORTED here; budgets and task counts are not seeds or repetitions.",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited prose"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Explicit private-set reason: avoid contamination (CyScenarioBench only); rewritten binary harness invalidates comparison with earlier-card numbers",
+      "result_vs_inference": "Capability context, not deployed-safeguard effectiveness or Tier 2 operational adjudication."
+    },
+    {
+      "id": "P2-E-018",
+      "kind": "EVIDENCE",
+      "title": "Release announcement cyber policy",
+      "statement": "Announcement says cyber safeguards apply, routine source-code security work remains possible, most cyber tasks reroute to Opus 4.8, and CVP expansion is forthcoming. Most has no published denominator; platform availability does not prove uniform fallback.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-002",
+          "locator": "Safety → Safeguards → Cybersecurity"
+        }
+      ],
+      "quote": "Users will be able to identify and fix bugs in their code as part of the routine software development lifecycle, but most cybersecurity tasks will be re-routed to Opus 4.8.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "NOT_REPORTED; selected archive version",
+      "retrieval_time": "Wire: 2026-10-10T18:19:58.760920Z; decoded HTML: 2026-10-10T18:20:49.137092Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:28:54Z",
+      "evaluation_date": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "snapshot": "Release announcement",
+      "safeguards": "Publisher description",
+      "fallback": "Opus 4.8; interface conditions supplied by E002",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "NOT_REPORTED",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited passage"
+      },
+      "reproducibility": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "Second publisher document corroborates wording; not an independent test or measured routing frequency."
+    },
+    {
+      "id": "P2-E-019",
+      "kind": "EVIDENCE",
+      "title": "FCF cyber tier definitions",
+      "statement": "Tier 1: meaningful technical assistance with known techniques, requiring human input for successful large operations. Tier 2: completely autonomous operations with novel offensive capability development and adaptive persistence. Detection-system cases partly calibrate tiers. Public definitions do not disclose an operational numeric cyber acceptance test.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2R-SRC-001",
+          "locator": "§§2.3–2.4 pp.6–7"
+        }
+      ],
+      "quote": "Completely autonomous cyber operations with novel offensive capability development and adaptive persistence.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "Effective 2026-07-24; first publication NOT_INDEPENDENTLY_ESTABLISHED",
+      "revision_date": "Version 2; no later entry in retained changelog",
+      "retrieval_time": "Owner-recorded standalone 2026-10-10T18:52:37Z; bulk 2026-10-10T18:55:06Z",
+      "public_availability": "PUBLISHER_DATED_V2_EFFECTIVE_2026-07-24; OCTOBER_BYTES_VERIFIED; SEPTEMBER_EXACT_BYTES_NOT_AUTHENTICATED",
+      "evaluation_date": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "snapshot": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "safeguards": "Framework capability categories; not classifier test",
+      "fallback": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "applicability": "PUBLISHER_DATED_V2_EFFECTIVE_2026-07-24; OCTOBER_BYTES_VERIFIED; SEPTEMBER_EXACT_BYTES_NOT_AUTHENTICATED; The recovered October FCF PDF is not independently authenticated as byte-identical to the document available on 22 September 2026.",
+      "run_metadata": {
+        "counts": "NOT_REPORTED",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited passage"
+      },
+      "reproducibility": "Qualitative public definitions, no complete cyber adjudication algorithm",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "General policy context; Tier 1 mapping for this model remains analytical."
+    },
+    {
+      "id": "P2-E-020",
+      "kind": "EVIDENCE",
+      "title": "FCF conditional approval, monitoring and risk-owner justification",
+      "statement": "FCF requires proportionate safeguards and appropriate margins; additional mitigation above acceptable risk; conditional approval; documented risk-owner justification. It describes monitoring, threat intelligence and bug bounties as techniques it may rely on. Public summaries are distinct from full model reports. No Opus 5.5-specific risk-owner justification or operational acceptance rule was located in inspected passages.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2R-SRC-001",
+          "locator": "§§2.3, 2.5 pp.6, 10–11; §4 pp.13–14"
+        }
+      ],
+      "quote": "In each case, the justification for proceeding will be documented by the risk owner.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "Effective 2026-07-24; first publication NOT_INDEPENDENTLY_ESTABLISHED",
+      "revision_date": "Version 2; no later entry in retained changelog",
+      "retrieval_time": "Owner-recorded standalone 2026-10-10T18:52:37Z; bulk 2026-10-10T18:55:06Z",
+      "public_availability": "PUBLISHER_DATED_V2_EFFECTIVE_2026-07-24; OCTOBER_BYTES_VERIFIED; SEPTEMBER_EXACT_BYTES_NOT_AUTHENTICATED",
+      "evaluation_date": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "snapshot": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "safeguards": "General framework process descriptions, not verified model-specific effectiveness",
+      "fallback": "No model-specific fallback acceptance demonstrated",
+      "applicability": "PUBLISHER_DATED_V2_EFFECTIVE_2026-07-24; OCTOBER_BYTES_VERIFIED; SEPTEMBER_EXACT_BYTES_NOT_AUTHENTICATED; The recovered October FCF PDF is not independently authenticated as byte-identical to the document available on 22 September 2026.",
+      "run_metadata": {
+        "counts": "NOT_REPORTED",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited passage"
+      },
+      "reproducibility": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "The general conditional rule is neither an explicit Opus 5.5 sufficiency claim nor evidence the condition was met. Public absence does not establish internal absence."
+    },
+    {
+      "id": "P2-E-021",
+      "kind": "EVIDENCE",
+      "title": "FCF publisher chronology and RSP limit",
+      "statement": "FCF cover identifies v2 effective 24 July 2026. Changelog aligns Automated R&D threshold with RSP v3.4, not all cyber terms. RSP cover/history identifies v3.4 effective 8 July. Retained October FCF identity/ZIP equality is already verified by P2R; exact September bytes remain unauthenticated.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2R-SRC-001",
+          "locator": "Cover p.1; changelog p.17"
+        },
+        {
+          "source_id": "P2C-SRC-003",
+          "locator": "Cover p.1; changelog pp.20–21"
+        },
+        {
+          "source_id": "P2C-SRC-004",
+          "locator": "Current and Prior Versions; July 8, 2026"
+        }
+      ],
+      "quote": "Effective 24th July 2026",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "Effective 2026-07-24; first publication NOT_INDEPENDENTLY_ESTABLISHED",
+      "revision_date": "Version 2; no later entry in retained changelog",
+      "retrieval_time": "Owner-recorded standalone 2026-10-10T18:52:37Z; bulk 2026-10-10T18:55:06Z",
+      "public_availability": "PUBLISHER_DATED_V2_EFFECTIVE_2026-07-24; OCTOBER_BYTES_VERIFIED; SEPTEMBER_EXACT_BYTES_NOT_AUTHENTICATED",
+      "evaluation_date": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "snapshot": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "safeguards": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "fallback": "NOT_APPLICABLE — statement of policy/process, not an evaluation",
+      "applicability": "PUBLISHER_DATED_V2_EFFECTIVE_2026-07-24; OCTOBER_BYTES_VERIFIED; SEPTEMBER_EXACT_BYTES_NOT_AUTHENTICATED; The recovered October FCF PDF is not independently authenticated as byte-identical to the document available on 22 September 2026.",
+      "run_metadata": {
+        "counts": "NOT_REPORTED",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited passage"
+      },
+      "reproducibility": "Reuses P2R digest and byte-equality verification; not rerun",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "Publisher chronology accepted by owner with historical limit; no independent September FCF custody inferred."
+    },
+    {
+      "id": "P2-E-022",
+      "kind": "EVIDENCE",
+      "title": "Independent evaluator scope boundary",
+      "statement": "METR describes unpaid AI R&D assessment, initial drafting by METR, Anthropic opportunity to review/edit, and METR final sign-off. Its report says the work was not meant to verify specific policy thresholds. It supplies no direct cyber-deployment endorsement.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-005",
+          "locator": "Note on independence; Summary of evidence"
+        }
+      ],
+      "quote": "This evaluation was conducted under an unpaid agreement for AI R&D assessment.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "METR",
+      "reported_by": "METR",
+      "publication_date": "2026-09-22",
+      "revision_date": "NOT_REPORTED",
+      "retrieval_time": "2026-10-10T18:17:25.304457Z",
+      "public_availability": "Publisher-dated release-day report; retained standalone bytes have no authenticated pre-cutoff custody",
+      "evaluation_date": "Predeployment API access over 10 business days; exact start/end NOT_REPORTED",
+      "snapshot": "Exact checkpoint NOT_REPORTED",
+      "safeguards": "Cyber configuration NOT_ESTABLISHED",
+      "fallback": "NOT_ESTABLISHED",
+      "applicability": "Context only: independence and domain limits; AI R&D results not part of this cyber case",
+      "run_metadata": {
+        "counts": "10 business days describes access duration, not trial count",
+        "seeds": "NOT_APPLICABLE to this scope-boundary evidence",
+        "variance_or_confidence_intervals": "NOT_APPLICABLE"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "Independent authoring with disclosed developer review; no cyber replication supplied",
+      "uncertainty": "Publisher report; no new evaluation performed",
+      "result_vs_inference": "Qualifies external-validation inference; does not support cyber efficacy."
+    },
+    {
+      "id": "P2-E-023",
+      "kind": "EVIDENCE",
+      "title": "User-pasted instruction weakness and product mitigation",
+      "statement": "Earlier snapshot followed planted instructions in 52% of simulated attempts; a pre-release invisible-character test had 18/68. Following training, final model followed about 2% at default effort and 7.4% at max effort; 2/68 invisible-character attempts at default. With product mitigations, no visible/invisible planted instructions were followed in reported tests. Tool-result version had 0/105.",
+      "interpretation_label": "PUBLISHER_REPORTED_SUMMARY",
+      "taxonomy_origin": "PUBLISHER_DEFINED",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§6.5.1 pp.123–126; Figure 6.5.1.B"
+        }
+      ],
+      "quote": "With product mitigations in place, the model did not follow any visible or invisible planted instructions.",
+      "quote_normalization": "Whitespace and typographic ligatures normalized only",
+      "produced_by": "Anthropic",
+      "reported_by": "Anthropic",
+      "publication_date": "2026-09-22",
+      "revision_date": "No numbered revision stated",
+      "retrieval_time": "Live: 2026-10-10T18:15:36.852202Z; archive complete: 2026-10-10T18:22:02.442655Z",
+      "public_availability": "AUTHENTICATED_RELEASE_DAY_BYTES; capture 2026-09-22T16:34:14Z",
+      "evaluation_date": "Predeployment context; exact calendar dates NOT_REPORTED",
+      "snapshot": "Explicit earlier/pre-release versus final snapshots; checkpoint IDs NOT_REPORTED",
+      "safeguards": "Training update; product removal of invisible characters and marking pasted text described as being added; with/without mitigation testing",
+      "fallback": "Serving attribution NOT_REPORTED",
+      "applicability": "Claude Opus 5.5 cyber; scope restricted by item-specific fields",
+      "run_metadata": {
+        "counts": "18/68 pre-release invisible-character; 2/68 final/default; 0/105 tool-result attempts. Total denominator for 52%, ~2%, ~7.4% and mitigated zero not supplied in prose.",
+        "seeds": "NOT_REPORTED",
+        "variance_or_confidence_intervals": "NOT_REPORTED in cited prose"
+      },
+      "reproducibility": "No complete executable configuration or full logs inspected; external repetition not established",
+      "independent_replication": "NOT_ESTABLISHED_IN_RETAINED_CORPUS",
+      "uncertainty": "All actions simulated; requires user to paste compromised content and is distinct from indirect tool-result prompt injection. Product rollout coverage/timing not independently established.",
+      "result_vs_inference": "Narrow cyber-relevant constraint on model-only robustness; favourable mitigated test is not proof all release interfaces had equivalent protections."
+    },
+    {
+      "id": "P2-D-001",
+      "kind": "DEPENDENCY",
+      "title": "Deployed configuration",
+      "statement": "Applicability depends on access tier, product/provider, classifier versions and optional API fallback.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§1.5, 3.2 pp.13, 47–48"
+        }
+      ],
+      "applicability": "Bounded root; release baseline 2026-09-22"
+    },
+    {
+      "id": "P2-D-002",
+      "kind": "DEPENDENCY",
+      "title": "Snapshot continuity",
+      "statement": "Inference to release depends on changes between the earlier robustness snapshot and final deployed model/classifiers.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5 pp.57–58"
+        }
+      ],
+      "applicability": "Bounded root; release baseline 2026-09-22"
+    },
+    {
+      "id": "P2-D-003",
+      "kind": "DEPENDENCY",
+      "title": "Sampling and measurement fidelity",
+      "statement": "Generalization depends on task sampling, attempt denominators, judges and stable harnesses; repetition is distinct from independent replication.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§3.3–3.5 pp.49–60; §5.2 pp.84–90"
+        }
+      ],
+      "applicability": "Bounded root; release baseline 2026-09-22"
+    },
+    {
+      "id": "P2-D-004",
+      "kind": "DEPENDENCY",
+      "title": "Severity and comparison adjudication",
+      "statement": "The no-critical and comparative robustness propositions depend on applying the stated rubric consistently to tested breaks and comparisons.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5 pp.57–60"
+        }
+      ],
+      "applicability": "Bounded root; release baseline 2026-09-22"
+    },
+    {
+      "id": "P2-D-005",
+      "kind": "DEPENDENCY",
+      "title": "Historical FCF applicability",
+      "statement": "Policy interpretation depends on owner-accepted publisher chronology with unauthenticated exact September bytes.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§1.3, 3.1 pp.12, 47"
+        },
+        {
+          "source_id": "P2R-SRC-001",
+          "locator": "§2.5 pp.10–11; §4 pp.13–14; §7 pp.15–16"
+        }
+      ],
+      "applicability": "PUBLISHER_DATED_V2_EFFECTIVE_2026-07-24; OCTOBER_BYTES_VERIFIED; SEPTEMBER_EXACT_BYTES_NOT_AUTHENTICATED; The recovered October FCF PDF is not independently authenticated as byte-identical to the document available on 22 September 2026."
+    },
+    {
+      "id": "P2-D-006",
+      "kind": "DEPENDENCY",
+      "title": "Monitoring and change continuity",
+      "statement": "A continuing deployment interpretation depends on monitoring, classifier changes and mitigation updates after measured snapshots; the release record provides descriptions, not subsequent effectiveness results.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.2 p.48"
+        },
+        {
+          "source_id": "P2R-SRC-001",
+          "locator": "§2.5 pp.10–11; §4 pp.13–14; §7 pp.15–16"
+        }
+      ],
+      "applicability": "Bounded root; release baseline 2026-09-22"
+    },
+    {
+      "id": "P2-U-001",
+      "kind": "ASSUMPTION",
+      "title": "Severity observations remain bounded",
+      "statement": "Assume the publisher rubric explains why candidate breaks coexist with no identified critical jailbreak; individual severity adjudications remain uninspected.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5 pp.57–60"
+        }
+      ],
+      "epistemic_status": "EXPLICIT_UNVERIFIED_ASSUMPTION; not adopted as fact"
+    },
+    {
+      "id": "P2-U-002",
+      "kind": "ASSUMPTION",
+      "title": "Sample representativeness",
+      "statement": "Transferring test resistance to untested threat distributions assumes selected tasks and attacker resources cover relevant deployment threats.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§3.4–3.5 pp.55–60; §5.2.2 p.86"
+        }
+      ],
+      "epistemic_status": "EXPLICIT_UNVERIFIED_ASSUMPTION; not adopted as fact"
+    },
+    {
+      "id": "P2-U-003",
+      "kind": "ASSUMPTION",
+      "title": "Judges and labels are valid",
+      "statement": "Reported goals, LLM labels and state judges must track the harmful behaviour relevant to each test; zero observed successes does not itself validate a judge.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.4.2 p.56; §3.5.1 p.58; §3.5.3 p.60"
+        }
+      ],
+      "epistemic_status": "EXPLICIT_UNVERIFIED_ASSUMPTION; not adopted as fact"
+    },
+    {
+      "id": "P2-U-004",
+      "kind": "ASSUMPTION",
+      "title": "Comparative policy terms are commensurate",
+      "statement": "The root’s same-policy and comparable-robustness wording is interpreted with the explicit access and vulnerability-discovery exceptions; it is not a common metric across all attack surfaces.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§3.2, 3.4, 3.5 pp.47–48, 55–60"
+        }
+      ],
+      "epistemic_status": "EXPLICIT_UNVERIFIED_ASSUMPTION; not adopted as fact"
+    },
+    {
+      "id": "P2-U-005",
+      "kind": "ASSUMPTION",
+      "title": "Reported controls operate as described",
+      "statement": "Publisher architecture and release descriptions are assumed to describe implementation accurately; independent operational observation is absent from this research.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§1.5, 3.2 pp.12–13, 47–48"
+        }
+      ],
+      "epistemic_status": "EXPLICIT_UNVERIFIED_ASSUMPTION; not adopted as fact"
+    },
+    {
+      "id": "P2-G-001",
+      "kind": "GAP",
+      "title": "Coverage and actual release operation",
+      "statement": "The public record describes a three-stage pipeline, temporary wider margin and aggregate coverage, but does not expose an auditable end-to-end mapping of deployed classifier versions, per-stage errors, threat-stratum coverage and release-interface operation. Product mitigation tests do not by themselves establish deployment coverage.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§1.5, 3.2 pp.12–13, 47–48"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.4 pp.55–57; Figures 3.4.1.A and 3.4.2.A"
+        },
+        {
+          "source_id": "P2C-SRC-002",
+          "locator": "Safety → Safeguards → Cybersecurity"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§6.5.1 pp.123–126; Figure 6.5.1.B"
+        }
+      ],
+      "epistemic_status": "OPEN_PUBLIC_ASSURANCE_LINK",
+      "linked_assertions": [
+        "P2-A-001",
+        "P2-D-001",
+        "P2-D-006"
+      ],
+      "evidence_refs": [
+        "P2-E-002",
+        "P2-E-003",
+        "P2-E-018",
+        "P2-E-023"
+      ],
+      "public_evidence_observation": "The public record describes a three-stage pipeline, temporary wider margin and aggregate coverage, but does not expose an auditable end-to-end mapping of deployed classifier versions, per-stage errors, threat-stratum coverage and release-interface operation. Product mitigation tests do not by themselves establish deployment coverage.",
+      "why_material": "The root includes policy enforcement in general access; aggregate recall and deployment descriptions leave a bridge to what a user actually receives.",
+      "evidence_needed_for_closure": "A dated release configuration matrix by interface/access tier; policy-labelled representative evaluation set or audited aggregate strata with denominators, stage and end-to-end false-negative/false-positive estimates and uncertainty; evidence of routing/block operation and release rollout of relevant product mitigations; a change/monitoring summary would narrow ongoing-operation inference.",
+      "absence_or_redaction_reason": "MIXED: §3.4.2 explicitly uses aggregation preserving user privacy. Reason for undisclosed classifier thresholds, sample details or deployment logs is UNKNOWN_REASON; no blanket deliberate-redaction inference.",
+      "applicability": "General-access Opus 5.5, 22 September release. CVP is prospective; API opt-in and provider differences persist. Pasted-text tests have their own threat model.",
+      "run_quality_weakness": "Coverage sample sizes, repeated runs and uncertainty are not quantified here; no graph-derived chart values or invented denominators.",
+      "counterargument_or_alternative_taxonomy": "The figures and architecture do provide evidence. Safe aggregate disclosure or independent audit could narrow the link without releasing harmful examples. One could split measurement coverage from operational deployment; ARGUS groups them as policy-enforcement warrant.",
+      "private_evidence_non_inference": "Not located or not reported in this bounded public corpus does not mean nonexistent internally, ineffective control, misconduct, or known harm. Closure requests are proposed evidence, not assertions that such evidence exists."
+    },
+    {
+      "id": "P2-G-002",
+      "kind": "GAP",
+      "title": "Severity and comparative robustness adjudication",
+      "statement": "The rubric, comparative figure caption and no-critical observation coexist with 13 candidate breaks and an end-to-end exploit chain. Public case-by-case severity scores, adjudication rationale and comparable uncertainty are not supplied in the inspected passages.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5 p.57"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.1 pp.58–59; Figure 3.5.1.A"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.3 pp.59–60"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.3 p.60"
+        }
+      ],
+      "epistemic_status": "OPEN_PUBLIC_ASSURANCE_LINK",
+      "linked_assertions": [
+        "P2-A-002",
+        "P2-D-004",
+        "P2-U-001",
+        "P2-U-004"
+      ],
+      "evidence_refs": [
+        "P2-E-004",
+        "P2-E-006",
+        "P2-E-008",
+        "P2-E-009",
+        "P2-E-010"
+      ],
+      "public_evidence_observation": "The rubric, comparative figure caption and no-critical observation coexist with 13 candidate breaks and an end-to-end exploit chain. Public case-by-case severity scores, adjudication rationale and comparable uncertainty are not supplied in the inspected passages.",
+      "why_material": "Without that bridge a reader cannot audit how adverse findings qualify the reported robustness or why they were not classified critical.",
+      "evidence_needed_for_closure": "A sanitized per-break four-axis adjudication with uncertainty and dispositions, distinction between allowed source-code assistance and bypassed restrictions, operator effort/context counts, and matched-condition comparison summary with denominators and uncertainty. Independent review of those adjudications would further narrow the link.",
+      "absence_or_redaction_reason": "UNKNOWN_REASON for missing adjudication/transcripts/comparison detail; no explicit source-specific redaction rationale located.",
+      "applicability": "Earlier-snapshot §3.5 general-access cyber robustness. Does not reclassify published breaks or assess another model.",
+      "run_quality_weakness": "Requests and hours are reported for contracted work, but not independent repeats or a statistically supported paired robustness comparison.",
+      "counterargument_or_alternative_taxonomy": "No universal jailbreak and substantial human decomposition may explain noncritical classification. The publisher rubric is legitimate context; its complete application remains uninspectable. Could be grouped by adversary capability rather than tester.",
+      "private_evidence_non_inference": "Not located or not reported in this bounded public corpus does not mean nonexistent internally, ineffective control, misconduct, or known harm. Closure requests are proposed evidence, not assertions that such evidence exists."
+    },
+    {
+      "id": "P2-G-003",
+      "kind": "GAP",
+      "title": "Earlier robustness snapshot to final release",
+      "statement": "Anthropic asserts representativeness of earlier-snapshot robustness; final/earlier checkpoint IDs, change mapping and paired final-snapshot results are not reported in §3.5.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§1.4 p.12; §3.5 pp.57–58"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.1 pp.58–59; Figure 3.5.1.A"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.3 pp.59–60"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.3 p.60"
+        }
+      ],
+      "epistemic_status": "OPEN_PUBLIC_ASSURANCE_LINK",
+      "linked_assertions": [
+        "P2-A-003",
+        "P2-D-002"
+      ],
+      "evidence_refs": [
+        "P2-E-005",
+        "P2-E-006",
+        "P2-E-008",
+        "P2-E-009",
+        "P2-E-010"
+      ],
+      "public_evidence_observation": "Anthropic asserts representativeness of earlier-snapshot robustness; final/earlier checkpoint IDs, change mapping and paired final-snapshot results are not reported in §3.5.",
+      "why_material": "The root concerns the released deployment; tested resistance can change with model, classifiers or harness.",
+      "evidence_needed_for_closure": "A versioned mapping of tested and released model/classifier/fallback configurations, relevant changes, and paired or targeted final-snapshot regression results covering known candidate breaks, with trial counts and uncertainty. An auditable invariance argument could meaningfully narrow the link.",
+      "absence_or_redaction_reason": "UNKNOWN_REASON; absence of public checkpoint/transfer data is not known absence of internal checks.",
+      "applicability": "Applies specifically to §3.5; other evaluations use §1.4 final default unless explicitly qualified.",
+      "run_quality_weakness": "No paired final-snapshot run counts or variance reported; unknown is not one run.",
+      "counterargument_or_alternative_taxonomy": "Classifier architecture may be shared and publisher equivalence may be well grounded internally. This is a temporal-transfer gap, not a claim that final safeguards regressed.",
+      "private_evidence_non_inference": "Not located or not reported in this bounded public corpus does not mean nonexistent internally, ineffective control, misconduct, or known harm. Closure requests are proposed evidence, not assertions that such evidence exists."
+    },
+    {
+      "id": "P2-G-004",
+      "kind": "GAP",
+      "title": "Composite fallback and surface-specific generalization",
+      "statement": "Static fallback rollouts had no successful attacks, while adaptive coding successes were fallback-served even with probes. GUI included direct-model successes. Pasted-user-text and browser configurations differ. No single public experiment validates all release combinations or a shared acceptable composite failure criterion.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§1.5, 3.2 pp.12–13, 47–48"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§5.2.1 pp.84–86; Figure 5.2.1.A"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§5.2.2.1 pp.87–88; Table 5.2.2.1.A"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§5.2.2.2 pp.88–89; Table 5.2.2.2.A"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§5.2.2.3 pp.89–90; Table 5.2.2.3.A"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§6.5.1 pp.123–126; Figure 6.5.1.B"
+        }
+      ],
+      "epistemic_status": "OPEN_PUBLIC_ASSURANCE_LINK",
+      "linked_assertions": [
+        "P2-A-004",
+        "P2-D-001"
+      ],
+      "evidence_refs": [
+        "P2-E-002",
+        "P2-E-011",
+        "P2-E-012",
+        "P2-E-013",
+        "P2-E-014",
+        "P2-E-023"
+      ],
+      "public_evidence_observation": "Static fallback rollouts had no successful attacks, while adaptive coding successes were fallback-served even with probes. GUI included direct-model successes. Pasted-user-text and browser configurations differ. No single public experiment validates all release combinations or a shared acceptable composite failure criterion.",
+      "why_material": "Model-only zero observations cannot support a blanket interpretation of deployed-system robustness; routing can move a request to a different susceptibility.",
+      "evidence_needed_for_closure": "End-to-end evaluation by interface, access setting, model/classifier/fallback version and product protection; per-routing-path valid-response denominators and outcome intervals; adaptive tests spanning coding, GUI, browser and pasted-text threats; documented acceptance rationale and mitigation retests for fallback-served failures.",
+      "absence_or_redaction_reason": "UNKNOWN_REASON for unavailable deployment matrix, logs and complete composite acceptance evidence. The adverse results themselves are public, not hidden.",
+      "applicability": "General access composite behaviour only. First-party automatic fallback; API opt-in; providers may differ. Prompt-injection results are a relevant deployment dependency, not automatically cyber-jailbreak critical-severity findings.",
+      "run_quality_weakness": "Attempt budgets, valid responses, scenarios and fallback rollouts differ; no pooling ASRs across static/adaptive tests or inferring deployment incident rates.",
+      "counterargument_or_alternative_taxonomy": "Adaptive attacker access is deliberately permissive and probe protection sharply reduces coding ASR. Browser auto mode reports zero in its test. An alternative taxonomy separates offensive misuse prevention from protection of users against injection; that split does not remove fallback applicability.",
+      "private_evidence_non_inference": "Not located or not reported in this bounded public corpus does not mean nonexistent internally, ineffective control, misconduct, or known harm. Closure requests are proposed evidence, not assertions that such evidence exists."
+    },
+    {
+      "id": "P2-G-005",
+      "kind": "GAP",
+      "title": "Reproducibility and independent corroboration",
+      "statement": "The record reports substantial testing and some repeated trials, but no complete configuration/seed/log package or independently authored replication of this cyber deployment argument was located. CAISI participation has no detailed result here; contracted results are developer-narrated. METR is outside the cyber claim.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.4 pp.55–57; Figures 3.4.1.A and 3.4.2.A"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.1 pp.58–59; Figure 3.5.1.A"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.2 p.59"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.3 pp.59–60"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.5.3 p.60"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§5.2.1 pp.84–86; Figure 5.2.1.A"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§5.2.2.1 pp.87–88; Table 5.2.2.1.A"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§5.2.2.2 pp.88–89; Table 5.2.2.2.A"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§5.2.2.3 pp.89–90; Table 5.2.2.3.A"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.3.1 pp.49–50"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§3.3.2–3.3.4 pp.50–54"
+        },
+        {
+          "source_id": "P2C-SRC-005",
+          "locator": "Note on independence; Summary of evidence"
+        }
+      ],
+      "epistemic_status": "OPEN_PUBLIC_ASSURANCE_LINK",
+      "linked_assertions": [
+        "P2-A-005",
+        "P2-D-003",
+        "P2-U-002",
+        "P2-U-003"
+      ],
+      "evidence_refs": [
+        "P2-E-003",
+        "P2-E-006",
+        "P2-E-007",
+        "P2-E-008",
+        "P2-E-009",
+        "P2-E-010",
+        "P2-E-011",
+        "P2-E-012",
+        "P2-E-013",
+        "P2-E-014",
+        "P2-E-016",
+        "P2-E-017",
+        "P2-E-022"
+      ],
+      "public_evidence_observation": "The record reports substantial testing and some repeated trials, but no complete configuration/seed/log package or independently authored replication of this cyber deployment argument was located. CAISI participation has no detailed result here; contracted results are developer-narrated. METR is outside the cyber claim.",
+      "why_material": "An external reader cannot fully assess stability, judge validity, independence or reproducibility of the evidence supporting robustness and generalization.",
+      "evidence_needed_for_closure": "Per-evaluation manifests of checkpoints, harness/attacker versions, sampling, trial counts, denominators and seed/randomness treatment; uncertainty/sensitivity and judge-validation summaries; safe logs or controlled audit access; independently authored cyber findings with funding/access/editorial disclosures. Repeating a fixed test, external reproduction and independent assessment of deployment inference must be reported separately.",
+      "absence_or_redaction_reason": "MIXED: CyScenarioBench private evaluation set explicitly avoids contamination (§3.3.2 p.51); vulnerability-traffic aggregation explicitly preserves privacy (§3.4.2 p.56). Missing seeds, logs, independent reports and many trial counts otherwise UNKNOWN_REASON.",
+      "applicability": "Cyber-relevant evidence only; no demand to publish private user data or exploit recipes. METR’s retained standalone bytes are contextual and not authenticated at release.",
+      "run_quality_weakness": "ExploitBench repeats are real; scenario counts and 400-call budgets are not repeat counts. No inference all evaluations were single-run or had no uncertainty analysis internally.",
+      "counterargument_or_alternative_taxonomy": "Public summaries may reasonably omit operationally sensitive details; reproducibility can be narrowed via audited aggregates. Contracting does not imply bias. One could split statistical stability and institutional independence into separate gaps; this ledger keeps both under external inspectability.",
+      "private_evidence_non_inference": "Not located or not reported in this bounded public corpus does not mean nonexistent internally, ineffective control, misconduct, or known harm. Closure requests are proposed evidence, not assertions that such evidence exists."
+    },
+    {
+      "id": "P2-G-006",
+      "kind": "GAP",
+      "title": "Capability evidence to lower-tier assessment",
+      "statement": "The card’s lower-category/no-novel-capability judgment and FCF qualitative tiers are inspectable, but the cyber-specific mapping from benchmark evidence to tier boundaries, autonomy/novelty coverage and safety margins is not operationally reproducible.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.1 p.47"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.3.1 pp.49–50"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§3.3.2–3.3.4 pp.50–54"
+        },
+        {
+          "source_id": "P2R-SRC-001",
+          "locator": "§§2.3–2.4 pp.6–7"
+        }
+      ],
+      "epistemic_status": "OPEN_PUBLIC_ASSURANCE_LINK",
+      "linked_assertions": [
+        "P2-A-006"
+      ],
+      "evidence_refs": [
+        "P2-E-015",
+        "P2-E-016",
+        "P2-E-017",
+        "P2-E-019"
+      ],
+      "public_evidence_observation": "The card’s lower-category/no-novel-capability judgment and FCF qualitative tiers are inspectable, but the cyber-specific mapping from benchmark evidence to tier boundaries, autonomy/novelty coverage and safety margins is not operationally reproducible.",
+      "why_material": "The capability context helps motivate selected safeguards; powerful known-vulnerability results neither contradict nor establish the novel/autonomous Tier 2 condition.",
+      "evidence_needed_for_closure": "A model-specific tier-assessment rationale mapping evaluated capabilities and limitations to each cyber tier criterion; tests of novelty, autonomy and adaptive persistence, judge rules, margins and uncertainty; clearly labelled safeguards-disabled configuration.",
+      "absence_or_redaction_reason": "UNKNOWN_REASON for unavailable tier adjudication details. The private challenge-set contamination rationale applies only to that set.",
+      "applicability": "Context only, not a second root or an inference of crossing Tier 2. PUBLISHER_DATED_V2_EFFECTIVE_2026-07-24; OCTOBER_BYTES_VERIFIED; SEPTEMBER_EXACT_BYTES_NOT_AUTHENTICATED; The recovered October FCF PDF is not independently authenticated as byte-identical to the document available on 22 September 2026.",
+      "run_quality_weakness": "Reported benchmark repeats differ; no invented score cutoff, probability ceiling or repeat count.",
+      "counterargument_or_alternative_taxonomy": "Qualitative expert judgment can be justified without a universal numeric cutoff. Alternative mapping may treat lower category as informal wording; Tier 1 mapping is ARGUS_RECONSTRUCTION, not inserted into the quotation.",
+      "private_evidence_non_inference": "Not located or not reported in this bounded public corpus does not mean nonexistent internally, ineffective control, misconduct, or known harm. Closure requests are proposed evidence, not assertions that such evidence exists."
+    },
+    {
+      "id": "P2-G-007",
+      "kind": "GAP",
+      "title": "General FCF process to model-specific decision evidence",
+      "statement": "The FCF supplies qualitative acceptance, proportionate-safeguard and documented risk-owner requirements. The inspected corpus does not disclose an Opus 5.5 cyber acceptance rationale connecting capability, adverse results, fallback and the temporary margin to that condition, or model-specific monitoring effectiveness.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§§1.5, 3.2 pp.12–13, 47–48"
+        },
+        {
+          "source_id": "P2C-SRC-001",
+          "locator": "§3.1 p.47"
+        },
+        {
+          "source_id": "P2R-SRC-001",
+          "locator": "§§2.3, 2.5 pp.6, 10–11; §4 pp.13–14"
+        }
+      ],
+      "epistemic_status": "OPEN_PUBLIC_ASSURANCE_LINK",
+      "linked_assertions": [
+        "P2-A-007",
+        "P2-D-006"
+      ],
+      "evidence_refs": [
+        "P2-E-002",
+        "P2-E-015",
+        "P2-E-020"
+      ],
+      "public_evidence_observation": "The FCF supplies qualitative acceptance, proportionate-safeguard and documented risk-owner requirements. The inspected corpus does not disclose an Opus 5.5 cyber acceptance rationale connecting capability, adverse results, fallback and the temporary margin to that condition, or model-specific monitoring effectiveness.",
+      "why_material": "This limits any extension of the root into an assurance judgment about risk acceptance. It is not a missing premise needed merely to establish that the publisher made a deployment statement.",
+      "evidence_needed_for_closure": "A public or independently audited model-specific cyber decision summary: decision date, accountable role (no private identity required), evidence considered, adverse-result disposition, acceptance criteria/margins, residual uncertainties, fallback treatment and monitoring/change triggers. Later disclosure must be dated as later disclosure, not backdated release-public evidence.",
+      "absence_or_redaction_reason": "UNKNOWN_REASON for unlocated model-specific decision evidence. FCF §4 promises public summaries, not all internal materials; neither secrecy nor nonexistence is inferred.",
+      "applicability": "Framework-context limitation only. PUBLISHER_DATED_V2_EFFECTIVE_2026-07-24; OCTOBER_BYTES_VERIFIED; SEPTEMBER_EXACT_BYTES_NOT_AUTHENTICATED; The recovered October FCF PDF is not independently authenticated as byte-identical to the document available on 22 September 2026.",
+      "run_quality_weakness": "Additional runs alone cannot close a missing acceptance warrant; the decision rule and evidence mapping matter.",
+      "counterargument_or_alternative_taxonomy": "The risk owner may have a complete internal justification; the root does not itself assert residual-risk sufficiency. Could classify this as an explicit out-of-scope boundary for the narrow root; ARGUS retains it as a material limit on stronger interpretation.",
+      "private_evidence_non_inference": "Not located or not reported in this bounded public corpus does not mean nonexistent internally, ineffective control, misconduct, or known harm. Closure requests are proposed evidence, not assertions that such evidence exists."
+    },
+    {
+      "id": "P2-G-008",
+      "kind": "GAP",
+      "title": "Exact historical FCF byte custody",
+      "statement": "The recovered October FCF PDF is not independently authenticated as byte-identical to the document available on 22 September 2026. Publisher cover/changelog and release-card references support chronology, and October standalone/ZIP identity was verified in P2R.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "taxonomy_origin": "ARGUS_ANALYST_GROUPING",
+      "materiality": "MATERIAL_TO_BOUNDED_CASE",
+      "source_refs": [
+        {
+          "source_id": "P2R-SRC-001",
+          "locator": "§§2.3–2.4 pp.6–7"
+        },
+        {
+          "source_id": "P2R-SRC-001",
+          "locator": "§§2.3, 2.5 pp.6, 10–11; §4 pp.13–14"
+        },
+        {
+          "source_id": "P2R-SRC-001",
+          "locator": "Cover p.1; changelog p.17"
+        },
+        {
+          "source_id": "P2C-SRC-003",
+          "locator": "Cover p.1; changelog pp.20–21"
+        },
+        {
+          "source_id": "P2C-SRC-004",
+          "locator": "Current and Prior Versions; July 8, 2026"
+        }
+      ],
+      "epistemic_status": "OPEN_PUBLIC_ASSURANCE_LINK",
+      "linked_assertions": [
+        "P2-D-005",
+        "P2-A-007"
+      ],
+      "evidence_refs": [
+        "P2-E-019",
+        "P2-E-020",
+        "P2-E-021"
+      ],
+      "public_evidence_observation": "The recovered October FCF PDF is not independently authenticated as byte-identical to the document available on 22 September 2026. Publisher cover/changelog and release-card references support chronology, and October standalone/ZIP identity was verified in P2R.",
+      "why_material": "Precise historical policy wording cannot be treated as independently authenticated release-day public evidence.",
+      "evidence_needed_for_closure": "An independently retained, reliably timestamped on-or-before-release FCF copy or authenticated historical content digest linked to that copy, permitting exact comparison with the retained October PDF. Publisher attestation of unchanged content would narrow but not independently prove historical byte identity.",
+      "absence_or_redaction_reason": "HISTORICAL_CUSTODY_NOT_ESTABLISHED; why an independent release-day copy is absent from this corpus is UNKNOWN_REASON. This is not a document-redaction finding.",
+      "applicability": "Accepted research limitation, not an execution blocker. PUBLISHER_DATED_V2_EFFECTIVE_2026-07-24; OCTOBER_BYTES_VERIFIED; SEPTEMBER_EXACT_BYTES_NOT_AUTHENTICATED; SHA-256 8e4d91e12861218ee8068e2ad1f50ce84d803d0fac22f0492e6a9dccbbe5e23f",
+      "run_quality_weakness": "NOT_APPLICABLE — source custody, not test replication.",
+      "counterargument_or_alternative_taxonomy": "Chronology and card references make publisher-identified v2 applicability reasonable under owner ratification. They cannot exclude a replacement retaining the changelog, and do not establish that replacement occurred. May instead be grouped as provenance qualification.",
+      "private_evidence_non_inference": "Not located or not reported in this bounded public corpus does not mean nonexistent internally, ineffective control, misconduct, or known harm. Closure requests are proposed evidence, not assertions that such evidence exists."
+    }
+  ],
+  "edges": [
+    {
+      "id": "P2-L-001",
+      "from_node": "P2-A-001",
+      "relationship": "supports",
+      "to_node": "P2-C-001",
+      "warrant": "A bounded component of the reconstructed deployment/robustness argument; support remains conditional on linked dependencies and gaps.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-002",
+      "from_node": "P2-A-002",
+      "relationship": "supports",
+      "to_node": "P2-C-001",
+      "warrant": "A bounded component of the reconstructed deployment/robustness argument; support remains conditional on linked dependencies and gaps.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-003",
+      "from_node": "P2-A-003",
+      "relationship": "supports",
+      "to_node": "P2-C-001",
+      "warrant": "A bounded component of the reconstructed deployment/robustness argument; support remains conditional on linked dependencies and gaps.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-004",
+      "from_node": "P2-A-004",
+      "relationship": "supports",
+      "to_node": "P2-C-001",
+      "warrant": "A bounded component of the reconstructed deployment/robustness argument; support remains conditional on linked dependencies and gaps.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-005",
+      "from_node": "P2-A-005",
+      "relationship": "qualifies",
+      "to_node": "P2-A-002",
+      "warrant": "Evidence quality limits the strength of robustness inference.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-006",
+      "from_node": "P2-A-005",
+      "relationship": "qualifies",
+      "to_node": "P2-A-004",
+      "warrant": "Reproducibility and independence limit generalization of composite outcomes.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-007",
+      "from_node": "P2-A-006",
+      "relationship": "qualifies",
+      "to_node": "P2-C-001",
+      "warrant": "Context only; does not add a capability or residual-risk-sufficiency root.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-008",
+      "from_node": "P2-A-007",
+      "relationship": "qualifies",
+      "to_node": "P2-C-001",
+      "warrant": "Context only; does not add a capability or residual-risk-sufficiency root.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-009",
+      "from_node": "P2-E-001",
+      "relationship": "supports",
+      "to_node": "P2-C-001",
+      "warrant": "Attests exact published wording, not independent efficacy.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-010",
+      "from_node": "P2-E-002",
+      "relationship": "supports",
+      "to_node": "P2-A-001",
+      "warrant": "Describes the policy/control pipeline.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-011",
+      "from_node": "P2-E-002",
+      "relationship": "qualifies",
+      "to_node": "P2-A-004",
+      "warrant": "Defines access and fallback conditions.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-012",
+      "from_node": "P2-E-003",
+      "relationship": "supports",
+      "to_node": "P2-A-001",
+      "warrant": "Reports aggregate coverage; incomplete external validation.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-013",
+      "from_node": "P2-E-004",
+      "relationship": "supports",
+      "to_node": "P2-A-002",
+      "warrant": "Bounded no-critical observation under publisher rubric.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-014",
+      "from_node": "P2-E-005",
+      "relationship": "supports",
+      "to_node": "P2-A-003",
+      "warrant": "Supplies publisher transfer assertion only.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-015",
+      "from_node": "P2-E-006",
+      "relationship": "supports",
+      "to_node": "P2-A-002",
+      "warrant": "Reported production-safeguard test and comparative caption.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-016",
+      "from_node": "P2-E-007",
+      "relationship": "qualifies",
+      "to_node": "P2-A-005",
+      "warrant": "Participation supplies no independently inspectable detailed result here.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-017",
+      "from_node": "P2-E-008",
+      "relationship": "qualifies",
+      "to_node": "P2-A-002",
+      "warrant": "Adverse candidate breaks constrain robustness without independently contradicting no-critical severity.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-018",
+      "from_node": "P2-E-009",
+      "relationship": "supports",
+      "to_node": "P2-A-002",
+      "warrant": "Bounded negative result in contracted tests.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-019",
+      "from_node": "P2-E-010",
+      "relationship": "supports",
+      "to_node": "P2-A-002",
+      "warrant": "Bounded objective failures reported in repeated attempts.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-020",
+      "from_node": "P2-E-011",
+      "relationship": "supports",
+      "to_node": "P2-A-004",
+      "warrant": "Positive static result applies only to this composite test.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-021",
+      "from_node": "P2-E-012",
+      "relationship": "qualifies",
+      "to_node": "P2-A-004",
+      "warrant": "Adverse fallback-served adaptive results prevent model-only generalization.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-022",
+      "from_node": "P2-E-013",
+      "relationship": "qualifies",
+      "to_node": "P2-A-004",
+      "warrant": "Direct-model GUI successes constrain immunity interpretation.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-023",
+      "from_node": "P2-E-014",
+      "relationship": "supports",
+      "to_node": "P2-A-004",
+      "warrant": "Product safeguards improve browser result in tested setting.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-024",
+      "from_node": "P2-E-015",
+      "relationship": "supports",
+      "to_node": "P2-A-006",
+      "warrant": "Publisher capability context, not efficacy.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-025",
+      "from_node": "P2-E-016",
+      "relationship": "supports",
+      "to_node": "P2-A-006",
+      "warrant": "Known-vulnerability capability evidence with explicit repeated trials.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-026",
+      "from_node": "P2-E-017",
+      "relationship": "qualifies",
+      "to_node": "P2-A-006",
+      "warrant": "Capability evidence is task/harness dependent; incomplete tier mapping.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-027",
+      "from_node": "P2-E-018",
+      "relationship": "supports",
+      "to_node": "P2-A-001",
+      "warrant": "Corroborates publisher deployment wording, not independent measurement.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-028",
+      "from_node": "P2-E-019",
+      "relationship": "supports",
+      "to_node": "P2-A-006",
+      "warrant": "Qualitative tier definitions with historical-byte limit.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-029",
+      "from_node": "P2-E-020",
+      "relationship": "supports",
+      "to_node": "P2-A-007",
+      "warrant": "General conditional process only, historical-byte limit retained.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-030",
+      "from_node": "P2-E-021",
+      "relationship": "qualifies",
+      "to_node": "P2-D-005",
+      "warrant": "Publisher chronology supports qualified applicability, not September byte identity.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-031",
+      "from_node": "P2-E-022",
+      "relationship": "qualifies",
+      "to_node": "P2-A-005",
+      "warrant": "Independently authored AI R&D report cannot validate cyber deployment.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-032",
+      "from_node": "P2-E-023",
+      "relationship": "qualifies",
+      "to_node": "P2-A-004",
+      "warrant": "Pasted-text weakness and mitigated tests add a distinct surface/configuration restriction.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-033",
+      "from_node": "P2-A-001",
+      "relationship": "depends_on",
+      "to_node": "P2-D-001",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-034",
+      "from_node": "P2-A-001",
+      "relationship": "depends_on",
+      "to_node": "P2-D-003",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-035",
+      "from_node": "P2-A-001",
+      "relationship": "depends_on",
+      "to_node": "P2-D-006",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-036",
+      "from_node": "P2-A-002",
+      "relationship": "depends_on",
+      "to_node": "P2-D-003",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-037",
+      "from_node": "P2-A-002",
+      "relationship": "depends_on",
+      "to_node": "P2-D-004",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-038",
+      "from_node": "P2-A-003",
+      "relationship": "depends_on",
+      "to_node": "P2-D-002",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-039",
+      "from_node": "P2-A-004",
+      "relationship": "depends_on",
+      "to_node": "P2-D-001",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-040",
+      "from_node": "P2-A-004",
+      "relationship": "depends_on",
+      "to_node": "P2-D-003",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-041",
+      "from_node": "P2-A-005",
+      "relationship": "depends_on",
+      "to_node": "P2-D-003",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-042",
+      "from_node": "P2-A-006",
+      "relationship": "depends_on",
+      "to_node": "P2-D-003",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-043",
+      "from_node": "P2-A-006",
+      "relationship": "depends_on",
+      "to_node": "P2-D-005",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-044",
+      "from_node": "P2-A-007",
+      "relationship": "depends_on",
+      "to_node": "P2-D-005",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-045",
+      "from_node": "P2-A-007",
+      "relationship": "depends_on",
+      "to_node": "P2-D-006",
+      "warrant": "This warrant is conditional on the dependency; no satisfaction inferred.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-046",
+      "from_node": "P2-D-001",
+      "relationship": "depends_on",
+      "to_node": "P2-U-005",
+      "warrant": "The assumption is explicit and unverified; evidence does not remove it automatically.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-047",
+      "from_node": "P2-D-002",
+      "relationship": "depends_on",
+      "to_node": "P2-U-005",
+      "warrant": "The assumption is explicit and unverified; evidence does not remove it automatically.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-048",
+      "from_node": "P2-D-003",
+      "relationship": "depends_on",
+      "to_node": "P2-U-002",
+      "warrant": "The assumption is explicit and unverified; evidence does not remove it automatically.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-049",
+      "from_node": "P2-D-003",
+      "relationship": "depends_on",
+      "to_node": "P2-U-003",
+      "warrant": "The assumption is explicit and unverified; evidence does not remove it automatically.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-050",
+      "from_node": "P2-D-004",
+      "relationship": "depends_on",
+      "to_node": "P2-U-001",
+      "warrant": "The assumption is explicit and unverified; evidence does not remove it automatically.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-051",
+      "from_node": "P2-D-004",
+      "relationship": "depends_on",
+      "to_node": "P2-U-004",
+      "warrant": "The assumption is explicit and unverified; evidence does not remove it automatically.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-052",
+      "from_node": "P2-D-006",
+      "relationship": "depends_on",
+      "to_node": "P2-U-005",
+      "warrant": "The assumption is explicit and unverified; evidence does not remove it automatically.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-053",
+      "from_node": "P2-E-002",
+      "relationship": "qualifies",
+      "to_node": "P2-D-001",
+      "warrant": "The reported configuration, method or framework specifies and limits this dependency.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-054",
+      "from_node": "P2-E-005",
+      "relationship": "qualifies",
+      "to_node": "P2-D-002",
+      "warrant": "The reported configuration, method or framework specifies and limits this dependency.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-055",
+      "from_node": "P2-E-006",
+      "relationship": "qualifies",
+      "to_node": "P2-D-003",
+      "warrant": "The reported configuration, method or framework specifies and limits this dependency.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-056",
+      "from_node": "P2-E-004",
+      "relationship": "qualifies",
+      "to_node": "P2-D-004",
+      "warrant": "The reported configuration, method or framework specifies and limits this dependency.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-057",
+      "from_node": "P2-E-021",
+      "relationship": "qualifies",
+      "to_node": "P2-D-005",
+      "warrant": "The reported configuration, method or framework specifies and limits this dependency.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-058",
+      "from_node": "P2-E-020",
+      "relationship": "qualifies",
+      "to_node": "P2-D-006",
+      "warrant": "The reported configuration, method or framework specifies and limits this dependency.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-059",
+      "from_node": "P2-G-001",
+      "relationship": "leaves_open",
+      "to_node": "P2-A-001",
+      "warrant": "The root includes policy enforcement in general access; aggregate recall and deployment descriptions leave a bridge to what a user actually receives.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-060",
+      "from_node": "P2-G-001",
+      "relationship": "leaves_open",
+      "to_node": "P2-D-001",
+      "warrant": "The root includes policy enforcement in general access; aggregate recall and deployment descriptions leave a bridge to what a user actually receives.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-061",
+      "from_node": "P2-G-001",
+      "relationship": "leaves_open",
+      "to_node": "P2-D-006",
+      "warrant": "The root includes policy enforcement in general access; aggregate recall and deployment descriptions leave a bridge to what a user actually receives.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-062",
+      "from_node": "P2-E-002",
+      "relationship": "qualifies",
+      "to_node": "P2-G-001",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-063",
+      "from_node": "P2-E-003",
+      "relationship": "qualifies",
+      "to_node": "P2-G-001",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-064",
+      "from_node": "P2-E-018",
+      "relationship": "qualifies",
+      "to_node": "P2-G-001",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-065",
+      "from_node": "P2-E-023",
+      "relationship": "qualifies",
+      "to_node": "P2-G-001",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-066",
+      "from_node": "P2-G-002",
+      "relationship": "leaves_open",
+      "to_node": "P2-A-002",
+      "warrant": "Without that bridge a reader cannot audit how adverse findings qualify the reported robustness or why they were not classified critical.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-067",
+      "from_node": "P2-G-002",
+      "relationship": "leaves_open",
+      "to_node": "P2-D-004",
+      "warrant": "Without that bridge a reader cannot audit how adverse findings qualify the reported robustness or why they were not classified critical.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-068",
+      "from_node": "P2-G-002",
+      "relationship": "leaves_open",
+      "to_node": "P2-U-001",
+      "warrant": "Without that bridge a reader cannot audit how adverse findings qualify the reported robustness or why they were not classified critical.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-069",
+      "from_node": "P2-G-002",
+      "relationship": "leaves_open",
+      "to_node": "P2-U-004",
+      "warrant": "Without that bridge a reader cannot audit how adverse findings qualify the reported robustness or why they were not classified critical.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-070",
+      "from_node": "P2-E-004",
+      "relationship": "qualifies",
+      "to_node": "P2-G-002",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-071",
+      "from_node": "P2-E-006",
+      "relationship": "qualifies",
+      "to_node": "P2-G-002",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-072",
+      "from_node": "P2-E-008",
+      "relationship": "qualifies",
+      "to_node": "P2-G-002",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-073",
+      "from_node": "P2-E-009",
+      "relationship": "qualifies",
+      "to_node": "P2-G-002",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-074",
+      "from_node": "P2-E-010",
+      "relationship": "qualifies",
+      "to_node": "P2-G-002",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-075",
+      "from_node": "P2-G-003",
+      "relationship": "leaves_open",
+      "to_node": "P2-A-003",
+      "warrant": "The root concerns the released deployment; tested resistance can change with model, classifiers or harness.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-076",
+      "from_node": "P2-G-003",
+      "relationship": "leaves_open",
+      "to_node": "P2-D-002",
+      "warrant": "The root concerns the released deployment; tested resistance can change with model, classifiers or harness.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-077",
+      "from_node": "P2-E-005",
+      "relationship": "qualifies",
+      "to_node": "P2-G-003",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-078",
+      "from_node": "P2-E-006",
+      "relationship": "qualifies",
+      "to_node": "P2-G-003",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-079",
+      "from_node": "P2-E-008",
+      "relationship": "qualifies",
+      "to_node": "P2-G-003",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-080",
+      "from_node": "P2-E-009",
+      "relationship": "qualifies",
+      "to_node": "P2-G-003",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-081",
+      "from_node": "P2-E-010",
+      "relationship": "qualifies",
+      "to_node": "P2-G-003",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-082",
+      "from_node": "P2-G-004",
+      "relationship": "leaves_open",
+      "to_node": "P2-A-004",
+      "warrant": "Model-only zero observations cannot support a blanket interpretation of deployed-system robustness; routing can move a request to a different susceptibility.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-083",
+      "from_node": "P2-G-004",
+      "relationship": "leaves_open",
+      "to_node": "P2-D-001",
+      "warrant": "Model-only zero observations cannot support a blanket interpretation of deployed-system robustness; routing can move a request to a different susceptibility.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-084",
+      "from_node": "P2-E-002",
+      "relationship": "qualifies",
+      "to_node": "P2-G-004",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-085",
+      "from_node": "P2-E-011",
+      "relationship": "qualifies",
+      "to_node": "P2-G-004",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-086",
+      "from_node": "P2-E-012",
+      "relationship": "qualifies",
+      "to_node": "P2-G-004",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-087",
+      "from_node": "P2-E-013",
+      "relationship": "qualifies",
+      "to_node": "P2-G-004",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-088",
+      "from_node": "P2-E-014",
+      "relationship": "qualifies",
+      "to_node": "P2-G-004",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-089",
+      "from_node": "P2-E-023",
+      "relationship": "qualifies",
+      "to_node": "P2-G-004",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-090",
+      "from_node": "P2-G-005",
+      "relationship": "leaves_open",
+      "to_node": "P2-A-005",
+      "warrant": "An external reader cannot fully assess stability, judge validity, independence or reproducibility of the evidence supporting robustness and generalization.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-091",
+      "from_node": "P2-G-005",
+      "relationship": "leaves_open",
+      "to_node": "P2-D-003",
+      "warrant": "An external reader cannot fully assess stability, judge validity, independence or reproducibility of the evidence supporting robustness and generalization.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-092",
+      "from_node": "P2-G-005",
+      "relationship": "leaves_open",
+      "to_node": "P2-U-002",
+      "warrant": "An external reader cannot fully assess stability, judge validity, independence or reproducibility of the evidence supporting robustness and generalization.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-093",
+      "from_node": "P2-G-005",
+      "relationship": "leaves_open",
+      "to_node": "P2-U-003",
+      "warrant": "An external reader cannot fully assess stability, judge validity, independence or reproducibility of the evidence supporting robustness and generalization.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-094",
+      "from_node": "P2-E-003",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-095",
+      "from_node": "P2-E-006",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-096",
+      "from_node": "P2-E-007",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-097",
+      "from_node": "P2-E-008",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-098",
+      "from_node": "P2-E-009",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-099",
+      "from_node": "P2-E-010",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-100",
+      "from_node": "P2-E-011",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-101",
+      "from_node": "P2-E-012",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-102",
+      "from_node": "P2-E-013",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-103",
+      "from_node": "P2-E-014",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-104",
+      "from_node": "P2-E-016",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-105",
+      "from_node": "P2-E-017",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-106",
+      "from_node": "P2-E-022",
+      "relationship": "qualifies",
+      "to_node": "P2-G-005",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-107",
+      "from_node": "P2-G-006",
+      "relationship": "leaves_open",
+      "to_node": "P2-A-006",
+      "warrant": "The capability context helps motivate selected safeguards; powerful known-vulnerability results neither contradict nor establish the novel/autonomous Tier 2 condition.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-108",
+      "from_node": "P2-E-015",
+      "relationship": "qualifies",
+      "to_node": "P2-G-006",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-109",
+      "from_node": "P2-E-016",
+      "relationship": "qualifies",
+      "to_node": "P2-G-006",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-110",
+      "from_node": "P2-E-017",
+      "relationship": "qualifies",
+      "to_node": "P2-G-006",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-111",
+      "from_node": "P2-E-019",
+      "relationship": "qualifies",
+      "to_node": "P2-G-006",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-112",
+      "from_node": "P2-G-007",
+      "relationship": "leaves_open",
+      "to_node": "P2-A-007",
+      "warrant": "This limits any extension of the root into an assurance judgment about risk acceptance. It is not a missing premise needed merely to establish that the publisher made a deployment statement.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-113",
+      "from_node": "P2-G-007",
+      "relationship": "leaves_open",
+      "to_node": "P2-D-006",
+      "warrant": "This limits any extension of the root into an assurance judgment about risk acceptance. It is not a missing premise needed merely to establish that the publisher made a deployment statement.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-114",
+      "from_node": "P2-E-002",
+      "relationship": "qualifies",
+      "to_node": "P2-G-007",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-115",
+      "from_node": "P2-E-015",
+      "relationship": "qualifies",
+      "to_node": "P2-G-007",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-116",
+      "from_node": "P2-E-020",
+      "relationship": "qualifies",
+      "to_node": "P2-G-007",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-117",
+      "from_node": "P2-G-008",
+      "relationship": "leaves_open",
+      "to_node": "P2-D-005",
+      "warrant": "Precise historical policy wording cannot be treated as independently authenticated release-day public evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-118",
+      "from_node": "P2-G-008",
+      "relationship": "leaves_open",
+      "to_node": "P2-A-007",
+      "warrant": "Precise historical policy wording cannot be treated as independently authenticated release-day public evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-119",
+      "from_node": "P2-E-019",
+      "relationship": "qualifies",
+      "to_node": "P2-G-008",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-120",
+      "from_node": "P2-E-020",
+      "relationship": "qualifies",
+      "to_node": "P2-G-008",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P2-L-121",
+      "from_node": "P2-E-021",
+      "relationship": "qualifies",
+      "to_node": "P2-G-008",
+      "warrant": "The cited evidence narrows the gap or documents its boundary; it does not prove nonexistent private evidence.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    }
+  ]
+}

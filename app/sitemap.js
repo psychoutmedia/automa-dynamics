@@ -16,6 +16,8 @@ export default function sitemap() {
     { url: `${BASE_URL}/articles`, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE_URL}/safety/argus`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/safety/argus/proof-1`, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE_URL}/safety/argus/claude-opus-5-5`, lastModified: new Date('2026-10-12T00:00:00.000Z'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/safety/argus/claude-opus-5-5/explore`, lastModified: new Date('2026-10-12T00:00:00.000Z'), changeFrequency: 'monthly', priority: 0.6 },
     ...articles,
   ]
 }
