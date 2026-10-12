@@ -310,7 +310,7 @@ export default function ArgusProof2Page() {
             . These figures describe the research artifact; they are not safety scores.
           </P>
 
-          <ArgusCaseCard headingLevel="h3" className="mt-10 mb-4" />
+          <ArgusCaseCard proof="p2" headingLevel="h3" className="mt-10 mb-4" />
           <p className="text-sm text-chrome/65 mb-14">
             The case at a glance, as the explorer reads it from the graph.{' '}
             <a className={VIOLET_LINK} href={SUMMARY}>

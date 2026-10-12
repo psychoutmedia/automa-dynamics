@@ -1,10 +1,10 @@
-import { getP2Case, FINDING } from '../../lib/argusP2'
+import { getArgusCase } from '../../lib/argusCases'
 
-/* The ARGUS Proof-2 case card: the explorer's header, restored as a site
-   component. Root claim in Anthropic's words with its locator, ARGUS's scoping
-   note directly beneath it (so the claim is never read as a residual-risk
-   sufficiency statement), the checklist finding, and the inventory counts with
-   the explorer's own shape key. Used on the findings page and on /summary. */
+/* An ARGUS case card: the graph viewer's header, restored as a site component.
+   Root claim with its locator, ARGUS's note on it directly beneath (so the claim
+   is never read as a safety verdict), the reconstruction finding, and the
+   inventory counts with the viewer's own shape key. proof = 'p1' (GPT-6 Astra)
+   or 'p2' (Claude Opus 5.5); labels come from lib/argusCases.js. */
 
 const GLYPH = {
   CLAIM: (c) => <rect x="2" y="5" width="18" height="12" rx="1" fill="none" stroke={c} strokeWidth="2" />,
@@ -23,14 +23,14 @@ const COLOUR = {
   GAP: '#F07E5E',
 }
 
-export default function ArgusCaseCard({ headingLevel: H = 'h2', className = '' }) {
-  const c = getP2Case()
+export default function ArgusCaseCard({ proof, headingLevel: H = 'h2', className = '' }) {
+  const c = getArgusCase(proof)
   return (
     <div className={`rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden ${className}`}>
       <div className="grid lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]">
         <figure className="p-6 md:p-8 border-b lg:border-b-0 lg:border-r border-white/10 border-l-2 border-l-[#8FA2F0]">
           <figcaption className="font-mono text-[0.6875rem] tracking-[0.12em] text-chrome/65 mb-4 uppercase">
-            Root claim {c.rootId} &middot; {c.candidateId} &middot; verbatim publisher
+            {c.rootLabel}
           </figcaption>
           <blockquote>
             <p className="text-[1.0625rem] md:text-[1.1875rem] leading-snug text-chrome-light mb-5">
@@ -42,17 +42,17 @@ export default function ArgusCaseCard({ headingLevel: H = 'h2', className = '' }
           </p>
           <p className="mt-3 text-sm leading-relaxed text-chrome-light/90">
             <span className="font-mono text-[0.6875rem] tracking-[0.12em] text-[#d9b45e] mr-2">
-              ARGUS SCOPE
+              {c.noteLabel.toUpperCase()}
             </span>
-            {c.scope}
+            {c.note}
           </p>
         </figure>
         <div className="p-6 md:p-8 border-l-2 border-l-[#d9b45e] lg:border-l-0">
           <H className="font-mono text-[0.6875rem] tracking-[0.12em] text-chrome/65 mb-4 uppercase font-normal">
-            Reconstruction finding &middot; executive checklist
+            {c.findingLabel}
           </H>
           <p className="text-[1.0625rem] md:text-[1.125rem] leading-relaxed text-chrome-light">
-            {FINDING}
+            {c.finding}
           </p>
         </div>
       </div>

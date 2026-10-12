@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { SITE_URL } from '../../../lib/articles'
 import ArgusUpdate from '../../_components/ArgusUpdate'
+import ArgusCaseCard from '../../_components/ArgusCaseCard'
 
 /* Deliberately static. The site's scroll reveals start every block at
    opacity 0 and fade it in after hydration; on a page this dense that read as
@@ -74,6 +75,7 @@ const VIOLET_LINK = 'text-[#a78bfa] hover:text-[#c4b5fd] transition-colors'
 const GRAPH = '/safety/argus/proof-1#exec'
 const FILES = '/safety/argus/files'
 const P2 = '/safety/argus/claude-opus-5-5'
+const P1_SUMMARY = '/safety/argus/proof-1/summary'
 
 /* The two ARGUS cases, side by side on the first screen. Counts are inventory,
    not safety scores; each card carries its own status line. */
@@ -112,16 +114,6 @@ const scope = [
   ['Risk domain', 'Cybersecurity'],
   ['Decision context', 'Public release'],
   ['Evidence cutoff', '3 September 2026'],
-]
-
-const counts = [
-  ['2', 'claims'],
-  ['5', 'arguments'],
-  ['23', 'evidence objects'],
-  ['8', 'dependencies'],
-  ['3', 'explicit assumptions'],
-  ['9', 'active material gaps'],
-  ['125', 'relationships'],
 ]
 
 const distinctions = [
@@ -352,12 +344,17 @@ export default function ArgusPage() {
               </p>
             </Reveal>
             <Reveal>
-              <blockquote className="card-glass p-8 md:p-10 max-w-[42rem] mb-12 border-l-2 border-l-[#d9b45e]">
-                <p className="text-[1.25rem] md:text-[1.5rem] leading-snug text-chrome-light font-normal">
-                  GPT-6 Astra&rsquo;s safeguards sufficiently minimize the risk of severe cyber harm
-                  for public release under OpenAI&rsquo;s Preparedness Framework.
-                </p>
-              </blockquote>
+              {/* The Proof-1 viewer's header (claim, register note, conclusion, counts),
+                  read from the published graph JSON. Replaces the hand-typed claim quote
+                  and counts grid that used to sit here. */}
+              <ArgusCaseCard proof="p1" headingLevel="h3" className="mb-4" />
+              <p className="text-sm text-chrome/65 mb-12">
+                The case at a glance, as the graph viewer reads it.{' '}
+                <a className={VIOLET_LINK} href={P1_SUMMARY}>
+                  Open the one-page case summary
+                </a>
+                .
+              </p>
             </Reveal>
             <Reveal>
               <dl className="grid grid-cols-1 sm:grid-cols-[11rem_1fr] gap-x-8 gap-y-3 max-w-[36rem] mb-12">
@@ -376,23 +373,6 @@ export default function ArgusPage() {
                 rather than silently incorporating later revisions.
               </p>
             </Reveal>
-            <Reveal>
-              <p className={`${BODY} ${MEASURE} mb-6`}>The resulting Proof-1 contains:</p>
-            </Reveal>
-          </RevealGroup>
-
-          <RevealGroup
-            className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden"
-            stagger={0.05}
-          >
-            {counts.map(([n, label]) => (
-              <Reveal key={label} className="bg-wayland-950 p-5 md:p-6">
-                <div className="font-mono text-[1.75rem] md:text-[2rem] leading-none text-chrome-light mb-3">
-                  {n}
-                </div>
-                <div className="text-sm text-chrome/65 leading-snug">{label}</div>
-              </Reveal>
-            ))}
           </RevealGroup>
         </div>
       </section>

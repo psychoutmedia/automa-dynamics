@@ -81,7 +81,7 @@ export default function ArgusP2Summary() {
             EXTERNALLY PEER REVIEWED
           </p>
 
-          <ArgusCaseCard className="mb-10" />
+          <ArgusCaseCard proof="p2" className="mb-10" />
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <a

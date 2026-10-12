@@ -58,6 +58,7 @@ and it is not affiliated with or endorsed by Anthropic.
 ## ARGUS
 - [ARGUS](${SITE_URL}/safety/argus): the method, the Proof-1 summary, and the five review questions.
 - [Proof-1 interactive assurance graph](${SITE_URL}/safety/argus/proof-1): every claim, argument, evidence object, dependency, assumption and gap, with provenance.
+- [Proof-1 case summary](${SITE_URL}/safety/argus/proof-1/summary): one screen with the root claim, ARGUS's register note, the reconstruction conclusion, the inventory counts and the 9 October 2026 update.
 - [Proof-1.1 temporal update](${SITE_URL}/safety/argus/proof-1#delta): the Temporal delta tab of the same page; the nine gaps re-examined from the 3 September 2026 cutoff to the public record on 9 October 2026, with every source change and evidence-quality record.
 - [Proof-1.1 delta JSON](${SITE_URL}/safety/argus/files/ARGUS_P11_DELTA.json): the machine-readable P1.1 overlay.
 - [Proof-1 graph JSON](${SITE_URL}/safety/argus/files/ARGUS_P1_ASTRA_GRAPH.json): the machine-readable graph the interactive page renders.
