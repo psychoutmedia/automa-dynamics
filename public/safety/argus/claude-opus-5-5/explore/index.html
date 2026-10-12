@@ -373,19 +373,47 @@ body.embed-preview .canvas { border: 0; }
 @media (max-width: 700px) { .toolbar2 .hictl { flex: 1 1 100%; } #hiSel { flex: 1 1 100%; width: 100%; max-width: 100%; } }
 
 
-/* ===== Automa Dynamics publication layer (scripts/sync-argus-p2.py) ===== */
-.sitebar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; padding: 12px 20px;
-  border-bottom: 1px solid var(--line); background: var(--surface); }
-.sitebar .home { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
-.sitebar .home img { width: 22px; height: 22px; object-fit: contain; }
-.sitebar .name { font: 600 12.5px/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; }
-.sitebar .name span { color: var(--muted); letter-spacing: .06em; }
-.sitebar nav { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-left: auto; }
-.sitebar nav a { font: 500 12.5px var(--f-mono); color: var(--muted); text-decoration: none; }
-.sitebar nav a:hover, .sitebar nav a:focus-visible { color: var(--ink); text-decoration: underline; }
-@media (max-width: 700px) { .sitebar { padding: 10px 12px; } .sitebar nav { margin-left: 0; } }
+/* ===== Automa Dynamics publication layer (scripts/sync-argus-p2.py) =====
+   Layout mirrors /safety/argus/proof-1 (scripts/sync-argus.py): site ground in
+   dark mode, a sparse sticky bar, and the graph given the viewport. The node and
+   relationship colours are the series palette and are left alone. */
+:root[data-theme="dark"] {
+  --bg: #020617; --surface: #0a1020; --surface-2: #0e1628; --line: rgb(255 255 255 / 0.1); --grid: rgb(255 255 255 / 0.05);
+}
+.wrap { max-width: none; padding: 0 20px 28px; gap: 12px; }
+@media (max-width: 600px) { .wrap { padding: 0 12px 24px; } }
+
+.argusbar { position: sticky; top: 0; z-index: 10; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px;
+  padding: 12px 0 10px; background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line); }
+.argusbar .home { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+.argusbar .home img { width: 22px; height: 22px; object-fit: contain; }
+.argusbar .name { font: 500 13px/1 var(--f-mono); letter-spacing: .18em; text-transform: uppercase; }
+.argusbar .name span { color: var(--muted); letter-spacing: .08em; }
+.argusbar .eyebrow { font-size: 11px; margin: 0; }
+.argusbar .eyebrow .tag { background: transparent; }
+/* two rows, as on Proof-1: name + links + Theme, then the scope tags */
+.argusbar .links { order: 1; margin-left: auto; display: flex; align-items: center; gap: 6px 18px; flex-wrap: wrap; }
+.argusbar .eyebrow { order: 2; flex: 1 1 100%; }
+.argusbar .links .themebtn { margin-left: 0; }
+.argusbar .links a { font: 500 12px var(--f-mono); color: var(--muted); text-decoration: none; white-space: nowrap; }
+.argusbar .links a:hover, .argusbar .links a:focus-visible { color: var(--ink); }
+@media (max-width: 900px) { .argusbar { position: static; } .argusbar .links { margin-left: 0; } }
+
+/* the graph gets the viewport */
+aside.panel { top: 64px; max-height: calc(100vh - 76px); }
+#full-svg { height: max(520px, calc(100vh - 220px)); }
+@media (max-width: 700px) { #full-svg { height: 72vh; } }
+#view-exec .scroller { overflow: hidden; }
+#exec-svg { min-width: 0; height: max(480px, calc(100vh - 220px)); cursor: grab; touch-action: none; }
+#exec-svg:active { cursor: grabbing; }
+@media (max-width: 700px) { #exec-svg { height: 72vh; } }
+.tabs { margin-top: 4px; }
+
+footer { max-width: 118ch; padding-top: 16px; border-top: 1px solid var(--line); margin-top: 8px; }
+footer .reviewterms { margin-bottom: 6px; }
 #xfoot a { color: var(--claim); }
-body.embed .sitebar { display: none; }
+body.embed .argusbar { display: none; }
 /* AA contrast: the tab counts used --faint (4.27:1 on the dark ground). */
 .tab small { color: var(--muted); }
 /* Light theme (opt-in via Theme): amber warn text was 2.9-3.1:1 on white; text only, borders keep the series amber. */
@@ -393,19 +421,12 @@ body.embed .sitebar { display: none; }
 </style>
 </head>
 <body>
-<header class="sitebar">
-  <a class="home" href="/safety/argus" aria-label="ARGUS overview">
-    <img src="/logo.png" alt="" width="22" height="22">
-    <span class="name">ARGUS <span>Proof-2 &middot; Claude Opus 5.5</span></span>
-  </a>
-  <nav aria-label="ARGUS Proof-2">
-    <a href="/safety/argus/claude-opus-5-5">Findings</a>
-    <a href="/safety/argus">ARGUS overview</a>
-    <a href="/">Automa Dynamics</a>
-  </nav>
-</header>
 <div class="wrap">
-  <header id="xhead">
+  <header class="argusbar" id="xhead">
+    <a class="home" href="/safety/argus" aria-label="ARGUS overview">
+      <img src="/logo.png" alt="" width="22" height="22">
+      <span class="name">ARGUS <span>Proof-2</span></span>
+    </a>
     <div class="eyebrow">
       <span>ARGUS-P2</span>
       <span class="tag">Anthropic</span>
@@ -414,18 +435,13 @@ body.embed .sitebar { display: none; }
       <span class="tag">General-access release</span>
       <span class="tag mono">Release baseline 2026-09-22</span>
       <span class="tag warn">Technical reconstruction complete · not externally peer reviewed</span>
+    </div>
+    <nav class="links" aria-label="ARGUS Proof-2">
+      <a href="/safety/argus/claude-opus-5-5">Findings</a>
+      <a href="/safety/argus">About ARGUS &rarr;</a>
       <button class="btn themebtn" id="themeBtn" type="button" aria-label="Toggle colour theme">Theme</button>
-    </div>
-    <h1>ARGUS Proof-2 Assurance Graph</h1>
-    <div class="lead">
-      <div class="rootclaim"><span class="label" id="rootLabel"></span><p id="c1text"></p><span class="cite" id="c1cite"></span></div>
-      <div class="finding"><span class="label">Reconstruction finding · executive checklist</span><p id="conclusion"></p></div>
-    </div>
-    <div class="counts" id="counts"></div>
-    <div class="reviewterms" role="note" aria-label="Reading conditions">
-      <span class="label">Reading conditions · status and non-inference</span>
-      <p><strong>Research filed 11 October 2026. Targeted source-to-visual fidelity audit complete; presentation corrections applied. Independent external peer review not completed.</strong> Counts are structural inventory, not safety scores. A gap marks a public-assurance link not established in the inspected public corpus. It is not evidence that a control is ineffective, that private evidence does not exist, or of misconduct or known harm. No cross-model ranking is made.</p>
-    </div>
+    </nav>
+    <div hidden><h1>ARGUS Proof-2 Assurance Graph</h1><span id="rootLabel"></span><p id="c1text"></p><span id="c1cite"></span><p id="conclusion"></p><div id="counts"></div></div>
   </header>
 
   <div class="tabs" role="tablist">
@@ -439,6 +455,7 @@ body.embed .sitebar { display: none; }
         <div class="toolbar">
           <span class="note" id="exec-note"></span>
           <span class="note">Short labels are editorial. Click any node for the exact register text.</span>
+          <span class="ctl"><span class="note">Drag to pan, scroll or pinch to zoom.</span> <button class="btn" id="exec-fit" type="button">Fit</button></span>
         </div>
         <div class="scroller"><svg id="exec-svg" viewBox="0 0 1240 720" role="img" aria-label="Executive assurance graph for root claim P2-C-001"></svg></div>
         <div class="branchbar" id="branchbar" role="tablist" aria-label="Assurance branches"><span class="label">Branch reader</span></div>
@@ -485,6 +502,10 @@ body.embed .sitebar { display: none; }
   </div>
 
   <footer id="xfoot">
+    <div class="reviewterms" role="note" aria-label="Reading conditions">
+      <span class="label">Reading conditions · status and non-inference</span>
+      <p><strong>Research filed 11 October 2026. Targeted source-to-visual fidelity audit complete; presentation corrections applied. Independent external peer review not completed.</strong> Counts are structural inventory, not safety scores. A gap marks a public-assurance link not established in the inspected public corpus. It is not evidence that a control is ineffective, that private evidence does not exist, or of misconduct or known harm. No cross-model ranking is made.</p>
+    </div>
     <p id="semantics"></p>
     <p><strong>FCF historical limit.</strong> <span id="fcfLimit"></span> <code id="fcfQual"></code></p>
     <p>Source of truth: <code>ARGUS_P2_ASSURANCE_GRAPH.json</code>, embedded in this page unchanged and rendered in the browser. <span id="integrity">Checking embedded dataset…</span></p>
@@ -4032,6 +4053,56 @@ else { route(); booted = true; writeHash(); window.addEventListener('hashchange'
 document.body.dataset.ready = '1';
 })();
 
+</script>
+<script>
+(function () {
+  const svg = document.getElementById('exec-svg');
+  if (!svg) return;
+  const base = svg.getAttribute('viewBox').trim().split(/[\s,]+/).map(Number);
+  let vb = base.slice();
+  const apply = () => svg.setAttribute('viewBox', vb.map(v => v.toFixed(2)).join(' '));
+  const scale = () => { const m = svg.getScreenCTM(); return m ? m.a : 1; };
+  const toUser = (cx, cy) => {
+    const m = svg.getScreenCTM();
+    if (!m) return { x: vb[0] + vb[2] / 2, y: vb[1] + vb[3] / 2 };
+    const pt = svg.createSVGPoint(); pt.x = cx; pt.y = cy;
+    return pt.matrixTransform(m.inverse());
+  };
+  // f > 1 zooms out, about user-space point u, which stays under the cursor.
+  const zoomAt = (u, f) => {
+    const w = Math.max(base[2] / 4, Math.min(base[2] * 4, vb[2] * f));
+    f = w / vb[2];
+    vb = [u.x - (u.x - vb[0]) * f, u.y - (u.y - vb[1]) * f, vb[2] * f, vb[3] * f];
+    apply();
+  };
+  svg.addEventListener('wheel', ev => {
+    ev.preventDefault();
+    zoomAt(toUser(ev.clientX, ev.clientY), Math.exp(ev.deltaY * 0.0015));
+  }, { passive: false });
+
+  let pan = null, moved = false;
+  svg.addEventListener('pointerdown', ev => {
+    if (ev.button !== 0 || (ev.target.closest && ev.target.closest('.node'))) return;
+    pan = { x: ev.clientX, y: ev.clientY, vx: vb[0], vy: vb[1], s: scale() };
+    moved = false;
+    svg.setPointerCapture(ev.pointerId);
+  });
+  svg.addEventListener('pointermove', ev => {
+    if (!pan) return;
+    const dx = ev.clientX - pan.x, dy = ev.clientY - pan.y;
+    if (Math.abs(dx) + Math.abs(dy) > 3) moved = true;
+    vb[0] = pan.vx - dx / pan.s; vb[1] = pan.vy - dy / pan.s;
+    apply();
+  });
+  const end = ev => { if (!pan) return; pan = null; try { svg.releasePointerCapture(ev.pointerId); } catch (_) {} };
+  svg.addEventListener('pointerup', end);
+  svg.addEventListener('pointercancel', end);
+  // A drag ends in a click on the background, which would clear the pinned
+  // node. Swallow that one click in the capture phase, before it arrives.
+  svg.parentNode.addEventListener('click', ev => { if (moved) { ev.stopPropagation(); moved = false; } }, true);
+
+  document.getElementById('exec-fit').addEventListener('click', () => { vb = base.slice(); apply(); });
+})();
 </script>
 </body>
 </html>

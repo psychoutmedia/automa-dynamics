@@ -1,5 +1,5 @@
 import { SITE_URL } from '../../../../lib/articles'
-import ArgusEmbed from '../../../_components/ArgusEmbed'
+import Image from 'next/image'
 
 /* ARGUS Proof-2 findings. Copy is the reviewed public findings text
    (ARGUS_P2_PUBLIC_FINDINGS_DRAFT.md); only layout and readability are
@@ -339,19 +339,31 @@ export default function ArgusProof2Page() {
             record, dependency, assumption, source locator and ARGUS-written warrant.
           </P>
 
-          <ArgusEmbed
-            src={`${EXPLORER}?embed=exec&theme=dark`}
-            title="ARGUS Proof-2 Executive assurance graph for Claude Opus 5.5, with branch reader and record panel"
-          />
-          <p className="text-sm text-chrome/65 mt-4">
-            Select a gap, or use the branch reader beneath the graph, to read one branch from claim
-            component to the evidence that would close its open link. Short labels are editorial;
-            each panel gives the exact register text.{' '}
-            <a className={VIOLET_LINK} href={`${EXPLORER}#exec`}>
-              Open full-window
-            </a>{' '}
-            for the side-by-side panel and the Full graph.
-          </p>
+          {/* Same pattern as Proof-1 on /safety/argus: the graph lives full-screen
+              on its own page; this image is the way in. */}
+          <a
+            href={`${EXPLORER}#exec`}
+            aria-label="Open the interactive assurance graph full-screen"
+            className="block rounded-2xl overflow-hidden border border-white/10 hover:border-[#a78bfa]/50 transition-colors mb-6"
+          >
+            <Image
+              src={`${PATH}/executive-graph.png`}
+              alt="ARGUS Proof-2 executive assurance graph: root claim P2-C-001 supported by arguments A-001 to A-007, the eight open public-assurance gaps G-001 to G-008, and selected evidence nodes."
+              width={1597}
+              height={928}
+              className="w-full h-auto"
+            />
+          </a>
+          <div className="grid md:grid-cols-2 gap-x-12 gap-y-3">
+            <p className="text-sm leading-relaxed text-chrome/65">
+              Select any node to inspect its register record, evidence status, limitations,
+              provenance and relationships. Drag to pan, scroll or pinch to zoom.
+            </p>
+            <p className="text-sm leading-relaxed text-chrome/65">
+              The Executive view and its branch reader show the main assurance structure. The Full
+              Assurance Graph exposes all 50 nodes and 121 edge records.
+            </p>
+          </div>
         </div>
       </section>
 
