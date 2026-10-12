@@ -53,6 +53,25 @@ DESCRIPTION = (
 )
 OG_IMAGE = f"{BASE}/safety/argus/claude-opus-5-5/executive-graph.png"
 
+BR_OUT = ROOT / "public" / "safety" / "argus" / "claude-opus-5-5" / "branches" / "index.html"
+BR_ROUTE = "/safety/argus/claude-opus-5-5/branches"
+BR_TITLE = "ARGUS Proof-2 Branch Reader: Claude Opus 5.5"
+BR_DESCRIPTION = (
+    "Read the Claude Opus 5.5 cybersecurity assurance case one branch at a time: each of the eight open "
+    "public-assurance gaps traced from claim component to the evidence that would close it. "
+    "Independent research by Automa Dynamics; not affiliated with Anthropic."
+)
+BR_CSS = """
+/* Branch reader (standalone Executive reading mode): keep the site bar and footer. */
+body.embed.standalone header.argusbar { display: flex; }
+body.embed.standalone footer#xfoot { display: block; }
+body.embed.standalone .wrap { max-width: 1280px; margin: 0 auto; padding: 0 20px 28px; gap: 12px; }
+@media (max-width: 600px) { body.embed.standalone .wrap { padding: 0 12px 24px; } }
+/* The reader is the point of this page: a shorter graph keeps the branch bar and
+   the selected branch on the first screen (the full-screen graph is one click away). */
+body.embed.standalone #exec-svg { height: clamp(320px, 50vh, 520px); }
+"""
+
 STATUS = ("Targeted source-to-visual fidelity audit complete; presentation corrections applied. "
           "Independent external peer review not completed.")
 
@@ -252,6 +271,33 @@ def main():
     j = json.loads(embedded)
     print(f"wrote {OUT.relative_to(ROOT)} ({len(html.encode('utf-8')):,} bytes; {len(j['nodes'])} nodes, "
           f"{len(j['edges'])} edges; embedded sha256 {EXPECTED[:16]}... identical)")
+
+    # Branch reader: the same page, opened in the explorer's Executive reading
+    # mode (graph, branch reader and record panel in one column, no Full tab),
+    # with the bar and footer kept so it stands as a page of its own.
+    br = html
+    for old, new, n in [
+        (f"{TITLE} | Automa Dynamics</title>", f"{BR_TITLE} | Automa Dynamics</title>", 1),
+        (f'content="{TITLE}"', f'content="{BR_TITLE}"', 2),
+        (f'content="{DESCRIPTION}"', f'content="{BR_DESCRIPTION}"', 3),
+        (f'"{BASE}{ROUTE}"', f'"{BASE}{BR_ROUTE}"', 2),
+        ("const params = new URLSearchParams(location.search), EMBED = params.get('embed');",
+         "const params = new URLSearchParams(location.search), EMBED = 'exec'; document.body.classList.add('standalone');", 1),
+        ('<span class="name">ARGUS <span>Proof-2</span></span>',
+         '<span class="name">ARGUS <span>Proof-2 &middot; Branch reader</span></span>', 1),
+        (f'      <a href="{FINDINGS}">Findings</a>\n',
+         f'      <a href="{ROUTE}#exec">Full-screen graph</a>\n      <a href="{FINDINGS}">Findings</a>\n', 1),
+        ("</style>\n</head>", BR_CSS + "</style>\n</head>", 1),
+    ]:
+        if br.count(old) != n:
+            sys.exit(f"sync-argus-p2: branch-reader anchor found {br.count(old)}x, expected {n}: {old[:60]!r}")
+        br = br.replace(old, new)
+    a = br.index(tag) + len(tag)
+    if hashlib.sha256(br[a:br.index("</script>", a)].encode("utf-8")).hexdigest() != EXPECTED:
+        sys.exit("sync-argus-p2: embedded graph changed in branch reader")
+    BR_OUT.parent.mkdir(parents=True, exist_ok=True)
+    BR_OUT.write_text(br, encoding="utf-8", newline="\n")
+    print(f"wrote {BR_OUT.relative_to(ROOT)} ({len(br.encode('utf-8')):,} bytes; same embedded graph)")
 
 
 if __name__ == "__main__":

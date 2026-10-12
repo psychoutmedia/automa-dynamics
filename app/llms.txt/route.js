@@ -65,6 +65,8 @@ and it is not affiliated with or endorsed by Anthropic.
 - [Proof-1 review packet](${SITE_URL}/safety/argus/files/ARGUS_PROOF1_EXTERNAL_REVIEW_PACKET.md): what reviewers are asked to assess.
 - [Proof-2 findings: Claude Opus 5.5](${SITE_URL}/safety/argus/claude-opus-5-5): what the public cybersecurity assurance record establishes, the eight open public-assurance gaps, limitations and sources.
 - [Proof-2 interactive assurance graph](${SITE_URL}/safety/argus/claude-opus-5-5/explore): Executive and Full graphs, 50 nodes and 121 edge records, with evidence records and source locators.
+- [Proof-2 case summary](${SITE_URL}/safety/argus/claude-opus-5-5/summary): one screen with the root claim in Anthropic's words, ARGUS's scoping note, the checklist finding and the inventory counts.
+- [Proof-2 branch reader](${SITE_URL}/safety/argus/claude-opus-5-5/branches): each of the eight gaps traced from claim component to the evidence that would close it.
 - [Proof-2 graph JSON](${SITE_URL}/safety/argus/files/ARGUS_P2_ASSURANCE_GRAPH.json): the machine-readable graph the Proof-2 explorer renders.
 
 ## Articles

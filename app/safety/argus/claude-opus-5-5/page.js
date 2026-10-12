@@ -1,5 +1,6 @@
 import { SITE_URL } from '../../../../lib/articles'
 import Image from 'next/image'
+import ArgusCaseCard from '../../../_components/ArgusCaseCard'
 
 /* ARGUS Proof-2 findings. Copy is the reviewed public findings text
    (ARGUS_P2_PUBLIC_FINDINGS_DRAFT.md); only layout and readability are
@@ -8,6 +9,8 @@ import Image from 'next/image'
 
 const PATH = '/safety/argus/claude-opus-5-5'
 const EXPLORER = `${PATH}/explore`
+const SUMMARY = `${PATH}/summary`
+const BRANCHES = `${PATH}/branches`
 const GRAPH_JSON = '/safety/argus/files/ARGUS_P2_ASSURANCE_GRAPH.json'
 const GRAPH_SHA = 'fd4bfcf389871d36a4466c5665442ac4ab0c2947c29c6b6b1c799a0c8790ac2a'
 
@@ -73,16 +76,6 @@ const scope = [
   ['Release baseline', '22 September 2026'],
   ['Research filed', '11 October 2026'],
   ['Claim', 'P2-C-001'],
-]
-
-const counts = [
-  ['50', 'typed nodes'],
-  ['121', 'edge records'],
-  ['23', 'evidence objects'],
-  ['7', 'arguments'],
-  ['6', 'dependencies'],
-  ['5', 'assumptions'],
-  ['8', 'open public-assurance gaps'],
 ]
 
 const gaps = [
@@ -317,19 +310,13 @@ export default function ArgusProof2Page() {
             . These figures describe the research artifact; they are not safety scores.
           </P>
 
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden mt-10 mb-4">
-            {counts.map(([n, label]) => (
-              <div key={label} className="bg-wayland-950 p-5 md:p-6">
-                <div className="font-mono text-[1.75rem] md:text-[2rem] leading-none text-chrome-light mb-3">
-                  {n}
-                </div>
-                <div className="text-sm text-chrome/65 leading-snug">{label}</div>
-              </div>
-            ))}
-          </div>
+          <ArgusCaseCard headingLevel="h3" className="mt-10 mb-4" />
           <p className="text-sm text-chrome/65 mb-14">
-            Inventory counts describing the shape of the reconstruction. Not safety scores, and not
-            comparable across studies.
+            The case at a glance, as the explorer reads it from the graph.{' '}
+            <a className={VIOLET_LINK} href={SUMMARY}>
+              Open the one-page case summary
+            </a>
+            .
           </p>
 
           <P className="mb-8">
@@ -361,7 +348,12 @@ export default function ArgusProof2Page() {
             </p>
             <p className="text-sm leading-relaxed text-chrome/65">
               The Executive view and its branch reader show the main assurance structure. The Full
-              Assurance Graph exposes all 50 nodes and 121 edge records.
+              Assurance Graph exposes all 50 nodes and 121 edge records. Prefer to read one gap at a
+              time?{' '}
+              <a className={VIOLET_LINK} href={BRANCHES}>
+                Read it branch by branch
+              </a>
+              .
             </p>
           </div>
         </div>
@@ -610,6 +602,8 @@ export default function ArgusProof2Page() {
               {[
                 ['View', 'Executive assurance graph', `${EXPLORER}#exec`, '→'],
                 ['View', 'Full assurance graph', `${EXPLORER}#full`, '→'],
+                ['Read', 'Branch reader', BRANCHES, '→'],
+                ['Share', 'One-page case summary', SUMMARY, '→'],
                 ['Inspect', 'Machine-readable Graph JSON', GRAPH_JSON, 'JSON'],
                 ['About', 'ARGUS method and Proof-1', '/safety/argus', '→'],
                 ['Contact', 'hello@automadynamics.com', 'mailto:hello@automadynamics.com?subject=ARGUS%20Proof-2', '→'],
