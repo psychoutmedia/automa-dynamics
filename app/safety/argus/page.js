@@ -19,7 +19,7 @@ function SplitText({ text, className, as: Tag = 'h2' }) {
 }
 
 const DESCRIPTION =
-  'ARGUS reconstructs frontier AI safety claims as inspectable assurance cases. Two cases: Proof-1 maps the public evidence behind GPT-6 Astra’s cybersecurity release claim; Proof-2 reconstructs the public cybersecurity assurance record for Claude Opus 5.5. Each shows where the public evidence stops.'
+  'ARGUS reconstructs frontier AI safety claims as inspectable assurance cases. Three cases: Proof-1 maps the public evidence behind GPT-6 Astra’s cybersecurity release claim; Proof-2 reconstructs the public cybersecurity assurance record for Claude Opus 5.5; Proof-3 does the same for Gemini 4 Argon’s cyberoffensive safety case. Each shows where the public evidence stops.'
 
 export const metadata = {
   title: 'ARGUS',
@@ -75,9 +75,10 @@ const VIOLET_LINK = 'text-[#a78bfa] hover:text-[#c4b5fd] transition-colors'
 const GRAPH = '/safety/argus/proof-1#exec'
 const FILES = '/safety/argus/files'
 const P2 = '/safety/argus/claude-opus-5-5'
+const P3 = '/safety/argus/gemini-4-argon'
 const P1_SUMMARY = '/safety/argus/proof-1/summary#exec'
 
-/* The two ARGUS cases, side by side on the first screen. Counts are inventory,
+/* The ARGUS cases on the first screen: the first two side by side, the newest full width beneath. Counts are inventory,
    not safety scores; each card carries its own status line. */
 const cases = [
   {
@@ -105,6 +106,19 @@ const cases = [
     summary: `${P2}/summary`,
     more: `${P2}/explore#exec`,
     moreLabel: 'Proof-2 graph',
+  },
+  {
+    proof: 'Proof-3',
+    system: 'Gemini 4 Argon',
+    org: 'Google DeepMind',
+    meta: 'Cyberoffensive misuse · broad rollout beginning 13 October 2026',
+    gaps: '7 open public-assurance gaps',
+    status: 'Technical complete · research filed 14 Oct 2026 · not externally peer reviewed',
+    href: P3,
+    cta: 'Read the Proof-3 findings',
+    more: `${P3}/explore#exec`,
+    moreLabel: 'Proof-3 graph',
+    wide: true,
   },
 ]
 
@@ -187,7 +201,7 @@ export default function ArgusPage() {
               {cases.map((c) => (
                 <li
                   key={c.proof}
-                  className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8 flex flex-col"
+                  className={`rounded-2xl border border-white/10 bg-white/[0.02] p-6 md:p-8 flex flex-col${c.wide ? ' md:col-span-2' : ''}`}
                 >
                   <p className={`font-mono text-xs tracking-[0.12em] ${GOLD} mb-4`}>
                     {c.proof.toUpperCase()} &middot; {c.org.toUpperCase()}
@@ -205,9 +219,11 @@ export default function ArgusPage() {
                     <a href={c.href} className="btn-primary inline-flex items-center justify-center gap-2 !px-5">
                       {c.cta} <span aria-hidden="true">&rarr;</span>
                     </a>
-                    <a href={c.summary} className="btn-secondary !px-5 text-center">
-                      Case summary
-                    </a>
+                    {c.summary && (
+                      <a href={c.summary} className="btn-secondary !px-5 text-center">
+                        Case summary
+                      </a>
+                    )}
                     <a href={c.more} className={`text-sm ${VIOLET_LINK}`}>
                       {c.moreLabel}
                     </a>
@@ -507,6 +523,61 @@ export default function ArgusPage() {
                 </a>
                 <a href={`${P2}/explore#exec`} className="btn-secondary text-center">
                   Open the Proof-2 graph
+                </a>
+              </div>
+            </Reveal>
+          </RevealGroup>
+        </div>
+      </section>
+
+      {/* Proof-3. The full findings live on their own page; this is the pointer. */}
+      <section id="proof-3" className={`${SECTION} border-t border-white/5`}>
+        <div className={SHELL}>
+          <RevealGroup>
+            <Reveal>
+              <p className={`${LABEL} mb-6`}>Proof-3</p>
+            </Reveal>
+            <SplitText text="Gemini 4 Argon" className={`${DISPLAY} mb-4`} />
+            <Reveal>
+              <p className={`${LEAD} ${MEASURE} mb-10`}>
+                What the public cyberoffensive assurance record establishes
+              </p>
+            </Reveal>
+            <Reveal>
+              <p className={`${BODY} ${MEASURE} mb-6`}>
+                Google DeepMind says it cannot rule out that Gemini 4 Argon has reached its
+                cybersecurity Critical Capability Level, developed a safety case, and assesses the
+                remaining risk as below that level. &ldquo;Cannot rule out&rdquo; is not a confirmed
+                crossing, and the below-level judgement is Google&rsquo;s own. The public record makes
+                the reason for mitigating and several test outcomes inspectable, including adverse
+                bypasses; it leaves the bridge from those results to the residual-risk judgement only
+                partly inspectable.
+              </p>
+            </Reveal>
+            <Reveal>
+              <p className={`${LEAD} ${MEASURE} mb-10`}>
+                Seven open public-assurance gaps: requests for inspectable evidence, not findings that
+                controls failed.
+              </p>
+            </Reveal>
+            <Reveal>
+              <p className={`${BODY} ${MEASURE} mb-10`}>
+                Broad rollout beginning 13 October 2026; the restricted Fairwind phase of 30 September
+                is a separate configuration. 53 typed nodes and 69 warranted relationships. Research
+                filed 14 October 2026; not externally peer reviewed. Independent research, not
+                affiliated with, commissioned by, or endorsed by Google.
+              </p>
+            </Reveal>
+            <Reveal>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href={P3}
+                  className="btn-primary inline-flex items-center justify-center gap-2 !px-5 sm:!px-8"
+                >
+                  Read the Proof-3 findings <span aria-hidden="true">&rarr;</span>
+                </a>
+                <a href={`${P3}/explore#exec`} className="btn-secondary text-center">
+                  Open the Proof-3 graph
                 </a>
               </div>
             </Reveal>

@@ -50,6 +50,11 @@ certification, and it is not affiliated with or endorsed by OpenAI.
 Proof-2 (Claude Opus 5.5, cybersecurity, release baseline 22 September 2026)
 records eight open public-assurance gaps. It has not been externally peer reviewed,
 and it is not affiliated with or endorsed by Anthropic.
+Proof-3 (Gemini 4 Argon, cyberoffensive misuse, broad rollout beginning 13 October
+2026) records seven open public-assurance gaps. Google cannot rule out the
+cybersecurity CCL; that is not a confirmed crossing, and Google's below-CCL
+residual-risk judgement is not independently verified by ARGUS. It has not been
+externally peer reviewed, and it is not affiliated with or endorsed by Google.
 
 ## Positioning
 - [Overview](${SITE_URL}/): mission, operating principles, and the HELIOS platform.
@@ -69,6 +74,9 @@ and it is not affiliated with or endorsed by Anthropic.
 - [Proof-2 case summary](${SITE_URL}/safety/argus/claude-opus-5-5/summary): one screen with the root claim in Anthropic's words, ARGUS's scoping note, the checklist finding and the inventory counts.
 - [Proof-2 branch reader](${SITE_URL}/safety/argus/claude-opus-5-5/branches): each of the eight gaps traced from claim component to the evidence that would close it.
 - [Proof-2 graph JSON](${SITE_URL}/safety/argus/files/ARGUS_P2_ASSURANCE_GRAPH.json): the machine-readable graph the Proof-2 explorer renders.
+- [Proof-3 findings: Gemini 4 Argon](${SITE_URL}/safety/argus/gemini-4-argon): what the public cyberoffensive assurance record establishes, the measurements by test setting, the missing risk-acceptance bridge, the seven gap investigations and source provenance.
+- [Proof-3 interactive assurance graph](${SITE_URL}/safety/argus/gemini-4-argon/explore): Executive and Full graphs, 53 nodes and 69 warranted relationships, with a branch reader, evidence records and page-linked sources.
+- [Proof-3 graph JSON](${SITE_URL}/safety/argus/files/ARGUS_P3_ASSURANCE_GRAPH.json): the machine-readable graph the Proof-3 explorer renders.
 
 ## Articles
 ${articleLines}

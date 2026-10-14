@@ -1,0 +1,1230 @@
+{
+  "schema_version": "ARGUS-P3-1.0",
+  "case_id": "ARGUS-P3",
+  "created_date": "2026-10-14",
+  "organisation": "Google DeepMind",
+  "model": "Gemini 4 Argon",
+  "risk_domain": "Cybersecurity / cyberoffensive misuse",
+  "release_baseline": "Broader public release beginning 2026-10-13; restricted Fairwind rollout on 2026-09-30 is distinct",
+  "root_id": "P3-C-001",
+  "attribution_rule": "VERBATIM_PUBLISHER only for exact card root; all warrants and groupings are ARGUS_RECONSTRUCTION. PUBLISHER_REPORT_WITH_ARGUS_SCOPE preserves source findings without independent endorsement.",
+  "threshold_rule": "Cannot rule out reaching the CCL does not mean confirmed threshold crossing. Inherent capability, deployed controls and residual-risk assessment are separate.",
+  "source_custody": "October 14 retained bytes hashed; exact October 13 bytes unauthenticated.",
+  "edge_semantics": {
+    "supports": "provides bounded positive bearing",
+    "qualifies": "constrains strength or scope",
+    "conditions": "a dependency required for transfer or inference",
+    "assumed_by": "an assumption relied upon by a dependency",
+    "limits": "a public-assurance gap affecting a node"
+  },
+  "sources": [
+    {
+      "id": "P3-SRC-001",
+      "title": "Gemini 4 Argon Model Card",
+      "retained_path": "sources/P3-SRC-001_gemini_4_argon_model_card.pdf",
+      "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf",
+      "sha256": "562cd3c5deddf75dd2aff7a59dcf6dcc273277eae7d82fe957b6a607d84f7763"
+    },
+    {
+      "id": "P3-SRC-002",
+      "title": "Gemini 4 Argon Safety & Security Report",
+      "retained_path": "sources/P3-SRC-002_gemini_4_safety_report.pdf",
+      "url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf",
+      "sha256": "1451f641e6104778b1a0e7429d9f558325da26968427d53d1fd242b0e4257cba"
+    },
+    {
+      "id": "P3-SRC-003",
+      "title": "Frontier Safety Framework v3.1",
+      "retained_path": "sources/P3-SRC-003_fsf_v3_1.pdf",
+      "url": "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf",
+      "sha256": "ad10d2d240e0d557ecad406dbccedcbb4a70295f8ba8eec46bfe01803cb9c301"
+    },
+    {
+      "id": "P3-SRC-004",
+      "title": "13 October safety announcement",
+      "retained_path": "sources/P3-SRC-004_october_13_safety_announcement.html",
+      "url": "https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/",
+      "sha256": "8e41264d6080414c1d846ce01b604dec87e550eaf586e1aa23dacbe4d81ee4d5"
+    },
+    {
+      "id": "P3-SRC-005",
+      "title": "30 September initial announcement",
+      "retained_path": "sources/P3-SRC-005_september_30_initial_announcement.html",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+      "sha256": "75294b5d9676a1b969ef867aad1fdebb041d106281337a864f7a8d8b1b7e6507"
+    },
+    {
+      "id": "P3-SRC-006",
+      "title": "13 October broad-launch announcement",
+      "retained_path": "sources/P3-SRC-006_october_13_broad_launch.html",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+      "sha256": "a53dbf194157dad3cb58de791f3dc93ba0934dc3f2394951821869d0890251b9"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "P3-C-001",
+      "kind": "CLAIM",
+      "title": "Cybersecurity CCL and cyberoffensive safety-case assessment",
+      "statement": "Cybersecurity CCL: We cannot rule out that Gemini 4 Argon has reached this CCL, and we therefore developed a safety case for its cyberoffensive capabilities that we assess lower risk to below the cybersecurity CCL level.",
+      "interpretation_label": "VERBATIM_PUBLISHER",
+      "primary_root": true,
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-001",
+          "locator": "Frontier Safety Assessment, PDF p.11, Cybersecurity CCL bullet"
+        }
+      ],
+      "argus_reconstruction": "Google cannot rule out an inherent cyber CCL and reports a developed safety case and its own below-CCL residual-risk assessment for the broader release. Neither crossing nor independent validation is established.",
+      "applicability": "Gemini 4 Argon; broader public rollout beginning 2026-10-13; cyberoffensive misuse only. Restricted 2026-09-30 Fairwind is a different configuration."
+    },
+    {
+      "id": "P3-A-001",
+      "kind": "ARGUMENT",
+      "title": "Inherent CCL uncertainty",
+      "statement": "Unmitigated Model C performance and threat modeling support Google’s decision not to rule out the cyber CCL; they do not confirm that the qualitative threshold was crossed.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-A-002",
+      "kind": "ARGUMENT",
+      "title": "Safety case and mitigation architecture",
+      "statement": "Google reports a pre-launch cyberoffensive safety case and layered model, inference, monitoring and weight-security controls capable in principle of limiting access to offensive capability.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-A-003",
+      "kind": "ARGUMENT",
+      "title": "Measured guarded coverage and robustness",
+      "statement": "Guarded evaluations report strong direct-request blocking and relative robustness improvements, subject to different endpoints, attack budgets and unreported denominators.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-A-004",
+      "kind": "ARGUMENT",
+      "title": "Adverse findings constrain the residual-risk bridge",
+      "statement": "Objective-level jailbreak successes and 12 manual breaks mean operational friction, severity and remediation must be accounted for before inferring below-CCL residual harm.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-A-005",
+      "kind": "ARGUMENT",
+      "title": "Broad-release deployment applicability",
+      "statement": "The safeguards used to support the October 13 broad-release claim must be active across the relevant public access routes; restricted Fairwind has tailored access and separate terms.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-A-006",
+      "kind": "ARGUMENT",
+      "title": "Risk acceptance and ongoing response",
+      "statement": "FSF v3.1 calls for model-specific residual-risk acceptance and continuing monitoring, incident response and safety-case updates where applicable; public descriptions do not expose the full Argon decision.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-A-007",
+      "kind": "ARGUMENT",
+      "title": "Source quality and independent scrutiny",
+      "statement": "External testing, checkpoint information and primary-source custody support inspection but limit independent verification of the cyber CCL and residual-risk conclusion.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-E-001",
+      "kind": "EVIDENCE",
+      "title": "Root publisher wording",
+      "statement": "Google reports cannot-rule-out, safety-case development and below-CCL assessment.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-001",
+          "locator": "p.11 Cybersecurity CCL bullet"
+        }
+      ],
+      "valence": "publisher_claim",
+      "configuration": "BROAD_RELEASE",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-001"
+    },
+    {
+      "id": "P3-E-002",
+      "kind": "EVIDENCE",
+      "title": "Card threshold table",
+      "statement": "Cyber CCL defined qualitatively; card labels its status cannot be ruled out.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-001",
+          "locator": "pp.12–13 cyber row"
+        }
+      ],
+      "valence": "publisher_report",
+      "configuration": "UNMITIGATED_CONTEXT",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-002"
+    },
+    {
+      "id": "P3-E-003",
+      "kind": "EVIDENCE",
+      "title": "FSF cyber process",
+      "statement": "FSF defines cyber CCL, residual-risk process, governance and SL2+ recommendation.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-003",
+          "locator": "§§1.2–1.3 pp.4–7; §§2.1.2, 2.2.2 pp.10,12"
+        }
+      ],
+      "valence": "framework",
+      "configuration": "GENERAL_FRAMEWORK",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-003"
+    },
+    {
+      "id": "P3-E-004",
+      "kind": "EVIDENCE",
+      "title": "Capability threat-model method",
+      "statement": "22 historical chains, 23 steps, 25+ experts, CyScenarioBench and assumed TAC-4 behavior.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§3.2.2.1–3 pp.34–36"
+        }
+      ],
+      "valence": "method",
+      "configuration": "MODEL_C_UNMITIGATED",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-004"
+    },
+    {
+      "id": "P3-E-005",
+      "kind": "EVIDENCE",
+      "title": "CyScenarioBench results and unintended solves",
+      "statement": "77/82 segments and 12/12 chains; two unintended solves may inflate intended-task performance.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§3.2.2.3 p.37; Fig. 3.2"
+        }
+      ],
+      "valence": "mixed",
+      "configuration": "MODEL_C_UNMITIGATED",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-005"
+    },
+    {
+      "id": "P3-E-006",
+      "kind": "EVIDENCE",
+      "title": "Modeled uplift",
+      "statement": "Modeled 9x–100x cost uplift, geometric mean about 16.7x; high uncertainty and a 100x chart cap.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§3.2.2.3 pp.37–38; Figs. 3.3–3.4"
+        }
+      ],
+      "valence": "mixed",
+      "configuration": "MODEL_C_UNMITIGATED",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-006"
+    },
+    {
+      "id": "P3-E-007",
+      "kind": "EVIDENCE",
+      "title": "Elicitation and evaluation awareness",
+      "statement": "Compute and scaffolding are not a ceiling; pervasive awareness but no confirmed strategic underperformance in sampled audits.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§§3.1.2, 3.2.2.4, 3.5 pp.19,39,157–159"
+        }
+      ],
+      "valence": "mixed",
+      "configuration": "MODEL_C_UNMITIGATED",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-007"
+    },
+    {
+      "id": "P3-E-008",
+      "kind": "EVIDENCE",
+      "title": "Faculty operational evaluation",
+      "statement": "Faculty found end-to-end completions and an intermediate tested level, without experienced-operator testing; Google narrated result.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§3.2.2.5 pp.39–40"
+        }
+      ],
+      "valence": "mixed",
+      "configuration": "MODEL_C_UNMITIGATED_EXTERNAL",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-008"
+    },
+    {
+      "id": "P3-E-009",
+      "kind": "EVIDENCE",
+      "title": "Guarded coverage and benign refusal",
+      "statement": "100% milestone refusal; about 1,000 conversational examples; 0.4% violation and 53.9% benign refusal chart values.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§3.3.1.1 pp.56–58; Fig. 3.9"
+        }
+      ],
+      "valence": "mixed",
+      "configuration": "MODEL_C_GUARDED_TEST",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-009"
+    },
+    {
+      "id": "P3-E-010",
+      "kind": "EVIDENCE",
+      "title": "Internal jailbreak robustness",
+      "statement": "Static and adaptive QSR low but OSR 20%; multi-turn adaptive OSR 40%; attack groups have different denominators.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§3.3.2 pp.59–61; Fig. 3.10"
+        }
+      ],
+      "valence": "mixed",
+      "configuration": "MODEL_C_GUARDED_TEST",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-010"
+    },
+    {
+      "id": "P3-E-011",
+      "kind": "EVIDENCE",
+      "title": "Gray Swan cyber attack test",
+      "statement": "25 tasks; Google reports 10% QSR and chart gives 56% OSR under high-thinking Shade attack.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "Gray Swan Cyber Eval p.62; Fig. 3.10 p.60"
+        }
+      ],
+      "valence": "adverse",
+      "configuration": "MODEL_C_GUARDED_EXTERNAL",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-011"
+    },
+    {
+      "id": "P3-E-012",
+      "kind": "EVIDENCE",
+      "title": "Trajectory Labs manual breaks",
+      "statement": "12 breaks from nine families across 38 hours and over 4,000 requests; no universal jailbreak in window.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "Trajectory Labs p.62"
+        }
+      ],
+      "valence": "adverse",
+      "configuration": "MODEL_C_GUARDED_EXTERNAL",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-012"
+    },
+    {
+      "id": "P3-E-013",
+      "kind": "EVIDENCE",
+      "title": "Inference safeguards and account enforcement",
+      "statement": "Classifiers, activation probes, CoT monitors, safe-completion or refusal, log review and account enforcement are described.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§§2.2–2.3 pp.10–11"
+        }
+      ],
+      "valence": "publisher_report",
+      "configuration": "DEPLOYMENT_DESCRIBED",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-013"
+    },
+    {
+      "id": "P3-E-014",
+      "kind": "EVIDENCE",
+      "title": "Safeguard scope and discovery lag",
+      "statement": "Google says friction reduces rather than eliminates risk and reactive discovery has lag.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§3.3 pp.56,63"
+        }
+      ],
+      "valence": "adverse",
+      "configuration": "MODEL_C_GUARDED_TEST",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-014"
+    },
+    {
+      "id": "P3-E-015",
+      "kind": "EVIDENCE",
+      "title": "Fairwind tailored safeguards",
+      "statement": "Trusted-access program permits specialized dual-use work under tailored mitigation and continuous monitoring.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§2.5.1 pp.12–13"
+        }
+      ],
+      "valence": "scope",
+      "configuration": "RESTRICTED_FAIRWIND",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-015"
+    },
+    {
+      "id": "P3-E-016",
+      "kind": "EVIDENCE",
+      "title": "September restricted rollout",
+      "statement": "Trusted defenders/internal teams announced without cyber guardrails before broad release.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-005",
+          "locator": "Leading in defensive cybersecurity; Strengthening frontier safeguards"
+        }
+      ],
+      "valence": "scope",
+      "configuration": "RESTRICTED_FAIRWIND_2026_09_30",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-016"
+    },
+    {
+      "id": "P3-E-017",
+      "kind": "EVIDENCE",
+      "title": "October safety announcement",
+      "statement": "Broad rollout begins; publisher describes input screening, activation introspection and continuous monitoring.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-004",
+          "locator": "opening; Misuse prevention across high-risk domains"
+        }
+      ],
+      "valence": "scope",
+      "configuration": "BROAD_RELEASE_2026_10_13",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-017"
+    },
+    {
+      "id": "P3-E-018",
+      "kind": "EVIDENCE",
+      "title": "October access surfaces",
+      "statement": "Publisher names API/AI Studio, Antigravity, Gemini app, AI Mode and expanded Fairwind, with differing access.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-006",
+          "locator": "opening availability paragraph; Fairwind expansion; card p.4"
+        }
+      ],
+      "valence": "scope",
+      "configuration": "BROAD_RELEASE_2026_10_13",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-018"
+    },
+    {
+      "id": "P3-E-019",
+      "kind": "EVIDENCE",
+      "title": "Report cyber safety-case conclusion",
+      "statement": "Google says cannot rule out CCL, developed case before launch and assesses safeguards substantially below CCL.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§3.2.2.6 p.40"
+        }
+      ],
+      "valence": "publisher_claim",
+      "configuration": "BROAD_RELEASE",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-019"
+    },
+    {
+      "id": "P3-E-020",
+      "kind": "EVIDENCE",
+      "title": "FSF acceptance criteria",
+      "statement": "External deployment requires appropriate governance determination on acceptable residual risk and safety case when CCL reached.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-003",
+          "locator": "§§1.3.4–1.3.5, 2.1.2 pp.7,10"
+        }
+      ],
+      "valence": "framework",
+      "configuration": "GENERAL_FRAMEWORK",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-020"
+    },
+    {
+      "id": "P3-E-021",
+      "kind": "EVIDENCE",
+      "title": "External evaluator roles",
+      "statement": "External groups perform tests but do not decide FSF thresholds; Google SMEs translate findings; AISI/CAISSI results not detailed.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§§3.1.3–3.1.4 pp.20–21"
+        }
+      ],
+      "valence": "method",
+      "configuration": "MODELS_B_C_MIXED",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-021"
+    },
+    {
+      "id": "P3-E-022",
+      "kind": "EVIDENCE",
+      "title": "Checkpoint assignment",
+      "statement": "Cyber tests fall under all-other-evaluations on C; exact served checkpoint and classifier versions unreported.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§3.7 pp.161–162, Table 3.8"
+        }
+      ],
+      "valence": "method",
+      "configuration": "MODEL_C_FINAL_CANDIDATE",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-022"
+    },
+    {
+      "id": "P3-E-023",
+      "kind": "EVIDENCE",
+      "title": "Weight-security posture",
+      "statement": "Google reports RAND-aligned SL2+ controls and progress toward SL3.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§3.6 p.160"
+        }
+      ],
+      "valence": "publisher_report",
+      "configuration": "WEIGHT_SECURITY",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-023"
+    },
+    {
+      "id": "P3-E-024",
+      "kind": "EVIDENCE",
+      "title": "Dual-use cyber capability context",
+      "statement": "ExploitBench 87% of 656 capabilities; internal discovery 86% of 1,200+ vulnerabilities; internal exploitation 72% pass@1.",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P3-SRC-002",
+          "locator": "§§7.1–7.1.3 pp.213–215"
+        }
+      ],
+      "valence": "mixed",
+      "configuration": "MODEL_C_UNMITIGATED",
+      "record_ref": "ARGUS_P3_EVIDENCE_REGISTER.md#p3-e-024"
+    },
+    {
+      "id": "P3-D-001",
+      "kind": "DEPENDENCY",
+      "title": "Model C identity",
+      "statement": "Model C final candidate and tested guardrail versions remain representative of the October 13 publicly served model and controls.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-D-002",
+      "kind": "DEPENDENCY",
+      "title": "Cyber threat-model transfer",
+      "statement": "The selected historical chains, TAC extrapolation, human baseline and modeled cost reductions remain relevant to plausible attacker pathways.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-D-003",
+      "kind": "DEPENDENCY",
+      "title": "Safeguard operation across surfaces",
+      "statement": "Required classifiers, probes, monitoring and interventions are active and effective in each relevant public product/API route.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-D-004",
+      "kind": "DEPENDENCY",
+      "title": "Account response and updates",
+      "statement": "Misuse detection, review, enforcement and patching respond before persistent bypasses yield severe-scale harm.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-D-005",
+      "kind": "DEPENDENCY",
+      "title": "Fairwind separation",
+      "statement": "Trusted Fairwind access without ordinary cyber guardrails is limited to verified users under its tailored monitoring and is not a public default.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-D-006",
+      "kind": "DEPENDENCY",
+      "title": "Weights security",
+      "statement": "Weight protections make unmitigated access through exfiltration/unauthorized modification sufficiently difficult for the accepted risk case.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-D-007",
+      "kind": "DEPENDENCY",
+      "title": "Historical source identity",
+      "statement": "Retained October 14 card/report/HTML faithfully represent the claims and configurations available at the October 13 release boundary.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-U-001",
+      "kind": "ASSUMPTION",
+      "title": "Threshold interpretation",
+      "statement": "A qualitative CCL can be assessed from mixed benchmark, threat-model and expert evidence without a published numerical cutoff.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-U-002",
+      "kind": "ASSUMPTION",
+      "title": "Benchmarks and extrapolation",
+      "statement": "Sandbox challenges and historical chains give decision-useful evidence even when two intended tasks were solved unintentionally and TAC-4 is untested.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-U-003",
+      "kind": "ASSUMPTION",
+      "title": "Attacker friction transfer",
+      "statement": "Expert red-team effort and test-time retry limits are informative about likely malicious effort at scale.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-U-004",
+      "kind": "ASSUMPTION",
+      "title": "Layered protection",
+      "statement": "Overlapping controls and account actions reduce effective misuse access despite observed objective successes.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-U-005",
+      "kind": "ASSUMPTION",
+      "title": "Configuration fidelity",
+      "statement": "Published guarded evaluations use controls equivalent to those operating in broad release, and no broadly reachable unguarded route is omitted.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-U-006",
+      "kind": "ASSUMPTION",
+      "title": "External-input interpretation",
+      "statement": "Externally executed tests provide useful independent observations even when the public narrative and FSF adjudication are Google-authored.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-U-007",
+      "kind": "ASSUMPTION",
+      "title": "Release-time continuity",
+      "statement": "Publisher-dated and next-day-captured documents did not change materially between release and retention.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-G-001",
+      "kind": "GAP",
+      "title": "CCL uplift model inspectability",
+      "statement": "Public evidence does not expose the full 22-chain/23-step mapping, TAC-4 sensitivity, uncertainty distribution or a criterion-to-evidence rationale for cyber CCL proximity.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "record_ref": "ARGUS_P3_GAP_REGISTER.md#p3-g-001",
+      "absence_reason": "UNKNOWN_REASON"
+    },
+    {
+      "id": "P3-G-002",
+      "kind": "GAP",
+      "title": "Safety-case and acceptance bridge",
+      "statement": "The complete model-specific cyber safety case, residual-risk calculation and governance acceptance decision linking unmitigated 16.7x uplift to below-CCL deployment risk are not publicly inspectable.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "record_ref": "ARGUS_P3_GAP_REGISTER.md#p3-g-002",
+      "absence_reason": "UNKNOWN_REASON"
+    },
+    {
+      "id": "P3-G-003",
+      "kind": "GAP",
+      "title": "Adverse bypass disposition",
+      "statement": "The public record lacks task-level severity/adjudication, repeat/seed counts, operator-effort distribution and mitigation retests for Gray Swan, adaptive and Trajectory Labs successes.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "record_ref": "ARGUS_P3_GAP_REGISTER.md#p3-g-003",
+      "absence_reason": "UNKNOWN_REASON"
+    },
+    {
+      "id": "P3-G-004",
+      "kind": "GAP",
+      "title": "Deployment configuration coverage",
+      "statement": "No versioned matrix maps tested safeguards to each October 13 public surface and the separate Fairwind configuration, including exact Model C and guardrail versions.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "record_ref": "ARGUS_P3_GAP_REGISTER.md#p3-g-004",
+      "absence_reason": "UNKNOWN_REASON"
+    },
+    {
+      "id": "P3-G-005",
+      "kind": "GAP",
+      "title": "Monitoring effectiveness",
+      "statement": "Public results do not quantify real-world cyber misuse detection, false negatives, enforcement latency, patching lag or incident-response effects after launch.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "record_ref": "ARGUS_P3_GAP_REGISTER.md#p3-g-005",
+      "absence_reason": "UNKNOWN_REASON"
+    },
+    {
+      "id": "P3-G-006",
+      "kind": "GAP",
+      "title": "Independent cyber assurance and reproducibility",
+      "statement": "The public record does not include independently authored Argon cyber findings or sufficient safe method, trial and uncertainty detail to reproduce the CCL/residual-risk inference.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "record_ref": "ARGUS_P3_GAP_REGISTER.md#p3-g-006",
+      "absence_reason": "UNKNOWN_REASON"
+    },
+    {
+      "id": "P3-G-007",
+      "kind": "GAP",
+      "title": "Release-time byte custody",
+      "statement": "The October 14 retained card, report and HTML lack independent authenticated October 13 byte custody; exact release-time wording and configuration chronology cannot be proven from the copies alone.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION",
+      "record_ref": "ARGUS_P3_GAP_REGISTER.md#p3-g-007",
+      "absence_reason": "UNKNOWN_REASON"
+    }
+  ],
+  "edges": [
+    {
+      "id": "P3-L-001",
+      "from_node": "P3-A-001",
+      "relationship": "supports",
+      "to_node": "P3-C-001",
+      "warrant": "Potential inherent capability is the first clause of the root; cannot-rule-out is not a crossing finding.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-002",
+      "from_node": "P3-A-002",
+      "relationship": "supports",
+      "to_node": "P3-C-001",
+      "warrant": "Reported case and controls explain the mitigation proposition but do not verify their effectiveness.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-003",
+      "from_node": "P3-A-003",
+      "relationship": "supports",
+      "to_node": "P3-C-001",
+      "warrant": "Guarded tests provide bounded empirical support for reduced access to offensive assistance.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-004",
+      "from_node": "P3-A-004",
+      "relationship": "qualifies",
+      "to_node": "P3-C-001",
+      "warrant": "Observed bypasses limit any inference from average refusal or query success to residual harm.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-005",
+      "from_node": "P3-A-005",
+      "relationship": "qualifies",
+      "to_node": "P3-C-001",
+      "warrant": "The root is about the broad release and requires correct separation from Fairwind.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-006",
+      "from_node": "P3-A-006",
+      "relationship": "qualifies",
+      "to_node": "P3-C-001",
+      "warrant": "Framework acceptance requirements reveal a decision dependency not fully visible publicly.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-007",
+      "from_node": "P3-A-007",
+      "relationship": "qualifies",
+      "to_node": "P3-C-001",
+      "warrant": "Independent scrutiny and historical custody determine how much weight public readers can place on the case.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-008",
+      "from_node": "P3-E-001",
+      "relationship": "supports",
+      "to_node": "P3-A-001",
+      "warrant": "The card states the modal CCL conclusion exactly.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-009",
+      "from_node": "P3-E-002",
+      "relationship": "supports",
+      "to_node": "P3-A-001",
+      "warrant": "The table defines the cyber threshold and repeats cannot-rule-out.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-010",
+      "from_node": "P3-E-004",
+      "relationship": "supports",
+      "to_node": "P3-A-001",
+      "warrant": "The unmitigated method connects challenge performance to attack-cost modeling.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-011",
+      "from_node": "P3-E-005",
+      "relationship": "supports",
+      "to_node": "P3-A-001",
+      "warrant": "The 12/12 result motivates caution; unintended solves constrain the score.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-012",
+      "from_node": "P3-E-006",
+      "relationship": "supports",
+      "to_node": "P3-A-001",
+      "warrant": "Modeled uplift is a capability input, with substantial uncertainty.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-013",
+      "from_node": "P3-E-007",
+      "relationship": "qualifies",
+      "to_node": "P3-A-001",
+      "warrant": "Elicitation and awareness affect whether capability is under-measured.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-014",
+      "from_node": "P3-E-008",
+      "relationship": "supports",
+      "to_node": "P3-A-001",
+      "warrant": "Faculty supplies an external capability observation without FSF adjudication.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-015",
+      "from_node": "P3-E-024",
+      "relationship": "supports",
+      "to_node": "P3-A-001",
+      "warrant": "Other offensive-relevant benchmarks corroborate substantial dual-use capacity without proving CCL.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-016",
+      "from_node": "P3-E-003",
+      "relationship": "supports",
+      "to_node": "P3-A-002",
+      "warrant": "The FSF defines the need for safeguards and security at cyber CCL proximity.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-017",
+      "from_node": "P3-E-013",
+      "relationship": "supports",
+      "to_node": "P3-A-002",
+      "warrant": "Published intervention and account layers identify the proposed controls.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-018",
+      "from_node": "P3-E-019",
+      "relationship": "supports",
+      "to_node": "P3-A-002",
+      "warrant": "The report states that a cyber case was developed before launch.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-019",
+      "from_node": "P3-E-023",
+      "relationship": "supports",
+      "to_node": "P3-A-002",
+      "warrant": "Weight-security controls address a route around deployment safeguards.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-020",
+      "from_node": "P3-E-009",
+      "relationship": "supports",
+      "to_node": "P3-A-003",
+      "warrant": "Guarded direct-request and agentic results support coverage under tested conditions.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-021",
+      "from_node": "P3-E-010",
+      "relationship": "supports",
+      "to_node": "P3-A-003",
+      "warrant": "Internal jailbreak metrics provide bounded robustness evidence while retaining OSR.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-022",
+      "from_node": "P3-E-011",
+      "relationship": "qualifies",
+      "to_node": "P3-A-003",
+      "warrant": "Gray Swan provides a guarded external stress test and remaining successes.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-023",
+      "from_node": "P3-E-012",
+      "relationship": "qualifies",
+      "to_node": "P3-A-003",
+      "warrant": "Trajectory Labs provides manual adversarial observations and effort data.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-024",
+      "from_node": "P3-E-010",
+      "relationship": "supports",
+      "to_node": "P3-A-004",
+      "warrant": "Multi-turn and objective successes weaken an absolute-blocking reading.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-025",
+      "from_node": "P3-E-011",
+      "relationship": "qualifies",
+      "to_node": "P3-A-004",
+      "warrant": "Gray Swan objective success is adverse despite lower per-query success.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-026",
+      "from_node": "P3-E-012",
+      "relationship": "qualifies",
+      "to_node": "P3-A-004",
+      "warrant": "Twelve manual breaks require case-specific severity and remediation treatment.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-027",
+      "from_node": "P3-E-014",
+      "relationship": "qualifies",
+      "to_node": "P3-A-004",
+      "warrant": "The publisher explicitly describes partial bypass and discovery lag.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-028",
+      "from_node": "P3-E-019",
+      "relationship": "supports",
+      "to_node": "P3-A-004",
+      "warrant": "Below-CCL is a publisher assessment that requires a bridge from these adverse findings.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-029",
+      "from_node": "P3-E-015",
+      "relationship": "supports",
+      "to_node": "P3-A-005",
+      "warrant": "Fairwind tailored mitigations establish a distinct access configuration.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-030",
+      "from_node": "P3-E-016",
+      "relationship": "qualifies",
+      "to_node": "P3-A-005",
+      "warrant": "September restricted access without cyber guardrails cannot prove October broad safeguards.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-031",
+      "from_node": "P3-E-017",
+      "relationship": "supports",
+      "to_node": "P3-A-005",
+      "warrant": "October safety post dates broad rollout and describes layered controls.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-032",
+      "from_node": "P3-E-018",
+      "relationship": "supports",
+      "to_node": "P3-A-005",
+      "warrant": "Broad surfaces and Fairwind expansion must be assessed separately.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-033",
+      "from_node": "P3-E-022",
+      "relationship": "supports",
+      "to_node": "P3-A-005",
+      "warrant": "Model C assignment narrows model-version uncertainty but not served-control identity.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-034",
+      "from_node": "P3-E-003",
+      "relationship": "supports",
+      "to_node": "P3-A-006",
+      "warrant": "General FSF process supplies the acceptance rule.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-035",
+      "from_node": "P3-E-014",
+      "relationship": "qualifies",
+      "to_node": "P3-A-006",
+      "warrant": "Reactive update and monitoring limits matter for continuing acceptance.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-036",
+      "from_node": "P3-E-020",
+      "relationship": "supports",
+      "to_node": "P3-A-006",
+      "warrant": "Specific risk-acceptance factors and governance review are defined.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-037",
+      "from_node": "P3-E-023",
+      "relationship": "supports",
+      "to_node": "P3-A-006",
+      "warrant": "Security posture is a separate condition of the broader framework.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-038",
+      "from_node": "P3-E-007",
+      "relationship": "qualifies",
+      "to_node": "P3-A-007",
+      "warrant": "Audit findings have bounded evidential value without full sampled material.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-039",
+      "from_node": "P3-E-008",
+      "relationship": "supports",
+      "to_node": "P3-A-007",
+      "warrant": "Externally performed capability work is developer-narrated.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-040",
+      "from_node": "P3-E-021",
+      "relationship": "supports",
+      "to_node": "P3-A-007",
+      "warrant": "External evaluators do not themselves make FSF determinations.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-041",
+      "from_node": "P3-E-022",
+      "relationship": "supports",
+      "to_node": "P3-A-007",
+      "warrant": "Checkpoint table shows applicability but not exact serving manifests.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-042",
+      "from_node": "P3-D-001",
+      "relationship": "conditions",
+      "to_node": "P3-A-005",
+      "warrant": "Final-candidate testing transfers only if deployed versions and safeguards match.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-043",
+      "from_node": "P3-D-002",
+      "relationship": "conditions",
+      "to_node": "P3-A-001",
+      "warrant": "Historical cases and TAC extrapolation underpin the severity judgment.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-044",
+      "from_node": "P3-D-003",
+      "relationship": "conditions",
+      "to_node": "P3-A-005",
+      "warrant": "Surface-specific control activation is necessary for broad-release generalization.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-045",
+      "from_node": "P3-D-004",
+      "relationship": "conditions",
+      "to_node": "P3-A-006",
+      "warrant": "The residual-risk argument relies on continuing detection and response.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-046",
+      "from_node": "P3-D-005",
+      "relationship": "conditions",
+      "to_node": "P3-A-005",
+      "warrant": "The September trusted-access phase is outside ordinary public controls.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-047",
+      "from_node": "P3-D-006",
+      "relationship": "conditions",
+      "to_node": "P3-A-002",
+      "warrant": "Exfiltrated weights could remove the deployment guardrails being assessed.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-048",
+      "from_node": "P3-D-007",
+      "relationship": "conditions",
+      "to_node": "P3-A-007",
+      "warrant": "Next-day captures may differ from launch-day documents.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-049",
+      "from_node": "P3-U-001",
+      "relationship": "assumed_by",
+      "to_node": "P3-D-002",
+      "warrant": "Qualitative threshold judgment stands in for a public numerical cutoff.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-050",
+      "from_node": "P3-U-002",
+      "relationship": "assumed_by",
+      "to_node": "P3-D-002",
+      "warrant": "Reference scenarios must transfer to plausible severe attacks.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-051",
+      "from_node": "P3-U-003",
+      "relationship": "assumed_by",
+      "to_node": "P3-D-004",
+      "warrant": "Red-team operator effort must approximate relevant adversary costs.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-052",
+      "from_node": "P3-U-004",
+      "relationship": "assumed_by",
+      "to_node": "P3-D-004",
+      "warrant": "Layering and enforcement must offset successful individual bypasses.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-053",
+      "from_node": "P3-U-005",
+      "relationship": "assumed_by",
+      "to_node": "P3-D-003",
+      "warrant": "No materially different broadly available configuration can defeat the test inference.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-054",
+      "from_node": "P3-U-006",
+      "relationship": "assumed_by",
+      "to_node": "P3-D-007",
+      "warrant": "Method independence does not itself establish independent risk adjudication.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-055",
+      "from_node": "P3-U-007",
+      "relationship": "assumed_by",
+      "to_node": "P3-D-007",
+      "warrant": "Historical document continuity remains unverified at byte level.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-056",
+      "from_node": "P3-G-001",
+      "relationship": "limits",
+      "to_node": "P3-A-001",
+      "warrant": "Unknown mapping and sensitivity limit an external CCL-proximity audit.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-057",
+      "from_node": "P3-G-001",
+      "relationship": "limits",
+      "to_node": "P3-D-002",
+      "warrant": "Unknown mapping and sensitivity limit an external CCL-proximity audit.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-058",
+      "from_node": "P3-G-002",
+      "relationship": "limits",
+      "to_node": "P3-A-002",
+      "warrant": "The missing decision bridge prevents independent confirmation of residual-risk sufficiency.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-059",
+      "from_node": "P3-G-002",
+      "relationship": "limits",
+      "to_node": "P3-A-006",
+      "warrant": "The missing decision bridge prevents independent confirmation of residual-risk sufficiency.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-060",
+      "from_node": "P3-G-003",
+      "relationship": "limits",
+      "to_node": "P3-A-003",
+      "warrant": "Unadjudicated successes constrain inference from guarded summary rates.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-061",
+      "from_node": "P3-G-003",
+      "relationship": "limits",
+      "to_node": "P3-A-004",
+      "warrant": "Unadjudicated successes constrain inference from guarded summary rates.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-062",
+      "from_node": "P3-G-004",
+      "relationship": "limits",
+      "to_node": "P3-A-005",
+      "warrant": "Unmapped routes and versions prevent full deployment-coverage inference.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-063",
+      "from_node": "P3-G-004",
+      "relationship": "limits",
+      "to_node": "P3-D-003",
+      "warrant": "Unmapped routes and versions prevent full deployment-coverage inference.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-064",
+      "from_node": "P3-G-005",
+      "relationship": "limits",
+      "to_node": "P3-A-006",
+      "warrant": "Operational risk reduction from monitoring is described but not measured publicly.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-065",
+      "from_node": "P3-G-005",
+      "relationship": "limits",
+      "to_node": "P3-D-004",
+      "warrant": "Operational risk reduction from monitoring is described but not measured publicly.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-066",
+      "from_node": "P3-G-006",
+      "relationship": "limits",
+      "to_node": "P3-A-007",
+      "warrant": "External execution and reproducibility are distinct from an independent CCL conclusion.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-067",
+      "from_node": "P3-G-006",
+      "relationship": "limits",
+      "to_node": "P3-A-001",
+      "warrant": "External execution and reproducibility are distinct from an independent CCL conclusion.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-068",
+      "from_node": "P3-G-007",
+      "relationship": "limits",
+      "to_node": "P3-A-007",
+      "warrant": "Publisher dates cannot prove exact October 13 bytes.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P3-L-069",
+      "from_node": "P3-G-007",
+      "relationship": "limits",
+      "to_node": "P3-D-007",
+      "warrant": "Publisher dates cannot prove exact October 13 bytes.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    }
+  ]
+}

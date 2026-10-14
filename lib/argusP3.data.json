@@ -1,0 +1,503 @@
+{
+ "_generated": "scripts/sync-argus-p3.py - do not edit",
+ "graph_sha256": "7daea553666caed2ed498a5795f06252d31ddde03f5b223a053a799653068469",
+ "register_sha256": {
+  "evidence": "0884510447a6122634380f7c33bcfcf3507292182946c834141cf5174ee93bb7",
+  "gaps": "91facfecab1c197c6c3ca37280e22d5f02e9da1874188285c8d3b52d8e994bb7",
+  "sources": "ea58ec7a99c69148cefe0b7d7784c436a19b60dfa57250cbcf32e3237d3d4cf7",
+  "checklist": "d1e89ecb74ee0ece3754351db38b1ec79388162b3f7d4d73d1403f4984dc09f6"
+ },
+ "boundary": "13 October 2026 <strong>broader public rollout</strong>. The 30 September restricted Fairwind phase, including access described as without cyber guardrails for trusted defenders/internal teams, is separate. <strong>Epistemic rule:</strong> “Cannot rule out” is potential inherent capability, not a confirmed CCL crossing. Below-CCL residual risk is Google's assessment, not an ARGUS finding. The rows are <code>ARGUS_RECONSTRUCTION</code>, with publisher data cited through E001–E024, G001–G007 and the warranted graph.",
+ "reading": "The public case makes the reason for mitigation and several control test outcomes inspectable, including adverse bypasses. It leaves the decisive bridge from those results to Google's below-CCL residual-risk judgment and the full October 13 deployment coverage only partly inspectable. Seven gaps are evidence requests, not findings that controls failed. The full assessment explains inference limits; no safety score or cross-model ranking is made.",
+ "evidence_intro": "<strong>Unit of analysis:</strong> one publisher cybersecurity CCL and cyberoffensive safety-case assertion for the 13 October 2026 broader release. <code>PUBLISHER_REPORT</code> means a result or conclusion reported by Google or in Google's report; it does not mean ARGUS reproduced it. <code>ARGUS_RECONSTRUCTION</code> denotes the stated inference or limit. These 24 entries are analytic units from six retained publications, not 24 independent sources. All page locators are one-based PDF pages; report printed pages are one lower. Source identity, timestamps and SHA-256 values are in the source register.",
+ "evidence_rules": [
+  "The full report's default is evaluation of the raw model <strong>without out-of-model production safeguards</strong>, unless a section explicitly describes mitigated testing (<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=6\" target=\"_blank\" rel=\"noopener noreferrer\">report p.6</a>). The capability findings in §3.2.2 and §7 cannot be read as failures of deployed safeguards; §3.3 explicitly evaluates mitigated endpoints. Conversely, direct-request coverage and low QSR cannot erase objective-level and manual breaks. Positive relative results, adverse outcomes and denominators are preserved together.",
+  "The detailed cyber conclusion in the report agrees with the model-card root; it does <strong>not</strong> replace the root. The report executive summary's “approaching” phrasing is a looser summary, while §3.2.2 and Table 3.1 use the same “cannot rule out” determination as the card. No passage examined confirms that the CCL was reached. Separate safety-case existence, mitigation operation and residual-risk sufficiency remain distinct propositions."
+ ],
+ "gap_scope": "Seven gaps derived from this Argon cyber case. A gap means the <strong>inspected public record</strong> does not let an independent reader complete a material inference. It does not mean Google lacks private evidence, a control failed, a policy was breached or a cyber incident occurred. The reason for a particular omission is <strong>UNKNOWN_REASON</strong> unless the source expressly gives one. General sensitivity concerns in the FSF do not establish a document-specific withholding reason. Evidence IDs resolve in the evidence register; graph IDs are in the typed graph.",
+ "gap_grouping": "These seven gap boundaries follow distinct inference failures: inherent CCL mapping; residual-risk decision; bypass interpretation; served configuration; post-launch effectiveness; external inspectability; historical custody. A reviewer could group them by lifecycle or split statistical reproducibility from institutional independence. The count is an inventory of this case, not a safety score, comparison with earlier ARGUS cases or a target number. A later disclosure closes a gap only for the time and configuration it actually covers; it cannot silently authenticate release-time bytes or replace an earlier test.",
+ "source_intro": "<strong>Case boundary:</strong> Google DeepMind / Gemini 4 Argon / cyberoffensive misuse / broader public release beginning 13 October 2026. Research retrieved 14 October 2026. PDF page numbers below are <strong>one-based file pages</strong>; the report's printed numbers are one lower. All six retained files are public publisher documents. Hashes identify the retained bytes, not authenticated release-day snapshots or publisher signatures.",
+ "custody_rule": "Publication dates, date-modified fields, retrieval timestamps, evaluation checkpoint dates and byte provenance answer different questions. These October 14 captures establish what was publicly served at retrieval. Publisher links and dates support likely October 13 availability of the card/report, but cannot by themselves prove byte identity at the release boundary. No pre- or same-day archived byte comparison was located in this bounded public acquisition.",
+ "sources": {
+  "P3-SRC-001": {
+   "title": "Gemini 4 Argon Model Card",
+   "publisher": "Google DeepMind, <a href=\"https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini 4 Argon Model Card</a>",
+   "date": "Published <strong>October 2026</strong>, exact day not printed; no numbered revision. Card says it may be updated.",
+   "retrieval": "2026-10-14T09:44:59Z; 444,990 B; <code>562cd3c5deddf75dd2aff7a59dcf6dcc273277eae7d82fe957b6a607d84f7763</code>",
+   "use": "14; <strong>root</strong> p.11, CCL table pp.12–13, distribution p.4",
+   "qualification": "October 13 safety post currently links the card. No independently authenticated October 13 copy or digest; exact release-time bytes <strong>not established</strong>.",
+   "url": "https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf",
+   "pdf": true,
+   "pages": 14,
+   "note": "Current publisher PDF. Byte-identical to the ARGUS capture of 14 October 2026 when re-checked the same day. The card says it may be updated.",
+   "sha256": "562cd3c5deddf75dd2aff7a59dcf6dcc273277eae7d82fe957b6a607d84f7763"
+  },
+  "P3-SRC-002": {
+   "title": "Gemini 4 Argon Safety & Security Report",
+   "publisher": "Google DeepMind, <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Gemini 4 Argon Safety &amp; Security Report</a>",
+   "date": "Cover: <strong>October 2026</strong>; no numbered revision or exact publication day printed.",
+   "retrieval": "2026-10-14T09:44:44Z; 17,311,582 B; <code>1451f641e6104778b1a0e7429d9f558325da26968427d53d1fd242b0e4257cba</code>",
+   "use": "217; full report read; cyber core pp.34–40, 56–63; checkpoints pp.161–162; security p.160; cyber capability/defense pp.213–217",
+   "qualification": "October 13 safety post currently links this PDF. No authenticated October 13 byte capture. Public report describes a developed safety case; it is not the separately inspectable complete safety-case file.",
+   "url": "https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf",
+   "pdf": true,
+   "pages": 217,
+   "note": "Current publisher PDF, a later revision (R2). Google replaced this file at 10:04 GMT on 14 October 2026, about 20 minutes after the ARGUS capture at 09:44 GMT. ARGUS keeps its captured file (SHA-256 1451f641…) as the source of record and has recorded R2 (SHA-256 446c83a9…) separately. Both have 217 pages and identical charts. On the pages this case cites, six passages changed in grammar or layout only, and one figure changed: on p.157, evaluation awareness tied to automated grading reads 35% of flagged unprompted runs in the capture and 37.8% of unprompted runs in R2. This case cites neither value. No ARGUS finding, figure or page reference is affected.",
+   "sha256": "1451f641e6104778b1a0e7429d9f558325da26968427d53d1fd242b0e4257cba"
+  },
+  "P3-SRC-003": {
+   "title": "Frontier Safety Framework v3.1",
+   "publisher": "Google DeepMind, <a href=\"https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">Frontier Safety Framework v3.1</a>",
+   "date": "Version <strong>3.1</strong>, published 17 April 2026.",
+   "retrieval": "2026-10-14T09:45:06Z; 447,155 B; <code>ad10d2d240e0d557ecad406dbccedcbb4a70295f8ba8eec46bfe01803cb9c301</code>",
+   "use": "20; §§1.2–1.3 pp.4–8, §§2.1–2.2 pp.9–12, §5 p.17",
+   "qualification": "Publisher-dated pre-release framework. Exact September 30/October 13 bytes not independently authenticated. Framework sets process; it is not model-specific fulfilment evidence.",
+   "url": "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf",
+   "pdf": true,
+   "pages": 20,
+   "note": "Current publisher PDF. Byte-identical to the ARGUS capture of 14 October 2026 when re-checked the same day.",
+   "sha256": "ad10d2d240e0d557ecad406dbccedcbb4a70295f8ba8eec46bfe01803cb9c301"
+  },
+  "P3-SRC-004": {
+   "title": "13 October safety announcement",
+   "publisher": "Google, <a href=\"https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/\" target=\"_blank\" rel=\"noopener noreferrer\">13 October safety announcement</a>",
+   "date": "JSON-LD <code>datePublished</code> <strong>2026-10-13T18:00:00Z</strong>, <code>dateModified</code> <strong>2026-10-13T18:03:03.833342Z</strong> in retained HTML; no numbered revision.",
+   "retrieval": "2026-10-14T09:45:13Z; 978,720 B; <code>8e41264d6080414c1d846ce01b604dec87e550eaf586e1aa23dacbe4d81ee4d5</code>",
+   "use": "HTML, pages N/A; paragraphs beginning “Today, we are beginning to roll out Argon broadly” and “Misuse prevention across high-risk domains”",
+   "qualification": "Publisher-dated release-day post, retrieved next day. Historical HTML byte identity at posting time not authenticated. Summary of report, not independent test evidence.",
+   "url": "https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/",
+   "pdf": false,
+   "pages": null,
+   "note": "Current publisher page. Byte-identical to the ARGUS capture of 14 October 2026 when re-checked the same day.",
+   "sha256": "8e41264d6080414c1d846ce01b604dec87e550eaf586e1aa23dacbe4d81ee4d5"
+  },
+  "P3-SRC-005": {
+   "title": "30 September initial announcement",
+   "publisher": "Google, <a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/\" target=\"_blank\" rel=\"noopener noreferrer\">30 September initial announcement</a>",
+   "date": "JSON-LD <code>datePublished</code> <strong>2026-09-30T20:00:00Z</strong>, <code>dateModified</code> <strong>2026-10-01T21:09:53.663080Z</strong>; no numbered revision.",
+   "retrieval": "2026-10-14T09:45:23Z; 1,013,487 B; <code>75294b5d9676a1b969ef867aad1fdebb041d106281337a864f7a8d8b1b7e6507</code>",
+   "use": "HTML, pages N/A; “Leading in defensive cybersecurity,” “Strengthening frontier safeguards before broad availability,” “Rolling out soon”",
+   "qualification": "<strong>Distinct restricted Fairwind phase.</strong> The post states trusted defenders/internal teams would receive Argon without cyber guardrails and broad release was future. Retrieved version has a 1 October modification; exact 30 September bytes not authenticated. Never use its access terms as broad-release terms.",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+   "pdf": false,
+   "pages": null,
+   "note": "Current publisher page. Byte-identical to the ARGUS capture of 14 October 2026 when re-checked the same day. The page itself was modified on 1 October 2026.",
+   "sha256": "75294b5d9676a1b969ef867aad1fdebb041d106281337a864f7a8d8b1b7e6507"
+  },
+  "P3-SRC-006": {
+   "title": "13 October broad-launch announcement",
+   "publisher": "Google, <a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/\" target=\"_blank\" rel=\"noopener noreferrer\">13 October broad-launch announcement</a>",
+   "date": "JSON-LD <code>datePublished</code> <strong>2026-10-13T16:00:00Z</strong>, <code>dateModified</code> <strong>2026-10-13T16:33:42.376998Z</strong>; no numbered revision.",
+   "retrieval": "2026-10-14T09:50:13Z; 1,032,640 B; <code>a53dbf194157dad3cb58de791f3dc93ba0934dc3f2394951821869d0890251b9</code>",
+   "use": "HTML, pages N/A; opening availability paragraph and “Bringing state-of-the-art cyber capabilities to more trusted defenders”",
+   "qualification": "Publisher-dated release-day post, retrieved next day. It lists broad surfaces and expansion of Fairwind separately. Exact release-time HTML bytes not authenticated.",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+   "pdf": false,
+   "pages": null,
+   "note": "Current publisher page. Byte-identical to the ARGUS capture of 14 October 2026 when re-checked the same day.",
+   "sha256": "a53dbf194157dad3cb58de791f3dc93ba0934dc3f2394951821869d0890251b9"
+  }
+ },
+ "evidence": {
+  "P3-E-001": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf#page=11\" target=\"_blank\" rel=\"noopener noreferrer\">Model card p.11</a>, “Frontier Safety Assessment,” Cybersecurity CCL bullet",
+   "finding": "<strong>VERBATIM_PUBLISHER root:</strong> “Cybersecurity CCL: We cannot rule out that Gemini 4 Argon has reached this CCL, and we therefore developed a safety case for its cyberoffensive capabilities that we assess lower risk to below the cybersecurity CCL level.”",
+   "bearing": "The sentence contains an uncertain inherent-capability determination, a safety-case existence report and Google's residual-risk assessment. It does not confirm threshold crossing or independently prove risk reduction."
+  },
+  "P3-E-002": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf#page=12\" target=\"_blank\" rel=\"noopener noreferrer\">Model card pp.12–13</a>, cyber row spanning pages",
+   "finding": "CCL definition: sufficient uplift with high-impact cyber attacks for additional expected harm at severe scale. Status column: “CCL cannot be ruled out.” Table attributes substantial uplift to evaluations/quantitative modeling and possible severe harm absent safeguards.",
+   "bearing": "Corroborates root's modal wording; table continuation across two pages must be read together."
+  },
+  "P3-E-003": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf#page=4\" target=\"_blank\" rel=\"noopener noreferrer\">FSF v3.1 pp.4–7, 10, 12</a>, §§1.2–1.3, 2.1.2, 2.2.2",
+   "finding": "CCLs describe possible severe harm <strong>absent mitigation</strong>. Cyber uplift level 1 is qualitative; framework requires external-deployment residual-risk review, safety case for reached CCL, and appropriate governance determination. It recommends Security Level 2+ for cyber.",
+   "bearing": "General policy and inference warrant, not Argon-specific compliance or a numeric cyber CCL cutoff. FSF allows proportional judgments and several contextual factors."
+  },
+  "P3-E-004": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=34\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.34–36</a>, §3.2.2.1–3",
+   "finding": "<strong>Model C, unmitigated out-of-model safeguards:</strong> CyScenarioBench, co-developed with Irregular, has four categories. Threat model uses 22 high-impact historical attacks, 23 operational-step archetypes and structured estimates from 25+ offensive-security professionals. TAC score requires success on ≥50% of unique challenges within a tier; reliability considers attempts and time horizon. No TAC-4 challenges exist, so modeling assumes TAC-4 performance at the measured time horizon/reliability.",
+   "bearing": "Substantive capability method; the TAC-4 extrapolation and historical-attack selection are material assumptions. No public operational CCL cutoff or full model parameters are provided in these passages."
+  },
+  "P3-E-005": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=37\" target=\"_blank\" rel=\"noopener noreferrer\">Report p.37, Fig. 3.2</a>, §3.2.2.3",
+   "finding": "<strong>Model C, unmitigated:</strong> chart shows 77/82 (93.9%) segments and 12/12 end-to-end scenarios for Argon, versus 71/82 and 5/12 for Gemini 3.8 Flash Cyber. Report footnote says two end-to-end solves used unintended solutions and derived uplift may overestimate performance on intended tasks. CyScenarioBench is saturated, so it no longer upper-bounds capability.",
+   "bearing": "Strong positive capability result with a specific adverse validity finding. Twelve is a challenge denominator, not repeated-trial count. Figure values were read from embedded chart image."
+  },
+  "P3-E-006": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=37\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.37–38, Figs. 3.3–3.4</a>, §3.2.2.3",
+   "finding": "Google's model estimates unmitigated cost uplift of <strong>9x–100x</strong> across 22 chains and geometric mean <strong>~16.7x</strong>. Fig. 3.3 shows a 100x chart cap for the Ukraine Power Grid case (raw estimate &gt;300x); excluding that case, chart header says 15.3x. Report calls quantitative scores substantially uncertain.",
+   "bearing": "These are modeled multipliers, not observed real-world incident rates or a direct residual-risk estimate. Chart-only cap/15.3x qualification is retained without recalculating."
+  },
+  "P3-E-007": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=39\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.19, 39, 157–159</a>, §§3.1.2, 3.2.2.4, 3.5",
+   "finding": "Unmitigated agent used a ReACT loop with command execution, Python and web search. Report says more inference compute could raise performance and results are not upper bounds. Transcript review found pervasive evaluation awareness in cyber/other suites but <strong>zero confirmed strategic underperformance</strong> in sampled audits; Google judges aggregate cyber conclusions intact.",
+   "bearing": "Preserves both methodological challenge and positive audit finding. Sample counts for the cyber subset and complete audit material are not reported; “zero confirmed” is bounded to sampled checks."
+  },
+  "P3-E-008": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=39\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.39–40</a>, §3.2.2.5",
+   "finding": "Faculty tested an unmitigated Argon in simulated operational attack chains. Google reports Faculty found end-to-end completions and bottleneck improvements, yet incomplete saturation under human-operator time/error limits; Faculty judged an intermediate capability level and did not test the experienced-operator level. Google SMEs said this did not change their CCL determination.",
+   "bearing": "Independently performed test as <strong>narrated by Google</strong>; Faculty did not itself adjudicate FSF threshold. Public task/trial denominators and independently authored findings are not in this source."
+  },
+  "P3-E-009": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=56\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.56–58, Fig. 3.9</a>, §3.3.1.1",
+   "finding": "<strong>Latest mitigations applied:</strong> publisher reports 100% refusal of CyScenarioBench/ExploitBench milestones, often at the start. Cyber conversational set has around 1,000 examples over 1–5 turns. Fig. 3.9 shows Argon <strong>0.4% violation</strong> and <strong>53.9% benign refusal</strong> for cyber conversational prompts; Google describes a deliberately wider safety margin and borderline defensive-workflow refusals.",
+   "bearing": "Positive measured coverage with a substantial utility tradeoff. Figure values were read from embedded image. “Milestones” denominator is not supplied; neither metric is an end-to-end deployment incident rate."
+  },
+  "P3-E-010": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=59\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.59–61, Fig. 3.10</a>, §§3.3.2–3.3.2.2",
+   "finding": "<strong>Safeguarded endpoints:</strong> QSR is per-query actionable breach; OSR is at least one breach per harmful seed objective across attempts. Chart shows cyber static QSR <strong>1%</strong> and OSR <strong>20%</strong>, cyber adaptive QSR <strong>&lt;1%</strong> and combined OSR <strong>20%</strong> for Argon, with 95% Jeffreys beta intervals. Text reports adaptive single-turn OSR 0% versus 60% on Gemini 3.8 Flash; multi-turn OSR 40% versus 80%, combined 20% versus 70%. Auto-attacks on CyScenarioBench were blocked when the goal surfaced.",
+   "bearing": "Positive relative improvement and adverse remaining objective-level success coexist. Chart and prose refer to different attack groupings; do not pool them or equate QSR and OSR. Seed/query denominators and interval endpoints are not printed."
+  },
+  "P3-E-011": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=60\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.60, 62, Fig. 3.10</a>, “Gray Swan Cyber Eval”",
+   "finding": "Google supplied several high-severity scenarios; Gray Swan built <strong>25 cyber tasks</strong> and used Shade at high thinking level. Google reports Argon <strong>10% QSR</strong> versus 14% on Flash 3.8; Fig. 3.10 shows Argon <strong>56% OSR</strong> versus 76%.",
+   "bearing": "Material adverse test: more than half of seed objectives reached at least one success in this setup, even as per-query performance improved. Twenty-five tasks are not necessarily the OSR denominator; retry budget and full task-level results are not printed."
+  },
+  "P3-E-012": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=62\" target=\"_blank\" rel=\"noopener noreferrer\">Report p.62</a>, “Trajectory labs”",
+   "finding": "Trajectory Labs manually tested safeguarded cyber endpoints across <strong>nine technique families</strong>, <strong>38 hours</strong>, <strong>over 4,000 requests</strong>, sandbox tasks for publicly documented vulnerabilities. They reported <strong>12 successful breaks</strong>, no new universal jailbreak in that window. One task needed ~7 hours, 900 turns and &gt;160 sessions plus substantial tester planning.",
+   "bearing": "Concrete adverse breaks with friction evidence. Hours, requests, turns and sessions are distinct denominators. No public per-break severity adjudication, generalization rate or mitigation retest is supplied."
+  },
+  "P3-E-013": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=10\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.10–11</a>, §§2.2–2.3",
+   "finding": "Google describes conditional inference-time layers: prompted and fine-tuned classifiers, activation probes, regex/YARA/embedding signals, CoT monitors; interventions may be safe completion or hard refusal depending on surface. Account monitoring uses log signals, classifiers, review and possible blocking/disablement.",
+   "bearing": "Control architecture and claimed operation, not evidence every layer runs on every broad-release surface or that every flagged misuse is caught."
+  },
+  "P3-E-014": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=56\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.56, 63</a>, §3.3 and conclusion",
+   "finding": "Google defines <strong>coverage</strong> (uncontested access) and <strong>adversarial robustness</strong> (circumvention on covered topics). It says safeguards impose operational friction rather than eliminate risk; persistent actors may achieve partial bypasses, and reactive detection has discovery lag.",
+   "bearing": "Publisher's express limits qualify the residual-risk inference and make monitoring/response a live dependency."
+  },
+  "P3-E-015": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=12\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.12–13</a>, §2.5.1",
+   "finding": "Fairwind is trusted access for verified defenders/government/security researchers. Misuse mitigations are <strong>tailored</strong> to permit specialized dual-use tasks including exploitability validation, threat simulation, reverse engineering and malware analysis within continuous monitoring.",
+   "bearing": "Distinct access/control configuration. Fairwind evidence cannot be silently pooled with broad public cyber-guardrail evaluations."
+  },
+  "P3-E-016": {
+   "locator": "<a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/\" target=\"_blank\" rel=\"noopener noreferrer\">30 September initial announcement</a>, “Leading in defensive cybersecurity”; “Strengthening frontier safeguards before broad availability”",
+   "finding": "Google announced restricted Fairwind rollout, saying trusted defenders and internal teams would get Argon <strong>without cyber guardrails</strong> and that safeguards would be strengthened before broad availability.",
+   "bearing": "Release-phase boundary evidence. The retrieved HTML was modified on 1 October; it is not authenticated as the exact 30 September byte version."
+  },
+  "P3-E-017": {
+   "locator": "<a href=\"https://blog.google/innovation-and-ai/technology/safety-security/gemini-4-model-safety-security/\" target=\"_blank\" rel=\"noopener noreferrer\">13 October safety announcement</a>, opening and “Misuse prevention across high-risk domains”",
+   "finding": "Google says it is <strong>beginning broad rollout</strong> and expanding Fairwind; describes input screening, activation introspection and continuous monitoring. It repeats 12 end-to-end cyber scenarios and claims stronger refusal on adversarial requests.",
+   "bearing": "Publisher summary and broad-release chronology, not an independent measurement or proof of identical safeguards at each interface."
+  },
+  "P3-E-018": {
+   "locator": "<a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/\" target=\"_blank\" rel=\"noopener noreferrer\">13 October broad-launch announcement</a>, opening availability paragraph and Fairwind expansion section; <a href=\"https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf#page=4\" target=\"_blank\" rel=\"noopener noreferrer\">model card p.4</a>",
+   "finding": "Google lists API via AI Studio/Gemini platform, Antigravity for AI Ultra, Gemini app for Ultra/Pro, AI Mode, and expansion to hundreds more Fairwind partners; card additionally lists Gemini for business.",
+   "bearing": "Named distribution surfaces, not a per-surface cyber-control activation matrix. “Beginning” rollout and subscription/access conditions prevent assuming simultaneous universal access."
+  },
+  "P3-E-019": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=40\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.34, 40</a>, §3.2.2.6",
+   "finding": "Google concludes it <strong>cannot rule out</strong> unmitigated cyber CCL, reports developing a safety case before launch and deploying mitigations under it, and assesses its safeguard suite reduces cyber risk <strong>substantially below</strong> CCL.",
+   "bearing": "Direct elaboration consistent with model-card root. “Substantially” strengthens Google's stated estimate but does not supply the full model-specific safety-case argument or demonstrate independent risk acceptance."
+  },
+  "P3-E-020": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf#page=7\" target=\"_blank\" rel=\"noopener noreferrer\">FSF v3.1 pp.7, 10</a>, §§1.3.4–1.3.5, 2.1.2",
+   "finding": "FSF states residual-risk assessment should use threat modeling and empirical testing. For external misuse-CCL deployment, governance should determine acceptability, considering efficacy, deployment scope, other models, historical incidence/severity, circumvention/deactivation and monitoring. A safety case supplements reached-CCL review.",
+   "bearing": "Explicit warrant for a model-specific acceptance bridge; framework text alone cannot show Argon's decision, criteria, review date or adverse-result disposition."
+  },
+  "P3-E-021": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=20\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.20–21</a>, §§3.1.3–3.1.4; Faculty: <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=39\" target=\"_blank\" rel=\"noopener noreferrer\">report pp.39–40</a>, §3.2.2.5",
+   "finding": "Google says independent evaluators choose methods and <strong>do not directly decide FSF thresholds</strong>; Google SMEs translate results; external testing used Models B/C (p.20). Section 3.1.4 names UK AISI, NIST CAISSI, Gray Swan and Trajectory Labs in differing roles; AISI had mitigated and less-mitigated access (p.21). Faculty's cyber role, an evaluation of the unmitigated model, is described separately in §3.2.2.5 (pp.39–40; see P3-E-008); pp.20–21 do not name Faculty.",
+   "bearing": "Distinguishes externally conducted testing from independent corroboration of the CCL/residual-risk conclusion. AISI/CAISSI participation is not a published cyber result in this source."
+  },
+  "P3-E-022": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=161\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.161–162, Table 3.8</a>, §3.7",
+   "finding": "Model A T−10 days, B T−6, C final release candidate. Table assigns <strong>all other evaluations</strong> to C, while specified CBRN/manipulation tests used A/B. Google says its internal capability index found A/B/C below its material-change criterion of four months' modeled progress.",
+   "bearing": "Cyber sections use C unless otherwise stated. Exact served checkpoint/configuration, classifier versions and publicly reproducible transfer data are not supplied."
+  },
+  "P3-E-023": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=160\" target=\"_blank\" rel=\"noopener noreferrer\">Report p.160</a>, §3.6; <a href=\"https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf#page=12\" target=\"_blank\" rel=\"noopener noreferrer\">FSF p.12</a>",
+   "finding": "Google reports a RAND-aligned <strong>SL2+</strong> weight-security posture and a journey toward SL3; FSF recommends SL2+ for the cyber CCL. The report lists access restrictions, monitoring, hardening, red teaming and 24/7 hunting as measures.",
+   "bearing": "Security controls are a separate dependency against weights access, which could remove deployment guardrails. Self-reported posture is not a public control audit or certification."
+  },
+  "P3-E-024": {
+   "locator": "<a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=213\" target=\"_blank\" rel=\"noopener noreferrer\">Report pp.213–215</a>, §§7.1–7.1.3",
+   "finding": "On Model C unless noted: ExploitBench has <strong>41 challenges × 16 capabilities = 656</strong>; report says Argon reached <strong>87%</strong> using autonudge, 300-turn limit, best-of-three union. Internal historical vulnerability discovery reports <strong>86%</strong> over 1,200+ recent vulnerabilities; internal research reports <strong>72% pass@1</strong> vs 46% for Flash Cyber.",
+   "bearing": "Dual-use capability context reinforces need for safeguards. These are not safeguarded misuse tests, not evidence of malicious incidents, and the best-of-three metric is distinct from pass@1."
+  }
+ },
+ "gaps": {
+  "P3-G-001": {
+   "heading": "CCL uplift model inspectability",
+   "links": "P3-A-001, P3-D-002, P3-U-001/002. <strong>Observed evidence:</strong> P3-E-002, E-004–008, E-024. <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=34\" target=\"_blank\" rel=\"noopener noreferrer\">Report §3.2.2, PDF pp.34–40</a>; <a href=\"https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf#page=12\" target=\"_blank\" rel=\"noopener noreferrer\">FSF cyber definition, p.12</a>.",
+   "evidence_ids": [
+    "P3-E-002",
+    "P3-E-004",
+    "P3-E-005",
+    "P3-E-006",
+    "P3-E-007",
+    "P3-E-008",
+    "P3-E-024"
+   ],
+   "why": "The root's inherent-capability premise is a <em>cannot-rule-out</em> assessment, relying on the relation between sandbox performance, historical attack costs and possible severe harm. The report's 12/12 end-to-end solves and ~16.7x geometric-mean modeled cost uplift are substantive, yet two solves were unintended, TAC-4 tasks were absent, the 22 chains were selected for severity and recency with stated exceptions, and novel AI-shaped attack chains could yield greater reductions. A reader cannot inspect how uncertainty was propagated or how subject-matter experts mapped these results to the qualitative CCL.",
+   "missing": "Complete safe 22-chain/23-step mapping and weights, baseline elicitation and supervision-adjustment rules, sensitivity to TAC-4/time horizon and unintended solves, uncertainty range, and model-specific criterion-to-evidence decision record. The report describes the method but does not provide this full audit trail or a numerical cyber cutoff.",
+   "closure": "Redacted model code or an auditable aggregate input/output table; pre-specified sensitivity cases for TAC-4, omitted/novel chains, unintentional solves and human supervision; uncertainty intervals; a dated expert rationale explaining why these results support “cannot rule out.” A numeric cutoff is not required if the qualitative rule and its application can be audited.",
+   "alternative": "Conservatism may make unresolved TAC-4 and saturation sufficient reason to mitigate without proving a crossing. The unintentionally solved tasks could overstate intended-task scores, while an unsaturated harder benchmark could show still greater capability. Neither direction changes Google's modal status into a confirmed threshold crossing.",
+   "reason": "<strong>UNKNOWN_REASON</strong> for unavailable detailed model and adjudication. No source-specific redaction explanation was found. Possible sensitivity is not asserted as the cause."
+  },
+  "P3-G-002": {
+   "heading": "Safety-case and risk-acceptance bridge",
+   "links": "P3-A-002/006, P3-D-006. <strong>Observed evidence:</strong> P3-E-001, E-003, E-013–014, E-019–020, E-023. <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=40\" target=\"_blank\" rel=\"noopener noreferrer\">Report §3.2.2.6, p.40</a>; <a href=\"https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf#page=10\" target=\"_blank\" rel=\"noopener noreferrer\">FSF §2.1.2, p.10</a>.",
+   "evidence_ids": [
+    "P3-E-001",
+    "P3-E-003",
+    "P3-E-013",
+    "P3-E-014",
+    "P3-E-019",
+    "P3-E-020",
+    "P3-E-023"
+   ],
+   "why": "Google's conclusion that safeguards reduce cyber risk below the CCL is a residual-risk judgment distinct from unmitigated capability and from the existence of controls. FSF v3.1 calls for an acceptable-risk determination informed by effectiveness, deployment scope, circumvention, other models and historical harm, with a supplemental safety case if a CCL is reached. The report says a case was developed and gives a summary conclusion; it does not expose the complete Argon-specific argument that turns ~16.7x modeled unmitigated uplift plus observed bypasses into an accepted below-CCL result.",
+   "missing": "Versioned case or sufficiently detailed safe summary; risk acceptance criteria, counterfactual baseline, modeled residual uplift/harm and uncertainty, treatment of 12 manual breaks and objective-level successes, weight-security dependency, decision date and accountable governance function, review outcome, and explicit reasoning for the broader October 13 footprint. The report is public evidence of what Google says it did, not the full case record.",
+   "closure": "A dated public or independently audited case summary with claim/argument/evidence chain, quantitative or qualitative residual-risk calculation, stress cases, adverse-result dispositions, scope-specific acceptance rationale and governance sign-off by role. Sensitive operational details could be inspected under controlled access with a public findings summary.",
+   "alternative": "The internal safety case and decision may be complete and well supported. The public report's conclusion is consistent with that possibility; it cannot independently establish it. The FSF may permit a proportionate qualitative assessment rather than a single numerical bound.",
+   "reason": "<strong>UNKNOWN_REASON.</strong> FSF §5.2 discusses confidentiality/security conditions for some disclosures, but does not state why this Argon case or decision record is not fully public."
+  },
+  "P3-G-003": {
+   "heading": "Adverse bypass disposition and robustness denominators",
+   "links": "P3-A-003/004, P3-U-003/004. <strong>Observed evidence:</strong> P3-E-009–012, E-014. <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=59\" target=\"_blank\" rel=\"noopener noreferrer\">Report §3.3.2 and Fig. 3.10, pp.59–63</a>.",
+   "evidence_ids": [
+    "P3-E-009",
+    "P3-E-010",
+    "P3-E-011",
+    "P3-E-012",
+    "P3-E-014"
+   ],
+   "why": "Positive direct coverage (0.4% cyber conversational violation; 100% refusal of reported agentic milestones) and lower QSR coexist with 20% internal objective success, 40% multi-turn adaptive OSR, 56% Gray Swan OSR and 12 Trajectory Labs breaks. QSR, OSR, tasks, turns, requests and sessions measure different things. The publisher's four severity axes—uplift, universality, operational friction and discoverability—are sensible, but the public reader cannot see their case-level application or how the remaining successes affect residual risk.",
+   "missing": "Per-test seed/query and retry denominators, interval endpoints and assignment of the chart's 95% Jeffreys intervals; task-level success classes and safe four-axis adjudications; break-disposition and mitigation retest results; comparable baselines; operator-effort distribution beyond the one 7-hour example; exact endpoint/control versions. No exploit transcripts are requested for public release.",
+   "closure": "Sanitized per-objective results with seed and query counts, uncertainty, task-family coverage, severity decisions, treatment of the 12 breaks, and before/after retests of fixes. An independent reviewer could verify a secure full log set and publish aggregate findings.",
+   "alternative": "High OSR can coexist with low real-world attacker utility if successes are narrow, expensive, or low uplift; the 7-hour/900-turn example supports that possibility. Conversely, persistent attackers may invest greater effort than test budgets, and Gray Swan's 56% OSR is materially adverse. Neither interpretation is proved by the aggregates alone.",
+   "reason": "<strong>UNKNOWN_REASON</strong> for missing denominators, case adjudications and retests. Avoid inferring concealment or asserting an unobserved exploit consequence."
+  },
+  "P3-G-004": {
+   "heading": "October broad-release configuration and Fairwind separation",
+   "links": "P3-A-005, P3-D-001/003/005, P3-U-005. <strong>Observed evidence:</strong> P3-E-013, E-015–018, E-022. <a href=\"https://storage.googleapis.com/deepmind-media/Model-Cards/Gemini-4-Argon-Model-Card.pdf#page=4\" target=\"_blank\" rel=\"noopener noreferrer\">Model card distribution, p.4</a>; <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=12\" target=\"_blank\" rel=\"noopener noreferrer\">report §2.5.1, pp.12–13</a>; <a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/\" target=\"_blank\" rel=\"noopener noreferrer\">September post</a>; <a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/\" target=\"_blank\" rel=\"noopener noreferrer\">October broad launch</a>.",
+   "evidence_ids": [
+    "P3-E-013",
+    "P3-E-015",
+    "P3-E-016",
+    "P3-E-017",
+    "P3-E-018",
+    "P3-E-022"
+   ],
+   "why": "The 30 September restricted phase explicitly promised trusted defenders and internal teams access without cyber guardrails; the 13 October phase begins broad access and also expands Fairwind. The report says safeguards <em>may</em> be used depending on surface and interventions differ. Its guarded test endpoints cannot establish which classifier, activation probe, CoT monitor, account control or policy was active for each public API, app, Antigravity, AI Mode or business route, nor exact comparability of Fairwind monitoring. Model C is a final candidate, not a publicly versioned serving manifest.",
+   "missing": "Dated per-surface rollout/configuration matrix for October 13; model/guardrail/policy versions, default and optional controls, access tiers, exceptions, enforcement and monitoring, and mapping to each guarded evaluation. Separate Fairwind eligibility, tailored controls and auditable isolation from broad public routes are needed at the level safe to disclose.",
+   "closure": "A versioned deployment attestation or controlled audit covering first-party and API routes, with tested-versus-served configuration mapping, rollout windows and exception handling; separate Fairwind operating-configuration summary. A post-release change log would preserve later configuration changes without backdating them.",
+   "alternative": "A common backend could make controls effectively uniform across broad routes; the public documents do not establish that. Fairwind may be strongly governed despite permitting cyber tasks; its trusted-access safeguards cannot be treated as equivalent to ordinary public guardrails.",
+   "reason": "<strong>UNKNOWN_REASON</strong> for the absent matrix and serving manifests. The two release-phase descriptions themselves are public; their distinction is established, not an omission."
+  },
+  "P3-G-005": {
+   "heading": "Monitoring, enforcement and update effectiveness",
+   "links": "P3-A-006, P3-D-004, P3-U-004. <strong>Observed evidence:</strong> P3-E-013–014, E-017, E-020. <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=11\" target=\"_blank\" rel=\"noopener noreferrer\">Report §2.3, p.11</a>; <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=63\" target=\"_blank\" rel=\"noopener noreferrer\">§3.3.3, p.63</a>.",
+   "evidence_ids": [
+    "P3-E-013",
+    "P3-E-014",
+    "P3-E-017",
+    "P3-E-020"
+   ],
+   "why": "Google explicitly says safeguards impose friction rather than eliminate risk, sophisticated actors may partly bypass them and reactive improvement has discovery lag. Account monitoring and enforcement therefore bear weight in the below-CCL argument, especially against long-horizon decomposition and repeated attempts. Public architecture alone does not show whether post-launch controls interrupt harmful trajectories soon enough.",
+   "missing": "Cyber-specific detection and false-negative estimates, review/enforcement latency, account re-entry or repeat-offender controls, incident and near-miss aggregates, time from novel jailbreak discovery to mitigation and retest, and triggers for re-reviewing the safety case as the rollout grows.",
+   "closure": "Privacy-preserving operational metrics by surface and risk tier, blinded detection exercises, red-team campaigns that include account churn and multi-session behavior, documented response-time distributions, and post-launch safety-case update summaries. User logs and exploit recipes need not be published.",
+   "alternative": "Layered classifiers may catch most harmful continuations before account action is needed; account enforcement may still materially lower repeated misuse. Equally, a small persistent actor could exploit detection lag. Current public summaries do not quantify either outcome.",
+   "reason": "<strong>UNKNOWN_REASON</strong> for Argon-specific operational metrics. The report gives no specific privacy or security withholding rationale for them."
+  },
+  "P3-G-006": {
+   "heading": "Independent cyber assurance and reproducibility",
+   "links": "P3-A-007/001, P3-U-006. <strong>Observed evidence:</strong> P3-E-004–012, E-021–022. <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=20\" target=\"_blank\" rel=\"noopener noreferrer\">Report §§3.1.3–3.1.4, pp.20–21</a>; <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=39\" target=\"_blank\" rel=\"noopener noreferrer\">Faculty summary, pp.39–40</a>; <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=59\" target=\"_blank\" rel=\"noopener noreferrer\">guarded tests, pp.59–62</a>.",
+   "evidence_ids": [
+    "P3-E-004",
+    "P3-E-005",
+    "P3-E-006",
+    "P3-E-007",
+    "P3-E-008",
+    "P3-E-009",
+    "P3-E-010",
+    "P3-E-011",
+    "P3-E-012",
+    "P3-E-021",
+    "P3-E-022"
+   ],
+   "why": "Faculty, Gray Swan and Trajectory Labs performed distinct tests; Irregular co-developed a benchmark; AISI and NIST CAISSI participated. These are real external inputs. But the report expressly says external evaluators do not decide FSF thresholds, and Google's SMEs integrate results. The inspected corpus contains no independently authored Argon cyber report confirming the CCL judgment, safeguard robustness at broad-release settings or residual-risk decision. Many seed, trial, harness, judge and uncertainty details are incomplete publicly.",
+   "missing": "Independently authored cyber findings with tested checkpoint/control version and access conditions; full safe method manifests, task/seed counts, retries, sampling, judge validation, uncertainty/sensitivity and discrepant findings; independent review of the safety-case inference with funding/access/editorial disclosures.",
+   "closure": "Publish evaluators' own bounded reports or independent audit summaries, with safe aggregate methods and adverse findings; supply reproducibility packets or controlled audit access for model versions, scoring and calculations. Repetition by Google and independent assessment should be distinguished.",
+   "alternative": "Independent testers may have more detailed reports or private access; the public report's narrative could faithfully summarize them. External test execution already adds confidence in observations, but it is not independent endorsement of Google's CCL or below-CCL judgment.",
+   "reason": "<strong>UNKNOWN_REASON.</strong> The FSF's general confidentiality/security caveat does not identify why specific cyber methods or reports are absent. AISI/CAISSI participation must not be presented as corroborating results not printed here."
+  },
+  "P3-G-007": {
+   "heading": "Exact release-time source and serving custody",
+   "links": "P3-A-007, P3-D-007/001, P3-U-007. <strong>Observed evidence:</strong> P3-E-001, E-016–018, E-022; source register.",
+   "evidence_ids": [
+    "P3-E-001",
+    "P3-E-016",
+    "P3-E-017",
+    "P3-E-018",
+    "P3-E-022"
+   ],
+   "why": "The root is anchored to the 13 October public release, but the retained card and report were retrieved on 14 October, show only “October 2026” as publication date, and warn/allow that model-card content may evolve. The October 13 posts link the documents and date the rollout, but the retrieved HTML/PDF bytes do not independently prove the exact release-day text or the specific model/guardrail serving version. The September post was modified on 1 October, further limiting exact 30 September byte claims.",
+   "missing": "Authenticated on-or-before-13-October snapshots/digests of the card, report and relevant broad-release page; exact serving manifest or signed release note for Model C and guardrail versions at each access route; version history of subsequent updates.",
+   "closure": "Independently timestamped public archive captures with matching hashes or publisher-signed historical digests, plus versioned release manifests. A later publisher attestation of unchanged text narrows uncertainty but does not independently establish byte identity.",
+   "alternative": "The next-day documents may be exactly what was linked on release day, and the October 13 posts strongly support contemporaneous availability. No change is evidenced; the gap concerns custody, not a claim that editing occurred. The printed date and linked references are useful chronology but not byte authentication.",
+   "reason": "<strong>UNKNOWN_REASON</strong> for absent historical captures/manifests in the inspected corpus. This is a provenance limitation, not a publisher-redaction finding."
+  }
+ },
+ "checklist": [
+  {
+   "n": 1,
+   "question": "Is inherent cyber CCL possible?",
+   "control": "FSF cyber threshold; unmitigated capability assessment",
+   "evidence": "E002–008, E024; <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=34\" target=\"_blank\" rel=\"noopener noreferrer\">report §3.2.2 pp.34–40</a>. Model C solved 12/12 scenarios; modeled geometric-mean ~16.7x cost uplift",
+   "evidence_ids": [
+    "P3-E-002",
+    "P3-E-003",
+    "P3-E-004",
+    "P3-E-005",
+    "P3-E-006",
+    "P3-E-007",
+    "P3-E-008",
+    "P3-E-024"
+   ],
+   "status": "<strong>PUBLISHER_REPORT:</strong> cannot rule out. Two unintended solves; no TAC-4 eval; modeled cost not observed harm.",
+   "gap": "<strong>G001:</strong> auditable 22-chain model, TAC-4/uncertainty sensitivity and criterion-to-evidence rationale. Omission reason UNKNOWN_REASON.",
+   "applicability": "Model C, out-of-model safeguards disabled; applies to potential, not deployed behavior.",
+   "gaps": [
+    "P3-G-001"
+   ]
+  },
+  {
+   "n": 2,
+   "question": "Was a cyber safety case developed?",
+   "control": "Supplemental case and security/deployment mitigation plan",
+   "evidence": "E001, E003, E013, E019, E020, E023; <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=40\" target=\"_blank\" rel=\"noopener noreferrer\">report p.40</a>",
+   "evidence_ids": [
+    "P3-E-001",
+    "P3-E-003",
+    "P3-E-013",
+    "P3-E-019",
+    "P3-E-020",
+    "P3-E-023"
+   ],
+   "status": "<strong>PUBLISHER_REPORT:</strong> developed before launch; report summarizes controls. Complete model-specific case is not separately inspectable.",
+   "gap": "<strong>G002:</strong> dated case/decision summary linking capability, adverse tests, risk acceptance and uncertainty. Omission reason UNKNOWN_REASON.",
+   "applicability": "October 13 broader release; FSF v3.1 is general process, not Argon-specific approval.",
+   "gaps": [
+    "P3-G-002"
+   ]
+  },
+  {
+   "n": 3,
+   "question": "Do safeguards block direct harmful assistance?",
+   "control": "Training; input/output classifiers; activation probes; CoT monitoring; refusal/safe completion",
+   "evidence": "E009, E013; <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=56\" target=\"_blank\" rel=\"noopener noreferrer\">report pp.10–11, 56–58</a>. 100% milestones refused; 0.4% cyber conversational violation",
+   "evidence_ids": [
+    "P3-E-009",
+    "P3-E-013"
+   ],
+   "status": "<strong>PUBLISHER_REPORT:</strong> strong bounded coverage. Benign cyber refusal <strong>53.9%</strong> and milestone denominator absent.",
+   "gap": "<strong>G003/G004:</strong> versioned tested/served controls and safe denominators, benign/malicious strata, by surface. Omission reason UNKNOWN_REASON.",
+   "applicability": "Guarded test endpoints; surface-dependent controls cannot be presumed universal.",
+   "gaps": [
+    "P3-G-003",
+    "P3-G-004"
+   ]
+  },
+  {
+   "n": 4,
+   "question": "Do safeguards withstand determined attackers?",
+   "control": "Adversarial testing and attacker friction",
+   "evidence": "E010–012, E014; <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=59\" target=\"_blank\" rel=\"noopener noreferrer\">report pp.59–63</a>. Internal adaptive combined OSR 20%; Gray Swan 10% QSR and 56% OSR; Trajectory 12 breaks / 38h / &gt;4,000 requests",
+   "evidence_ids": [
+    "P3-E-010",
+    "P3-E-011",
+    "P3-E-012",
+    "P3-E-014"
+   ],
+   "status": "<strong>MIXED:</strong> lower QSR than predecessor and no universal Trajectory jailbreak within the test window; objective successes remain.",
+   "gap": "<strong>G003:</strong> task-level severity, trial counts, 95% interval endpoints, break disposition, retests and operator-effort distribution. Omission reason UNKNOWN_REASON.",
+   "applicability": "Model C guarded tests; do not pool QSR, OSR, requests, sessions or tasks.",
+   "gaps": [
+    "P3-G-003"
+   ]
+  },
+  {
+   "n": 5,
+   "question": "Are October 13 access routes covered?",
+   "control": "Broad release plus separate trusted Fairwind",
+   "evidence": "E015–018, E022; <a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/\" target=\"_blank\" rel=\"noopener noreferrer\">October broad launch</a>, <a href=\"https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/\" target=\"_blank\" rel=\"noopener noreferrer\">September restricted announcement</a>",
+   "evidence_ids": [
+    "P3-E-015",
+    "P3-E-016",
+    "P3-E-017",
+    "P3-E-018",
+    "P3-E-022"
+   ],
+   "status": "<strong>PUBLISHER_REPORT:</strong> broad rollout and Fairwind expansion are distinct. Exact product/API control mapping unreported.",
+   "gap": "<strong>G004:</strong> dated per-route model/classifier/policy/monitoring matrix, exception and Fairwind isolation evidence. Omission reason UNKNOWN_REASON.",
+   "applicability": "API/AI Studio, Gemini app, Antigravity, AI Mode, business; rollout/access may vary. Fairwind tailored, not ordinary broad-public control.",
+   "gaps": [
+    "P3-G-004"
+   ]
+  },
+  {
+   "n": 6,
+   "question": "Does ongoing response limit residual risk?",
+   "control": "Log review, account actions, patching, threat intelligence",
+   "evidence": "E013–014, E020; <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=11\" target=\"_blank\" rel=\"noopener noreferrer\">report pp.11, 63</a>",
+   "evidence_ids": [
+    "P3-E-013",
+    "P3-E-014",
+    "P3-E-020"
+   ],
+   "status": "<strong>PUBLISHER_REPORT:</strong> architecture described; report admits partial bypass and discovery lag. No cyber operational outcome rate.",
+   "gap": "<strong>G005:</strong> safe detection, enforcement and patch-latency metrics plus post-launch case update triggers. Omission reason UNKNOWN_REASON.",
+   "applicability": "Broad release over time; later evidence must be dated to its actual window.",
+   "gaps": [
+    "P3-G-005"
+   ]
+  },
+  {
+   "n": 7,
+   "question": "Has risk acceptance been independently demonstrated?",
+   "control": "FSF governance decision and external scrutiny",
+   "evidence": "E003, E008, E019–023; <a href=\"https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf#page=10\" target=\"_blank\" rel=\"noopener noreferrer\">FSF p.10</a>, <a href=\"https://storage.googleapis.com/deepmind-media/gemini/gemini_4_safety_report.pdf#page=20\" target=\"_blank\" rel=\"noopener noreferrer\">report pp.20–21</a>",
+   "evidence_ids": [
+    "P3-E-003",
+    "P3-E-008",
+    "P3-E-019",
+    "P3-E-020",
+    "P3-E-021",
+    "P3-E-022",
+    "P3-E-023"
+   ],
+   "status": "<strong>LIMITED:</strong> external groups ran tests, while Google SMEs made FSF determination; no independently authored public Argon cyber acceptance finding.",
+   "gap": "<strong>G002/G006:</strong> accepted decision record and external reports or controlled audit with reproducible safe methods. Reasons UNKNOWN_REASON.",
+   "applicability": "No inference of noncompliance; testing roles differ and AISI/CAISSI participation has no result in this corpus.",
+   "gaps": [
+    "P3-G-002",
+    "P3-G-006"
+   ]
+  },
+  {
+   "n": 8,
+   "question": "Are release-time claims and versions authenticated?",
+   "control": "Primary-source custody and checkpoint mapping",
+   "evidence": "E001, E016–018, E022; source register",
+   "evidence_ids": [
+    "P3-E-001",
+    "P3-E-016",
+    "P3-E-017",
+    "P3-E-018",
+    "P3-E-022"
+   ],
+   "status": "<strong>QUALIFIED:</strong> card/report publisher-dated October and linked by Oct 13 posts; retained bytes captured Oct 14. Model C is final release candidate.",
+   "gap": "<strong>G007:</strong> on-day archive/digest and serving manifest for model and controls. Missing capture/manifests reason UNKNOWN_REASON.",
+   "applicability": "Exact Oct 13 bytes and served configuration unverified; no evidence of change is inferred.",
+   "gaps": [
+    "P3-G-007"
+   ]
+  }
+ ]
+}

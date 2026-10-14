@@ -21,6 +21,8 @@ export default function sitemap() {
     { url: `${BASE_URL}/safety/argus/claude-opus-5-5/explore`, lastModified: new Date('2026-10-12T00:00:00.000Z'), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/safety/argus/claude-opus-5-5/summary`, lastModified: new Date('2026-10-12T00:00:00.000Z'), changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/safety/argus/claude-opus-5-5/branches`, lastModified: new Date('2026-10-12T00:00:00.000Z'), changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${BASE_URL}/safety/argus/gemini-4-argon`, lastModified: new Date('2026-10-14T00:00:00.000Z'), changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/safety/argus/gemini-4-argon/explore`, lastModified: new Date('2026-10-14T00:00:00.000Z'), changeFrequency: 'monthly', priority: 0.6 },
     ...articles,
   ]
 }
