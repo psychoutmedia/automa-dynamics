@@ -89,11 +89,11 @@ export default function HomeHero() {
             the main actions so the three buttons stay the first choice. */}
         <div className={`mt-8 transition-all duration-1000 delay-700 ${enter}`}>
           <a
-            href="/safety/argus/claude-opus-5-5"
+            href="/safety/argus/gemini-4-argon"
             className="inline-flex items-center gap-2 rounded-full border border-[#d9b45e]/40 bg-[#d9b45e]/[0.06] px-4 py-1.5 text-xs sm:text-sm text-chrome-light hover:border-[#d9b45e]/80 transition-colors"
           >
             <span className="font-mono text-[#d9b45e] tracking-[0.12em]">NEW</span>
-            <span>ARGUS Proof-2: Claude Opus 5.5, 8 open public-assurance gaps</span>
+            <span>ARGUS Proof-3: Gemini 4 Argon, 7 open public-assurance gaps</span>
             <span aria-hidden="true" className="text-[#d9b45e]">&rarr;</span>
           </a>
         </div>
