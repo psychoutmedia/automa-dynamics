@@ -55,6 +55,14 @@ Proof-3 (Gemini 4 Argon, cyberoffensive misuse, broad rollout beginning 13 Octob
 cybersecurity CCL; that is not a confirmed crossing, and Google's below-CCL
 residual-risk judgement is not independently verified by ARGUS. It has not been
 externally peer reviewed, and it is not affiliated with or endorsed by Google.
+Proof-4 (Muse Wonder Full, cybersecurity, released 12 October 2026) records seven
+open public-assurance gaps. Meta assesses the unmitigated model as "moderate or
+lower" for cybersecurity; that is Meta's assessment, not verified by ARGUS. Wonder
+Full is the tested variant; extending its results to the smaller Muse Wonder is
+Meta's inference. A separate full safety report was not located in a bounded public
+search on 14 October 2026; that is a dated limitation, not proof that none exists.
+It has not been externally peer reviewed, and it is not affiliated with or endorsed
+by Meta.
 
 ## Positioning
 - [Overview](${SITE_URL}/): mission, operating principles, and the HELIOS platform.
@@ -77,6 +85,9 @@ externally peer reviewed, and it is not affiliated with or endorsed by Google.
 - [Proof-3 findings: Gemini 4 Argon](${SITE_URL}/safety/argus/gemini-4-argon): what the public cyberoffensive assurance record establishes, the measurements by test setting, the missing risk-acceptance bridge, the seven gap investigations and source provenance.
 - [Proof-3 interactive assurance graph](${SITE_URL}/safety/argus/gemini-4-argon/explore): Executive and Full graphs, 53 nodes and 69 warranted relationships, with a branch reader, evidence records and page-linked sources.
 - [Proof-3 graph JSON](${SITE_URL}/safety/argus/files/ARGUS_P3_ASSURANCE_GRAPH.json): the machine-readable graph the Proof-3 explorer renders.
+- [Proof-4 findings: Muse Wonder Full](${SITE_URL}/safety/argus/muse-wonder-full): what the public cybersecurity assurance record establishes, capability results with the ExploitGym 21 intended / 71 unintended split, guarded attack-success results kept apart from launch-chart results, the Full-to-family inference, the seven gap investigations and source provenance.
+- [Proof-4 interactive assurance graph](${SITE_URL}/safety/argus/muse-wonder-full/explore): Executive and Full graphs, 54 nodes and 67 warranted relationships of eight types, with a branch reader, evidence records and page-linked sources.
+- [Proof-4 graph JSON](${SITE_URL}/safety/argus/files/ARGUS_P4_ASSURANCE_GRAPH.json): the machine-readable graph the Proof-4 explorer renders.
 - [The last mile: cross-case synthesis](${SITE_URL}/safety/argus/last-mile): preliminary synthesis of Proofs 1-3; in each case the published evidence is inspectable up to risk-acceptance reasoning, the link to the release decision is not. Not a finding that any company lacked evidence or decided wrongly.
 
 ## Articles

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en-GB" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>@@TITLE@@ | Automa Dynamics</title>
+<meta name="description" content="@@DESCRIPTION@@">
+<link rel="canonical" href="@@CANONICAL@@">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Automa Dynamics">
+<meta property="og:title" content="@@TITLE@@">
+<meta property="og:description" content="@@DESCRIPTION@@">
+<meta property="og:url" content="@@CANONICAL@@">
+<meta property="og:image" content="@@OG_IMAGE@@">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@automadynamics">
+<meta name="twitter:title" content="@@TITLE@@">
+<meta name="twitter:description" content="@@DESCRIPTION@@">
+<meta name="twitter:image" content="@@OG_IMAGE@@">
+<link rel="icon" href="/icon.png">
+<!-- GENERATED FILE - do not edit. Rebuild: python scripts/sync-argus-p4.py
+     Viewer source: scripts/argus-p4/. Graph: H:\projectargus\proof4\ARGUS_P4_ASSURANCE_GRAPH.json (embedded unchanged). -->
+<style>
+/*@@TOKENS@@*/
+/* ===== ARGUS series standard: CSS copied at build time from the Astra Proof-1 viewer (read-only source) ===== */
+/*@@ASTRA_CSS@@*/
+/* ===== Proof-4 additions (P4 eight-type relationship vocabulary, data origin, branch reader, full-graph controls) ===== */
+/*@@CSS@@*/
+/* ===== Automa Dynamics publication layer, shared with Proof-2 (scripts/sync-argus-p2.py SITE_CSS) ===== */
+/*@@SITE_CSS@@*/
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="argusbar" id="xhead">
+    <a class="home" href="/safety/argus" aria-label="ARGUS overview">
+      <img src="/logo.png" alt="" width="22" height="22">
+      <span class="name">ARGUS <span>Proof-4</span></span>
+    </a>
+    <div class="eyebrow">
+      <span>ARGUS-P4</span>
+      <span class="tag">Meta</span>
+      <span class="tag">Muse Wonder Full</span>
+      <span class="tag">Cybersecurity</span>
+      <span class="tag">Released 12 Oct 2026</span>
+      <span class="tag warn">Research filed 14 Oct 2026 &middot; not externally peer reviewed</span>
+    </div>
+    <nav class="links" aria-label="ARGUS Proof-4">
+      <a href="/safety/argus/muse-wonder-full">Findings</a>
+      <a href="/safety/argus/muse-wonder-full#gaps">Seven gaps</a>
+      <a href="/safety/argus">About ARGUS &rarr;</a>
+      <button class="btn themebtn" id="themeBtn" type="button" aria-label="Toggle colour theme">Theme</button>
+    </nav>
+  </header>
+  <h1 class="sr">ARGUS Proof-4 assurance graph: Muse Wonder Full</h1>
+
+  <div class="tabs" role="tablist" aria-label="Graph views">
+    <button class="tab" role="tab" id="tab-exec" aria-selected="true" aria-controls="view-exec">Executive graph <small id="tab-exec-n"></small></button>
+    <button class="tab" role="tab" id="tab-full" aria-selected="false" aria-controls="view-full">Full assurance graph <small id="tab-full-n"></small></button>
+  </div>
+
+  <div class="stage">
+    <div class="canvas" id="canvas">
+      <div id="view-exec" role="tabpanel" aria-labelledby="tab-exec">
+        <div class="toolbar">
+          <span class="note" id="exec-note"></span>
+          <span class="note">Short labels are editorial. Click any node for the exact register text.</span>
+          @@EXEC_CTL@@
+        </div>
+        <div class="scroller"><svg id="exec-svg" viewBox="0 0 1240 760" role="img" aria-label="Executive assurance graph for root claim P4-C-001"></svg></div>
+        <div class="branchbar" id="branchbar" role="tablist" aria-label="Gap branches"><span class="label">Branch reader</span></div>
+        <div class="branchrow" id="branchrow" role="tabpanel" aria-live="polite"></div>
+      </div>
+      <div id="view-full" role="tabpanel" aria-labelledby="tab-full" hidden>
+        <div class="toolbar">
+          <span class="note">Rendered from the embedded JSON: every node and every relationship. Drag to pan, scroll or pinch to zoom. Tab to a node, arrows to move, Enter to select.</span>
+          <span class="ctl">
+            <label class="sr" for="q">Search</label>
+            <span class="search"><input id="q" type="search" role="combobox" aria-autocomplete="list" placeholder="Search ID or text ( / )" autocomplete="off" aria-controls="qres" aria-expanded="false"><ul id="qres" class="qres" role="listbox" hidden></ul></span>
+            <label for="jump" class="label">Jump to</label>
+            <select id="jump"></select>
+            <button class="btn" id="zIn" type="button" aria-label="Zoom in">+</button>
+            <button class="btn" id="zOut" type="button" aria-label="Zoom out">&minus;</button>
+            <button class="btn" id="fit" type="button">Fit</button>
+            <button class="btn" id="zReset" type="button">Reset</button>
+          </span>
+        </div>
+        <div class="toolbar toolbar2">
+          <span class="ctl" id="kinds" role="group" aria-label="Show node kinds"><span class="label">Show</span></span>
+          <span class="ctl hictl">
+            <label class="label" for="hiSel">Highlight</label>
+            <select id="hiSel">
+              <option value="">None</option>
+              <optgroup label="Where the evidence comes from">
+                <option value="o:card">Model card (Wonder Full tests)</option>
+                <option value="o:chart">Launch charts (Full and smaller Wonder)</option>
+                <option value="o:fw">Scaling Framework v2.1 (general policy)</option>
+                <option value="o:launch">Launch posts and research index</option>
+              </optgroup>
+              <optgroup label="Evidence bearing (graph field)">
+                <option value="b:mixed">Mixed: favourable and adverse together</option>
+                <option value="b:cap">Capability measurement</option>
+                <option value="b:rule">Definition or framework warrant</option>
+                <option value="b:scope">Scope, availability or provenance</option>
+                <option value="b:sup">Publisher assessment or support</option>
+              </optgroup>
+              <optgroup label="Attribution">
+                <option value="l:verbatim">Verbatim publisher text</option>
+                <option value="l:pub">Publisher-reported findings</option>
+                <option value="l:chart">Publisher chart transcription</option>
+                <option value="l:obs">ARGUS acquisition observation</option>
+                <option value="l:argus">ARGUS reconstruction</option>
+              </optgroup>
+              <option value="k:gap">Open public-assurance gaps</option>
+            </select>
+            <label class="chk"><input type="checkbox" id="isolate"> Isolate selection</label>
+          </span>
+        </div>
+        <svg id="full-svg" role="application" aria-label="Full assurance graph, 54 nodes and 67 relationships. Tab to a node, arrow keys to move, Enter to select."></svg>
+      </div>
+      <div class="rels" id="rels"><span class="label">Relationships</span></div>
+      <div class="statuskey" id="statuskey"></div>
+      <div class="tip" id="tip" hidden></div>
+    </div>
+    <aside class="panel" id="panel" aria-live="polite" aria-label="Selected record"></aside>
+  </div>
+
+  <footer id="xfoot">
+    <div class="reviewterms" role="note" aria-label="Reading conditions">
+      <span class="label">Reading conditions &middot; status and non-inference</span>
+      <p><strong>Research filed 14 October 2026. Presentation checked against the filed registers by its author; no independent fidelity audit and no external peer review.</strong> Counts are structural inventory, not safety scores. &ldquo;Moderate or lower&rdquo; is Meta&rsquo;s own assessment of the <em>unmitigated</em> model&rsquo;s cybersecurity risk; ARGUS has not verified it. Wonder Full is the tested variant; extending its results to the smaller Muse Wonder is Meta&rsquo;s inference, not independently established equivalence. A gap marks a public-assurance link not established in the inspected public corpus. It is not evidence that a control failed, that private evidence does not exist, of noncompliance or of known harm. Attack success rates are never converted into refusal rates, launch-chart results are never pooled with the model card&rsquo;s six attack success rates, and no cross-model ranking is made.</p>
+    </div>
+    <p id="semantics"></p>
+    <p><strong>Rules recorded in the graph.</strong> <span id="rules"></span></p>
+    <p><strong>Scope recorded in the graph.</strong> <span id="scopeline"></span> Page numbers are one-based PDF file pages.</p>
+    <p>Source of truth: <code>ARGUS_P4_ASSURANCE_GRAPH.json</code>, embedded in this page unchanged and rendered in the browser; register text in the panel is lifted verbatim from the filed evidence, gap and source registers and the executive checklist. <span id="integrity">Checking embedded dataset&hellip;</span></p>
+    <p><strong>Published artifact:</strong> no telemetry and no automatic third-party network requests. <code>OPEN SOURCE &#8599;</code> opens the publisher&rsquo;s current public copy only when selected; retained source archives, acquisition records and QA material are not published.</p>
+    <p>Independent research by <a href="/">Automa Dynamics</a>. Not affiliated with, commissioned by, or endorsed by Meta, and not a certification that Muse Wonder Full is safe or unsafe. <a href="/safety/argus/muse-wonder-full">Findings</a> &middot; <a href="/safety/argus">ARGUS overview</a> &middot; <a href="/safety/argus/files/ARGUS_P4_ASSURANCE_GRAPH.json">Graph JSON</a> &middot; <a href="mailto:hello@automadynamics.com?subject=ARGUS%20Proof-4">hello@automadynamics.com</a></p>
+  </footer>
+</div>
+
+<script id="argus-p4-registers" type="application/json">@@REGISTERS@@</script>
+<script id="argus-p4" type="application/json">@@DATA@@</script>
+<script>
+/*@@JS@@*/
+</script>
+@@EXEC_ZOOM@@
+</body>
+</html>

@@ -1,0 +1,137 @@
+/* Proof-4 additions on top of the Astra series stylesheet. Shared look comes from Astra; the branch reader,
+   search, kind toggles and highlight follow the Proof-2/Proof-3 accepted additions. New here: the P4 eight-type
+   relationship vocabulary and the data-origin marking that keeps launch-chart results apart from the model card. */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* P4 relationship vocabulary in the series line grammar. The five types Proof-3 also used keep its look:
+   supports = solid, filled arrow · qualifies = dotted, open arrow · conditions = dashed, chevron ·
+   assumed_by = blue dash-dot, open circle · limits = gap-coloured dash-dot, open diamond.
+   Three P4 types are new: reports = thin evidence-green line, filled dot (the publisher said it) ·
+   defines_scope = amber long dash, end bar (a boundary or definition) ·
+   contextualizes = violet short dash, open square (related reasoning, not proof). */
+.edge.supports { stroke: var(--r-sup); stroke-width: 1.6; }
+.edge.reports { stroke: var(--evid); stroke-width: 1.3; }
+.edge.qualifies { stroke: var(--r-qual); stroke-width: 1.7; stroke-dasharray: 1.5 3.5; stroke-linecap: round; }
+.edge.defines_scope { stroke: var(--part); stroke-width: 1.5; stroke-dasharray: 12 4; }
+.edge.contextualizes { stroke: var(--xfer); stroke-width: 1.5; stroke-dasharray: 4 3; }
+.edge.conditions { stroke: var(--r-dep); stroke-width: 1.5; stroke-dasharray: 7 4; }
+.edge.assumed_by { stroke: var(--r-asm); stroke-width: 1.4; stroke-dasharray: 9 3 2 3; }
+.edge.limits { stroke: var(--gap); stroke-width: 1.6; stroke-dasharray: 10 3 2 3; }
+.rrow .rtag.supports { color: var(--r-sup); } .rrow .rtag.reports { color: var(--evid); }
+.rrow .rtag.qualifies { color: var(--r-qual); } .rrow .rtag.defines_scope { color: var(--part); }
+.rrow .rtag.contextualizes { color: var(--xfer); } .rrow .rtag.conditions { color: var(--r-dep); }
+.rrow .rtag.assumed_by { color: var(--r-asm); } .rrow .rtag.limits { color: var(--gap); }
+.hide-supports .r-supports, .hide-reports .r-reports, .hide-qualifies .r-qualifies,
+.hide-defines_scope .r-defines_scope, .hide-contextualizes .r-contextualizes, .hide-conditions .r-conditions,
+.hide-assumed_by .r-assumed_by, .hide-limits .r-limits { display: none; }
+.focusing .r-edge.hl .edge.supports { stroke-width: 2.2; }
+.focusing .r-edge.path .edge { opacity: 1; stroke-width: 3; }
+.focusing .node.path:not(.hl) { opacity: .7; }
+.node.off, .r-edge.off { display: none; }
+.marking .node:not(.mark) { opacity: .2; }
+.marking .r-edge { opacity: .15; }
+.node.mark .selring { opacity: .9; stroke: var(--part); stroke-dasharray: 3 2; }
+.node.match .selring { opacity: 1; stroke: var(--part); }
+.node .id.small { font-size: 9.5px; }
+.node .sub { paint-order: stroke; stroke: var(--surface); stroke-width: 3.5px; stroke-linejoin: round; }
+.rels .relchip { white-space: nowrap; }
+
+/* data origin: launch-chart evidence carries a dashed violet ring; model-card evidence has none */
+.node .ring.chart { fill: none; stroke: var(--xfer); stroke-width: 1.6; stroke-dasharray: 3 2.5; }
+.node .origin { font: 600 8.5px var(--f-mono); letter-spacing: .06em; fill: var(--muted); }
+.node .origin.chart { fill: var(--xfer); }
+.mixtag { font: 600 8.5px var(--f-mono); letter-spacing: .08em; fill: var(--adv); }
+.mixbg { fill: var(--surface); stroke: var(--adv); stroke-width: 1; stroke-dasharray: 2 1.5; }
+.statuskey .ringkey { display: inline-block; width: 11px; height: 11px; border-radius: 50%; border: 1.6px dashed var(--xfer); vertical-align: -1px; margin-right: 5px; }
+
+/* panel */
+.ph .flags { display: flex; flex-wrap: wrap; gap: 4px; }
+.ph .flags .flag { white-space: normal; }
+.ph .flags .flag i { flex: none; }
+.flag.mixed { color: var(--adv); border-color: var(--adv); border-style: dashed; }
+.flag.mixed i { background: linear-gradient(90deg, currentColor 50%, transparent 50%); border: 1.5px solid currentColor; }
+.flag.val { color: var(--muted); }
+.flag.origin { color: var(--ink); border-color: var(--line); }
+.flag.origin i { border-radius: 1px; }
+.flag.origin.chart { color: var(--xfer); border-color: var(--xfer); background: var(--xfer-bg); border-style: dashed; }
+.flag.origin.card { color: var(--evid); border-color: var(--evid); }
+.flag.origin.fw { color: var(--dep); border-color: var(--dep); }
+.pubq { margin: 0; font: 13.5px/1.5 Georgia, "Iowan Old Style", serif; border-left: 3px solid var(--claim); padding: 2px 0 2px 10px; }
+.fld .v .tok { font-size: 11px; }
+.fld .v.reg strong { font-weight: 600; }
+.fld .v.reg code, .bcell code { font: 500 .86em/1.35 var(--f-mono); background: var(--surface-2); border: 1px solid var(--line); border-radius: 3px; padding: 0 3px; overflow-wrap: anywhere; }
+.fld .v.reg a, .bcell .v a, .bclose a, .src a.pg, .prov a { color: var(--claim); text-underline-offset: 2px; }
+.src .loc { margin-top: 2px; }
+.src a.pg { font-family: var(--f-mono); font-size: 11.5px; }
+.src .sourceaccess { display: inline-block; margin-top: 4px; color: var(--muted); font-size: 11px; overflow-wrap: anywhere; }
+.src .sourceopen { display: inline-flex; align-items: center; min-height: 44px; padding: 4px 8px 4px 0; box-sizing: border-box; }
+.chartnote { display: block; margin-top: 2px; font: 500 11px var(--f-mono); color: var(--xfer); }
+.prov { margin-top: 0; font-size: 12px; color: var(--muted); }
+.prov summary { cursor: pointer; font: 500 11px var(--f-mono); letter-spacing: .04em; color: var(--muted); min-height: 32px; display: flex; align-items: center; }
+.prov p { margin: 4px 0 0; overflow-wrap: anywhere; }
+.prov b { color: var(--ink); font-weight: 600; }
+.pb { padding: 14px 16px 18px; display: grid; gap: 14px; }
+.pairs { display: grid; gap: 6px; }
+.pairs .pr { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr) 3.4rem; gap: 8px; align-items: center; font-size: 12px; }
+.pairs .bar { height: 8px; background: var(--surface-2); border: 1px solid var(--line); border-radius: 2px; overflow: hidden; }
+.pairs .bar i { display: block; height: 100%; background: var(--xfer); }
+.pairs .bar i.full { background: var(--claim); }
+.pairs b { font: 600 12px var(--f-mono); text-align: right; }
+
+/* branch reader (executive): the executive checklist row for one gap, left to right */
+.branchbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; padding: 10px 12px; border-top: 1px solid var(--line); background: var(--surface-2); }
+.branchbar .label { margin-right: 4px; }
+.bbtn { appearance: none; display: inline-flex; gap: 6px; align-items: center; font: 500 12px var(--f-body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 3px; padding: 4px 9px 4px 6px; cursor: pointer; min-height: 32px; }
+.bbtn b { font: 600 11.5px var(--f-mono); color: var(--gap); }
+.bbtn[aria-selected="true"] { border-color: var(--gap); box-shadow: inset 0 0 0 1px var(--gap); background: var(--gap-bg); }
+.branchrow { padding: 12px 12px 14px; border-top: 1px solid var(--line); }
+.branchrow .hint { margin: 0; color: var(--muted); font-size: 12.5px; }
+.bhead { display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; margin-bottom: 10px; }
+.bhead .gid { font: 600 12px var(--f-mono); color: var(--gap); }
+.bhead b { font-size: 14px; }
+.bhead .lim { font: 500 11px var(--f-mono); color: var(--muted); }
+.brow { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 14px; }
+@media (max-width: 1100px) { .brow { grid-template-columns: 1fr 1fr; gap: 10px 14px; } }
+@media (max-width: 520px) { .brow { grid-template-columns: 1fr; } }
+.bcell { display: grid; gap: 4px; align-content: start; font-size: 12.5px; line-height: 1.45; position: relative; min-width: 0; text-wrap: pretty; overflow-wrap: anywhere; }
+.bcell > .label { font-size: 10px; }
+.bcell.flow::after { content: ""; position: absolute; right: -10px; top: 20px; width: 6px; height: 6px; border-top: 1.5px solid var(--faint); border-right: 1.5px solid var(--faint); transform: rotate(45deg); }
+@media (max-width: 1100px) { .bcell.flow::after { display: none; } }
+.bcell.claimc .v { font-weight: 600; }
+.bcell.gapc > .label { color: var(--gap); }
+.bcell.closec > .label { color: var(--ok); }
+.bcell .v.ev { color: var(--muted); font-size: 11.5px; }
+.bcell .chips { gap: 3px; }
+.idbtn { min-height: 24px; }
+.idbtn.mix { border-style: dashed; border-color: var(--adv); }
+.idbtn.chart { border-color: var(--xfer); color: var(--xfer); }
+.bclose { margin-top: 12px; padding: 8px 10px; border-left: 3px solid var(--ok); background: var(--surface-2); display: grid; gap: 4px; }
+.bclose p { margin: 0; font-size: 12.5px; line-height: 1.5; max-width: 120ch; }
+.bfoot { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-top: 10px; font-size: 12px; color: var(--muted); }
+.bfoot a { color: var(--claim); font-weight: 600; }
+
+/* full-graph controls */
+.toolbar2 { padding-top: 0; }
+.chk { display: inline-flex; gap: 6px; align-items: center; font-size: 12.5px; color: var(--muted); }
+.search { position: relative; }
+.search input { font: 500 12.5px var(--f-body); color: var(--ink); background: var(--surface); border: 1px solid var(--line); padding: 5px 10px; border-radius: 3px; width: 210px; }
+.qres { position: absolute; z-index: 20; top: 100%; left: 0; width: 360px; max-width: 86vw; margin: 4px 0 0; padding: 4px; list-style: none; background: var(--surface); border: 1px solid var(--line); box-shadow: 0 8px 24px rgba(0,0,0,.18); border-radius: 3px; max-height: 300px; overflow: auto; }
+.qres li { padding: 6px 8px; cursor: pointer; font-size: 12.5px; border-radius: 2px; }
+.qres li b { font: 600 11.5px var(--f-mono); margin-right: 6px; }
+.qres li[aria-selected="true"], .qres li:hover { background: var(--surface-2); }
+.kt { display: inline-flex; align-items: center; gap: 6px; font: 500 12px var(--f-mono); color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 3px; padding: 3px 8px 3px 4px; cursor: pointer; }
+.kt b { color: var(--muted); font-weight: 600; }
+.kt[aria-pressed="false"] { opacity: .45; text-decoration: line-through; }
+@media (max-width: 700px) {
+  .search input { width: 100%; } .search { flex: 1 1 100%; }
+  .toolbar .ctl { min-width: 0; max-width: 100%; } #jump { max-width: 100%; min-width: 0; flex: 1 1 100%; }
+  .toolbar2 .hictl { flex: 1 1 100%; } #hiSel { flex: 1 1 100%; width: 100%; max-width: 100%; }
+}
+#integrity, footer p { overflow-wrap: anywhere; }
+.eyebrow .tag.warn { white-space: normal; min-width: 0; max-width: 100%; }
+@media print { .tabs, .toolbar, .rels, .statuskey, .panel, .themebtn, #view-full { display: none !important; } }
+
+/* Phone framing: the shared 72vh box left ~400px of empty space around the
+   wide Executive graph at 390px. Size the box to the graph's proportions instead.
+   Higher specificity than the shared site rule, which loads after this file. */
+@media (max-width: 700px) { #view-exec #exec-svg { height: clamp(300px, 92vw, 72vh); } }

@@ -19,7 +19,7 @@ function SplitText({ text, className, as: Tag = 'h2' }) {
 }
 
 const DESCRIPTION =
-  'ARGUS reconstructs frontier AI safety claims as inspectable assurance cases. Three cases: Proof-1 maps the public evidence behind GPT-6 Astra’s cybersecurity release claim; Proof-2 reconstructs the public cybersecurity assurance record for Claude Opus 5.5; Proof-3 does the same for Gemini 4 Argon’s cyberoffensive safety case. Each shows where the public evidence stops.'
+  'ARGUS reconstructs frontier AI safety claims as inspectable assurance cases. Four cases: Proof-1 maps the public evidence behind GPT-6 Astra’s cybersecurity release claim; Proof-2 reconstructs the public cybersecurity assurance record for Claude Opus 5.5; Proof-3 does the same for Gemini 4 Argon’s cyberoffensive safety case; Proof-4 for Muse Wonder Full’s baseline cybersecurity assessment. Each shows where the public evidence stops.'
 
 export const metadata = {
   title: 'ARGUS',
@@ -76,9 +76,10 @@ const GRAPH = '/safety/argus/proof-1#exec'
 const FILES = '/safety/argus/files'
 const P2 = '/safety/argus/claude-opus-5-5'
 const P3 = '/safety/argus/gemini-4-argon'
+const P4 = '/safety/argus/muse-wonder-full'
 const P1_SUMMARY = '/safety/argus/proof-1/summary#exec'
 
-/* The ARGUS cases on the first screen: the first two side by side, the newest full width beneath. Counts are inventory,
+/* The ARGUS cases on the first screen, two by two. Counts are inventory,
    not safety scores; each card carries its own status line. */
 const cases = [
   {
@@ -118,7 +119,18 @@ const cases = [
     cta: 'Read the Proof-3 findings',
     more: `${P3}/explore#exec`,
     moreLabel: 'Proof-3 graph',
-    wide: true,
+  },
+  {
+    proof: 'Proof-4',
+    system: 'Muse Wonder Full',
+    org: 'Meta',
+    meta: 'Cybersecurity · released 12 October 2026',
+    gaps: '7 open public-assurance gaps',
+    status: 'Technical complete · research filed 14 Oct 2026 · not externally peer reviewed',
+    href: P4,
+    cta: 'Read the Proof-4 findings',
+    more: `${P4}/explore#exec`,
+    moreLabel: 'Proof-4 graph',
   },
 ]
 
@@ -585,12 +597,67 @@ export default function ArgusPage() {
         </div>
       </section>
 
+      {/* Proof-4. The full findings live on their own page; this is the pointer. */}
+      <section id="proof-4" className={`${SECTION} border-t border-white/5`}>
+        <div className={SHELL}>
+          <RevealGroup>
+            <Reveal>
+              <p className={`${LABEL} mb-6`}>Proof-4</p>
+            </Reveal>
+            <SplitText text="Muse Wonder Full" className={`${DISPLAY} mb-4`} />
+            <Reveal>
+              <p className={`${LEAD} ${MEASURE} mb-10`}>
+                What the public cybersecurity assurance record establishes
+              </p>
+            </Reveal>
+            <Reveal>
+              <p className={`${BODY} ${MEASURE} mb-6`}>
+                Meta&rsquo;s model card says its evaluations put the unmitigated model at &ldquo;moderate
+                or lower&rdquo; for cybersecurity, and that a mitigated assessment was reviewed before
+                deployment. Wonder Full is the tested variant; extending its results to the smaller Muse
+                Wonder is Meta&rsquo;s inference. The record makes capability results inspectable,
+                including Meta&rsquo;s own correction that only 21 of 92 ExploitGym flags used the intended
+                vulnerability, alongside guarded results with nonzero attack successes. It leaves the
+                reasoning that accepted the remaining risk only partly inspectable.
+              </p>
+            </Reveal>
+            <Reveal>
+              <p className={`${LEAD} ${MEASURE} mb-10`}>
+                Seven open public-assurance gaps: requests for inspectable evidence, not findings that
+                controls failed.
+              </p>
+            </Reveal>
+            <Reveal>
+              <p className={`${BODY} ${MEASURE} mb-10`}>
+                Released 12 October 2026; a separate full safety report was not located in a bounded public
+                search on 14 October. 54 typed nodes and 67 warranted relationships. Research filed
+                14 October 2026; not externally peer reviewed. Independent research, not affiliated with,
+                commissioned by, or endorsed by Meta.
+              </p>
+            </Reveal>
+            <Reveal>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href={P4}
+                  className="btn-primary inline-flex items-center justify-center gap-2 !px-5 sm:!px-8"
+                >
+                  Read the Proof-4 findings <span aria-hidden="true">&rarr;</span>
+                </a>
+                <a href={`${P4}/explore#exec`} className="btn-secondary text-center">
+                  Open the Proof-4 graph
+                </a>
+              </div>
+            </Reveal>
+          </RevealGroup>
+        </div>
+      </section>
+
       {/* Cross-case synthesis. Points at /safety/argus/last-mile. */}
       <section id="last-mile" className={`${SECTION} border-t border-white/5`}>
         <div className={SHELL}>
           <RevealGroup>
             <Reveal>
-              <p className={`${LABEL} mb-6`}>Across the three cases</p>
+              <p className={`${LABEL} mb-6`}>Across Proofs 1 to 3</p>
             </Reveal>
             <SplitText text="The last mile" className={`${DISPLAY} mb-4`} />
             <Reveal>

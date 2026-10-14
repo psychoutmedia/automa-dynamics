@@ -1,0 +1,1563 @@
+{
+  "schema_version": "ARGUS-P4-1.0",
+  "case_id": "ARGUS-P4",
+  "created_date": "2026-10-14",
+  "organisation": "Meta",
+  "model": "Muse Wonder Full",
+  "risk_domain": "Cybersecurity",
+  "root_id": "P4-C-001",
+  "scope": "Claim as captured 14 October 2026 concerning the 12 October release; smaller Wonder family extension and mitigated deployment assessment are explicit context.",
+  "attribution_rule": "Publisher root is verbatim with whitespace normalized only. Other statements and all edge warrants are ARGUS reconstructions or bounded publisher reports. No safety certification.",
+  "edge_semantics": {
+    "reports": "establishes that the publisher stated something; does not independently prove it",
+    "supports": "provides bounded relevant evidence, not deductive sufficiency",
+    "qualifies": "limits strength, transfer or scope",
+    "defines_scope": "supplies a definition, policy or applicability boundary",
+    "contextualizes": "adds related deployment reasoning without proving baseline capability",
+    "conditions": "dependency required for the specified inference",
+    "assumed_by": "unverified proposition relied on by a dependency",
+    "limits": "public-assurance gap impedes independent assessment"
+  },
+  "sources": [
+    {
+      "id": "P4-SRC-001",
+      "requested_url": "https://research.meta.ai/static/muse-wonder-model-card",
+      "final_url": "https://research.meta.ai/static/muse-wonder-model-card",
+      "status": 200,
+      "content_type": "application/pdf",
+      "retrieval_started_utc": "2026-10-14T13:08:50.483363+00:00",
+      "retrieved_utc": "2026-10-14T13:08:50.776999+00:00",
+      "bytes": 384723,
+      "sha256": "63e19276146bc146f1a14a2534360b9712641918f617ca432ef1443991f4edce",
+      "path": "sources/P4-SRC-001_muse_wonder_model_card.pdf",
+      "response_metadata": {
+        "Content-Length": "384723"
+      },
+      "title": "Muse Wonder Model Card",
+      "publication_date": "Release date: 2026-10-12 (card p.1); document publication day not separately stated",
+      "revision": "No numbered revision; PDF metadata has title/producer, no creation or modification date",
+      "pages": 13
+    },
+    {
+      "id": "P4-SRC-002",
+      "requested_url": "https://research.meta.ai/static/meta-superintelligence-scaling-framework",
+      "final_url": "https://research.meta.ai/static/meta-superintelligence-scaling-framework",
+      "status": 200,
+      "content_type": "application/pdf",
+      "retrieval_started_utc": "2026-10-14T13:08:50.484287+00:00",
+      "retrieved_utc": "2026-10-14T13:08:50.832277+00:00",
+      "bytes": 656253,
+      "sha256": "5a01d327df6dd81f2be886ea6006dbb53a64c37b359c7bd95346dd718819c64f",
+      "path": "sources/P4-SRC-002_scaling_framework_v2_1.pdf",
+      "response_metadata": {
+        "Content-Length": "656253"
+      },
+      "title": "Meta Superintelligence Scaling Framework v2.1",
+      "publication_date": "2026-10-02, Appendix II p.51; header October 2026",
+      "revision": "Version 2.1; preface p.3 and changelog pp.50–51",
+      "pages": 51
+    },
+    {
+      "id": "P4-SRC-003",
+      "requested_url": "https://research.meta.ai/blog/muse-wonder",
+      "final_url": "https://research.meta.ai/blog/muse-wonder",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "retrieval_started_utc": "2026-10-14T13:08:50.485094+00:00",
+      "retrieved_utc": "2026-10-14T13:08:51.381261+00:00",
+      "bytes": 333752,
+      "sha256": "df7fc46cfdf0c66afbd38b9ef099ca31125ed2135bb3c6a085986a184b92f5a0",
+      "path": "sources/P4-SRC-003_launch_research.html",
+      "response_metadata": {},
+      "title": "Muse Wonder launch research",
+      "publication_date": "2026-10-12T00:00:00.000Z",
+      "revision": "HTML dateModified: 2026-10-12T00:00:00.000Z",
+      "pages": null
+    },
+    {
+      "id": "P4-SRC-004",
+      "requested_url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+      "final_url": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "retrieval_started_utc": "2026-10-14T13:08:50.485943+00:00",
+      "retrieved_utc": "2026-10-14T13:08:55.020961+00:00",
+      "bytes": 497736,
+      "sha256": "8d82a0cb17d15cb54b9750892d5be7039feede9df7bdcdc890db2b9492a4090a",
+      "path": "sources/P4-SRC-004_announcement.html",
+      "response_metadata": {},
+      "title": "Introducing Muse Wonder and Muse Wonder Full",
+      "publication_date": "2026-10-12T17:08:05+00:00",
+      "revision": "HTML dateModified: 2026-10-13T17:27:26+00:00",
+      "pages": null
+    },
+    {
+      "id": "P4-SRC-005",
+      "requested_url": "https://research.meta.ai/blog/developing-capable-models-responsibly",
+      "final_url": "https://research.meta.ai/blog/developing-capable-models-responsibly",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "retrieval_started_utc": "2026-10-14T13:08:50.486669+00:00",
+      "retrieved_utc": "2026-10-14T13:08:50.978007+00:00",
+      "bytes": 100585,
+      "sha256": "0b15ca42449e12330802845e7c160157c12d59e7307122d5f1156f0c79798664",
+      "path": "sources/P4-SRC-005_framework_explanation.html",
+      "response_metadata": {},
+      "title": "Developing Capable Models Responsibly",
+      "publication_date": "2026-10-02T00:00:00.000Z",
+      "revision": "HTML dateModified: 2026-10-02T00:00:00.000Z",
+      "pages": null
+    },
+    {
+      "id": "P4-SRC-006",
+      "requested_url": "https://research.meta.ai/",
+      "final_url": "https://research.meta.ai/",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "retrieval_started_utc": "2026-10-14T13:10:32.832621+00:00",
+      "retrieved_utc": "2026-10-14T13:10:33.286878+00:00",
+      "bytes": 249559,
+      "sha256": "7f862c84ed09ee1e4de77c81c46f2fa09b406e1de8769099437bfc69ec740c87",
+      "path": "sources/P4-SRC-006_research_index.html",
+      "response_metadata": {},
+      "title": "Meta AI Research index",
+      "publication_date": "Dynamic index; no single publication date",
+      "revision": "No numbered revision; featured Wonder post dated 2026-10-12",
+      "pages": null
+    },
+    {
+      "id": "P4-SRC-007",
+      "requested_url": "https://research.meta.ai/articles/introducing-muse-wonder/images/cyber-misuse-refusal-light-v2.webp",
+      "final_url": "https://research.meta.ai/articles/introducing-muse-wonder/images/cyber-misuse-refusal-light-v2.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "retrieval_started_utc": "2026-10-14T13:19:24.108432+00:00",
+      "retrieved_utc": "2026-10-14T13:19:24.363049+00:00",
+      "bytes": 104174,
+      "sha256": "d5a2dce55e87673bfc6ab15e969a26fc747fe2c202233c9456f68634729ee412",
+      "path": "sources/P4-SRC-007_cyber_misuse_refusal.webp",
+      "response_metadata": {
+        "Last-Modified": "Wed, 14 Oct 2026 10:20:06 GMT",
+        "ETag": "\"effddce0f8a8a1db9eca0f40f9aa72ac\"",
+        "Content-Length": "104174"
+      },
+      "title": "Cyber Misuse Refusal Benchmark — launch chart",
+      "publication_date": "Linked from launch post dated 2026-10-12; standalone asset publication date unknown",
+      "revision": "Filename light-v2; HTTP Last-Modified Wed, 14 Oct 2026 10:20:06 GMT (not a semantic change log)",
+      "pages": null,
+      "dimensions": [
+        3240,
+        3240
+      ],
+      "parent_source_id": "P4-SRC-003"
+    },
+    {
+      "id": "P4-SRC-008",
+      "requested_url": "https://research.meta.ai/articles/introducing-muse-wonder/images/cyber-defense-compliance-light-v3.webp",
+      "final_url": "https://research.meta.ai/articles/introducing-muse-wonder/images/cyber-defense-compliance-light-v3.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "retrieval_started_utc": "2026-10-14T13:19:24.109345+00:00",
+      "retrieved_utc": "2026-10-14T13:19:24.369365+00:00",
+      "bytes": 101678,
+      "sha256": "d044921db534a68665e6ad116dca79ab4529359327da98b1e8623ea274b9a16e",
+      "path": "sources/P4-SRC-008_cyber_defense_compliance.webp",
+      "response_metadata": {
+        "Last-Modified": "Wed, 14 Oct 2026 10:20:07 GMT",
+        "ETag": "\"5f3d121b35ddce7ea582485e1c61f439\"",
+        "Content-Length": "101678"
+      },
+      "title": "Cyber Defense Compliance Benchmark — launch chart",
+      "publication_date": "Linked from launch post dated 2026-10-12; standalone asset publication date unknown",
+      "revision": "Filename light-v3; HTTP Last-Modified Wed, 14 Oct 2026 10:20:07 GMT (not a semantic change log)",
+      "pages": null,
+      "dimensions": [
+        3240,
+        3240
+      ],
+      "parent_source_id": "P4-SRC-003"
+    },
+    {
+      "id": "P4-SRC-009",
+      "requested_url": "https://research.meta.ai/articles/introducing-muse-wonder/images/unauthorized-code-execution-light-v2.webp",
+      "final_url": "https://research.meta.ai/articles/introducing-muse-wonder/images/unauthorized-code-execution-light-v2.webp",
+      "status": 200,
+      "content_type": "image/webp",
+      "retrieval_started_utc": "2026-10-14T13:19:24.110110+00:00",
+      "retrieved_utc": "2026-10-14T13:19:24.377084+00:00",
+      "bytes": 97160,
+      "sha256": "8ad34f90d072bce338031ca62783f835191aa731ef4ff0b536e7f7b87c8c55cd",
+      "path": "sources/P4-SRC-009_unauthorized_code_execution.webp",
+      "response_metadata": {
+        "Last-Modified": "Wed, 14 Oct 2026 10:20:01 GMT",
+        "ETag": "\"da5eee445f7d1e1748928adcde320264\"",
+        "Content-Length": "97160"
+      },
+      "title": "Executing Unauthorized Code — launch chart",
+      "publication_date": "Linked from launch post dated 2026-10-12; standalone asset publication date unknown",
+      "revision": "Filename light-v2; HTTP Last-Modified Wed, 14 Oct 2026 10:20:01 GMT (not a semantic change log)",
+      "pages": null,
+      "dimensions": [
+        3240,
+        3240
+      ],
+      "parent_source_id": "P4-SRC-003"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "P4-C-001",
+      "kind": "CLAIM",
+      "title": "Wonder Full unmitigated cybersecurity risk assessment",
+      "statement": "Our evaluations put the unmitigated model at “moderate or lower” for both Cybersecurity and Loss of Control before applying our mitigations.",
+      "primary_root": true,
+      "interpretation_label": "VERBATIM_PUBLISHER",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§4, PDF p.7, opening paragraph, penultimate sentence"
+        }
+      ],
+      "applicability": "Cybersecurity component only; Wonder Full. Loss of Control retained for quotation fidelity, outside analysis.",
+      "argus_reconstruction": "Meta assesses unmitigated Wonder Full cybersecurity risk as moderate or lower under its framework. The surrounding mitigated deployment judgment is supporting context, not a second root."
+    },
+    {
+      "id": "P4-A-001",
+      "kind": "ARGUMENT",
+      "title": "Meaning and scope",
+      "statement": "The root is Meta’s cybersecurity baseline-category assessment of Full, under the framework’s catastrophic-risk definition. Its reference to Loss of Control is preserved in the quote but excluded from analysis.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-A-002",
+      "kind": "ARGUMENT",
+      "title": "Baseline capability inference",
+      "statement": "Capability results are relevant inputs; an inspectable baseline conclusion requires model-specific evidence that no covered cyber scenario receives substantial contribution under plausible elicitation and deployment conditions.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-A-003",
+      "kind": "ARGUMENT",
+      "title": "Guarded behavior context",
+      "statement": "Six adversarial ASRs provide bounded evidence of refusal robustness and remaining successes. These results qualify deployment context; they do not establish the unmitigated baseline.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-A-004",
+      "kind": "ARGUMENT",
+      "title": "Family extension",
+      "statement": "Full-based family assessment requires domain-specific capability bounding. Paired launch behavior charts provide limited evidence and show that general capability ordering does not uniformly order refusal, compliance or unauthorized-code results.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-A-005",
+      "kind": "ARGUMENT",
+      "title": "Tested-to-served configuration",
+      "statement": "Transfer to deployment requires correct model, checkpoint, tool/harness, access and mitigation mapping; Full’s announced route is Muse Code subscribers.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-A-006",
+      "kind": "ARGUMENT",
+      "title": "Deployment decision context",
+      "statement": "The reported mitigated category and pre-deployment review are consistent with the root, but the public record does not expose the full cyber residual-risk rationale or independent scrutiny.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-A-007",
+      "kind": "ARGUMENT",
+      "title": "Continuing assurance",
+      "statement": "Monitoring, response, model security and reassessment must preserve the conditions under which deployment risk was judged; their effectiveness is not measured publicly here.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-D-001",
+      "kind": "DEPENDENCY",
+      "title": "Scenario coverage",
+      "statement": "The evaluation suite covers the relevant Cyber 1/2/3 pathways and deployment affordances sufficiently to support the categorical baseline.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-D-002",
+      "kind": "DEPENDENCY",
+      "title": "Measurement validity",
+      "statement": "Capability scoring, intended-task adjudication, elicitation and repeats accurately characterize Full’s relevant capabilities.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-D-003",
+      "kind": "DEPENDENCY",
+      "title": "Adversarial representativeness",
+      "statement": "Robustness tasks, budgets, success criteria and outcomes are informative about relevant misuse attempts.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-D-004",
+      "kind": "DEPENDENCY",
+      "title": "Family bounding",
+      "statement": "Full bounds smaller Wonder’s relevant capabilities in comparable conditions; the inference does not presume weaker models always refuse better.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-D-005",
+      "kind": "DEPENDENCY",
+      "title": "Serving equivalence",
+      "statement": "The tested checkpoint, tools and safeguards map to the served Full configuration and any claimed family deployment.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-D-006",
+      "kind": "DEPENDENCY",
+      "title": "Decision completeness",
+      "statement": "The residual-risk decision integrates relevant favorable and adverse findings, with acceptance criteria and accountable review.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-D-007",
+      "kind": "DEPENDENCY",
+      "title": "Control persistence",
+      "statement": "Cyber monitoring, response and weight protection continue to function as assumed and trigger reassessment when conditions change.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-D-008",
+      "kind": "DEPENDENCY",
+      "title": "Temporal scope",
+      "statement": "The case concerns claims in 14 October captures about the 12 October release; exact release-day text and configuration remain unverified.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-U-001",
+      "kind": "ASSUMPTION",
+      "title": "Proxy adequacy",
+      "statement": "Benchmark success or failure is informative about real threat contribution only under a justified mapping and adequate elicitation.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-U-002",
+      "kind": "ASSUMPTION",
+      "title": "Scoring adequacy",
+      "statement": "Verifier agreement is informative but may share errors; unintended flags must be adjudicated separately from intended exploits.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-U-003",
+      "kind": "ASSUMPTION",
+      "title": "Attack coverage",
+      "statement": "Finite attack portfolios and budgets provide useful but incomplete evidence about adaptive, persistent adversaries.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-U-004",
+      "kind": "ASSUMPTION",
+      "title": "Cross-variant inference",
+      "statement": "A stronger general model can bound some capabilities without necessarily bounding every specialized capability or refusal behavior.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-U-005",
+      "kind": "ASSUMPTION",
+      "title": "Configuration continuity",
+      "statement": "Evaluation configurations and active deployment controls remain comparable across the claimed release scope.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-U-006",
+      "kind": "ASSUMPTION",
+      "title": "Operational containment",
+      "statement": "Layered controls and timely response reduce opportunities for persistent misuse or unauthorized unmitigated access.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-E-001",
+      "kind": "EVIDENCE",
+      "title": "Root and surrounding assessment",
+      "statement": "Meta assigns the unmitigated model the moderate-or-lower category in cybersecurity. The surrounding paragraph assigns the same category across all domains after mitigation and connects that assessment to deployment.",
+      "applicability": "Section introduces Wonder Full as tested model. Only cybersecurity is reconstructed.",
+      "limit": "Chemical/biological high-risk uncertainty and Loss of Control are outside the root’s analytic scope. A cyber reduction from high risk is not asserted.",
+      "bearing": "PUBLISHER_ASSESSMENT",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§4, PDF p.7, opening paragraph"
+        }
+      ],
+      "citation": "[§4, PDF p.7, opening paragraph](sources/P4-SRC-001_muse_wonder_model_card.pdf#page=7)"
+    },
+    {
+      "id": "P4-E-002",
+      "kind": "EVIDENCE",
+      "title": "Family inference",
+      "statement": "Meta says results are from its most capable variant, Wonder Full, and on that basis the assessment covers every model in the family.",
+      "applicability": "Full test results; extension to smaller Wonder is a publisher inference.",
+      "limit": "The card supplies Full’s §4 cyber tests. Launch charts add paired refusal/compliance/security aggregates, but no paired catastrophic-capability assessment or complete family-bounding argument.",
+      "bearing": "SCOPE",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§4, PDF p.7, first sentence"
+        }
+      ],
+      "citation": "[§4, PDF p.7, first sentence](sources/P4-SRC-001_muse_wonder_model_card.pdf#page=7)"
+    },
+    {
+      "id": "P4-E-003",
+      "kind": "EVIDENCE",
+      "title": "CyberGym capability",
+      "statement": "CyberGym: 88.4%.",
+      "applicability": "Wonder Full; capability table.",
+      "limit": "No cyber-specific task count, pass@k, repeats, confidence interval, checkpoint, harness or mitigation-removal manifest. The table is not a safeguard effectiveness test.",
+      "bearing": "CAPABILITY",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§4, PDF p.7, Cyber Capability Evaluations"
+        }
+      ],
+      "citation": "[§4, PDF p.7, Cyber Capability Evaluations](sources/P4-SRC-001_muse_wonder_model_card.pdf#page=7)"
+    },
+    {
+      "id": "P4-E-004",
+      "kind": "EVIDENCE",
+      "title": "ExploitBench capability",
+      "statement": "ExploitBench: 58.9%.",
+      "applicability": "Wonder Full; capability table.",
+      "limit": "Denominator and aggregation are not stated. Do not import another developer’s ExploitBench harness, score definition or task count.",
+      "bearing": "CAPABILITY",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§4, PDF p.7, Cyber Capability Evaluations"
+        }
+      ],
+      "citation": "[§4, PDF p.7, Cyber Capability Evaluations](sources/P4-SRC-001_muse_wonder_model_card.pdf#page=7)"
+    },
+    {
+      "id": "P4-E-005",
+      "kind": "EVIDENCE",
+      "title": "ExploitGym score qualification",
+      "statement": "92 flags captured: 21 via intended vulnerabilities and 71 via unintended vulnerabilities. Meta reports a GPT-cyber verification pass and a separate confirmation using Gemini 3.1 Pro. Only 21 is comparable to the benchmark’s published ranking.",
+      "applicability": "Wonder Full; counts of flags, not percentages.",
+      "limit": "No total attempted tasks or verifier confusion matrix. The 71 routes show capability and benchmark-validity concerns; they do not establish production compromise or safeguard bypass. A second model verifier is not an independent institutional audit.",
+      "bearing": "MIXED",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§4, PDF p.7, ExploitGym footnote"
+        }
+      ],
+      "citation": "[§4, PDF p.7, ExploitGym footnote](sources/P4-SRC-001_muse_wonder_model_card.pdf#page=7)"
+    },
+    {
+      "id": "P4-E-006",
+      "kind": "EVIDENCE",
+      "title": "CyberBench robustness",
+      "statement": "Attack Success Rate: single turn 0.8%; multi turn 0.8%.",
+      "applicability": "Wonder Full; adversarial refusal setup named CyberBench.",
+      "limit": "No seeds, attempts, denominator, retry budget, scoring rules or served safeguard version. Do not rename CyberBench as Cybench or pool the two setups.",
+      "bearing": "MIXED",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§4, PDF pp.7–8, Cyber Robustness Evaluations table"
+        }
+      ],
+      "citation": "[§4, PDF pp.7–8, Cyber Robustness Evaluations table](sources/P4-SRC-001_muse_wonder_model_card.pdf#page=8)"
+    },
+    {
+      "id": "P4-E-007",
+      "kind": "EVIDENCE",
+      "title": "PolyGuard robustness",
+      "statement": "Attack Success Rate: single turn 1.1%; multi turn 2.3%.",
+      "applicability": "Wonder Full; cyber subset only.",
+      "limit": "Multi-turn value is higher in this test; task mix and budget comparability are not established. No aggregate refusal percentage is derived.",
+      "bearing": "MIXED",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§4, PDF p.8, PolyGuard cyber subset row"
+        }
+      ],
+      "citation": "[§4, PDF p.8, PolyGuard cyber subset row](sources/P4-SRC-001_muse_wonder_model_card.pdf#page=8)"
+    },
+    {
+      "id": "P4-E-008",
+      "kind": "EVIDENCE",
+      "title": "RedCode robustness",
+      "statement": "Attack Success Rate: single turn 9.0%; multi turn 8.0%. Meta characterizes the overall benchmark results as strongly robust.",
+      "applicability": "Wonder Full; RedCode setup.",
+      "limit": "Nonzero success remains, including larger rates than the other reported suites. Severity, operational usefulness and fixes are unspecified. Do not infer multi-turn attacks are inherently easier to block.",
+      "bearing": "MIXED",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§4, PDF p.8, RedCode row and conclusion"
+        }
+      ],
+      "citation": "[§4, PDF p.8, RedCode row and conclusion](sources/P4-SRC-001_muse_wonder_model_card.pdf#page=8)"
+    },
+    {
+      "id": "P4-E-009",
+      "kind": "EVIDENCE",
+      "title": "Residual assessment and review",
+      "statement": "Meta reports extensive evaluations including red teaming across the three framework domains, a mitigated moderate-or-lower residual-risk assessment, and internal governance review before the deployment decision.",
+      "applicability": "Publisher’s family-level narrative; not a published cyber-specific decision record.",
+      "limit": "No decision date, risk-acceptance worksheet or adverse-result dispositions. No claim of independently verified framework compliance.",
+      "bearing": "SUPPORT",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§5, PDF p.11, Trust and Safety"
+        }
+      ],
+      "citation": "[§5, PDF p.11, Trust and Safety](sources/P4-SRC-001_muse_wonder_model_card.pdf#page=11)"
+    },
+    {
+      "id": "P4-E-010",
+      "kind": "EVIDENCE",
+      "title": "External inputs",
+      "statement": "Meta reports working with third parties on benchmark development/licensing, threat modeling with outside experts, and engagement with government and other stakeholders.",
+      "applicability": "External inputs to catastrophic-risk assessment; cyber-specific evaluator identities and findings not provided here.",
+      "limit": "Benchmark provenance, external execution and independent endorsement of the risk judgment are different propositions. None can be substituted for another.",
+      "bearing": "BOUNDED_SUPPORT",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§5, PDF p.11, final paragraph"
+        }
+      ],
+      "citation": "[§5, PDF p.11, final paragraph](sources/P4-SRC-001_muse_wonder_model_card.pdf#page=11)"
+    },
+    {
+      "id": "P4-E-011",
+      "kind": "EVIDENCE",
+      "title": "System and evaluation limits",
+      "statement": "Meta recommends use-case guardrails and human confirmation for irreversible agent actions; it says testing cannot cover all scenarios and performance varies with serving configuration, quantization, prompts, tools and harness. Not all training languages were evaluated.",
+      "applicability": "Family-level cautions relevant to transferring tests to use.",
+      "limit": "Recommendations do not prove activation in Muse Code or an API deployment. General coding methodology in §3 does not resolve §4 cyber-specific procedures.",
+      "bearing": "QUALIFIER",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§§5–6, PDF pp.11–12"
+        }
+      ],
+      "citation": "[§§5–6, PDF pp.11–12](sources/P4-SRC-001_muse_wonder_model_card.pdf#page=11)"
+    },
+    {
+      "id": "P4-E-012",
+      "kind": "EVIDENCE",
+      "title": "Meaning of risk category",
+      "statement": "Moderate or lower permits relevant capabilities while excluding substantial contribution to the defined catastrophic scenarios across plausible development and deployment conditions. High risk concerns substantial contribution; moderate-level mitigation choices depend on tests and deployment strategy.",
+      "applicability": "Framework category; substantial contribution means being a material factor in an outcome.",
+      "limit": "This is a catastrophic-risk category, not a statement of zero cyber misuse or a numerical safety score. Framework policy is not evidence of Wonder-specific fulfillment.",
+      "bearing": "DEFINITION",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-002",
+          "locator": "§3.3, Table 1, PDF pp.17–19; Appendix I p.49"
+        }
+      ],
+      "citation": "[§3.3, Table 1, PDF pp.17–19; Appendix I p.49](sources/P4-SRC-002_scaling_framework_v2_1.pdf#page=18)"
+    },
+    {
+      "id": "P4-E-013",
+      "kind": "EVIDENCE",
+      "title": "Cyber scenario coverage",
+      "statement": "Cyber 1 concerns lowered barriers/cost of attacks producing large-scale casualties or significant financial loss; Cyber 2 concerns discovery and reliable exploitation of critical zero-days in popular software; Cyber 3 concerns scaled long-form fraud, extortion and scams.",
+      "applicability": "Three outcome families; scenario details are partly withheld by the framework.",
+      "limit": "The card’s exploit-focused table alone does not establish coverage of all three or the economic/human baselines.",
+      "bearing": "DEFINITION",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-002",
+          "locator": "§3.4.1, PDF pp.20–22"
+        }
+      ],
+      "citation": "[§3.4.1, PDF pp.20–22](sources/P4-SRC-002_scaling_framework_v2_1.pdf#page=20)"
+    },
+    {
+      "id": "P4-E-014",
+      "kind": "EVIDENCE",
+      "title": "Cyber operational threshold",
+      "statement": "Framework starts with professional offensive tasks relative to human experts, escalates from simple to complex realistic challenges when performance warrants, and uses reliable consistent success for high-risk determinations. Cyber 3 uses bottleneck analysis and deployment-specific evaluations.",
+      "applicability": "General decision rule for Cyber 1/2/3.",
+      "limit": "No Wonder-specific human comparisons, escalation decision, complex-task outcomes or Cyber 3 results accompany the card’s scores. No universal numeric cutoff is supplied.",
+      "bearing": "WARRANT",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-002",
+          "locator": "§4.2.1, PDF pp.30–32"
+        }
+      ],
+      "citation": "[§4.2.1, PDF pp.30–32](sources/P4-SRC-002_scaling_framework_v2_1.pdf#page=30)"
+    },
+    {
+      "id": "P4-E-015",
+      "kind": "EVIDENCE",
+      "title": "Refusals and defensive access policy",
+      "statement": "Framework calls for refusal testing, policy scoping to retain defensive uses, monitoring for malicious use, and prompt-injection testing/layered defenses. If the operational threshold is reached it calls for further attacker/defender analysis and system-mitigated reevaluation.",
+      "applicability": "Conditional framework commitments; examples include classifiers, rate limits, abuse monitoring, identity controls and logging.",
+      "limit": "These examples are not an inventory of controls proven active for Wonder Full. The condition for enhanced cyber measures is not established merely by the chemical/biological result.",
+      "bearing": "WARRANT",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-002",
+          "locator": "§4.2.1, PDF pp.32–33"
+        }
+      ],
+      "citation": "[§4.2.1, PDF pp.32–33](sources/P4-SRC-002_scaling_framework_v2_1.pdf#page=32)"
+    },
+    {
+      "id": "P4-E-016",
+      "kind": "EVIDENCE",
+      "title": "Evaluation and governance method",
+      "statement": "Framework describes pre-mitigation assessment, context-sensitive elicitation, held-out risk evaluations, repeat evaluations near training completion, mitigation adequacy review, residual threat modeling and deployment approval roles.",
+      "applicability": "General process, with deployment context, scaffolding and model security included.",
+      "limit": "No Wonder-specific execution logs, evaluation-awareness audit, holdout audit or repetitions are provided by these commitments.",
+      "bearing": "WARRANT",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-002",
+          "locator": "§§2.1–2.3, PDF pp.5–13; §§4.1–4.2 pp.28–30"
+        }
+      ],
+      "citation": "[§§2.1–2.3, PDF pp.5–13; §§4.1–4.2 pp.28–30](sources/P4-SRC-002_scaling_framework_v2_1.pdf#page=8)"
+    },
+    {
+      "id": "P4-E-017",
+      "kind": "EVIDENCE",
+      "title": "Disclosure commitments and reasons",
+      "statement": "Preparedness reports are to explain methods, elicitation/resources/access, risk rationale, mitigation adequacy, adverse behaviors and governance; material changes trigger updates. Framework explicitly withholds constituent threat steps while balancing transparency/security, and permits some report redactions with reasons where feasible.",
+      "applicability": "Disclosure policy and explicit framework-level withholding reason.",
+      "limit": "No deadline beyond timely deployment-linked reporting is specified. Do not assert a policy breach or infer that the same reason explains absent Wonder denominators, report timing or decision details.",
+      "bearing": "WARRANT",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-002",
+          "locator": "§2.2.1–2.2.2, PDF pp.9–11; §3.4 p.20"
+        }
+      ],
+      "citation": "[§2.2.1–2.2.2, PDF pp.9–11; §3.4 p.20](sources/P4-SRC-002_scaling_framework_v2_1.pdf#page=10)"
+    },
+    {
+      "id": "P4-E-018",
+      "kind": "EVIDENCE",
+      "title": "Launch routes",
+      "statement": "Wonder is announced on Meta Model API and Muse Code; Wonder Full is announced for Muse Code subscribers. Wonder-powered Muse experiences are described as forthcoming, first for subscribers.",
+      "applicability": "Distinct named models and launch routes; corroborated by P4-SRC-004 Takeaways.",
+      "limit": "Full API access and completed Muse rollout are not established. No per-route tested checkpoint/control manifest appears.",
+      "bearing": "SCOPE",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-003",
+          "locator": "Opening availability paragraphs, 12 October 2026"
+        },
+        {
+          "source_id": "P4-SRC-004",
+          "locator": "Takeaways and opening/closing availability paragraphs"
+        }
+      ],
+      "citation": "[Opening availability paragraphs, 12 October 2026](sources/P4-SRC-003_launch_research.html)"
+    },
+    {
+      "id": "P4-E-019",
+      "kind": "EVIDENCE",
+      "title": "Separate report public boundary",
+      "statement": "The launch page promises a fuller report with additional safety evaluations. Its existing evaluation-report link points to the model card. The announcement also retains the promise; publisher index and bounded searches did not locate a separate full report.",
+      "applicability": "Observed 2026-10-14; originals retained as P4-SRC-003/004/006, search record retained separately.",
+      "limit": "NOT_LOCATED_IN_BOUNDED_PUBLIC_SEARCH; existence elsewhere, unpublished work or later publication is unknown. The model card is available and is not treated as missing.",
+      "bearing": "AVAILABILITY",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-003",
+          "locator": "Safety at the Frontier; report link under Model Highlights"
+        },
+        {
+          "source_id": "P4-SRC-004",
+          "locator": "How We Build for Safety"
+        },
+        {
+          "source_id": "P4-SRC-006",
+          "locator": "Latest from Meta AI Research; featured and latest links"
+        }
+      ],
+      "citation": "[Safety at the Frontier; report link under Model Highlights](sources/P4-SRC-003_launch_research.html)"
+    },
+    {
+      "id": "P4-E-020",
+      "kind": "EVIDENCE",
+      "title": "Framework revision and evolving governance",
+      "statement": "Meta dates the framework update to 2 October and describes containment/open-weight changes and a future board committee. Framework p.51 dates v2.1 to the same day.",
+      "applicability": "Pre-launch framework context; future governance proposals remain future.",
+      "limit": "This is not evidence that the planned committee approved Wonder or that open-weight deployment terms apply to Full.",
+      "bearing": "CONTEXT",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-005",
+          "locator": "Opening paragraph and final two paragraphs, 2 October 2026"
+        },
+        {
+          "source_id": "P4-SRC-002",
+          "locator": "Appendix II, PDF p.51"
+        }
+      ],
+      "citation": "[Opening paragraph and final two paragraphs, 2 October 2026](sources/P4-SRC-005_framework_explanation.html)"
+    },
+    {
+      "id": "P4-E-021",
+      "kind": "EVIDENCE",
+      "title": "Custody and release-time limit",
+      "statement": "Current publisher-origin responses were retained and SHA-256 hashed on 14 October 2026. The announcement metadata records a 13 October modification. Exact 12 October PDF/HTML bytes and serving versions were not authenticated. Linked chart bodies were captured at 13:19 UTC; their HTTP Last-Modified fields are October 14 and do not authenticate launch-day images.",
+      "applicability": "Six publisher documents plus three linked original chart assets; HTTPS origin and publisher cross-links establish acquisition provenance.",
+      "limit": "Hashes identify retained bytes, not publisher signatures, truth of results, or historical byte identity. No claim that the PDF changed is made.",
+      "bearing": "PROVENANCE",
+      "interpretation_label": "ARGUS_ACQUISITION_OBSERVATION",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "Captured bytes and acquisition manifest; source date/revision fields"
+        },
+        {
+          "source_id": "P4-SRC-002",
+          "locator": "Captured bytes and acquisition manifest; source date/revision fields"
+        },
+        {
+          "source_id": "P4-SRC-003",
+          "locator": "Captured bytes and acquisition manifest; source date/revision fields"
+        },
+        {
+          "source_id": "P4-SRC-004",
+          "locator": "Captured bytes and acquisition manifest; source date/revision fields"
+        },
+        {
+          "source_id": "P4-SRC-005",
+          "locator": "Captured bytes and acquisition manifest; source date/revision fields"
+        },
+        {
+          "source_id": "P4-SRC-006",
+          "locator": "Captured bytes and acquisition manifest; source date/revision fields"
+        }
+      ],
+      "citation": "[Retained PDF; acquisition_manifest.json and source register](sources/P4-SRC-001_muse_wonder_model_card.pdf)"
+    },
+    {
+      "id": "P4-E-022",
+      "kind": "EVIDENCE",
+      "title": "Weight protection and continuing review",
+      "statement": "Card reports lifecycle weight-security measures. Framework describes incident response (p.13), baseline weight controls (p.30), cyber misuse monitoring (p.32), and updates/reassessment (pp.11,46–47).",
+      "applicability": "One Wonder-family implementation assertion plus general continuing-control commitments.",
+      "limit": "No public Wonder Full operational effectiveness metrics, security audit, incident denominators or response-latency results in this corpus.",
+      "bearing": "BOUNDED_SUPPORT",
+      "interpretation_label": "PUBLISHER_REPORT_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-001",
+          "locator": "§5, PDF p.11; framework §§2.3.2, 4.2, 5.1"
+        },
+        {
+          "source_id": "P4-SRC-002",
+          "locator": "§2.3.2 p.13; §4.2 p.30; §4.2.1 p.32; §2.2.2 p.11; §5.1 pp.46–47"
+        }
+      ],
+      "citation": "[§5, PDF p.11; framework §§2.3.2, 4.2, 5.1](sources/P4-SRC-001_muse_wonder_model_card.pdf#page=11)"
+    },
+    {
+      "id": "P4-G-001",
+      "kind": "GAP",
+      "title": "Baseline threshold and scenario coverage",
+      "statement": "No Full-specific audit trail maps capability results, human/cost baselines, escalation decisions and Cyber 1/2/3 coverage to the moderate-or-lower determination.",
+      "observed": "Three capability headline scores are public; framework requires scenario-sensitive cyber judgments, including scaled scams.",
+      "closure_evidence": "A sanitized scenario-to-test matrix, human/no-model baselines, elicitation bounds, simple-to-complex escalation rationale, complex challenge and Cyber 3 results, uncertainty analysis and dated criterion-by-criterion adjudication. A defensible qualitative rule is sufficient; a numeric universal cutoff is not demanded.",
+      "alternative_interpretation": "Meta may have fuller internal evaluations supporting the category. High benchmark performance alone neither proves nor disproves substantial contribution to catastrophic outcomes.",
+      "omission_reason": "Framework p.20 expressly withholds constituent threat steps to balance transparency/security. That reason is known only for those details; the reason for missing Wonder aggregate mappings and adjudication is UNKNOWN_REASON.",
+      "status": "OPEN_PUBLIC_ASSURANCE_GAP",
+      "targets": [
+        "P4-A-002",
+        "P4-D-001"
+      ],
+      "evidence_ids": [
+        "P4-E-001",
+        "P4-E-003",
+        "P4-E-004",
+        "P4-E-005",
+        "P4-E-012",
+        "P4-E-013",
+        "P4-E-014",
+        "P4-E-016"
+      ],
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-G-002",
+      "kind": "GAP",
+      "title": "Capability measurement and ExploitGym validity",
+      "statement": "Public capability results lack exact checkpoint/mitigation state, task and trial denominators, harness/budget/version information, uncertainty, human baselines and independently inspectable verification of intended versus unintended routes.",
+      "observed": "Meta discloses the 21/71 split and two-model verification, a useful correction to the 92-flag headline.",
+      "closure_evidence": "A safe method manifest for each benchmark, task counts and per-task outcomes, repetitions/seeds, scoring/aggregation rules, elicitation and safeguard state; a sanitized 92-flag adjudication ledger with independent expert sample review and sensitivity to unintended solves. No exploit recipes are needed.",
+      "alternative_interpretation": "Unintended routes may reflect meaningful discovery skill while invalidating intended-task scoring. Removing them from the comparable count does not erase their capability significance; including them as intended successes is unjustified.",
+      "omission_reason": "UNKNOWN_REASON for missing method details and adjudication records.",
+      "status": "OPEN_PUBLIC_ASSURANCE_GAP",
+      "targets": [
+        "P4-A-002",
+        "P4-D-002"
+      ],
+      "evidence_ids": [
+        "P4-E-003",
+        "P4-E-004",
+        "P4-E-005",
+        "P4-E-010",
+        "P4-E-011",
+        "P4-E-016"
+      ],
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-G-003",
+      "kind": "GAP",
+      "title": "Robustness denominators and adverse-result disposition",
+      "statement": "No public denominators, attempts/budgets, success rubrics, uncertainty, attack construction, safeguard stack, severity adjudication or remediation/retest accounting permits a deployment-risk interpretation of the nonzero successes.",
+      "observed": "CyberBench 0.8/0.8, PolyGuard cyber 1.1/2.3, RedCode 9.0/8.0 are ASR percentages for separate single/multi-turn setups. Launch charts separately report 96.9% Full misuse refusal, 93.3% defensive compliance and 10.7% unauthorized-code ASR.",
+      "closure_evidence": "Per-setup task/objective/query counts and attempts, stopping rules, attack budgets, languages, judge validation and intervals; sanitized successful-output utility/severity classes, fixes and retests; separate benign-task false refusals and end-to-end adversarial task results.",
+      "alternative_interpretation": "Some scored successes may have little operational usefulness, while persistent actors may exploit successful objectives across sessions. The aggregates cannot distinguish these possibilities. Complements of ASR are not automatically refusal rates.",
+      "omission_reason": "UNKNOWN_REASON; no Wonder-specific omission explanation found.",
+      "status": "OPEN_PUBLIC_ASSURANCE_GAP",
+      "targets": [
+        "P4-A-003",
+        "P4-D-003"
+      ],
+      "evidence_ids": [
+        "P4-E-006",
+        "P4-E-007",
+        "P4-E-008",
+        "P4-E-011",
+        "P4-E-015",
+        "P4-E-017",
+        "P4-E-023",
+        "P4-E-024",
+        "P4-E-025"
+      ],
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-G-004",
+      "kind": "GAP",
+      "title": "Full-to-Wonder family inference",
+      "statement": "Paired behavioral aggregates are public, but no paired catastrophic-capability evaluations, matched-test method manifest or domain-specific argument establishes that Full bounds smaller Wonder across the cybersecurity assessment and deployment contexts.",
+      "observed": "The publisher expressly bases family assessment on its most capable variant, Full. Launch charts supply limited paired behavioral results: Full/Wonder refusal 96.9/93.7%, defensive compliance 93.3/94.5%, unauthorized-code ASR 10.7/10.5%.",
+      "closure_evidence": "A variant/checkpoint matrix, paired capability and robustness tests with matched harness/budget, explanation of relevant training/serving differences, and a documented bounding argument with exceptions and uncertainty.",
+      "alternative_interpretation": "Full may conservatively bound offensive capability, but specialized behavior and refusal robustness need not order the same way. This gap limits the family extension, not the identity of the Full root.",
+      "omission_reason": "UNKNOWN_REASON.",
+      "status": "OPEN_PUBLIC_ASSURANCE_GAP",
+      "targets": [
+        "P4-A-004",
+        "P4-D-004"
+      ],
+      "evidence_ids": [
+        "P4-E-002",
+        "P4-E-011",
+        "P4-E-018",
+        "P4-E-023",
+        "P4-E-024",
+        "P4-E-025"
+      ],
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-G-005",
+      "kind": "GAP",
+      "title": "Test-to-deployment and mitigation mapping",
+      "statement": "No dated matrix maps cyber tests to actual served checkpoints, tools, permissions, system policies, classifiers, rate limits or other controls per route. The cyber stack cannot be inferred from the paragraph’s chemical/biological classifier example.",
+      "observed": "Full is announced for Muse Code subscribers; smaller Wonder is on API and Muse Code. Card recommends added guardrails and reports mitigated assessment.",
+      "closure_evidence": "Versioned Full Muse Code serving attestation and test-to-route mapping, control defaults/availability and change history; separate smaller-Wonder API/Code rows and any later Muse rollout; targeted comparative tests or an independent configuration audit.",
+      "alternative_interpretation": "Common infrastructure could make tests representative, but the public documents do not establish it. Recommended deployer guardrails may differ from Meta’s active product controls.",
+      "omission_reason": "UNKNOWN_REASON; launch-route distinction itself is public and established.",
+      "status": "OPEN_PUBLIC_ASSURANCE_GAP",
+      "targets": [
+        "P4-A-005",
+        "P4-D-005"
+      ],
+      "evidence_ids": [
+        "P4-E-001",
+        "P4-E-002",
+        "P4-E-009",
+        "P4-E-011",
+        "P4-E-015",
+        "P4-E-018",
+        "P4-E-021"
+      ],
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-G-006",
+      "kind": "GAP",
+      "title": "Residual-risk rationale, review and independent scrutiny",
+      "statement": "The public corpus lacks the detailed cyber decision rationale, treatment of residual successes, acceptance criteria, dated accountable review and independently authored assessment connecting tests and deployment conditions.",
+      "observed": "Card reports a mitigated moderate-or-lower assessment and internal governance review; third-party inputs are described. Separate full report not located in the bounded search.",
+      "closure_evidence": "The promised report or equivalent inspectable cyber case summary, a dated decision record by accountable role, criterion-to-evidence links including adverse results and uncertainty, and independently authored evaluation/audit findings with access, funding and editorial-control disclosure. A report alone narrows the gap only to the extent it supplies the missing evidence.",
+      "alternative_interpretation": "The internal record may be complete. Nonzero ASR need not contradict moderate catastrophic risk; private external review may exist. No report-publication deadline breach is inferred.",
+      "omission_reason": "Report status: NOT_LOCATED_IN_BOUNDED_PUBLIC_SEARCH as of 2026-10-14. Publication timing and document-specific omissions: UNKNOWN_REASON. General redaction policy does not explain each omission.",
+      "status": "OPEN_PUBLIC_ASSURANCE_GAP",
+      "targets": [
+        "P4-A-006",
+        "P4-D-006"
+      ],
+      "evidence_ids": [
+        "P4-E-001",
+        "P4-E-009",
+        "P4-E-010",
+        "P4-E-012",
+        "P4-E-016",
+        "P4-E-017",
+        "P4-E-019",
+        "P4-E-020"
+      ],
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-G-007",
+      "kind": "GAP",
+      "title": "Continuing control and weight-security effectiveness",
+      "statement": "No Wonder Full-specific operational evidence establishes misuse detection, intervention latency, monitoring coverage, security-control effectiveness or reassessment triggers in practice.",
+      "observed": "The card reports lifecycle weight security; framework describes monitoring, incident response and update mechanisms.",
+      "closure_evidence": "Privacy-preserving monitoring/response metrics with denominators and observation windows, blinded detection exercises, security audit summary, change/incident escalation criteria and dated follow-up assessments. Given the two-day launch interval, later evidence may be needed; no historical incident-free record is presumed.",
+      "alternative_interpretation": "Controls may work effectively despite sparse early public telemetry. No observed incident or control failure is established by this gap.",
+      "omission_reason": "UNKNOWN_REASON for unavailable implementation/effectiveness records; short observation period limits possible empirical evidence.",
+      "status": "OPEN_PUBLIC_ASSURANCE_GAP",
+      "targets": [
+        "P4-A-007",
+        "P4-D-007"
+      ],
+      "evidence_ids": [
+        "P4-E-009",
+        "P4-E-011",
+        "P4-E-015",
+        "P4-E-016",
+        "P4-E-017",
+        "P4-E-022"
+      ],
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-E-023",
+      "kind": "EVIDENCE",
+      "title": "Cyber misuse refusal chart",
+      "statement": "Cyber Misuse Refusal Benchmark: Wonder Full (max) 96.9% refusal; smaller Wonder (max) 93.7%.",
+      "applicability": "Launch chart; named variants at max reasoning effort. Values read directly from retained original image.",
+      "limit": "Refusal metric, higher better; not a complement of any card ASR. The chart provides limited paired behavioral evidence, without task/trial denominator, attack portfolio, scoring rubric or system stack. Denominators, repeats, uncertainty and test-to-serving mapping remain unavailable.",
+      "bearing": "MIXED",
+      "interpretation_label": "PUBLISHER_CHART_TRANSCRIPTION_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-007",
+          "locator": "Chart title, axis and model-labelled bars"
+        },
+        {
+          "source_id": "P4-SRC-003",
+          "locator": "Safety at the Frontier; chart reference in serialized page data"
+        }
+      ],
+      "citation": "[Cyber misuse refusal chart](sources/P4-SRC-007_cyber_misuse_refusal.webp)"
+    },
+    {
+      "id": "P4-E-024",
+      "kind": "EVIDENCE",
+      "title": "Defensive compliance chart",
+      "statement": "Cyber Defense Compliance Benchmark: Wonder Full (max) 93.3% compliance; smaller Wonder (max) 94.5%.",
+      "applicability": "Launch chart; named variants at max reasoning effort. Values read directly from retained original image.",
+      "limit": "Positive defensive-use evidence alongside incomplete compliance. Compliance does not prove successful vulnerability repair or security benefit. The smaller model’s higher value illustrates why general capability ordering does not order every behavior. Denominators, repeats, uncertainty and test-to-serving mapping remain unavailable.",
+      "bearing": "MIXED",
+      "interpretation_label": "PUBLISHER_CHART_TRANSCRIPTION_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-008",
+          "locator": "Chart title, axis and model-labelled bars"
+        },
+        {
+          "source_id": "P4-SRC-003",
+          "locator": "Safety at the Frontier; chart reference in serialized page data"
+        }
+      ],
+      "citation": "[Defensive compliance chart](sources/P4-SRC-008_cyber_defense_compliance.webp)"
+    },
+    {
+      "id": "P4-E-025",
+      "kind": "EVIDENCE",
+      "title": "Unauthorized code execution chart",
+      "statement": "Executing Unauthorized Code: Wonder Full (max) 10.7% attack success; smaller Wonder (max) 10.5%.",
+      "applicability": "Launch chart; named variants at max reasoning effort. Values read directly from retained original image.",
+      "limit": "Adverse adjacent system-security result. Exact attack setup and severity are not stated; do not label it prompt injection, a production incident, or one of the card’s six refusal setups without evidence. Denominators, repeats, uncertainty and test-to-serving mapping remain unavailable.",
+      "bearing": "MIXED",
+      "interpretation_label": "PUBLISHER_CHART_TRANSCRIPTION_WITH_ARGUS_SCOPE",
+      "source_refs": [
+        {
+          "source_id": "P4-SRC-009",
+          "locator": "Chart title, axis and model-labelled bars"
+        },
+        {
+          "source_id": "P4-SRC-003",
+          "locator": "Safety at the Frontier; chart reference in serialized page data"
+        }
+      ],
+      "citation": "[Unauthorized code execution chart](sources/P4-SRC-009_unauthorized_code_execution.webp)"
+    }
+  ],
+  "edges": [
+    {
+      "id": "P4-L-001",
+      "from_node": "P4-A-001",
+      "to_node": "P4-C-001",
+      "relationship": "defines_scope",
+      "warrant": "The framework meaning and explicit Full referent constrain interpretation of the exact root.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-002",
+      "from_node": "P4-A-002",
+      "to_node": "P4-C-001",
+      "relationship": "supports",
+      "warrant": "Published capability testing supplies relevant inputs, but the missing scenario mapping prevents independent validation of the categorical conclusion.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-003",
+      "from_node": "P4-A-003",
+      "to_node": "P4-C-001",
+      "relationship": "qualifies",
+      "warrant": "Guarded test results inform deployment context only; they cannot prove an unmitigated category.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-004",
+      "from_node": "P4-A-004",
+      "to_node": "P4-C-001",
+      "relationship": "qualifies",
+      "warrant": "The family inference must not turn Full evidence into direct smaller-Wonder testing.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-005",
+      "from_node": "P4-A-005",
+      "to_node": "P4-C-001",
+      "relationship": "qualifies",
+      "warrant": "The root’s relevance to deployment depends on correct test/model/route mapping.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-006",
+      "from_node": "P4-A-006",
+      "to_node": "P4-C-001",
+      "relationship": "contextualizes",
+      "warrant": "The later mitigated assessment and review explain deployment context without changing the baseline category.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-007",
+      "from_node": "P4-A-007",
+      "to_node": "P4-C-001",
+      "relationship": "qualifies",
+      "warrant": "Continuing-use interpretations depend on persistent controls and reassessment, beyond the dated baseline claim.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-008",
+      "from_node": "P4-E-001",
+      "to_node": "P4-A-001",
+      "relationship": "reports",
+      "warrant": "The retained card directly records Meta’s assessment, not its independent truth.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-009",
+      "from_node": "P4-E-012",
+      "to_node": "P4-A-001",
+      "relationship": "defines_scope",
+      "warrant": "The category concerns contribution to specified catastrophic scenarios.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-010",
+      "from_node": "P4-E-013",
+      "to_node": "P4-A-001",
+      "relationship": "defines_scope",
+      "warrant": "All three cyber outcomes delimit what the category covers.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-011",
+      "from_node": "P4-E-003",
+      "to_node": "P4-A-002",
+      "relationship": "supports",
+      "warrant": "CyberGym is a capability observation relevant to baseline analysis, with unspecified threshold calibration.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-012",
+      "from_node": "P4-E-004",
+      "to_node": "P4-A-002",
+      "relationship": "supports",
+      "warrant": "ExploitBench adds a separate capability observation, not a residual-risk metric.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-013",
+      "from_node": "P4-E-005",
+      "to_node": "P4-A-002",
+      "relationship": "qualifies",
+      "warrant": "The 21 intended and 71 unintended routes constrain intended-task interpretation while retaining capability relevance.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-014",
+      "from_node": "P4-E-014",
+      "to_node": "P4-A-002",
+      "relationship": "defines_scope",
+      "warrant": "Operational policy requires scenario and human-baseline reasoning beyond benchmark percentages.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-015",
+      "from_node": "P4-E-016",
+      "to_node": "P4-A-002",
+      "relationship": "qualifies",
+      "warrant": "Framework elicitation and validation commitments specify work whose Wonder-specific execution is not exposed.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-016",
+      "from_node": "P4-E-006",
+      "to_node": "P4-A-003",
+      "relationship": "supports",
+      "warrant": "Both CyberBench rates provide bounded guarded-behavior observations and retain nonzero success.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-017",
+      "from_node": "P4-E-007",
+      "to_node": "P4-A-003",
+      "relationship": "supports",
+      "warrant": "PolyGuard contributes distinct cyber-subset results with a higher reported multi-turn ASR.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-018",
+      "from_node": "P4-E-008",
+      "to_node": "P4-A-003",
+      "relationship": "qualifies",
+      "warrant": "RedCode’s 9.0/8.0 results prevent reading robust as zero successful attacks.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-019",
+      "from_node": "P4-E-015",
+      "to_node": "P4-A-003",
+      "relationship": "defines_scope",
+      "warrant": "Refusal and defensive-use policy explains why guarded evaluations are distinct from capability testing.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-020",
+      "from_node": "P4-E-002",
+      "to_node": "P4-A-004",
+      "relationship": "reports",
+      "warrant": "The card expressly states the most-capable-variant inference.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-021",
+      "from_node": "P4-E-011",
+      "to_node": "P4-A-004",
+      "relationship": "qualifies",
+      "warrant": "Serving and harness variability limits untested variant transfer.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-022",
+      "from_node": "P4-E-018",
+      "to_node": "P4-A-005",
+      "relationship": "defines_scope",
+      "warrant": "Launch posts distinguish Full subscriber access from smaller-Wonder API/Code access and future Muse use.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-023",
+      "from_node": "P4-E-011",
+      "to_node": "P4-A-005",
+      "relationship": "qualifies",
+      "warrant": "Additional guardrails are recommendations, and performance can vary with configuration.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-024",
+      "from_node": "P4-E-021",
+      "to_node": "P4-A-005",
+      "relationship": "qualifies",
+      "warrant": "Retained October 14 bytes cannot certify the October 12 serving configuration or exact historical text.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-025",
+      "from_node": "P4-E-001",
+      "to_node": "P4-A-006",
+      "relationship": "reports",
+      "warrant": "The surrounding paragraph reports mitigated category and deployment judgment, separately from the root.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-026",
+      "from_node": "P4-E-009",
+      "to_node": "P4-A-006",
+      "relationship": "reports",
+      "warrant": "Card reports residual assessment and prior internal review without publishing the decision record.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-027",
+      "from_node": "P4-E-010",
+      "to_node": "P4-A-006",
+      "relationship": "qualifies",
+      "warrant": "External benchmark and threat-model inputs do not establish independent risk endorsement.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-028",
+      "from_node": "P4-E-017",
+      "to_node": "P4-A-006",
+      "relationship": "defines_scope",
+      "warrant": "Report commitments identify expected inspectable rationale, while timely publication has no exact deadline here.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-029",
+      "from_node": "P4-E-019",
+      "to_node": "P4-A-006",
+      "relationship": "qualifies",
+      "warrant": "No separate report was located in the bounded check; absence elsewhere is not established.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-030",
+      "from_node": "P4-E-020",
+      "to_node": "P4-A-006",
+      "relationship": "qualifies",
+      "warrant": "Future board-governance work is not evidence of a completed Wonder-specific review.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-031",
+      "from_node": "P4-E-022",
+      "to_node": "P4-A-007",
+      "relationship": "reports",
+      "warrant": "Weight protection is asserted; continuing monitoring and response are framework commitments without Wonder-specific effect measurements.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-032",
+      "from_node": "P4-E-015",
+      "to_node": "P4-A-007",
+      "relationship": "defines_scope",
+      "warrant": "Monitoring and conditional deployment measures shape continuing assurance obligations.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-033",
+      "from_node": "P4-E-017",
+      "to_node": "P4-A-007",
+      "relationship": "defines_scope",
+      "warrant": "Material risk changes trigger report updates under the framework.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-034",
+      "from_node": "P4-D-001",
+      "to_node": "P4-A-002",
+      "relationship": "conditions",
+      "warrant": "A category spanning all cyber outcomes needs adequate scenario coverage.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-035",
+      "from_node": "P4-D-002",
+      "to_node": "P4-A-002",
+      "relationship": "conditions",
+      "warrant": "Measurements need reliable scoring and sufficient elicitation to characterize the baseline.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-036",
+      "from_node": "P4-D-003",
+      "to_node": "P4-A-003",
+      "relationship": "conditions",
+      "warrant": "Test success rates generalize only within justified adversary/task bounds.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-037",
+      "from_node": "P4-D-004",
+      "to_node": "P4-A-004",
+      "relationship": "conditions",
+      "warrant": "The family inference requires a bounded variant relationship.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-038",
+      "from_node": "P4-D-005",
+      "to_node": "P4-A-005",
+      "relationship": "conditions",
+      "warrant": "Served behavior must correspond to the evaluated model and controls.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-039",
+      "from_node": "P4-D-006",
+      "to_node": "P4-A-006",
+      "relationship": "conditions",
+      "warrant": "The deployment conclusion depends on integrating evidence and accepting the residual risk.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-040",
+      "from_node": "P4-D-007",
+      "to_node": "P4-A-007",
+      "relationship": "conditions",
+      "warrant": "Monitoring, response and security must persist to sustain deployment conditions.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-041",
+      "from_node": "P4-D-008",
+      "to_node": "P4-A-005",
+      "relationship": "conditions",
+      "warrant": "The documented time boundary prevents backdating current captures to exact launch artifacts.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-042",
+      "from_node": "P4-U-001",
+      "to_node": "P4-D-001",
+      "relationship": "assumed_by",
+      "warrant": "Realistic scenario mapping is needed to treat proxies as coverage.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-043",
+      "from_node": "P4-U-002",
+      "to_node": "P4-D-002",
+      "relationship": "assumed_by",
+      "warrant": "Independent-model agreement alone does not remove common scoring error.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-044",
+      "from_node": "P4-U-003",
+      "to_node": "P4-D-003",
+      "relationship": "assumed_by",
+      "warrant": "Finite tests need a justified adversary model for transfer.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-045",
+      "from_node": "P4-U-004",
+      "to_node": "P4-D-004",
+      "relationship": "assumed_by",
+      "warrant": "Capability ordering cannot automatically order refusal behavior.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-046",
+      "from_node": "P4-U-005",
+      "to_node": "P4-D-005",
+      "relationship": "assumed_by",
+      "warrant": "Configuration continuity is needed for empirical test-to-serving transfer.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-047",
+      "from_node": "P4-U-006",
+      "to_node": "P4-D-007",
+      "relationship": "assumed_by",
+      "warrant": "Operational response and layer interaction determine sustained control effectiveness.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-048",
+      "from_node": "P4-G-001",
+      "to_node": "P4-A-002",
+      "relationship": "limits",
+      "warrant": "No Full-specific audit trail maps capability results, human/cost baselines, escalation decisions and Cyber 1/2/3 coverage to the moderate-or-lower determination.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-049",
+      "from_node": "P4-G-001",
+      "to_node": "P4-D-001",
+      "relationship": "limits",
+      "warrant": "No Full-specific audit trail maps capability results, human/cost baselines, escalation decisions and Cyber 1/2/3 coverage to the moderate-or-lower determination.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-050",
+      "from_node": "P4-G-002",
+      "to_node": "P4-A-002",
+      "relationship": "limits",
+      "warrant": "Public capability results lack exact checkpoint/mitigation state, task and trial denominators, harness/budget/version information, uncertainty, human baselines and independently inspectable verification of intended versus unintended routes.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-051",
+      "from_node": "P4-G-002",
+      "to_node": "P4-D-002",
+      "relationship": "limits",
+      "warrant": "Public capability results lack exact checkpoint/mitigation state, task and trial denominators, harness/budget/version information, uncertainty, human baselines and independently inspectable verification of intended versus unintended routes.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-052",
+      "from_node": "P4-G-003",
+      "to_node": "P4-A-003",
+      "relationship": "limits",
+      "warrant": "No public denominators, attempts/budgets, success rubrics, uncertainty, attack construction, safeguard stack, severity adjudication or remediation/retest accounting permits a deployment-risk interpretation of the nonzero successes.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-053",
+      "from_node": "P4-G-003",
+      "to_node": "P4-D-003",
+      "relationship": "limits",
+      "warrant": "No public denominators, attempts/budgets, success rubrics, uncertainty, attack construction, safeguard stack, severity adjudication or remediation/retest accounting permits a deployment-risk interpretation of the nonzero successes.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-054",
+      "from_node": "P4-G-004",
+      "to_node": "P4-A-004",
+      "relationship": "limits",
+      "warrant": "Paired behavioral aggregates are public, but no paired catastrophic-capability evaluations, matched-test method manifest or domain-specific argument establishes that Full bounds smaller Wonder across the cybersecurity assessment and deployment contexts.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-055",
+      "from_node": "P4-G-004",
+      "to_node": "P4-D-004",
+      "relationship": "limits",
+      "warrant": "Paired behavioral aggregates are public, but no paired catastrophic-capability evaluations, matched-test method manifest or domain-specific argument establishes that Full bounds smaller Wonder across the cybersecurity assessment and deployment contexts.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-056",
+      "from_node": "P4-G-005",
+      "to_node": "P4-A-005",
+      "relationship": "limits",
+      "warrant": "No dated matrix maps cyber tests to actual served checkpoints, tools, permissions, system policies, classifiers, rate limits or other controls per route. The cyber stack cannot be inferred from the paragraph’s chemical/biological classifier example.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-057",
+      "from_node": "P4-G-005",
+      "to_node": "P4-D-005",
+      "relationship": "limits",
+      "warrant": "No dated matrix maps cyber tests to actual served checkpoints, tools, permissions, system policies, classifiers, rate limits or other controls per route. The cyber stack cannot be inferred from the paragraph’s chemical/biological classifier example.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-058",
+      "from_node": "P4-G-006",
+      "to_node": "P4-A-006",
+      "relationship": "limits",
+      "warrant": "The public corpus lacks the detailed cyber decision rationale, treatment of residual successes, acceptance criteria, dated accountable review and independently authored assessment connecting tests and deployment conditions.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-059",
+      "from_node": "P4-G-006",
+      "to_node": "P4-D-006",
+      "relationship": "limits",
+      "warrant": "The public corpus lacks the detailed cyber decision rationale, treatment of residual successes, acceptance criteria, dated accountable review and independently authored assessment connecting tests and deployment conditions.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-060",
+      "from_node": "P4-G-007",
+      "to_node": "P4-A-007",
+      "relationship": "limits",
+      "warrant": "No Wonder Full-specific operational evidence establishes misuse detection, intervention latency, monitoring coverage, security-control effectiveness or reassessment triggers in practice.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-061",
+      "from_node": "P4-G-007",
+      "to_node": "P4-D-007",
+      "relationship": "limits",
+      "warrant": "No Wonder Full-specific operational evidence establishes misuse detection, intervention latency, monitoring coverage, security-control effectiveness or reassessment triggers in practice.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-062",
+      "from_node": "P4-E-023",
+      "to_node": "P4-A-003",
+      "relationship": "supports",
+      "warrant": "The launch chart provides a separate measured refusal rate; it is not interchangeable with card ASR.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-063",
+      "from_node": "P4-E-024",
+      "to_node": "P4-A-003",
+      "relationship": "contextualizes",
+      "warrant": "Defensive compliance qualifies the utility side of refusal policy; compliance alone does not establish beneficial outcomes.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-064",
+      "from_node": "P4-E-025",
+      "to_node": "P4-A-003",
+      "relationship": "qualifies",
+      "warrant": "Unauthorized-code ASR is a distinct adverse system-security observation, without a published setup-to-card mapping.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-065",
+      "from_node": "P4-E-023",
+      "to_node": "P4-A-004",
+      "relationship": "supports",
+      "warrant": "The chart supplies paired Full/Wonder refusal data, narrowing but not closing the family-transfer gap.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-066",
+      "from_node": "P4-E-024",
+      "to_node": "P4-A-004",
+      "relationship": "qualifies",
+      "warrant": "Smaller Wonder has higher reported defensive compliance; Full is not a universal behavioral upper bound.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    },
+    {
+      "id": "P4-L-067",
+      "from_node": "P4-E-025",
+      "to_node": "P4-A-004",
+      "relationship": "qualifies",
+      "warrant": "Full has slightly higher unauthorized-code ASR; absent uncertainty and methods, no general ordering or significance follows.",
+      "interpretation_label": "ARGUS_RECONSTRUCTION"
+    }
+  ]
+}
