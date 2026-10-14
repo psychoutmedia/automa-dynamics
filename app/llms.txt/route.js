@@ -77,6 +77,7 @@ externally peer reviewed, and it is not affiliated with or endorsed by Google.
 - [Proof-3 findings: Gemini 4 Argon](${SITE_URL}/safety/argus/gemini-4-argon): what the public cyberoffensive assurance record establishes, the measurements by test setting, the missing risk-acceptance bridge, the seven gap investigations and source provenance.
 - [Proof-3 interactive assurance graph](${SITE_URL}/safety/argus/gemini-4-argon/explore): Executive and Full graphs, 53 nodes and 69 warranted relationships, with a branch reader, evidence records and page-linked sources.
 - [Proof-3 graph JSON](${SITE_URL}/safety/argus/files/ARGUS_P3_ASSURANCE_GRAPH.json): the machine-readable graph the Proof-3 explorer renders.
+- [The last mile: cross-case synthesis](${SITE_URL}/safety/argus/last-mile): preliminary synthesis of Proofs 1-3; in each case the published evidence is inspectable up to risk-acceptance reasoning, the link to the release decision is not. Not a finding that any company lacked evidence or decided wrongly.
 
 ## Articles
 ${articleLines}

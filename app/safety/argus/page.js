@@ -585,6 +585,39 @@ export default function ArgusPage() {
         </div>
       </section>
 
+      {/* Cross-case synthesis. Points at /safety/argus/last-mile. */}
+      <section id="last-mile" className={`${SECTION} border-t border-white/5`}>
+        <div className={SHELL}>
+          <RevealGroup>
+            <Reveal>
+              <p className={`${LABEL} mb-6`}>Across the three cases</p>
+            </Reveal>
+            <SplitText text="The last mile" className={`${DISPLAY} mb-4`} />
+            <Reveal>
+              <p className={`${LEAD} ${MEASURE} mb-10`}>
+                Public assurance stops one link short of the release decision
+              </p>
+            </Reveal>
+            <Reveal>
+              <p className={`${BODY} ${MEASURE} mb-10`}>
+                In all three cases the published evidence carries through capability assessments,
+                safeguards and testing, and adverse findings. The risk-acceptance reasoning that connects
+                it to the release decision is partly or not independently inspectable. A preliminary,
+                conceptual synthesis: it does not show that any company lacked evidence or decided wrongly.
+              </p>
+            </Reveal>
+            <Reveal>
+              <a
+                href="/safety/argus/last-mile"
+                className="btn-primary inline-flex items-center justify-center gap-2 !px-5 sm:!px-8"
+              >
+                See the cross-case chart <span aria-hidden="true">&rarr;</span>
+              </a>
+            </Reveal>
+          </RevealGroup>
+        </div>
+      </section>
+
       {/* Review. */}
       <section id="review" className={`${SECTION} border-t border-white/5`}>
         <div className={SHELL}>
